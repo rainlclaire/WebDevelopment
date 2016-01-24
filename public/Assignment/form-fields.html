@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Forms</a>
+            <a class="navbar-brand" href="#">Form Maker</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -64,22 +65,25 @@
 </div>
 <div class="table-responsive">
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1>Forms:Registration</h1>
+        <h1>Forms: Registration Form</h1>
     </div>
-    <div class="col-md-7 col-md-offset-2 main">
-        <ul class="nav nav-tabs" id="product-table">
+    <div class="col-md-8 col-md-offset-2 main">
+        <ul class="nav nav-tabs">
             <li role="presentation"><a href="forms.html">Forms</a>
             <li role="presentation" class="active"><a href="form-fields.html">Fields</a>
             </li>
         </ul>
-
         <div class="tab-content">
                 <table class="table table-condensed table-bordered table-striped volumes">
-                    <form>
+                    <form class="form1">
                         <div class="form-group">
                             <label for="exampleInputFirstName1">First Name</label>
                             <br/>
-                            <input type="email" class="form-control" id="exampleInputFirstName1" placeholder="Email">
+                            <input type="text" class="form-control" id="exampleInputFirstName1" placeholder="First Name">
+
+                                <!--<span class="glyphicon glyphicon-remove"></span>-->
+                                <!--&lt;!&ndash;how to put space here&ndash;&gt;-->
+                                <!--<span class="glyphicon glyphicon-pencil"></span>-->
                         </div>
                         <div class="form-group">
                             <label for="exampleInputLastName1">Last Name</label>
@@ -118,15 +122,27 @@
                             <input type="radio" name="optionRadios" id="optionRadio2" value="option2"> No
                         </div>
 
+                        <div class="form-group">
+                            <b>Add New Field:</b>
+                            <br/>
+                            <select name="gender">
+                                <option>Single Line Text</option>
+                            </select>
+                        </div>
 
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button onclick="poponload()" type="submit" class="btn btn-default" style=".abc">Submit</button>
+
                     </form>
+
+
                 </table>
+
 
 
         </div>
     </div>
 </div>
+
 
 
 
@@ -142,8 +158,22 @@
 <!--<script src="../../assets/js/vendor/holder.min.js"></script>-->
 <!--&lt;!&ndash; IE10 viewport hack for Surface/desktop Windows 8 bug &ndash;&gt;-->
 <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
-<script language="javascript" type="text/javascript">
-    $('#product-table a:first').tab('show');
+<script>
+    function myFunction(form) {
+
+        window.open("", "formpopup", "width=900, height=400, resizeable, scrollbars,");
+        form.target= "formpopup";
+
+
+    }
+</script>
+
+<script>
+    function poponload()
+    {
+        testwindow = window.open("", "mywindow", "location=1,status=1,scrollbars=1,width=400,height=400");
+//        testwindow.moveBy(testwindow.outerHeight,testwindow.outerWidth-200);
+    }
 </script>
 </body>
 </html>
