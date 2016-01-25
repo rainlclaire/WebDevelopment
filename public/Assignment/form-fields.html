@@ -63,17 +63,16 @@
         <!--</div>-->
     </div>
 </div>
-<div class="table-responsive">
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1>Forms: Registration Form</h1>
     </div>
-    <div class="col-md-8 col-md-offset-2 main">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <ul class="nav nav-tabs">
             <li role="presentation"><a href="forms.html">Forms</a>
             <li role="presentation" class="active"><a href="form-fields.html">Fields</a>
             </li>
         </ul>
-        <div class="tab-content">
+        <div class="tab-content table-responsive">
                 <table class="table table-condensed table-bordered table-striped volumes">
                     <form class="form1">
                         <div class="form-group">
@@ -130,16 +129,13 @@
                             </select>
                         </div>
 
-                        <button onclick="poponload()" type="submit" class="btn btn-default" style=".abc">Submit</button>
+                        <button onclick="PopupCenter('','','400','300')" type="submit" class="btn btn-default" style=".abc">Submit</button>
 
                     </form>
 
 
                 </table>
 
-
-
-        </div>
     </div>
 </div>
 
@@ -173,6 +169,26 @@
     {
         testwindow = window.open("", "mywindow", "location=1,status=1,scrollbars=1,width=400,height=400");
 //        testwindow.moveBy(testwindow.outerHeight,testwindow.outerWidth-200);
+    }
+</script>
+
+<script>
+    function PopupCenter(url, title, w, h) {
+    // Fixes dual-screen position                         Most browsers      Firefox
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+    width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+    // Puts focus on the newWindow
+    if (window.focus) {
+    newWindow.focus();
+    }
     }
 </script>
 </body>
