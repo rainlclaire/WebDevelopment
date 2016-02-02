@@ -974,15 +974,15 @@
             box-sizing: border-box;
             margin-left: 0px; } }
 
-    section.articles {
+    section.project {
         background-image: url(../img/article-bg.jpg);
         background-repeat: repeat; }
-    .home-sections section.articles {
+    .home-sections section.project {
         padding: 0; }
     @media (max-width: 640px) {
-        .home-sections section.articles {
+        .home-sections section.project {
             padding-bottom: 50px; } }
-    section.articles .col-1 {
+    section.project .col-1 {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
@@ -990,16 +990,16 @@
         -ms-flex-align: center;
         align-items: center; }
     @media (max-width: 640px) {
-        section.articles .col-1 {
+        section.project .col-1 {
             display: block; } }
-    section.articles .home-cta {
+    section.project .home-cta {
         color: white;
         background: #3d96cb; }
-    section.articles .article-wrap::after {
+    section.project .article-wrap::after {
         clear: both;
         content: "";
         display: table; }
-    section.articles .article-thumb {
+    section.project .article-thumb {
         display: block;
         background-size: cover;
         background-position: center;
@@ -1012,12 +1012,12 @@
         -ms-transform: translateX(-20px);
         transform: translateX(-20px);
         transition: all 300ms ease-in-out; }
-    section.articles .article-thumb.is-visible {
+    section.project .article-thumb.is-visible {
         opacity: 1;
         -webkit-transform: translateX(0px);
         -ms-transform: translateX(0px);
         transform: translateX(0px); }
-    section.articles .article-thumb.is-emph {
+    section.project .article-thumb.is-emph {
         -webkit-animation-name: tada;
         animation-name: tada;
         -webkit-animation-duration: 1s;
@@ -1025,11 +1025,11 @@
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
         z-index: 1; }
-    section.articles .article-thumb:after {
+    section.project .article-thumb:after {
         content: '';
         display: block;
         padding-top: 100%; }
-    section.articles .article-meta {
+    section.project .article-meta {
         position: absolute;
         top: 0;
         left: 0;
@@ -1043,22 +1043,22 @@
         transform: translate(0%, 100%) scale(0.5);
         transition: all 200ms ease-in-out;
         opacity: 0; }
-    section.articles .article-meta .name {
+    section.project .article-meta .name {
         font-size: 18px;
         line-height: 1.2; }
-    section.articles .article-meta .date {
+    section.project .article-meta .date {
         font-style: italic; }
-    section.articles .article-thumb:hover .article-meta {
+    section.project .article-thumb:hover .article-meta {
         opacity: 1;
         -webkit-transform: translate(0%, 0%) scale(1);
         -ms-transform: translate(0%, 0%) scale(1);
         transform: translate(0%, 0%) scale(1); }
     @media (max-width: 640px) {
-        section.articles .desc-wrap {
+        section.project .desc-wrap {
             margin-top: 100px;
             width: 100%; } }
     @media (max-width: 999px) and (min-width: 640px) {
-        section.articles .article-thumb {
+        section.project .article-thumb {
             width: 33.33%; } }
 
     @-webkit-keyframes tada {
@@ -1312,7 +1312,7 @@
 
     .home-footer a {
         color: white;
-        background: #e24040;
+        background: #98daca;
         display: block;
         width: 100%;
         line-height: 6;
@@ -1330,7 +1330,7 @@
         .home-footer a {
             font-size: 20px; } }
     .home-footer a:hover {
-        background: #d82121; }
+        background: lightblue; }
 
     .home-wrap {
         display: -webkit-flex;
@@ -1438,281 +1438,6 @@
         margin-left: 10px;
         display: inline-block;
         vertical-align: middle; }
-
-
-    /*ul, menu, dir {*/
-        /*display: block;*/
-        /*list-style-type: disc;*/
-        /*-webkit-margin-before: 1em;*/
-        /*-webkit-margin-after: 1em;*/
-        /*-webkit-margin-start: 0px;*/
-        /*-webkit-margin-end: 0px;*/
-        /*-webkit-padding-start: 40px;*/
-    /*}*/
-    /*.home-wrap header a {*/
-        /*color: #999;*/
-    /*}*/
-    /*.home-wrap header .site-nav li {*/
-        /*margin-bottom: 10px;*/
-    /*}*/
-    /*.home-wrap header .email-link {*/
-        /*display: block;*/
-        /*text-align: right;*/
-        /*padding-right: 20px;*/
-    /*}*/
-    /*a {*/
-        /*color: #000;*/
-        /*text-decoration: none;*/
-        /*outline: 0;*/
-    /*}*/
-    /*a {*/
-        /*background-color: transparent;*/
-    /*}*/
-    /*li {*/
-        /*display: list-item;*/
-        /*text-align: -webkit-match-parent;*/
-    /*}*/
-    /*div {*/
-        /*display: block;*/
-    /*}*/
-    /*body {*/
-        /*background: #fff;*/
-        /*font-size: 14px;*/
-        /*line-height: 1.6;*/
-        /*font-family: 'Fira Sans' sans-serif;*/
-        /*color: #2E2D33;*/
-        /*-webkit-font-smoothing: antialiased;*/
-        /*-webkit-text-size-adjust: 100%;*/
-    /*}*/
-    /*.home-wrap header .header-position {*/
-        /*position: fixed;*/
-        /*top: 30px;*/
-        /*left: 0;*/
-        /*bottom: 30px;*/
-        /*width: 135px;*/
-        /*display: -webkit-flex;*/
-        /*display: -ms-flexbox;*/
-        /*display: flex;*/
-        /*-webkit-flex-direction: column;*/
-        /*-ms-flex-direction: column;*/
-        /*flex-direction: column;*/
-        /*-webkit-justify-content: space-between;*/
-        /*-ms-flex-pack: justify;*/
-        /*justify-content: space-between;*/
-    /*}*/
-    /*body {*/
-        /*display: block;*/
-        /*margin: 8px;*/
-    /*}*/
-    /*article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {*/
-        /*display: block;*/
-    /*}*/
-    /*a {*/
-        /*background-color: transparent;*/
-    /*}*/
-    /*a {*/
-        /*color: #000;*/
-        /*text-decoration: none;*/
-        /*outline: 0;*/
-    /*}*/
-    /*a:-webkit-any-link {*/
-        /*color: -webkit-link;*/
-        /*text-decoration: underline;*/
-        /*cursor: auto;*/
-    /*}*/
-    /*.home-wrap header .site-nav ul {*/
-        /*list-style: none;*/
-        /*margin: 20px 0;*/
-        /*padding: 0 20px 0 0;*/
-        /*text-align: right;*/
-    /*}*/
-    /*.home-wrap .mobile-nav {*/
-        /*display: none;*/
-        /*position: absolute;*/
-        /*width: 100%;*/
-        /*background: white;*/
-        /*padding: 30px 0 20px;*/
-        /*-webkit-transform: translateY(-100%);*/
-        /*-ms-transform: translateY(-100%);*/
-        /*transform: translateY(-100%);*/
-        /*transition: all 0.3s ease-in-out;*/
-    /*}*/
-
-    /*.home-wrap header .header-position {*/
-        /*position: fixed;*/
-        /*top: 30px;*/
-        /*left: 0;*/
-        /*bottom: 30px;*/
-        /*width: 135px;*/
-        /*display: -webkit-flex;*/
-        /*display: -ms-flexbox;*/
-        /*display: flex;*/
-        /*-webkit-flex-direction: column;*/
-        /*-ms-flex-direction: column;*/
-        /*flex-direction: column;*/
-        /*-webkit-justify-content: space-between;*/
-        /*-ms-flex-pack: justify;*/
-        /*justify-content: space-between;*/
-    /*}*/
-    /*.home-wrap header {*/
-
-        /*!*height:200px;*!*/
-        /*background: white;*/
-        /*padding: 0 30px;*/
-        /*width: 135px;*/
-    /*}*/
-    /*.home-wrap header .logo {*/
-        /*overflow: hidden;*/
-        /*text-indent: 101%;*/
-        /*white-space: nowrap;*/
-        /*max-width: 135px;*/
-        /*background-repeat: no-repeat;*/
-        /*background-position: center;*/
-        /*background-size: contain;*/
-        /*height: 80px;*/
-        /*padding: 0;*/
-        /*margin: 0;*/
-    /*}*/
-    /*.home-wrap header .mobile-nav-toggle {*/
-        /*display: -webkit-flex;*/
-        /*display: -ms-flexbox;*/
-        /*display: flex;*/
-    /*}*/
-    /*.home-wrap header .mobile-nav-toggle {*/
-        /*display: none;*/
-        /*width: 50px;*/
-        /*height: 50px;*/
-        /*margin-right: 20px;*/
-        /*-webkit-align-items: center;*/
-        /*-ms-flex-align: center;*/
-        /*align-items: center;*/
-        /*cursor: pointer;*/
-    /*}*/
-
-    /*article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {*/
-        /*display: block;*/
-    /*}*/
-    /*article, aside, footer, header, main, nav, section {*/
-        /*display: block;*/
-    /*}*/
-    /*.home-sections {*/
-        /*-webkit-flex: 1;*/
-        /*-ms-flex: 1;*/
-        /*flex: 1;*/
-    /*}*/
-    /*.home-sections section {*/
-        /*padding: 50px 0;*/
-    /*}*/
-    /*section.about {*/
-
-        /*background-size: cover;*/
-        /*background-position: center bottom;*/
-        /*color: #3f3f42;*/
-    /*}*/
-    /*section.youtube {*/
-
-        /*background-color: #e20a0a;*/
-        /*background-position: center;*/
-        /*background-size: cover;*/
-        /*color: white;*/
-    /*}*/
-    /*section.youtube .col-1 {*/
-        /*position: relative;*/
-        /*height: 400px;*/
-        /*display: -webkit-flex;*/
-        /*display: -ms-flexbox;*/
-        /*display: flex;*/
-        /*-webkit-align-items: stretch;*/
-        /*-ms-flex-align: stretch;*/
-        /*align-items: stretch;*/
-        /*-webkit-flex-direction: column;*/
-        /*-ms-flex-direction: column;*/
-        /*flex-direction: column;*/
-        /*-webkit-justify-content: center;*/
-        /*-ms-flex-pack: center;*/
-        /*justify-content: center;*/
-    /*}*/
-    /*.home-sections .flex--space-around {*/
-        /*-webkit-justify-content: space-around;*/
-        /*!*-ms-flex-pack: distribute;*!*/
-        /*justify-content: space-around;*/
-    /*}*/
-    /*.home-sections .flex {*/
-        /*display: flex;*/
-    /*}*/
-    /*.home-sections .flex--center {*/
-        /*-webkit-justify-content: center;*/
-        /*-ms-flex-pack: center;*/
-        /*justify-content: center;*/
-    /*}*/
-
-    /*.col-1 {*/
-        /*width: 320px;*/
-        /*padding: 0 10px;*/
-        /*box-sizing: border-box;*/
-    /*}*/
-    /*.push-right {*/
-        /*margin-left: 330px;*/
-    /*}*/
-    /*.home-lead {*/
-        /*line-height: 1.1;*/
-        /*font-size: 36px;*/
-    /*}*/
-    /*p {*/
-        /*margin: 0 0 20px 0;*/
-    /*}*/
-    /*p {*/
-        /*display: block;*/
-        /*-webkit-margin-before: 1em;*/
-        /*-webkit-margin-after: 1em;*/
-        /*-webkit-margin-start: 0px;*/
-        /*-webkit-margin-end: 0px;*/
-    /*}*/
-
-
-    /*section.youtube .video-strip {*/
-        /*position: absolute;*/
-        /*top: 0;*/
-        /*height: calc(100% + 100px);*/
-        /*width: 100%;*/
-        /*margin: -50px 0;*/
-
-        /*background-position: center 0px;*/
-        /*background-repeat: repeat-y;*/
-        /*background-size: 70%;*/
-    /*}*/
-    /*.home-wrap header .logo {*/
-        /*overflow: hidden;*/
-        /*text-indent: 101%;*/
-        /*white-space: nowrap;*/
-        /*max-width: 135px;*/
-
-        /*background-repeat: no-repeat;*/
-        /*background-position: center;*/
-        /*background-size: contain;*/
-        /*height: 80px;*/
-        /*padding: 0;*/
-        /*margin: 0;*/
-    /*}*/
-    /*head {*/
-        /*display: none;*/
-    /*}*/
-    /*body {*/
-        /*background: #fff;*/
-        /*font-size: 14px;*/
-        /*line-height: 1.6;*/
-        /*font-family: 'Fira Sans' sans-serif;*/
-        /*color: #2E2D33;*/
-        /*-webkit-font-smoothing: antialiased;*/
-        /*-webkit-text-size-adjust: 100%;*/
-    /*}*/
-    /*html {*/
-        /*font-family: sans-serif;*/
-        /*-ms-text-size-adjust: 100%;*/
-        /*-webkit-text-size-adjust: 100%;*/
-    /*}*/
-
-
 </style>
 <!DOCTYPE html>
 <html>
@@ -1732,8 +1457,8 @@
         <div class="mobile-nav">
             <ul>
                 <li> <a href="#about">About</a></li>
-                <li><a href="#Project">Project</a></li>
-                <li><a href="#Project">Design</a></li>
+                <li><a href="#youtube">Youtube</a></li>
+                <li><a href="#project">Project</a></li>
                 <li><a href="#Project">Photo</a></li>
             </ul>
         </div>
@@ -1744,12 +1469,12 @@
             <nav class="site-nav">
                 <ul>
                     <li> <a href="#about">About</a></li>
-                    <li><a href="#Project">Project</a></li>
-                    <li><a href="#Project">Design</a></li>
+                    <li><a href="#youtube">Youtube</a></li>
+                    <li><a href="#project">Project</a></li>
                     <li><a href="#Project">Photo</a></li>
                 </ul>
             </nav>
-            <a href="rainclaireqin@gmail.com" class="email-link">+email me</a>
+            <a href="mailto:rainclaireqin@gmail.com" class="email-link">+email me</a>
         <div class="mobile-nav-toggle">
             <span class="glyphicon glyphicon-menu-hamburger"></span>
         </div>
@@ -1771,7 +1496,7 @@
                     <div class="col-1"><div class="video-strip" style="background-position: 50% -446px;">
                     </div>
                         <div class="flex-video">
-                            <iframe src="https://www.youtube.com/" frameborder="0" allowfullscreen="">
+                            <iframe src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen="">
                             </iframe>
                         </div>
                     </div>
@@ -1782,12 +1507,12 @@
                 </div>
             </section>
 
-            <section id="articles" class="articles">
+            <section id="project" class="project">
                 <div class="flex flex--center">
                     <div class="col-50">
                         <div class="article-wrap">
-                            <a href="/2014/12/10/32-years-of-poetry.html" style="background-image:
-                            url(/assets/post-assets/047-poems/img/cover.png)" class="article-thumb">
+                            <a href="../ppj/ppjs/assert/image/test1.png" style="background-image:
+                            url(../ppj/ppjs/assert/image/12.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         32 Years of Poetry
@@ -1797,14 +1522,14 @@
                                 </div>
                             </a>
                             <a href="/2014/05/22/workflow-tools.html" style="background-image:
-                            url(/assets/post-assets/046-tools/img/tools-cover.jpg)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/1.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">Workflow Tools</div>
                                     <div class="date">May 22, 2014</div>
                                 </div>
                             </a>
                             <a href="/2013/12/04/jonathan-haggard.html" style="background-image:
-                            url(/assets/post-assets/045-jon-haggard/img/jon-cover.jpg)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/2.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         Jonathan Haggard
@@ -1815,7 +1540,7 @@
                                 </div>
                             </a>
                             <a href="/2013/11/06/enders-game-poster.html" style="background-image:
-                            url(/assets/post-assets/044-enders-game-poster/img/enders-game-cover.jpg)"
+                            url(../ppj/ppjs/assert/image/3.png)"
                                class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
@@ -1827,7 +1552,7 @@
                                 </div>
                             </a>
                             <a href="/2013/10/17/doomsday-clock.html" style="background-image:
-                            url(/assets/post-assets/043-doomsday/img/doomsday-cover.jpg)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/4.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         Doomsday Clock
@@ -1838,7 +1563,7 @@
                                 </div>
                             </a>
                             <a href="/2013/07/10/why-we-create.html" style="background-image:
-                            url(/assets/post-assets/039-why-we-create/img/create-cover.png)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/5.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         Why We Create
@@ -1849,7 +1574,7 @@
                                 </div>
                             </a>
                             <a href="/2013/06/19/the-merovingian.html" style="background-image:
-                            url(/assets/post-assets/038-the-merovingian/img/the-merovingian-cover.jpg)"
+                            url(../ppj/ppjs/assert/image/6.png)"
                                class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
@@ -1861,7 +1586,7 @@
                                 </div>
                             </a>
                             <a href="/2013/04/16/5-lies-i-was-told.html" style="background-image:
-                            url(/assets/post-assets/037-five-lies/img/five-lies-cover.png)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/7.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         5 lies I was told
@@ -1871,7 +1596,7 @@
                                 </div>
                             </a>
                             <a href="/2013/04/13/chrome-companion.html" style="background-image:
-                            url(/assets/post-assets/036-companion/img/companion-cover.png)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/8.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         Chrome Companion
@@ -1882,7 +1607,7 @@
                                 </div>
                             </a>
                             <a href="/2013/03/17/why-i-admire-them.html" style="background-image:
-                            url(/assets/post-assets/035-children/img/children-cover.jpg)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/9.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         Why I Admire Them
@@ -1893,7 +1618,7 @@
                                 </div>
                             </a>
                             <a href="/2013/03/06/fun-with-jquery-show.html" style="background-image:
-                            url(/assets/post-assets/034-show/img/show-cover.png)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/10.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         Fun with jQuery show
@@ -1904,7 +1629,7 @@
                                 </div>
                             </a>
                             <a href="/2013/02/24/art-directed-theme-framework.html" style="background-image:
-                            url(/assets/post-assets/033-art-directed/img/art-directed-cover.png)" class="article-thumb">
+                            url(../ppj/ppjs/assert/image/11.png)" class="article-thumb">
                                 <div class="article-meta">
                                     <div class="name">
                                         Art-Directed Theme Framework
@@ -1932,9 +1657,9 @@
                     <div class="home-left" style="height: 283px;"></div>
                 </div>
             </section>
-            <section id="contact" class="contact">
-
-                </section>
+            <footer id="contact" class="home-footer">
+                <a href="rainclaireqin@gmail.com">rainclaireqin@gmail.com</a>
+            </footer>
         </div>
     </div>
     </body>
@@ -2016,8 +1741,8 @@
 
     $(window).scroll(function() {
         youtubeVidScroll();
-        //startMentoring();
-        startArticles();
+//        startMentoring();
+        startProject();
     });
 
 
@@ -2028,10 +1753,10 @@
         $('.video-strip').css('background-position','center -'+ wScroll +'px');
     }
 
-    function startArticles(){
+    function startProject(){
         var wScroll = $(window).scrollTop();
 
-        if($('section.articles').offset().top - $(window).height()/1.2 < wScroll) {
+        if($('section.project').offset().top - $(window).height()/1.2 < wScroll) {
             $('.article-thumb').each(function(i){
                 setTimeout(function(){
                     $('.article-thumb').eq(i).addClass('is-visible');
