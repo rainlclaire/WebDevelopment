@@ -2,6 +2,24 @@ form.form-horizontal .form-group label {
     text-align:left;
 }
 
-td.iconright{
-    text-algin:right;
+.sptable td.iconright {
+    text-align:right;
+}
+
+/*.sptable label {*/
+    /*text-align:left;*/
+/*}*/
+/*.sptable{*/
+
+/*border-collapse: collapse;*/
+/*}*/
+
+/*tr {*/
+    /*border-bottom: 1px solid black;*/
+    /*border-top: 1px solid black;*/
+    /*border-collapse: collapse;*/
+/*}​*/
+
+.sptable td.nonebored {
+    border: none;
 }
