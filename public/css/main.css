@@ -5,6 +5,12 @@ form.form-horizontal .form-group label {
 .sptable td.iconright {
     text-align:right;
 }
+.sptable td.iconcenter {
+    text-align:center;
+}
+.sptable .alsoright {
+    text-align:right;
+}
 
 /*.sptable label {*/
     /*text-align:left;*/
