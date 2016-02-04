@@ -18,8 +18,8 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
-    <!--<link href=""-->
+    <!-- dashboard css for this template -->
+    <link href="../assignment/css/dashboard.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
 </head>
 
@@ -324,51 +324,21 @@
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
+<!--&lt;!&ndash; Placed at the end of the document so the pages load faster &ndash;&gt;-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+<!--&lt;!&ndash;&lt;!&ndash; Just to make our placeholder images work. Don't actually copy the next line! &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="../../assets/js/vendor/holder.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash; IE10 viewport hack for Surface/desktop Windows 8 bug &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>&ndash;&gt;-->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!--&lt;!&ndash; Just to make our placeholder images work. Don't actually copy the next line! &ndash;&gt;-->
-<!--<script src="../../assets/js/vendor/holder.min.js"></script>-->
-<!--&lt;!&ndash; IE10 viewport hack for Surface/desktop Windows 8 bug &ndash;&gt;-->
-<!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
-
-<script>
-    function myFunction(form) {
-
-        window.open("", "formpopup", "width=900, height=400, resizeable, scrollbars,");
-        form.target= "formpopup";
-
-
-    }
-</script>
-
-<script>
-    function poponload()
-    {
-        testwindow = window.open("", "mywindow", "location=1,status=1,scrollbars=1,width=400,height=400");
-//        testwindow.moveBy(testwindow.outerHeight,testwindow.outerWidth-200);
-    }
-</script>
-
-<script>
-    function PopupCenter(url, title, w, h) {
-    // Fixes dual-screen position                         Most browsers      Firefox
-    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
-    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
-
-    width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-    height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
-    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
-    var top = ((height / 2) - (h / 2)) + dualScreenTop;
-    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
-    // Puts focus on the newWindow
-    if (window.focus) {
-    newWindow.focus();
-    }
-    }
-</script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.1/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
