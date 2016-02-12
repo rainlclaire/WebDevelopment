@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- the way to change the size of page, optimal the view -->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/components/#glyphicons">
+
+    <title>Form Maker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<!--<nav class="navbar navbar-inverse navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header">-->
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <!--<a class="navbar-brand" href="home.view.html">Form Maker</a>-->
+        <!--</div>-->
+        <!--<div id="navbar" class="navbar-collapse collapse">-->
+            <!--<ul class="nav navbar-nav navbar-right">-->
+                <!--<li><a href="#">Username</a></li>-->
+                <!--<li><a href="home.view.html">Logout</a></li>-->
+                <!--<li><a href="forms.view.html">Forms</a></li>-->
+            <!--</ul>-->
+            <!--<form class="navbar-form navbar-right">-->
+                <!--<input type="text" class="form-control" placeholder="Search...">-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
+
+<!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+        <!--<div class="col-sm-3 col-md-2 sidebar">-->
+            <!--<ul class="nav nav-sidebar">-->
+                <!--<li><a href="home.view.html">Home</a></li>-->
+                <!--<li><a href="profile.view.html">Profile</a></li>-->
+                <!--<li><a href="admin.view.html">Admin</a></li>-->
+                <!--<li class="active"><a href="forms.view.html">Forms<span class="sr-only">(current)</span></a></li>-->
+
+            <!--</ul>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">&ndash;&gt;-->
+            <!--&lt;!&ndash;<h1>Forms</h1>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->
+<div class="table-responsive">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1>Forms</h1>
+    </div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="forms.view.html">Forms</a>
+        <li role="presentation"><a href="form-fields.html">Fields</a>
+        </li>
+    </ul>
+
+
+<div class="tab-content" class="active">
+        <table class="table table-condensed table-bordered table-striped volumes">
+            <tbody>
+            <tr>
+                <th class="Username"><span class="fa fa-caret-down"></span> Form Name</th>
+                <th class="Password"><span class="fa fa-caret-down"></span> Action</th>
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control input-sm" type="text" id="inputSmall1" placeholder="name">
+                </td>
+                <td>
+                    <div class="row-fluid form-inline">
+                        <a href="#" class="glyphicon glyphicon-plus"></a>
+                        <!--how to put space here-->
+                        <a href="#" class="glyphicon glyphicon-ok"></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="form-fields.html">Registration Form</a></td>
+                <td>
+                    <div class="row-fluid form-inline">
+                        <a href="#" class="glyphicon glyphicon-remove"></a>
+                        <!--how to put space here-->
+                        <a href="#" class="glyphicon glyphicon-pencil"></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="form-fields.html">Contact List</a></td>
+                <td>
+                    <div class="row-fluid form-inline">
+                        <a href="#" class="glyphicon glyphicon-remove"></a>
+                        <!--how to put space here-->
+                        <a href="#" class="glyphicon glyphicon-pencil"></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="form-fields.html">To Do List</a></td>
+                <td>
+                    <div class="row-fluid form-inline">
+                        <a href="#" class="glyphicon glyphicon-remove"></a>
+                        <!--how to put space here-->
+                        <a href="#" class="glyphicon glyphicon-pencil"></a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+</div>
+</div>
+    </div>
+
+
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--&lt;!&ndash; Just to make our placeholder images work. Don't actually copy the next line! &ndash;&gt;-->
+<!--<script src="../../assets/js/vendor/holder.min.js"></script>-->
+<!--&lt;!&ndash; IE10 viewport hack for Surface/desktop Windows 8 bug &ndash;&gt;-->
+<!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+
+</body>
+</html>

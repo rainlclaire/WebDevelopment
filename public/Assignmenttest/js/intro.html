@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>
+            Intro to JavaScript
+        </title>
+
+        <script>
+//            alert("Hello World!")
+//            var a =2;
+//            var b =4;
+//            var c = a +b;
+//            alert(c);
+
+            var arr=[12, 32, 12, 24, 13, 135];
+            var min= arr[0];
+            var max=arr[0];
+
+            var min2 = minFunc(arr);
+            alert(min2);
+            for (var j=0; j<arr.length;j++) {
+                if (arr[j]>max)
+                    max = arr[j];
+
+                if(arr[j]< min)
+                    min=arr[j];
+
+            }
+
+            alert("Min:" +min+", Max:"+max);
+
+
+
+            function minFunc(arr) {
+                var min=arr[0];
+                var max=arr[0];
+                for(var j=0; j<arr.length; j++) {
+                    if (arr[j]<min)
+                        min=arr[j];
+                    if (arr[j]>max)
+                        max=arr[j];
+
+                }
+                return min;
+            }
+        </script>
+    </head>
+
+    <body>
+    <h1>Intro to JavaScript</h1>
+    </body>
+</html>
