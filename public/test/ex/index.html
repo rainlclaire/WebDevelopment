@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MovieAdminApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Admin Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js " rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+        .nowrap {
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie List</h1>
+        <!-- controll the data, to add, delete, update the data-->
+        <table ng-controller="MovieListController" class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>title</th>
+                <th>Director</th>
+                <th></th>
+
+            </tr>
+            <tr>
+                <th> <input ng-model="movie.id" class="form-control"/></th>
+                <th> <input  ng-model="movie.title" class="form-control"/></th>
+                <th> <input  ng-model="movie.director" class="form-control"/></th>
+                <th> <button ng-click="addMovie(movie)" class="btn btn-primary"/>ADD</button></th>
+            </tr>
+            </thead>
+            <tbody>
+            /*movie var just in this local loop*/
+            <tr ng-repeat="movie in movies">
+                <td>{{movie.id}}</td>
+                <td>{{movie.title}}</td>
+                <td>{{movie.director}}</td>
+                <td>
+                    <button ng-click="deleteMovie(movie)" class="btn btn-danger">Delete</button>
+                    <button ng-click="updateMovie(movie)" class="btn btn-info">Select</button>
+                </td>
+
+            </tr>
+            </tbody>
+
+
+        </table>
+    </div>
+</body>
+</html>
