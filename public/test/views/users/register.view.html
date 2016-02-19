@@ -15,8 +15,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <!-- dashboard css for this template -->
-    <link href="../../css/dashboard.css" rel="stylesheet">
-    <link href="../../css/main.css" rel="stylesheet">
+    <link href="./css/dashboard.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,30 +35,30 @@
         <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label specialfield">Username</label>
         <div class="col-sm-10">
-            <input type="Username" class="form-control" id="inputUsesrnmae" placeholder="Username">
+            <input ng-models="newUser.Username" type="Username" class="form-control" id="inputUsesrnmae" placeholder="Username">
         </div>
     </div>
     <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            <input ng-models="newUser.password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
         </div>
     </div>
     <div class="form-group">
         <label for="inputVerifyPassword3" class="col-sm-2 control-label">Verify Password</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputVerifyPassword3" placeholder="Verify Password">
+            <input ng-models="newUser.password" type="password" class="form-control" id="inputVerifyPassword3" placeholder="Verify Password">
         </div>
     </div>
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            <input ng-models="newUser.email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <a href="profile.view.html" class="btn btn-primary btn-lg btn-block">Register</a>
+            <a href="profile.view.html" ng-click="register()" class="btn btn-primary btn-lg btn-block">Register</a>
             </div>
     </div>
 

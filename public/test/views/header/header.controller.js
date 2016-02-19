@@ -1,8 +1,6 @@
-(function() {
-    angular.moduel("FormBuilderApp", ["ngRoute"])
-        .controller("HeaderController", HeaderController);
-
-    function HeaderController($scope){
-
-    }
-})
+(function () {
+    angular.module("FormBuilderApp")
+        .controller("HeaderController", function($scope) {
+        $scope.$location = $location;
+    });
+});

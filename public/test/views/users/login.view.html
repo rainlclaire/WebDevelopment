@@ -1,34 +1,34 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- the way to change the size of page, optimal the view -->
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/components/#glyphicons">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="utf-8">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1"> &lt;!&ndash; the way to change the size of page, optimal the view &ndash;&gt;-->
+    <!--&lt;!&ndash; The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags &ndash;&gt;-->
+    <!--<meta name="description" content="">-->
+    <!--<meta name="author" content="">-->
+    <!--<link rel="icon" href="http://getbootstrap.com/components/#glyphicons">-->
 
-    <title>Form Maker</title>
+    <!--<title>Form Maker</title>-->
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Custom styles for this template -->
-    <!-- dashboard css for this template -->
-    <link href="../../css/dashboard.css" rel="stylesheet">
-    <link href="../../css/main.css" rel="stylesheet">
-</head>
-
-<body>
+    <!--&lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
 
 
+    <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+    <!--&lt;!&ndash; dashboard css for this template &ndash;&gt;-->
+    <!--<link href="./css/dashboard.css" rel="stylesheet">-->
+    <!--<link href="./css/main.css" rel="stylesheet">-->
+<!--</head>-->
+
+<!--<body>-->
 
 
-<div class="container-fluid">
-    <div class="row">
+
+
+<!--<div class="container-fluid">-->
+    <!--<div class="row">-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1>Login</h1>
         </div>
@@ -39,20 +39,20 @@
         <div class="form-group">
             <label for="inputUsesrname3" class="col-sm-2 control-label">Username</label>
             <div class="col-sm-10">
-                <input type="Username" class="form-control" id="inputUsesrname3" placeholder="Username">
+                <input ng-models="newUser.Username" type="Username" class="form-control" id="inputUsesrname3" placeholder="Username">
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <input ng-models="newUser.password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
                 <!--<button type="submit" class="btn btn-default" class="col-sm-9">Login</button>-->
-                <a href="profile.view.html" class="btn btn-primary btn-lg btn-block">Login</a>
+                <a ng-click="login()" href="profile.view.html" class="btn btn-primary btn-lg btn-block">Login</a>
             </div>
         </div>
     </form>

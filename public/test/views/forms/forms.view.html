@@ -17,15 +17,10 @@
 
     <!-- Custom styles for this template -->
     <!-- dashboard css for this template -->
-    <link href="../../css/dashboard.css" rel="stylesheet">
-    <link href="../../css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="./css/dashboard.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
 </head>
-
 <body>
-
-
-
 
     <div class="container-fluid">
         <div class="row">
@@ -36,61 +31,45 @@
     </div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="forms.view.html">Forms</a>
-        <li role="presentation"><a href="form-fields.html">Fields</a>
+        <li role="presentation" class="active"><a href="#/forms">Forms</a>
+        <li role="presentation"><a href="#/form-fields">Fields</a>
         </li>
     </ul>
 
 
     <div class="tab-content" class="active">
             <table class="table table-condensed table-bordered table-striped volumes sptable">
-                <tbody>
+                <thead>
                 <tr>
                     <th class="Username"><span class="fa fa-caret-down"></span> Form Name</th>
                     <th class="Password"><span class="fa fa-caret-down"></span> Action</th>
                 </tr>
                 <tr>
                     <td>
-                        <input class="form-control input-sm" type="text" id="inputSmall1" placeholder="name">
+                        <input ng-models="clickForm.name" class="form-control input-sm" type="text" id="inputSmall1" placeholder="name">
                     </td>
                     <td class="iconright">
                         <div class="row-fluid form-inline">
-                            <a href="#" class="glyphicon glyphicon-plus"></a>
+                            <button ng-click="addForm(clickForm)" href="#" class="glyphicon glyphicon-plus"></button>
                             <!--how to put space here-->
-                            <a href="#" class="glyphicon glyphicon-ok"></a>
+                            <button ng-click="update(clickForm)" href="#" class="glyphicon glyphicon-ok"></button>
                         </div>
                     </td>
+
                 </tr>
-                <tr>
-                    <td><a href="form-fields.html">Registration Form</a></td>
-                    <td class="iconright">
-                        <div class="row-fluid form-inline">
-                            <a href="#" class="glyphicon glyphicon-remove"></a>
-                            <!--how to put space here-->
-                            <a href="#" class="glyphicon glyphicon-pencil"></a>
-                        </div>
+                </thead>
+                <tbody>
+
+                <tr ng-repeat="form in forms">
+                    <td class="form-list">
+                        {{form.name}}
+                    </td>
+                    <td class="form-list text-center">
+                        <button ng-click="deleteForm($index)" class="glyphicon glyphicon-remove action-icon"></button>
+                        <button ng-click="selectForm($index)" class="glyphicon glyphicon-pencil action-icon"></button>
                     </td>
                 </tr>
-                <tr>
-                    <td><a href="form-fields.html">Contact List</a></td>
-                    <td class="iconright">
-                        <div class="row-fluid form-inline">
-                            <a href="#" class="glyphicon glyphicon-remove"></a>
-                            <!--how to put space here-->
-                            <a href="#" class="glyphicon glyphicon-pencil"></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="form-fields.html">To Do List</a></td>
-                    <td class="iconright">
-                        <div class="row-fluid form-inline">
-                            <a href="#" class="glyphicon glyphicon-remove"></a>
-                            <!--how to put space here-->
-                            <a href="#" class="glyphicon glyphicon-pencil"></a>
-                        </div>
-                    </td>
-                </tr>
+
                 </tbody>
             </table>
 

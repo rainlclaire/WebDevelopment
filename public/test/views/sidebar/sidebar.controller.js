@@ -1,8 +1,9 @@
 (function () {
-    angular.moduel("FormBuilderApp", ["ngRoute"])
+    angular.module('FormBuilderApp')
         .controller("SidebarController", SidebarController);
 
     function SidebarController($scope) {
-
+        console.log("hrre");
+        $scope.$location= $location;
     }
-})
+})();

@@ -1,27 +1,34 @@
 (function() {
-    angular.module("FormBuilderApp", ["ngRoute"])
+    angular.module("FormBuilderApp")
         .config(function($routeProvider) {
+
         $routeProvider
-            .when("/", {
-                templateUrl: "/view/home/home.view.html"
+            .when("/home", {
+                templateUrl: "views/home/home.view.html"
+
             })
             .when("/profile", {
-                templateUrl: "/view/users/profile.view.html"
+                templateUrl: "views/users/profile.view.html",
+                controller: "ProfileController"
             })
-            .when("/amdin", {
-                templateUrl: "view/users/admin.view.html"
+            .when("/admin", {
+                templateUrl: "./views/users/admin.view.html",
             })
             .when("/forms", {
-                templateUrl: "view/forms/forms.view.html"
+                templateUrl: "/views/forms/forms.view.html",
+                controller: "FormController"
             })
-            .when("register", {
-                templateUrl: "view/users/register.view.html"
+            .when("/register", {
+                templateUrl: "/views/users/register.view.html",
+                controller: "RegisterController"
             })
-            .when("login", {
-                templateUrl: "view/users/login.view.html"
+            .when("/login", {
+                templateUrl: "/views/users/login.view.html",
+                controller: "LoginController"
             })
             .otherwise({
-                redirectTo:"/"
+                redirectTo: "/home"
             });
     });
-})();
+});
+
