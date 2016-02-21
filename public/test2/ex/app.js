@@ -3,7 +3,7 @@
 /*angular: view(display data), data(provides data),
  controller(response for providing the date to the view*/
 /*declar the controller*/
-/*for the table data in index.html
+/*for the table data in
  * $scope response for everything happend in that table,
  * to ask the angular ref for $scope, the angular
  * will look at the variable in table, view and controller can communication
