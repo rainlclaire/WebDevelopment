@@ -3,6 +3,7 @@
         .controller("ProfileController", ProfileController);
 
     function ProfileController($scope, $rootScope, UserService) {
+        console.log("profile");
         var user = $rootScope.user;
 
 
@@ -19,9 +20,9 @@
         }
 
         $scope.update = function(updateUser) {
-            UserService.updateUser(user,id, updateUser, function(mergedUser) {
+            UserService.updateUser(user.id, updateUser, function(mergedUser) {
                 alert("Updated it");
-            })
+            });
         }
 
 

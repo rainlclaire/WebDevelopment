@@ -7,10 +7,10 @@
 
 
         $scope.login = function(user) {
-            UserService.findUserByUsernameAndPassword(user.username, user.password, function(loggedInUser) {
+            UserService.findUserByCredentials(user.username, user.password, function(loggedInUser) {
                 if (loggedInUser != null) {
                     $rootScope.user = loggedInUser;
-                    $location.path("/views/profile");
+                    $location.path("/profile");
                 }
                 else {
                     alert("You have invalid Username or Password");

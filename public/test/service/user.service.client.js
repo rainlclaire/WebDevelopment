@@ -1,3 +1,5 @@
+"use strict";
+
 (function () {
     angular.module("FormBuilderApp")
         .factory("UserService", UserService);
@@ -13,11 +15,18 @@
             {"_id": 456, "firstName": "Dan", "lastName": "Craig", "username": "dan", "password": "dan"},
             {"_id": 567, "firstName": "Edward", "lastName": "Norton", "username": "ed", "password": "ed"}
         ];
+        var jsonData = {
+            findUserByCredentials: findUserByCredentials,
+            findAllUsers: findAllUsers,
+            createUser: createUser,
+            delteUserById: deleteUserById,
+            updateUser: updateUser,
+        }
 
         return jsonData;
 
 
-        function findUserByUsernameAndPassword(username, password, callback) {
+        function findUserByCredentials(username, password, callback) {
             var result = null;
             for (var i = 0; i < currentUser.length; i++) {
                 if ((currentUser[i].username == username) && (currentUser[i].password = password)) {
@@ -34,28 +43,37 @@
         }
 
         function createUser(user, callback) {
-             user.id = guid();
-                currentUsers.push(user);
-
+            var _id = (new Date).getTime();
+            user.userId = _id;
+            currentUser.push(user);
             callback(user);
+
         }
 
         function deleteUserById(userId, callback) {
-            for (var i = 0; i< currentUser.length(); i++) {
+            for (var i = 0; i< currentUser.length; i++) {
                 if (userId == currentUser[i].id) {
                     currentUser.splice(i, 1);
+                    callback(currentUser);
+                    break;
                 }
             }
-            callback(currentUser);
+
         }
 
         function updateUser(userId, user, callback) {
-            for (var i =0; i< currentUser.length(); i++) {
+            for (var i =0; i< currentUser.length; i++) {
                 if (userId == currentUser[i].id){
-                    currentUser[i] = user;
+
+                    for (var attr in updateUser) {
+                        if (updateUser.hasOwnProperty(attr))
+                        currentUser[i][attr] = updateUser[attr];
+                    }
+                   callback(user);
+                    break;
                 }
             }
-            callback(user);
+
         }
     }
 
