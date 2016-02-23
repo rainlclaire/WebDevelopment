@@ -12,10 +12,11 @@
         <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a ng-class="{'navbar-selected' : $location.url().indexOf('register') != -1}" href="#/register">Register</a></li>
+                <li><a ng-hide="user" ng-class="{'navbar-selected' : $location.url().indexOf('register') != -1}" href="#/register">Register</a></li>
                 <li><a ng-hide="user" ng-class="{'navbar-selected' : $location.url().indexOf('login') != -1}" href="#/login">Login</a></li>
-                <li><a href="#/profile" >{{user.username}}</a></li>
-                <li><a ng-click="logout(user)" href="#" ng-show='user'>Logout</a></li>
+                <li><a ng-show='user' href="#/profile" >{{user.username}}</a></li>
+                <li><a ng-show="user" ng-click="logout(user)">Logout</a></li>
+                <li><a ng-show="user.roles.index('admin') >=0" ng-class="{'navbar-selected' : $location.url().indexOf('admin') != -1}">Admin</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">

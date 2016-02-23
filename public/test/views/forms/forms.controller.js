@@ -41,7 +41,7 @@
 
            console.log("updateform");
 
-            console.log($scope.selectFormIndex);
+
             if ($scope.selectFormIndex != null) {
 
                 $scope.forms[$scope.selectFormIndex].id = form.id;
