@@ -132,9 +132,7 @@
             var result = null;
             for (var i = 0; i < currentUser.length; i++) {
                 if ((currentUser[i].username == username) && (currentUser[i].password = password)) {
-                    result= currentUser[i];
-                    break;
-
+                    result = currentUser[i];
                 }
             }
             callback(result);
@@ -166,6 +164,23 @@
         function updateUser(userId, user, callback) {
             for (var i =0; i< currentUser.length; i++) {
                 if (userId == currentUser[i].id){
+                    //if (!user.username) {
+                    //    $scope.error= "you have to provide username";
+                    //}
+
+                    if (user == null) {
+                        $scope.message = "Please fill in the required fields";
+                        return;
+                    }
+                    if (!user.username) {
+                        $scope.message = "You have to provide the username";
+                    }
+                    if (!user.password || !user.verifyPassword) {
+                        $scope.message = "Please provide a password";
+                    }
+                    if (user.password != user.verifyPassword) {
+                        $scope.message = "Passwords must match";
+                    }
 
                     for (var attr in updateUser) {
                         if (updateUser.hasOwnProperty(attr))
