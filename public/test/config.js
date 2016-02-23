@@ -1,3 +1,4 @@
+"use strict";
 (function() {
     angular.module("FormBuilderApp")
         .config(Configuration);
@@ -24,8 +25,8 @@
                 controller: "LoginController"
             })
             .when("/forms", {
-                templateUrl: "views/forms/forms.view.html"
-                //controller: "FormController"
+                templateUrl: "views/forms/forms.view.html",
+                controller: "FormController"
             })
             .otherwise({
                 redirectTo: "/home"
