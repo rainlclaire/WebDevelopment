@@ -40,13 +40,17 @@
         function updateForm(form) {
 
            console.log("updateform");
+
             console.log($scope.selectFormIndex);
+            if ($scope.selectFormIndex != null) {
 
-            $scope.forms[$scope.selectFormIndex]._id= form._id;
-            $scope.forms[$scope.selectFormIndex].title= form.title;
-            $scope.forms[$scope.selectFormIndex].userId= form.userId;
+                $scope.forms[$scope.selectFormIndex].id = form.id;
+                $scope.forms[$scope.selectFormIndex].title = form.title;
+                $scope.forms[$scope.selectFormIndex].userId = form.userId;
 
-
+            } else {
+                alert("You have to select a Form");
+            }
         }
 
 
