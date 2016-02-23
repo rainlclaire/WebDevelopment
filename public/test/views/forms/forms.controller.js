@@ -9,13 +9,19 @@
 
         if (user !=null) {
             FormService.findAllFormsForUser(user.id, function(allForms) {
-                $scope.forms=allForms;
+                $scope.forms= allForms;
             });
         } else {
             alert("You need to login or register");
         }
 
-        $scope.addForm = function(form) {
+        $scope.addForm = addForm;
+        $scope.updateForm = updateForm;
+        $scope.deleteForm = deleteForm;
+        $scope.selectForm = selectForm;
+
+
+        function addForm(form) {
             var newForm= {
                 title: form.title
             };
@@ -27,38 +33,40 @@
                     $scope.forms=allForms;
 
             });
+                //$scope.forms.push(clickForm);
         });
-        };
+        }
 
-        $scope.updateForm = function(form) {
+        function updateForm(form) {
 
            console.log("updateform");
-            console.log(selectFormIndex);
-                $scope.clickForm[selectFormIndex] = {
-                    "id": form._id,
-                    "title:":form.title,
-                    "userId": form.userId
-                }
-        };
+            console.log($scope.selectFormIndex);
+
+            $scope.forms[$scope.selectFormIndex]._id= form._id;
+            $scope.forms[$scope.selectFormIndex].title= form.title;
+            $scope.forms[$scope.selectFormIndex].userId= form.userId;
+
+
+        }
 
 
 
-        $scope.deleteForm = function(index) {
+        function deleteForm(index) {
                 var deletedId = $scope.forms[index].id;
                 FormService.deleteFormById(deletedId, function(remainingForms){
                     $scope.forms = remainingForms;
                 });
-        };
+        }
 
-        $scope.selectForm = function(index) {
+        function selectForm(index) {
             //$scope.clickForm.title = $scope.forms[index].title;
-            $scope.clickForm.selectFormIndex = index;
+            $scope.selectFormIndex = index;
             $scope.clickForm = {
-                "id": $scope.forms[index]._id,
+                "_id": $scope.forms[index]._id,
                 "title": $scope.forms[index].title,
                 "userId:": $scope.forms[index].userId
-            }
-        };
+            };
+        }
 
         }
 })();

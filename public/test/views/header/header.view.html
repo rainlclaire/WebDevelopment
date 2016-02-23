@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" >
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="HeaderController">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -13,9 +13,9 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a ng-class="{'navbar-selected' : $location.url().indexOf('register') != -1}" href="#/register">Register</a></li>
-                <li><a ng-class="{'navbar-selected' : $location.url().indexOf('login') != -1}" href="#/login">Login</a></li>
-                <li><a href="#">Username</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a ng-hide="user" ng-class="{'navbar-selected' : $location.url().indexOf('login') != -1}" href="#/login">Login</a></li>
+                <li><a href="#/profile" >{{user.username}}</a></li>
+                <li><a ng-click="logout(user)" href="#" ng-show='user'>Logout</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
