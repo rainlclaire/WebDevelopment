@@ -6,6 +6,7 @@
 
         var user= $rootScope.user;
 
+
         if (user !=null) {
             FormService.findAllFormsForUser(user.id, function(allForms) {
                 $scope.forms=allForms;
@@ -61,5 +62,9 @@
 
         }
 
+<<<<<<< HEAD
 
+=======
+    }
+>>>>>>> cea7d8f3aef483f425be15b94f5ca83c95878d05
 })();
