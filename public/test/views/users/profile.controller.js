@@ -23,6 +23,15 @@
 
         }
 
+        $scope.profileUser = {
+            username: $rootScope.user.username,
+            password: $rootScope.user.password,
+            verifyPassword: $rootScope.user.verifyPassword,
+            firstName: $rootScope.user.firstName,
+            lastName: $rootScope.user.lastName,
+            email: $rootScope.user.email
+        };
+
 
 
         $scope.update = updateUser;
@@ -43,6 +52,8 @@
             }
             if (updateUser.password != updateUser.verifyPassword) {
                 $scope.message = "Passwords must match";
+            } else {
+                $scope.message = null;
             }
 
 
