@@ -51,13 +51,8 @@
             }
             if (updateUser.password != updateUser.verifyPassword) {
                 $scope.message = "Passwords must match";
-            } else {
-                $scope.message = null;
             }
-
-
-
-
+            
 
 
             UserService.updateUser(updateUser.id, updateUser, function(mergedUser) {
