@@ -120,12 +120,23 @@
             findAllUsers: findAllUsers,
             createUser: createUser,
             deleteUserById: deleteUserById,
-            updateUser: updateUser
+            updateUser: updateUser,
+            findUserByUser: findUserByUser
         };
 
 
 
         return service;
+
+        function findUserByUser(username, callback) {
+            var result = null;
+            for (var i = 0; i < currentUser.length; i++) {
+                if (currentUser[i].username == username) {
+                    result = currentUser[i];
+                }
+            }
+            callback(result);
+        }
 
 
         function findUserByCredentials(username, password, callback) {
@@ -145,6 +156,14 @@
         function createUser(user, callback) {
             var _id = (new Date).getTime();
             user.userId = _id;
+
+            //var user = {
+            //    _id: user._id,
+            //    username: user.username,
+            //    password: user.password,
+            //    verifyPassword: user.verifyPassword,
+            //    email: user.email
+            //}
             currentUser.push(user);
             callback(user);
 
@@ -165,6 +184,10 @@
             for (var i =0; i< currentUser.length; i++) {
                 if (userId == currentUser[i].id){
 
+                    //currentUser[i].firstName = user.firstName;
+                    //
+                    //currentUser[i].lastName = user.lastName;
+                    //currentUser[i].password = user.password;
                     for (var attr in updateUser) {
                         if (updateUser.hasOwnProperty(attr))
                             currentUser[i][attr] = updateUser[attr];

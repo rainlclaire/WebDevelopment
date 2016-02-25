@@ -37,29 +37,35 @@
 
 
         function updateUser(updateUser) {
-            if (updateUser == null) {
-                $scope.message = "Please fill in the required fields";
-                return;
-            }
-
-            if (!updateUser.username) {
-                $scope.message = "Please provide a username"
-            }
-
-            if (!updateUser.password || !updateUser.verifyPassword) {
-                $scope.message = "Please provide a password";
-            }
-            if (updateUser.password != updateUser.verifyPassword) {
-                $scope.message = "Passwords must match";
-            }
-            
 
 
             UserService.updateUser(updateUser.id, updateUser, function(mergedUser) {
-                alert("user updated successfully");
+
+                if (updateUser == null) {
+                    $scope.message = "Please fill in the required fields";
+                    return;
+                }
+
+                if (!updateUser.username) {
+                    $scope.message = "Please provide a username";
+                    return;
+                }
+
+                if (!updateUser.password || !updateUser.verifyPassword) {
+                    $scope.message = "Please provide a password";
+                    return;
+                }
+                if (updateUser.password != updateUser.verifyPassword) {
+                    $scope.message = "Passwords must match";
+                    return;
+                }
+
                 if (!$scope.message) {
                     $scope.$location.path("/home");
+                    alert("user updated successfully");
 
+                } else {
+                    $scope.message = null;
                 }
 
             });
