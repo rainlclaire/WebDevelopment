@@ -34,12 +34,6 @@
                 return;
             }
 
-            UserService.findUserByUser(user.username,function(findUser) {
-                $rootScope.registerUser = findUser;
-                if (findUser != null) {
-                    $scope.message = "username already exists";
-                }
-            });
 
             UserService.createUser(user, function(createUser) {
                 $rootScope.user = createUser;

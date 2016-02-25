@@ -22,7 +22,7 @@
 
         }
 
-        $scope.profileUser = {
+        $scope.user = {
             username: $rootScope.user.username,
             password: $rootScope.user.password,
             verifyPassword: $rootScope.user.verifyPassword,
@@ -52,7 +52,7 @@
                 }
 
                 if (!updateUser.password || !updateUser.verifyPassword) {
-                    $scope.message = "Please provide a password";
+                    $scope.message = "Please provide a password or verifyPassword";
                     return;
                 }
                 if (updateUser.password != updateUser.verifyPassword) {
