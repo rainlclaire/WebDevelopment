@@ -61,7 +61,6 @@
 
 
             UserService.updateUser(updateUser.id, updateUser, function(mergedUser) {
-
                 alert("user updated successfully");
                 if (!$scope.message) {
                     $scope.$location.path("/home");

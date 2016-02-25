@@ -164,9 +164,6 @@
         function updateUser(userId, user, callback) {
             for (var i =0; i< currentUser.length; i++) {
                 if (userId == currentUser[i].id){
-                    //if (!user.username) {
-                    //    $scope.error= "you have to provide username";
-                    //}
 
                     if (user == null) {
                         $scope.message = "Please fill in the required fields";
