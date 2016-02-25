@@ -19,7 +19,6 @@
                 $scope.user.lastName = user.lastName;
         } else {
             $scope.$location.path("/home");
-            alert("Your have to Login or Register");
 
         }
 

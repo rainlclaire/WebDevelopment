@@ -13,6 +13,7 @@
             });
         } else {
             alert("You need to login or register");
+            $scope.$location.path("/home");
         }
 
         $scope.addForm = addForm;
@@ -33,7 +34,6 @@
                     $scope.forms=allForms;
 
             });
-                //$scope.forms.push(clickForm);
         });
         }
 
@@ -50,6 +50,8 @@
 
             } else {
                 alert("You have to select a Form");
+
+
             }
         }
 
