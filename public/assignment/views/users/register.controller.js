@@ -1,8 +1,10 @@
+"use strict";
+
 (function() {
     angular.module('FormBuilderApp')
         .controller("RegisterController", RegisterController);
 
-    function RegisterController($scope,$rootScope, $location, UserService) {
+    function RegisterController($scope,$rootScope, UserService) {
 
 
         $scope.message = null;
@@ -10,32 +12,32 @@
         $scope.register = register;
 
 
-        function register(user) {
+        function register(newUser) {
 
             $scope.message = null;
-            if (user == null) {
+            if (newUser == null) {
                 $scope.message = "Please fill in the required fields";
                 return;
             }
-            if (!user.username) {
+            if (!newUser.username) {
                 $scope.message = "Please provide a username";
                 return;
             }
-            if (!user.password || !user.verifyPassword) {
+            if (!newUser.password || !newUser.verifyPassword) {
                 $scope.message = "Please provide a password";
                 return;
             }
-            if (user.password != user.verifyPassword) {
+            if (newUser.password != newUser.verifyPassword) {
                 $scope.message = "Passwords must match";
                 return;
             }
-            if (!user.email) {
+            if (!newUser.email) {
                 $scope.message = "You have to provide invalid email";
                 return;
             }
 
 
-            UserService.createUser(user, function(createUser) {
+            UserService.createUser(newUser, function(createUser) {
                 $rootScope.user = createUser;
                 if (!$scope.message) {
                     $scope.$location.url("/profile");

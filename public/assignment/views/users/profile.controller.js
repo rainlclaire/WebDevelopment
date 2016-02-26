@@ -1,3 +1,5 @@
+"use strict";
+
 (function() {
     angular.module('FormBuilderApp')
         .controller("ProfileController", ProfileController);
@@ -5,7 +7,7 @@
     function ProfileController($scope, $rootScope, UserService) {
         console.log("profile");
         var user = $rootScope.user;
-        console.log(user);
+
 
         $scope.error = null;
         $scope.message = null;
@@ -22,14 +24,7 @@
 
         }
 
-        $scope.user = {
-            username: $rootScope.user.username,
-            password: $rootScope.user.password,
-            verifyPassword: $rootScope.user.verifyPassword,
-            firstName: $rootScope.user.firstName,
-            lastName: $rootScope.user.lastName,
-            email: $rootScope.user.email
-        };
+
 
 
 
@@ -38,9 +33,17 @@
 
         function updateUser(updateUser) {
 
+            $scope.user = {
+                username: $rootScope.user.username,
+                password: $rootScope.user.password,
+                verifyPassword: $rootScope.user.verifyPassword,
+                firstName: $rootScope.user.firstName,
+                lastName: $rootScope.user.lastName,
+                email: $rootScope.user.email
+            };
 
-            UserService.updateUser(updateUser.id, updateUser, function(mergedUser) {
 
+            UserService.updateUser(user.id, updateUser, function(mergedUser) {
                 if (updateUser == null) {
                     $scope.message = "Please fill in the required fields";
                     return;

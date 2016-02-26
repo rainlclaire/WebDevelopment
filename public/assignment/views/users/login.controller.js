@@ -1,16 +1,16 @@
+"use strict";
+
 (function() {
     angular.module('FormBuilderApp')
         .controller("LoginController", LoginController);
 
     function LoginController($scope, $location, $rootScope, UserService) {
-        console.log("login");
 
 
-        $scope.login = function(user) {
-            console.log("login2");
-            UserService.findUserByCredentials(user.username, user.password, function (loggedInUser) {
-                console.log("login3");
-                if (loggedInUser != null) {
+        $scope.login = function(theUser) {
+            UserService.findUserByCredentials($scope.theUser.username, $scope.theUser.password, function (loggedInUser) {
+
+                if (loggedInUser) {
                     $rootScope.user = loggedInUser;
                     $location.path("/profile");
                 }
