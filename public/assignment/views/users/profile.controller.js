@@ -23,25 +23,21 @@
             $scope.$location.path("/home");
 
         }
-
-
-
-
-
         $scope.update = updateUser;
 
 
         function updateUser(updateUser) {
 
-            $scope.user = {
-                username: $rootScope.user.username,
-                password: $rootScope.user.password,
-                verifyPassword: $rootScope.user.verifyPassword,
-                firstName: $rootScope.user.firstName,
-                lastName: $rootScope.user.lastName,
-                email: $rootScope.user.email
-            };
-
+            console.log(updateUser.email);
+            console.log($rootScope.user);
+            //$scope.user = {
+            //    username: $rootScope.user.username,
+            //    password: $rootScope.user.password,
+            //    verifyPassword: $rootScope.user.verifyPassword,
+            //    firstName: $rootScope.user.firstName,
+            //    lastName: $rootScope.user.lastName,
+            //    email: $rootScope.user.email
+            //};
 
             UserService.updateUser(user.id, updateUser, function(mergedUser) {
                 if (updateUser == null) {

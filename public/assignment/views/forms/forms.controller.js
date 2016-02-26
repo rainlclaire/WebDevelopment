@@ -8,8 +8,6 @@
     function FormController($scope, $rootScope, FormService) {
 
         var user= $rootScope.user;
-
-
         if (user !=null) {
             FormService.findAllFormsForUser(user.id, function(allForms) {
                 $scope.forms= allForms;
@@ -18,7 +16,6 @@
             alert("You need to login or register");
             $scope.$location.path("/home");
         }
-
         $scope.addForm = addForm;
         $scope.updateForm = updateForm;
         $scope.deleteForm = deleteForm;
@@ -57,8 +54,6 @@
 
             }
         }
-
-
 
         function deleteForm(index) {
                 var deletedId = $scope.forms[index].id;

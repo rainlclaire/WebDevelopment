@@ -6,19 +6,12 @@
         .controller("HeaderController", HeaderController);
 
     function HeaderController($scope, $location, $rootScope, UserService) {
-        console.log("loginout");
-
-
         $scope.isActive = isActive;
         $scope.logout = logout;
-
-
 
         function isActive(path) {
             return $location.url()===path;
         }
-
-
         function logout(user) {
             console.log("loginout");
             console.log(user);

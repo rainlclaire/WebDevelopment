@@ -9,31 +9,28 @@
     </div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#/forms">Forms</a>
-        <li role="presentation"><a href="#/form-fields">Fields</a>
+        <li  ng-class="{'active': $location.url()=='/forms'}" role="presentation"><a href="#/forms">Forms</a>
+        <li  ng-class="{'active': $location.url()=='/form-fields'}" role="presentation"><a href="#/form-fields">Fields</a>
         </li>
     </ul>
-
-
     <div class="tab-content" class="active">
             <table class="table table-condensed table-bordered table-striped volumes sptable">
                 <thead>
                 <tr>
-                    <th><span class="fa fa-caret-down"></span> Form Name</th>
-                    <th><span class="fa fa-caret-down"></span> Action</th>
+                    <th><span class="glyphicon glyphicon-triangle-bottom"></span> Form Name</th>
+                    <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
                 </tr>
                 <tr>
                     <td>
-                        <input ng-model="clickForm.title" class="form-control input-sm" type="text" id="form-title" placeholder="title">
+                        <input ng-model="clickForm.title" class="form-control input-sm" type="text" id="form-title" placeholder="name">
                     </td>
-                    <td class="iconright">
+                    <td class="iconcenter">
                         <div class="row-fluid form-inline">
                             <button ng-click="addForm(clickForm)" class="glyphicon glyphicon-plus"></button>
                             <!--how to put space here-->
                             <button ng-click="updateForm(clickForm)" class="glyphicon glyphicon-ok"></button>
                         </div>
                     </td>
-
                 </tr>
                 </thead>
                 <tbody>
@@ -48,9 +45,6 @@
 
                 </tbody>
             </table>
-
-
-
     </div>
     </div>
 </div>

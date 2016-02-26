@@ -35,17 +35,12 @@
                 $scope.message = "You have to provide invalid email";
                 return;
             }
-
-
             UserService.createUser(newUser, function(createUser) {
                 $rootScope.user = createUser;
                 if (!$scope.message) {
                     $scope.$location.url("/profile");
                 }
             });
-
-
-
         }
 
     }
