@@ -8,7 +8,6 @@
         $routeProvider
             .when("/home", {
                 templateUrl: "views/home/home.view.html"
-
             })
             .when("/profile", {
                 templateUrl: "views/users/profile.view.html",

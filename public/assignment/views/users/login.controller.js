@@ -5,11 +5,15 @@
         .controller("LoginController", LoginController);
 
     function LoginController($scope, $location, $rootScope, UserService) {
-        $scope.login = function(theUser) {
-            UserService.findUserByCredentials($scope.theUser.username, $scope.theUser.password, function (loggedInUser) {
 
+        //login function for login html
+        $scope.login = login;
+
+        function login(theUser) {
+            UserService.findUserByCredentials($scope.theUser.username, $scope.theUser.password, function (loggedInUser) {
                 if (loggedInUser) {
 
+                    //to set up the loggedIn user info
                     $rootScope.user = {
                         username: loggedInUser.username,
                         password: loggedInUser.password,
@@ -18,11 +22,12 @@
                         lastName: loggedInUser.lastName,
                         email: loggedInUser.email
                     };
-                    //$rootScope.user = loggedInUser;
+                    //set up the path for navigating to profile
                     $location.path("/profile");
                 }
 
                 else {
+                    //errors catch
                     alert("You have invalid Username or Password");
                 }
             });

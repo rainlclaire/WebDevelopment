@@ -8,10 +8,10 @@
         console.log("profile");
         var user = $rootScope.user;
 
-
         $scope.error = null;
         $scope.message = null;
 
+        //set the user info to user
         if (user != null) {
                 $scope.user.username = user.username;
                 $scope.user.password = user.password;
@@ -23,48 +23,41 @@
             $scope.$location.path("/home");
 
         }
+
+        //update function for profile update
         $scope.update = updateUser;
 
 
         function updateUser(updateUser) {
-
-            console.log(updateUser.email);
-            console.log($rootScope.user);
-            //$scope.user = {
-            //    username: $rootScope.user.username,
-            //    password: $rootScope.user.password,
-            //    verifyPassword: $rootScope.user.verifyPassword,
-            //    firstName: $rootScope.user.firstName,
-            //    lastName: $rootScope.user.lastName,
-            //    email: $rootScope.user.email
-            //};
-
             UserService.updateUser(user.id, updateUser, function(mergedUser) {
+                //error catch for user is null
                 if (updateUser == null) {
                     $scope.message = "Please fill in the required fields";
                     return;
                 }
-
+                //error catch for username is null
                 if (!updateUser.username) {
                     $scope.message = "Please provide a username";
                     return;
                 }
-
+                //error catch for password is null
                 if (!updateUser.password || !updateUser.verifyPassword) {
                     $scope.message = "Please provide a password or verifyPassword";
                     return;
                 }
+                //error catch if password not match
                 if (updateUser.password != updateUser.verifyPassword) {
                     $scope.message = "Passwords must match";
                     return;
                 }
-
+                //error message
                 if (!$scope.message) {
                     $scope.$location.path("/home");
                     alert("user updated successfully");
 
                 } else {
                     $scope.message = null;
+
                 }
 
             });

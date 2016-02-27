@@ -5,7 +5,7 @@
         .factory("FormService", formService);
 
     function formService() {
-        //var forms = [];
+        //init the current forms
         var forms = [
             {"_id": "000", "title": "Contacts", "userId": 123},
             {"_id": "010", "title": "ToDo",     "userId": 123},
@@ -20,17 +20,19 @@
         };
         return service;
 
+        //create form for user with given user id and form info
         function createFormForUser(userId, form, callback) {
             var _id = (new Date()).getTime();
-            form.userId = _id;
+            form._id = _id;
             forms.push(form);
             callback(form);
         }
 
+        //find all forms for given user
         function findAllFormsForUser(userId, callback) {
             var form = [];
-            var k;
-            for ( k = 0; k< forms.length;k++) {
+
+            for (var k = 0; k< forms.length;k++) {
                 if (forms[k].id == userId) {
                     form.push(forms[k]);
                 }
@@ -38,6 +40,8 @@
             callback(form);
         }
 
+
+        //delete form by given form id
         function deleteFormById(formId, callback) {
             for(var i =0; i<forms.length;i++) {
                 if (forms[i].id === formId) {
@@ -48,6 +52,8 @@
             }
 
         }
+
+        //update the form by given form's id with new form info
         function updateFormById(formId, newForm, callback) {
             for(var j =0; j< forms.length;j++) {
                 if (forms[j].id = formId) {
