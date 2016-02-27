@@ -6,7 +6,7 @@
 
     function RegisterController($scope,$rootScope, UserService) {
 
-
+        console.log($scope.user);
         $scope.message = null;
 
         //register function for register html

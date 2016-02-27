@@ -6,6 +6,7 @@
 
     function ProfileController($scope, $rootScope, UserService) {
         console.log("profile");
+        console.log($scope.user);
         var user = $rootScope.user;
 
         $scope.error = null;
