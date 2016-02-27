@@ -25,12 +25,13 @@
         }
 
         //update function for profile update
-        $scope.update = updateUser;
+        $scope.update = update;
 
 
-        function updateUser(updateUser) {
+        function update(updateUser) {
             UserService.updateUser(user.id, updateUser, function(mergedUser) {
                 //error catch for user is null
+                $scope.message= null;
                 if (updateUser == null) {
                     $scope.message = "Please fill in the required fields";
                     return;
@@ -50,13 +51,17 @@
                     $scope.message = "Passwords must match";
                     return;
                 }
+                if (!updateUser.firstName ||!updateUser.lastName) {
+                    $scope.message = "You have to provide your first and last name";
+                }
+                if (!updateUser.email) {
+                    $scope.message = "Please provide invalid email";
+                }
                 //error message
+
                 if (!$scope.message) {
                     $scope.$location.path("/home");
                     alert("user updated successfully");
-
-                } else {
-                    $scope.message = null;
 
                 }
 

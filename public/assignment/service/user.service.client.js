@@ -62,7 +62,7 @@
         function deleteUserById(userId, callback) {
             //iterate the currentUser
             for (var i = 0; i< currentUser.length; i++) {
-                if (userId == currentUser[i].id) {
+                if (userId == currentUser[i]._id) {
                     currentUser.splice(i, 1);
                     callback(currentUser);
                     break;

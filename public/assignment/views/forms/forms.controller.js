@@ -8,7 +8,7 @@
     function FormController($scope, $rootScope, FormService) {
 
         var user= $rootScope.user;
-        //form page only show when user logged in
+        //form page only show when user logged in 
         if (user !=null) {
             FormService.findAllFormsForUser(user.id, function(allForms) {
                 $scope.forms= allForms;
