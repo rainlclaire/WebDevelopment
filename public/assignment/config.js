@@ -4,7 +4,7 @@
     angular.module("FormBuilderApp")
         .config(Configuration);
 
-    function Configuration($routeProvider){
+    function Configuration($routeProvider) {
         $routeProvider
             .when("/home", {
                 templateUrl: "views/home/home.view.html"
@@ -31,7 +31,7 @@
             .when("/form-fields", {
                 templateUrl: "views/forms/form-fields.view.html"
             })
-            .otherwise({
+            .otherwise( {
                 redirectTo: "/home"
             });
     }

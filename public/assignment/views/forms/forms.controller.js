@@ -8,7 +8,7 @@
     function FormController($scope, $rootScope, FormService) {
 
         var user= $rootScope.user;
-        //form page only show when user logged in 
+        //form page only show when user logged in
         if (user !=null) {
             FormService.findAllFormsForUser(user.id, function(allForms) {
                 $scope.forms= allForms;
@@ -36,7 +36,7 @@
             //inti the title with empty
             $scope.clickForm.title="";
 
-            FormService.createFormForUser(user.id, newForm, function(createdForm){
+            FormService.createFormForUser(user.id, newForm, function(createdForm) {
                 FormService.findAllFormsForUser(user.id, function(allForms) {
                     $scope.forms = allForms;
 
@@ -59,7 +59,7 @@
         //delete the form with given form's index
         function deleteForm(index) {
                 var deletedId = $scope.forms[index].id;
-                FormService.deleteFormById(deletedId, function(allOtherForms){
+                FormService.deleteFormById(deletedId, function(allOtherForms) {
                     $scope.forms = allOtherForms;
                 });
         }

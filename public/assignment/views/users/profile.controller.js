@@ -51,7 +51,7 @@
                     $scope.message = "Passwords must match";
                     return;
                 }
-                if (!updateUser.firstName ||!updateUser.lastName) {
+                if (!updateUser.firstName || !updateUser.lastName) {
                     $scope.message = "You have to provide your first and last name";
                 }
                 if (!updateUser.email) {

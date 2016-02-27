@@ -30,9 +30,9 @@
 
         //find all forms for given user
         function findAllFormsForUser(userId, callback) {
-            var form = [];
-
-            for (var k = 0; k< forms.length;k++) {
+            var form = [];  //set the form array to empty
+            //iterate the forms
+            for (var k = 0; k < forms.length; k++) {
                 if (forms[k].id == userId) {
                     form.push(forms[k]);
                 }
@@ -43,7 +43,7 @@
 
         //delete form by given form id
         function deleteFormById(formId, callback) {
-            for(var i =0; i<forms.length;i++) {
+            for(var i = 0; i < forms.length; i++) {
                 if (forms[i].id === formId) {
                     forms.splice(i, 1);
                     callback(forms);
@@ -55,7 +55,7 @@
 
         //update the form by given form's id with new form info
         function updateFormById(formId, newForm, callback) {
-            for(var j =0; j< forms.length;j++) {
+            for(var j = 0; j < forms.length; j++) {
                 if (forms[j].id = formId) {
                     for(var attr in updateForm) {
                         if (updateForm.hasOwnProperty(attr))

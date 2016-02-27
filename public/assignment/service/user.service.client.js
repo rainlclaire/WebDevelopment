@@ -20,7 +20,7 @@
                 "username":"ed",     "password":"ed",      "roles": ["student"]                }
         ];
 
-
+        //function implement
         var service = {
             findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
@@ -34,7 +34,7 @@
 
         //find user by username and password
         function findUserByCredentials(username, password, callback) {
-            var result = null;
+            var result = null; //set the result to null
             //iterate the current users
             for (var i = 0; i < currentUser.length; i++) {
                 if ((currentUser[i].username == username) && (currentUser[i].password = password)) {
@@ -61,7 +61,7 @@
         //delete the user by finding the user id
         function deleteUserById(userId, callback) {
             //iterate the currentUser
-            for (var i = 0; i< currentUser.length; i++) {
+            for (var i = 0; i < currentUser.length; i++) {
                 if (userId == currentUser[i]._id) {
                     currentUser.splice(i, 1);
                     callback(currentUser);
@@ -73,8 +73,8 @@
 
         //update the user info with given user id, user info, and callback
         function updateUser(userId, user, callback) {
-            for (var i =0; i< currentUser.length; i++) {
-                if (userId == currentUser[i].id){
+            for (var i = 0; i < currentUser.length; i++) {
+                if (userId == currentUser[i].id) {
                     //update the user with given data
                     for (var attr in user) {
                         if (user.hasOwnProperty(attr))
