@@ -13,66 +13,25 @@
        <!--&lt;!&ndash; bxSlider CSS file &ndash;&gt;-->
        <!--<link href="css/jquery.bxslider.css" rel="stylesheet" />-->
        <!--<script> $('#myCarousel').carousel({ interval: 3000 }) </script>﻿-->
+       <link href="css/modern-business.css" rel="stylesheet">
 
+       <!-- Custom Fonts -->
+       <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+       <!--[if lt IE 9]>
+       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+       <![endif]-->
+       <script type="text/css" src="css/style.css"></script>
 
 
    </head>
 
-<!--<body>-->
-<!--<header>-->
-
-<!--<nav class="navbar-fixed-top">-->
-<!--<div class="menu">-->
-    <!--<div class="container">-->
-        <!--<div class="row">-->
-
-            <!--<a href="/" class="logo">-->
-                <!--<img src="../ppj/ppjs/assert/image/logo.png">-->
-            <!--</a>-->
-            <!--<ul style="float:left">-->
-                <!--<li>-->
-                    <!--<a href="#home">FindGroup</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-            <!--<ul>-->
-            <!--<li class="menu-btn" style="padding-right:10px">-->
-                <!--<a href="#" class="btn framed">Sign Up</a>-->
-            <!--</li>-->
-                <!--<li class="menu-btn" style="padding-right:10px">-->
-                    <!--<a href="#" class="btn">Login</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-
-        <!--</div>-->
-
-    <!--</div>-->
-<!--</div>-->
-
-    <!--</nav>-->
-<!--</header>-->
-
-<!--<div class="slider" id="main-slider">-->
-    <!--<div class="slider-wrapper">-->
-        <!--<div class="slide" id="slide-1" data-image="http://lorempixel.com/1024/400/animals"></div>-->
-        <!--<div class="slide" id="slide-2" data-image="http://lorempixel.com/1024/400/business"></div>-->
-        <!--<div class="slide" id="slide-3" data-image="http://lorempixel.com/1024/400/city"></div>-->
-    <!--</div>-->
-    <!--<div class="slider-nav">-->
-        <!--<button class="slider-previous">Previous</button>-->
-        <!--<button class="slider-next">Next</button>-->
-    <!--</div>-->
-    <!--<div class="slider-pagination">-->
-        <!--<a href="#slide-1">1</a>-->
-        <!--<a href="#slide-2">2</a>-->
-        <!--<a href="#slide-3">3</a>-->
-    <!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</body>-->
    <body>
-
    <header>
-       <a href="#" id="logo"></a>
+       <img src="image/logo2.png" id="logo"/>
        <nav>
            <a href="#" id="menu-icon"></a>
            <ul>
@@ -81,60 +40,69 @@
            </ul>
        </nav>
    </header>
+   <div class="contentImage">
+       <img src="image/hiking.jpg">
+   <div class="fill" style="background-image:url('image/photo.jpg');"></div>
+       </div>
+
+    <form class="searchForm">
+            <div id="inputSearch">
+
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MA <span class="caret"></span></button>
+
+                <!--<span class="glyphicon glyphicon-triangle-bottom"></span> <input type="text" id="areaDropDown"/>-->
+            <input title="Group Search" placeholder="Hiking club" type="text"/>
+                <input type="submit" id="findButton" value="Search"/>
+            </div>
+
+
+        <!--<div class="input-group">-->
+            <!--<div id="inputFields">-->
+            <!--<input type="text" class="inputSearch form-control" placeholder="Hiking Club">-->
+                <!---->
+      <!--<span class="input-group-btn">-->
+        <!--<button class="btn btn-default" type="button">Search</button>-->
+      <!--</span>-->
+        <!--</div>-->
+        <!--<span id="basic-addon2">@example.com</span>-->
+
+
+        <!--<div class="input-group">-->
+            <!--<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">-->
+            <!--<span class="input-group-addon" id="basic-addon2">@example.com</span>-->
+        <!--</div>-->
+   </form>
+
+   </body>
+
+
+
+
 
    <div class="container">
-       <div class="carousel-slide" data-ride="carousel" id="carousel-ex">
-           <ol class="carousel-indicators">
-               <li data-target="carousel-ex" data-slide-to="0" class="active">
-               </li>
-               <li data-target="carousel-ex" data-slide-to="1" class="active">
-               </li>
-               <li data-target="carousel-ex" data-slide-to="2" class="active">
-               </li>
+       <!--<div class="carousel-slide" data-ride="carousel" id="carousel-ex">-->
+           <!--<ol class="carousel-indicators">-->
+               <!--<li data-target="carousel-ex" data-slide-to="0" class="active">-->
+               <!--</li>-->
+               <!--<li data-target="carousel-ex" data-slide-to="1" class="active">-->
+               <!--</li>-->
+               <!--<li data-target="carousel-ex" data-slide-to="2" class="active">-->
+               <!--</li>-->
 
-           </ol>
-           <div class="carousel-inner">
-               <div class="item" active>
-                   <img src="image/1.png " title="Funky roots" />
-               </div>
-               <div class="item">
-                   <img src="image/2.png " title="Funky roots" />
-               </div>
-               <div class="item">
-                   <img src="image/3.png " title="Funky roots" />
-               </div>
-           </div>
+           <!--</ol>-->
+           <!--<div class="carousel-inner">-->
+               <!--<div class="item" active>-->
+                   <!--<img src="image/1.png " title="Funky roots" />-->
+               <!--</div>-->
+               <!--<div class="item">-->
+                   <!--<img src="image/2.png " title="Funky roots" />-->
+               <!--</div>-->
+               <!--<div class="item">-->
+                   <!--<img src="image/3.png " title="Funky roots" />-->
+               <!--</div>-->
+           <!--</div>-->
        </div>
    </div>
-
-
-       <!--<ul class="bxslider">-->
-           <!--<li>-->
-               <!--<img src="image/1.png " title="Funky roots" /></li>-->
-           <!--<li>-->
-               <!--<img src="image/2.png" title="The long and winding road" /></li>-->
-           <!--<li>-->
-               <!--<img src="image/3.png" title="Happy trees" /></li>-->
-       <!--</ul>-->
-   <!--<script>$('.bxslider').bxSlider({-->
-   <!--mode: 'fade',-->
-   <!--captions: true-->
-   <!--});-->
-   <!--$('.bxslider').bxSlider({-->
-
-       <!--minSlides: 4,-->
-       <!--maxSlides: 4,-->
-       <!--slideWidth: 170,-->
-       <!--slideMargin: 10,-->
-       <!--ticker: true,-->
-       <!--speed: 6000-->
-   <!--});-->
-   <!--</script>-->
-
-
-
-
-
    <link href="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js " rel="stylesheet"/>
