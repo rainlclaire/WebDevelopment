@@ -123,8 +123,9 @@ a:hover {
 }
 
 img {
-
+    height:470px;
     width: 100%;
+
 
 }
 
@@ -136,7 +137,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    border-bottom: 4px solid #4C9CF1;
+    border-bottom: 4px solid #4F6D7A;
     z-index: 100;
 
 }
@@ -159,14 +160,14 @@ nav {
 
 }
 
-#menu-icon {
+/*#menu-icon {*/
 
-    display: hidden;
-    width: 40px;
-    height: 40px;
-    background: #4C8FEC url(../img/menu-icon.png) center;
+    /*display: hidden;*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*background: #4C8FEC url(../img/menu-icon.png) center;*/
 
-}
+/*}*/
 
 a:hover#menu-icon {
 
@@ -207,7 +208,7 @@ section {
 h1 {
 
     font-size: 2em;
-    color: #2262AD;
+    color: #DBE9EE;
     line-height: 1.15em;
     margin: 20px 0 ;
 
@@ -226,6 +227,11 @@ html body header img#logo {
     margin-top:10px;
     margin-left:10px;
 }
+form.searchForm div#inputSearch button#findButton.btn.btn-primary {
+    height:50px;
+    width:100px;
+    background-color: #4F6D7A;
+}
 
 html body form.searchForm div#inputSearch{
     text-align:center;
@@ -237,30 +243,9 @@ html body form.searchForm div#inputSearch input#findButton{
 }
 
 
-html body div.group-event {
-    height:200px;
-    width:300px;
-    white-space:nowrap;
-    width:100%;
-    display: table;
-
+html body div a img.img-responsive.img-portfolio.img-hover {
+    height:300px;
 }
-
-
-html body div.group-event div.groupImage {
-    vertical-align:middle;
-    padding:20px;
-    display:inline-block;
-}
-
-html body div.group-event div.groupImage img {
-    width:300px;
-    height:auto;
-    /*height:200px;*/
-    /*max-height:80%;*/
-    /*max-width:100%;*/
-}
-
 
 form.searchForm div#inputSearch input{
     margin-top: 10px;
@@ -273,6 +258,84 @@ form.searchForm div#inputSearch button.btn.btn-default.dropdown-toggle {
     height:50px;
     width: 60px;
 }
+
+header nav ul li.menu-btn a.btn.btn-primary {
+    background-color:#4F6D7A;
+}
+
+
+
+
+/*html body div.createGroupButton {*/
+    /*text-align: right;*/
+/*}*/
+/*html body div.createGroupButton button{*/
+    /*margin-top:-100px;*/
+    /*height:60px;*/
+    /*width:31%;*/
+/*}*/
+header nav ul li.menu-btn a.btn {
+    padding:13px 10px;
+    margin-top:-20px;
+    height:50px;
+    width:120px;
+
+}
+header nav ul li.menu-btn a {
+    margin-top:-20px;
+    height:50px;
+    width:100px;
+    text-align: center;
+}
+
+header button#createGroup.btn.btn-danger {
+    margin-top:10px;
+    height:50px;
+    width:200px;
+
+}
+div form.extra-content {
+    text-align:center;
+}
+
+div form.extra-content a {
+    font-size:200%;
+    padding-left: 10px;
+
+}
+body div {
+    background-color:#f4f4f4;
+}
+
+h1 {
+    color:#166088;
+}
+/*body header {*/
+    /*background-color:#f4f4f4;*/
+/*}*/
+div.container h1.groupTitle {
+    margin-top:50px;
+    background-color:#C0D6DF;
+    padding:32px 94px 30px;
+    text-align:center;
+    border-radius:15px;
+
+}
+
+div div table.table.sptable tbody tr td.nonebored button.btn.btn-danger {
+    margin-top:14px;
+}
+
+
+
+
+/*div.container div a img {*/
+    /*margin-top:50px;*/
+/*}*/
+
+
+
+
 
 /*MEDIA QUERY*/
 @media only screen and (max-width : 640px) {
@@ -317,7 +380,9 @@ form.searchForm div#inputSearch button.btn.btn-default.dropdown-toggle {
         display: block;
 
     }
-
-
 }
+
+
+
+
 
