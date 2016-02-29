@@ -217,7 +217,7 @@ h1 {
 p {
 
     line-height: 1.45em;
-    margin-bottom: 20px;
+
 
 }
 html body header img#logo {
@@ -340,6 +340,15 @@ div.container div ul.events {
 div.container div ul.events li.eventItem {
     /*display: table-cell;*/
 
+}
+
+body {
+    background-color:#f4f4f4;
+
+}
+
+body div.bottomContent  {
+    background-color:#4F6D7A;
 }
 
 
