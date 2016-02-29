@@ -326,6 +326,22 @@ div div table.table.sptable tbody tr td.nonebored button.btn.btn-danger {
     margin-top:14px;
 }
 
+div.container hr {
+    border:2px solid;
+
+}
+
+div.container div ul.events {
+    /*overflow:hidden;*/
+    /*white-space:nowrap;*/
+
+}
+
+div.container div ul.events li.eventItem {
+    /*display: table-cell;*/
+
+}
+
 
 
 
