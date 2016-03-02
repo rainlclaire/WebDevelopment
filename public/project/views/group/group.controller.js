@@ -4,7 +4,7 @@
     angular.module('FindGroupApp')
         .controller("GroupController", GroupController);
 
-    function GroupController($scope, $location, $rootScope, UserService) {
+    function GroupController($scope, $location, $rootScope) {
 
 
 
