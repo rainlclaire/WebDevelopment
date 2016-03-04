@@ -38,7 +38,7 @@
                 templateUrl:"views/search/search.view.html"
                 //controller:"HomeController"
             })
-            .when("/search/:title", {
+            .when("/search/:groupTitle", {
                 templateUrl:"views/search/search.view.html"
                 //controller:"HomeController"
             })

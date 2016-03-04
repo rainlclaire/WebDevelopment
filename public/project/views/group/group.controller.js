@@ -44,8 +44,11 @@
 
             //inti the title with empty
             $scope.clickGroup.title="";
+            $scope.clickGroup.ownerName="";
+            $scope.clickGroup.description="";
+            $scope.clickGroup.listofEvents="";
 
-            GroupService.createGroup(newGroup, function(createdGruop) {
+            GroupService.createGroup(newGroup, function(createdGroups) {
                 GroupService.findAllGroups(function(allGroups) {
                     $scope.groups = allGroups;
 
@@ -56,7 +59,7 @@
         //update the select form with the given form info
         function updateGroup(group) {
             if ($scope.selectGroupIndex != null) {
-                $scope.groups[$scope.selectGroupIndex].id = group.id;
+                $scope.groups[$scope.selectGroupIndex]._id = group._id;
                 $scope.groups[$scope.selectGroupIndex].title = group.title;
                 $scope.groups[$scope.selectGroupIndex].description = group.description;
                 $scope.groups[$scope.selectGroupIndex].ownerName = group.ownerName;
@@ -69,7 +72,8 @@
 
         //delete the form with given form's index
         function deleteGroup(index) {
-            var deletedId = $scope.groups[index].id;
+            var deletedId = $scope.groups[index]._id;
+            console.log(deletedId);
             GroupService.deleteGroupById(deletedId, function(allOtherGroups) {
                 $scope.groups = allOtherGroups;
             });

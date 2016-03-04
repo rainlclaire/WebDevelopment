@@ -1,9 +1,8 @@
-
 <div class='login'>
     <h2>Sign Up</h2>
     <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
     <label for="username" class="control-label">Username</label>
-    <input ng-model="user.username" id="username" type="text" class="form-control" placeholder='Username' required>
+    <input ng-model="user.username" id="username" type="text"placeholder='Username' required>
     <label for="password" class="control-label">Password</label>
     <input ng-model="user.password" type="text" id='password' placeholder='Password' required>
     <button ng-click="login(user)" class="btn btn-primary btn-lg btn-block">LogIn</button>

@@ -21,7 +21,13 @@
                 "Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. " +
                 "Vivamus varius pretium ligula, a aliquam odio euismod sit amet. " +
                 "Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. " +
-                "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.","listofEvnets": []
+                "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+                "listofEvnets": [
+                    {_id:"01"},
+                    {_id:"02"}
+                ]
+
+
             },
             {"_id": "02", "title": "Hiking Club", "ownerName": "bob","description":"Lorem ipsum dolor sit amet, " +
             "consectetur adipiscing elit. Nulla quam velit, " +
@@ -37,7 +43,7 @@
             "Vivamus varius pretium ligula, a aliquam odio euismod sit amet. " +
             "Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. " +
             "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
-                "listofEvents": []},
+                "listofEvents": ""},
             {"_id": "03", "title": "Boston Game Group", "ownerName": "bob",
                 "description":"Lorem ipsum dolor sit amet, " +
                 "consectetur adipiscing elit. Nulla quam velit, " +
@@ -53,7 +59,7 @@
                 "Vivamus varius pretium ligula, a aliquam odio euismod sit amet. " +
                 "Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. " +
                 "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
-                "listofEvents": []}
+                "listofEvents": ""}
         ];
 
         var service = {
@@ -116,7 +122,7 @@
         //delete form by given form id
         function deleteGroupById(groupId, callback) {
             for(var i = 0; i < groups.length; i++) {
-                if (groups[i].id === groupId) {
+                if (groups[i]._id === groupId) {
                     groups.splice(i, 1);
                     callback(groups);
                     break;
@@ -128,7 +134,7 @@
         //update the form by given form's id with new form info
         function updateGroupById(groupId, newGroup, callback) {
             for(var j = 0; j < groups.length; j++) {
-                if (groups[j].id = groupId) {
+                if (groups[j]._id = groupId) {
                     for(var attr in updateForm) {
                         if (updateForm.hasOwnProperty(attr))
                             groups[j][attr] = updateForm[attr];

@@ -11,19 +11,28 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>Poster</th>
+        <th>ID</th>
         <th>Title</th>
+        <th>Description</th>
+        <th>OwnerName</th>
+        <th>Events</th>
     </tr>
+    <!--<tr>-->
+        <!--<th>Title</th>-->
+    <!--</tr>-->
     </thead>
     <tbody>
     <tr>
-        <td>{{group.title}}</a>
-
-        </td>
+        <td ng-repeat="group in groups">{{group._id}}</td>
+        <td ng-repeat="group in groups"><a href="#/details/{{group._id}}">{{group.title}}</a></td>
+        <td ng-repeat="group in groups">{{group.description}}</td>
+        <td ng-repeat="group in groups">{{group.ownerName}}</td>
+        <td ng-repeat="group in groups">{{group.listofEvents}}</td>
     </tr>
+
     <tr ng-repeat="group in groups">
         <td>
-            <a href="#/details/{{group._id}}">{{group.title}}</a>
+
         </td>
     </tr>
     <tr>{{errorMessage}}</tr>

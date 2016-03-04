@@ -5,7 +5,7 @@
         .module("FindGroupApp")
         .controller("DetailsController", DetailsController);
 
-    function DetailsController($rootScope,$scope, $routeParams, GroupService) {
+    function DetailsController($rootScope,$location, $scope, $routeParams, GroupService) {
 
         var group_id = $routeParams.group_id;
         console.log(group_id);
@@ -20,8 +20,11 @@
 
         var groups = $scope.groups;
 
-        $scope.findGroup  = findGroup;
 
+
+
+        $scope.findGroup  = findGroup;
+        $scope.joinGroup = joinGroup;
 
         function findGroup() {
             for(var i =0; i< groups.size; i++) {
@@ -36,6 +39,16 @@
             }
             return null;
         }
+
+        function joinGroup() {
+            if ($scope.currentUser !=null) {
+                alert("to do this join later");
+            } else {
+                alert("You have to login");
+                $location.url("/login");
+            }
+        }
+
 
 
         console.log($scope.group);

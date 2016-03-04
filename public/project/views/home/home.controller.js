@@ -3,20 +3,13 @@
         .module("FindGroupApp")
         .controller("HomeController", HomeController);
 
-    function HomeController($scope, $routeParams, $location, GroupService) {
+    function HomeController($scope, $routeParams,$rootScope, $location, GroupService) {
         //
         //$scope.groupTitle = "Dancer Club";
         $scope.errorMessage = "";
 
-        //function init() {
-        //    var group_title = $routeParams.title;
-        //    if(group_title) {
-        //        fetchGroup(group_title);
-        //    }
-        //}
-        //init();
-
         $scope.fetchGroup = fetchGroup;
+       //console.log($scope.groups);
 
         function fetchGroup(group_title) {
 
@@ -32,6 +25,7 @@
                 $scope.errorMessage = "";
 
                 $scope.groups = response;
+                $rootScope.groups = response;
             }else{
                 alert("no groups found");
 
