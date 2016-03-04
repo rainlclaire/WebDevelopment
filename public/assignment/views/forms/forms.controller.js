@@ -40,8 +40,8 @@
                 FormService.findAllFormsForUser(user.id, function(allForms) {
                     $scope.forms = allForms;
 
+                });
             });
-        });
         }
 
         //update the select form with the given form info
@@ -58,10 +58,10 @@
 
         //delete the form with given form's index
         function deleteForm(index) {
-                var deletedId = $scope.forms[index].id;
-                FormService.deleteFormById(deletedId, function(allOtherForms) {
-                    $scope.forms = allOtherForms;
-                });
+            var deletedId = $scope.forms[index].id;
+            FormService.deleteFormById(deletedId, function(allOtherForms) {
+                $scope.forms = allOtherForms;
+            });
         }
 
         //select the form with given form's index
@@ -75,5 +75,5 @@
             };
         }
 
-        }
+    }
 })();

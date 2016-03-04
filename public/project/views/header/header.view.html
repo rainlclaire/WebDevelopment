@@ -1,13 +1,43 @@
-<header class="header">
-    <img src="../image/logo2.png" id="logo"/>
-    <button type="button" id="createGroup" class="btn btn-danger">Create My Group</button>
-    <nav>
+<!--<header class="header">-->
+    <!--<img src="../image/logo2.png" id="logo"/>-->
+    <!--<a href="#/home" type="button" id="createGroup" class="btn btn-danger">Create My Group</a>-->
+    <!--<nav>-->
 
-        <a href="#" id="menu-icon"></a>
-        <ul>
-            <li class="menu-btn"><a class="btn btn-primary framed" href="#/signUp" class="current">Sign Up</a></li>
-            <li class="menu-btn"><a class="btn btn-primary" href="#/login">Log In</a></li>
-        </ul>
+        <!--<a href="#" id="menu-icon"></a>-->
+        <!--<ul>-->
+            <!--<li class="menu-btn"><a class="btn btn-primary framed" href="#/signUp" class="current">Sign Up</a></li>-->
+            <!--<li class="menu-btn"><a class="btn btn-primary" href="#/login">Log In</a></li>-->
+            <!--<li class="menu-btn"><a class="btn btn-primary" href="#/profile">Profile</a></li>-->
+            <!--<li class="menu-btn"><a class="btn btn-primary" href="#/group">Group</a></li>-->
+        <!--</ul>-->
 
-    </nav>
-</header>
+    <!--</nav>-->
+<!--</header>-->
+<div class="navbar navbar-inverse navbar-fixed-top top-nav" role="navigation">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <!--<img src="../../../image/logo2.png" title="PixelMock Logo">-->
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav">
+                <li ng-class="{'active': $location.url()=='/home'}"><a href="#/home">Home</a></li>
+                <li ng-class="{'active': $location.url()=='/group'}"><a href="#/group">group</a></li>
+                <li ng-show="!currentUser" ng-class="{'active': $location.url()=='/signUp'}"><a href="#/signUp">sign up</a></li>
+                <li ng-show="!currentUser" ng-class="{'active': $location.url()=='/login'}"><a href="#/login">log in</a></li>
+                <li><a ng-show="currentUser" ng-click="logout(currentUser)">logout</a></li>
+                <li ng-show="currentUser" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>
+                <li ng-class="{'active': $location.url()=='/search'}"><a href="#/search">Search</a></li>
+
+            </ul>
+        </div>
+
+</div>

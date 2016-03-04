@@ -1,117 +1,157 @@
 
 <div class="container">
-    <h1 class="groupTitle">Boston Dancer Club</h1>
-<div class="col-md-4 col-sm-5">
-    <a href="portfolio-item.html">
-        <img class="img-responsive img-portfolio img-hover img-thumbnail" src="../image/dancer.jpg" alt="">
-    </a>
+    <h1 class="groupTitle">Groups</h1>
+<!--<div class="col-md-4 col-sm-5">-->
+    <!--<a href="portfolio-item.html">-->
+        <!--<img class="img-responsive img-portfolio img-hover img-thumbnail" src="../image/dancer.jpg" alt="">-->
+    <!--</a>-->
 
-</div>
-    <div class="col-md-8 col-sm-7">
-    <table class="table sptable">
-        <tbody>
-        <tr>
-            <td class="nonebored">
-                <h1>Group Description</h1>
-            </td>
-            <td class="iconright nonebored">
-                <p>In this article, I’d like to reacquaint you with the humble workhorse of communication that is the paragraph.
-                    Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now.
-                    Despite their ubiquity, we frequently neglect their presentation. This is a mistake. Here,
-                    we’ll refer to some time-honored typesetting conventions, with an emphasis on readability,
-                    and offer guidance on adapting them effectively for devices and screens.
-                    We’ll see that the ability to embed fonts with @font-face is not by itself a solution
-                    to all of our typographic challenges.</p>
+<!--</div>-->
+    <div class="col-md-12 col-sm-10">
 
-            </td>
-        </tr>
-        <tr>
-            <td class="nonebored">
-                <button class="btn btn-danger">Join Us</button>
-                <div>
-                </div>
-            </td>
-            <td class="iconright nonebored">
-                <span class="likebtn-wrapper" data-theme="drop" data-identifier="item_1"></span>
-                <script>(function(d,e,s)
-                {if(d.getElementById("likebtn_wjs"))
-                    return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];
-                    a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})
-                (document,"script","//w.likebtn.com/js/w/widget.js");</script>
-            </td>
-        </tr>
-        <tr>
-            <td class="nonebord">
-                <h1>Group Owner</h1>
-            </td>
-            <td>
-                <a href="#">James Lee</a>
-                <a href="#">,Louis James</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    </div>
-    <hr size="30" style='display:inline-block; width:100%;'/>
-    <div class="col-md-12 col-sm-8">
-        <h1>Recent Events</h1>
-        <table class="table table-stripe">
+        <table class="table table-condensed table-bordered table-striped volumes sptable">
             <thead>
             <tr>
-                <th><h2>Event Name</h2></th>
-                <th><h2>Event Time</h2></th>
-                <th><h2>Event Seats</h2></th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group Name</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group Description</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group OwnerName</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
+            </tr>
+            <tr>
+                <td>
+                    <input ng-model="clickGroup.title" class="form-control input-sm" type="text" id="group-title" placeholder="name">
+                </td>
+                <td>
+                    <input ng-model="clickGroup.description" class="form-control input-sm" type="text" id="group-description" placeholder="description">
+                </td>
+                <td>
+                    <input ng-model="clickGroup.ownerName" class="form-control input-sm" type="text" id="group-ownerName" placeholder="ownerName">
+                </td>
+                <td class="iconcenter">
+                    <div class="row-fluid form-inline">
+                        <button ng-click="addGroup(clickGroup)" class="glyphicon glyphicon-plus"></button>
+                        <!--how to put space here-->
+                        <button ng-click="updateGroup(clickGroup)" class="glyphicon glyphicon-ok"></button>
+                    </div>
+                </td>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td class="col-md-3 col-sm-4 col-xs-4">
-                    <a href="#/event"><h2 style="color:lightcoral">2016 Dancer Party</h2></a>
-                </td>
-                <td class="col-md-5 col-sm-4 col-xs-4">
-                    <h2 type="date">01/30/2016,9:30-11:30PM</h2>
-                </td>
-                <td class="col-md-4 col-sm-4 col-xs-4">
-                    <h2>30</h2>
+            <tr ng-repeat="group in groups">
+                <td class="form-list"><a href="#details/{{group._id}}">{{group.title}}</a></td>
+                <td>{{group.description}}</td>
+                <td>{{group.ownerName}}</td>
+                <td class="form-list text-center">
+                    <button ng-click="deleteGroup($index)" class="glyphicon glyphicon-remove action-icon"></button>
+                    <button ng-click="selectGroup($index)" class="glyphicon glyphicon-pencil action-icon"></button>
                 </td>
             </tr>
-            <tr>
-                <td class="col-md-3 col-sm-4 col-xs-4">
-                    <a href="#event"><h2 style="color:lightcoral">Card Game</h2></a>
-                </td>
-                <td class="col-md-5 col-sm-4 col-xs-4">
-                    <h2 type="date">02/30/2016,2:30-5:30PM</h2>
-                </td>
-                <td class="col-md-4 col-sm-4 col-xs-4">
-                    <h2>50</h2>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-3 col-sm-4 col-xs-4">
-                    <a href="#/event"><h2 style="color:lightcoral">2016 Dancer Party</h2></a>
-                </td>
-                <td class="col-md-5 col-sm-4 col-xs-4">
-                    <h2 type="date">01/30/2016,9:30-11:30PM</h2>
-                </td>
-                <td class="col-md-4 col-sm-4 col-xs-4">
-                    <h2>30</h2>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-3 col-sm-4 col-xs-4">
-                    <a href="#/event"><h2 style="color:lightcoral">Card Game</h2></a>
-                </td>
-                <td class="col-md-5 col-sm-4 col-xs-4">
-                    <h2 type="date">02/30/2016,2:30-5:30PM</h2>
-                </td>
-                <td class="col-md-4 col-sm-4 col-xs-4">
-                    <h2>50</h2>
-                </td>
-            </tr>
-
-
             </tbody>
-            </table>
+        </table>
+    <!--<table class="table sptable">-->
+        <!--<tbody>-->
+        <!--<tr>-->
+            <!--<td class="nonebored">-->
+                <!--<h1>Group Description</h1>-->
+            <!--</td>-->
+            <!--<td class="iconright nonebored">-->
+                <!--<p>In this article, I’d like to reacquaint you with the humble workhorse of communication that is the paragraph.-->
+                    <!--Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now.-->
+                    <!--Despite their ubiquity, we frequently neglect their presentation. This is a mistake. Here,-->
+                    <!--we’ll refer to some time-honored typesetting conventions, with an emphasis on readability,-->
+                    <!--and offer guidance on adapting them effectively for devices and screens.-->
+                    <!--We’ll see that the ability to embed fonts with @font-face is not by itself a solution-->
+                    <!--to all of our typographic challenges.</p>-->
+
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td class="nonebored">-->
+                <!--<button class="btn btn-danger">Join Us</button>-->
+                <!--<div>-->
+                <!--</div>-->
+            <!--</td>-->
+            <!--<td class="iconright nonebored">-->
+                <!--<span class="likebtn-wrapper" data-theme="drop" data-identifier="item_1"></span>-->
+                <!--<script>(function(d,e,s)-->
+                <!--{if(d.getElementById("likebtn_wjs"))-->
+                    <!--return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];-->
+                    <!--a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})-->
+                <!--(document,"script","//w.likebtn.com/js/w/widget.js");</script>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td class="nonebord">-->
+                <!--<h1>Group Owner</h1>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<a href="#">James Lee</a>-->
+                <!--<a href="#">,Louis James</a>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+    <!--</div>-->
+    <!--<hr size="30" style='display:inline-block; width:100%;'/>-->
+    <!--<div class="col-md-12 col-sm-8">-->
+        <!--<h1>Recent Events</h1>-->
+        <!--<table class="table table-stripe">-->
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<th><h2>Event Name</h2></th>-->
+                <!--<th><h2>Event Time</h2></th>-->
+                <!--<th><h2>Event Seats</h2></th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr>-->
+                <!--<td class="col-md-3 col-sm-4 col-xs-4">-->
+                    <!--<a href="#/event"><h2 style="color:lightcoral">2016 Dancer Party</h2></a>-->
+                <!--</td>-->
+                <!--<td class="col-md-5 col-sm-4 col-xs-4">-->
+                    <!--<h2 type="date">01/30/2016,9:30-11:30PM</h2>-->
+                <!--</td>-->
+                <!--<td class="col-md-4 col-sm-4 col-xs-4">-->
+                    <!--<h2>30</h2>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td class="col-md-3 col-sm-4 col-xs-4">-->
+                    <!--<a href="#event"><h2 style="color:lightcoral">Card Game</h2></a>-->
+                <!--</td>-->
+                <!--<td class="col-md-5 col-sm-4 col-xs-4">-->
+                    <!--<h2 type="date">02/30/2016,2:30-5:30PM</h2>-->
+                <!--</td>-->
+                <!--<td class="col-md-4 col-sm-4 col-xs-4">-->
+                    <!--<h2>50</h2>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td class="col-md-3 col-sm-4 col-xs-4">-->
+                    <!--<a href="#/event"><h2 style="color:lightcoral">2016 Dancer Party</h2></a>-->
+                <!--</td>-->
+                <!--<td class="col-md-5 col-sm-4 col-xs-4">-->
+                    <!--<h2 type="date">01/30/2016,9:30-11:30PM</h2>-->
+                <!--</td>-->
+                <!--<td class="col-md-4 col-sm-4 col-xs-4">-->
+                    <!--<h2>30</h2>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td class="col-md-3 col-sm-4 col-xs-4">-->
+                    <!--<a href="#/event"><h2 style="color:lightcoral">Card Game</h2></a>-->
+                <!--</td>-->
+                <!--<td class="col-md-5 col-sm-4 col-xs-4">-->
+                    <!--<h2 type="date">02/30/2016,2:30-5:30PM</h2>-->
+                <!--</td>-->
+                <!--<td class="col-md-4 col-sm-4 col-xs-4">-->
+                    <!--<h2>50</h2>-->
+                <!--</td>-->
+            <!--</tr>-->
+
+
+            <!--</tbody>-->
+            <!--</table>-->
     </div>
     <!--<form>-->
     <!--<div class="col-md-8 col-sm-6">-->

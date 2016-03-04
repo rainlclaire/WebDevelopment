@@ -7,15 +7,18 @@
     function Configuration($routeProvider) {
         $routeProvider
             .when("/home", {
-                templateUrl: "views/home/home.view.html"
+                templateUrl: "views/home/home.view.html",
+                controller:"SearchController"
+
             })
             .when("/group", {
                 templateUrl: "views/group/group.view.html",
                 controller: "GroupController"
             })
-            //.when("/admin", {
-            //    templateUrl: "views/admin/admin.view.html"
-            //})
+            .when("/profile", {
+                templateUrl: "views/profile/profile.view.html",
+                controller:"ProfileController"
+            })
             .when("/signUp", {
                 templateUrl: "views/signUp/signUp.view.html",
                 controller: "SignUpController"
@@ -27,6 +30,18 @@
             .when("/event", {
                 templateUrl: "views/event/event.view.html",
                 controller: "EventController"
+            })
+            .when("/details/:group_id", {
+                templateUrl:"views/details/detail.view.html",
+                controller:"DetailsController as model"
+            })
+            .when("/search", {
+                templateUrl:"views/search/search.view.html",
+                controller:"SearchController"
+            })
+            .when("/search/:title", {
+                templateUrl:"views/search/search.view.html",
+                controller:"SearchController"
             })
             .otherwise( {
                 redirectTo: "/home"

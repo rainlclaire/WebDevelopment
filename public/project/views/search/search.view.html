@@ -1,0 +1,25 @@
+<h1>Search OMDBAPI 123</h1>
+<h2>Search</h2>
+<input ng-model="groupTitle" class="form-control"/>
+
+<!--<a href="#/search/{{groupTitle}}" class="btn btn-primary btn-block">-->
+<a ng-click="fetchGroup()" class="btn btn-primary btn-block">
+    Search
+</a>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Poster</th>
+        <th>Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-click="selectGroup(group)" ng-repeat="group in groups">
+        <td>
+            <a href="#/details/{{group._id}}">{{group.title}}</a>
+        </td>
+    </tr>
+    <tr>{{errorMessage}}</tr>
+    </tbody>
+</table>
+</div>

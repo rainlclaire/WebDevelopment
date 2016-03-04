@@ -5,8 +5,7 @@
 <html lang="en" ng-app="FindGroupApp">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="http://getbootstrap.com/components/#glyphicons">
-    <link rel="awsomeIcon" href="https://fortawesome.github.io/Font-Awesome/icons/#awesomeicons">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -16,8 +15,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
     <link href="css/signUp.css" rel="stylesheet"/>
     <link href="css/mystyle.css" rel="stylesheet"/>
+    <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">-->
+    <!--<link rel="awsomeIcon" href="https://fortawesome.github.io/Font-Awesome/icons/#awesomeicons">-->
 
     <script src="app.js"></script>
     <script src="config.js"></script>
@@ -26,13 +28,20 @@
     <script src="views/main/main.controller.js"></script>
     <script src="views/login/logIn.controller.js"></script>
     <script src="views/signup/singUp.controller.js"></script>
-
-
+    <script src="service/userService.client.js"></script>
+    <script src="views/profile/profile.controller.js"></script>
+    <script src="views/group/group.controller.js"></script>
+    <script src="service/groupService.client.js"></script>
+    <script src="service/userService.client.js"></script>
+    <script src="views/header/header.controller.js"></script>
+    <script src="views/signup/singUp.controller.js"></script>
+    <script src="views/details/details.controller.js"></script>
+    <script src="views/search/search.controller.js"></script>
 </head>
 
 <body ng-controller="MainController">
 
-<div class="container">
+<div class="container" ng-controller="HeaderController">
     <div  ng-include src="'views/header/header.view.html'" class="navbar navbar-inverse navbar-fixed-top">
         <!--<div ></div>-->
     </div>

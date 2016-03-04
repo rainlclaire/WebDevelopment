@@ -1,0 +1,31 @@
+<h2>Profile</h2>
+
+
+<div class='login'>
+    <h2>Profile</h2>
+
+    <label for="username" class="control-label">Username</label>
+    <input ng-model="currentUser.username" type="text" id="username" placeholder="johndoe">
+
+    <label for="password" class="control-label">Password</label>
+    <input ng-model="currentUser.password" type="password" id="password" placeholder="p@ssw0rd">
+
+    <label for="password2" class="control-label">Verify Password</label>
+    <input ng-model="currentUser.password2" type="password" id="password2" placeholder="p@ssw0rd">
+
+
+    <label for="firstName" class="control-label">First Name</label>
+    <input ng-model="currentUser.firstName" type="text" id="firstName" placeholder="John">
+
+    <label for="lastName" class="control-label">Last Name</label>
+    <input ng-model="currentUser.lastName" type="text" id="lastName" placeholder="Doe">
+
+
+    <label for="email" class="control-label">Email</label>
+    <input ng-model="currentUser.email" type="email" id="email" placeholder="john@doe.com">
+
+    <button ng-click="updateUser(currentUser)" class="btn btn-primary btn-lg btn-block">Update</button>
+    <div ng-show="message" class="alert alert-success" role="alert">{{message}}</div>
+    <div ng-show="error"  vclass="alert alert-danger"  role="alert">{{error}}</div>
+
+</div>
