@@ -32,7 +32,7 @@
             })
             .when("/details/:group_id", {
                 templateUrl:"views/details/detail.view.html",
-                controller:"DetailsController as model"
+                controller:"DetailsController"
             })
             .when("/search", {
                 templateUrl:"views/search/search.view.html"

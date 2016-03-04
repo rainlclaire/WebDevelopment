@@ -9,16 +9,18 @@
 
         var group_id = $routeParams.group_id;
         console.log(group_id);
+
         GroupService.findAllGroups(function(allGroups) {
             $scope.groups= allGroups;
         });
-
+        console.log($scope.groups);
         GroupService.findGroupByID(group_id, function(theGroup) {
             $scope.group = theGroup;
             console.log($scope.group);
         });
 
         var groups = $scope.groups;
+        console.log(groups);
 
 
 
