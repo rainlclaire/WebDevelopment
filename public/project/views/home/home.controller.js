@@ -18,7 +18,7 @@
         }
 
         function renderGroups(response) {
-            console.log(response);
+            console.log(response+"response form homesearch");
             if(response.length!=0) {
                 $location.url("search/{{groupTitle}}");
 
