@@ -8,8 +8,7 @@
         $routeProvider
             .when("/home", {
                 templateUrl: "views/home/home.view.html",
-                controller:"SearchController"
-
+                controller:"HomeController"
             })
             .when("/group", {
                 templateUrl: "views/group/group.view.html",
@@ -36,12 +35,12 @@
                 controller:"DetailsController as model"
             })
             .when("/search", {
-                templateUrl:"views/search/search.view.html",
-                controller:"SearchController"
+                templateUrl:"views/search/search.view.html"
+                //controller:"HomeController"
             })
             .when("/search/:title", {
-                templateUrl:"views/search/search.view.html",
-                controller:"SearchController"
+                templateUrl:"views/search/search.view.html"
+                //controller:"HomeController"
             })
             .otherwise( {
                 redirectTo: "/home"

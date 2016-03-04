@@ -1,12 +1,12 @@
 (function(){
     angular
         .module("FindGroupApp")
-        .controller("SearchController", SearchController);
+        .controller("HomeController", HomeController);
 
-    function SearchController($scope, $routeParams, $location, GroupService) {
+    function HomeController($scope, $routeParams, $location, GroupService) {
         //
         //$scope.groupTitle = "Dancer Club";
-        $scope.errorMessage = ""
+        $scope.errorMessage = "";
 
         //function init() {
         //    var group_title = $routeParams.title;
@@ -27,11 +27,15 @@
         function renderGroups(response) {
             console.log(response);
             if(response.length!=0) {
-                $scope.errorMessage = ""
+                $location.url("search/{{groupTitle}}");
+
+                $scope.errorMessage = "";
 
                 $scope.groups = response;
             }else{
-                $scope.errorMessage = "No results found"
+                alert("no groups found");
+
+                //$scope.errorMessage = "No results found"
             }
 
             console.log($scope.errorMessage);
