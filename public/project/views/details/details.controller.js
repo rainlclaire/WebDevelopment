@@ -10,7 +10,10 @@
         var vm = this;
 
         var group_id = $routeParams.group_id;
-        console.log(group_id);
+        //console.log(group_id);
+
+        $rootScope.currentGroupid = group_id;
+
 
         var currentUser = $rootScope.currentUser;
         //vm.favorite = favorite;
@@ -25,8 +28,13 @@
         GroupService.findGroupByID(group_id, function(theGroup) {
             $scope.group = theGroup;
             //console.log("here");
-            //console.log($scope.group);
+            console.log($scope.group);
+            $rootScope.currentGroup = $scope.group;
         });
+
+
+
+
 
         var groups = $scope.groups;
         //console.log(groups);
@@ -36,8 +44,14 @@
 
         $scope.findGroup  = findGroup;
         $scope.joinGroup = joinGroup;
+
+
         $scope.findGroupMap = findGroupMap;
         $scope.init = init;
+
+
+
+
 
         //console.log(group.address);
         function findGroup() {

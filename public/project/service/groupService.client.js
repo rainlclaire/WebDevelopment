@@ -69,7 +69,8 @@
             deleteGroupById: deleteGroupById,
             updateGroupById:updateGroupById,
             findGroupByID:findGroupByID,
-            findGroupsByTitle:findGroupsByTitle
+            findGroupsByTitle:findGroupsByTitle,
+            findEventByID:findEventByID
         };
         return service;
 
@@ -116,6 +117,38 @@
             callback(findGroups);
 
         }
+
+        function findEventByID(eventID, callback){
+            //findGroupByID(groupID, function(theGroup) {
+            //    $scope.group = theGroup;
+            //})
+            for(var i = 0; i < groups.length; i++) {
+
+
+                for(var j =0; j< groups[i].listofEvents.length;j++) {
+                    if (groups[i].listofEvents[j] === eventID) {
+                        var event = groups[i].listofEvents[j];
+                        console.log(event);
+                        callback(event);
+                        break;
+                    }
+                }
+            }
+        }
+
+        function findAllEvents(callback){
+            for(var i = 0; i < groups.length; i++) {
+                console.log(groups.listofEvents);
+                for(var j =0; j< groups.listofEvents.length;j++) {
+                    if (groups[i].listofEvents[j] === eventID) {
+                        var event = groups[i].listofEvents[j];
+                        callback(event);
+                        break;
+                    }
+                }
+            }
+        }
+
 
 
 

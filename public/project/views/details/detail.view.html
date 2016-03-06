@@ -41,7 +41,7 @@
         <td>
             <h1>Group Events</h1>
         </td>
-        <td ng-repeat="event in group.listofEvents"><a ng-click="findEvent()" href="#event/{{event._id}}">{{event._id}}</a></td>
+        <td ng-repeat="event in group.listofEvents"><a ng-click="findEvent(group._id, event._id)" href="#/event/{{event._id}}">{{event._id}}</a></td>
     </tr>
     <tr>
         <td>Address Map</td>
