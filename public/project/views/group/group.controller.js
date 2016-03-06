@@ -4,24 +4,16 @@
     angular.module('FindGroupApp')
         .controller("GroupController", GroupController);
 
-    function GroupController($scope, $rootScope, GroupService) {
+    function GroupController($scope, $rootScope, GroupService, GoogleMapService) {
 
         var user = $rootScope.currentUser;
-        ////form page only show when user logged in
-        //if (user !=null) {
+
             GroupService.findAllGroups(function(allGroups) {
                 $scope.groups= allGroups;
 
             });
 
-        //GroupService.findGroupByID(groupID, function(theGruop) {
-        //    $scope.group = theGroup;
-        //});
-        ////} else {
-        ////    alert("You need to login or register");
-        ////    $scope.$location.path("/home");
-        ////}
-        //console.log(group);
+
 
         var clickGroup  = $rootScope.clickGroup;
         //function for form
@@ -29,8 +21,18 @@
         $scope.updateGroup = updateGroup;
         $scope.deleteGroup = deleteGroup;
         $scope.selectGroup = selectGroup;
+        $scope.search = search;
 
 
+        function search(group) {
+            console.log("serach");
+            GoogleMapService.searchMapByAddress(group.address)
+                .then(function(response) {
+                    $rootScope.data = response.data;
+                });
+
+            console.log($rootScope.data);
+        }
 
         //add the form to currentForms
         function addGroup(group) {
@@ -39,7 +41,8 @@
                 _id: group._id,
                 ownerName: group.ownerName,
                 description:group.description,
-                listofEvents:group.listofEvents
+                listofEvents:group.listofEvents,
+                address:group.address
             };
 
             //inti the title with empty
@@ -61,6 +64,7 @@
             if ($scope.selectGroupIndex != null) {
                 $scope.groups[$scope.selectGroupIndex]._id = group._id;
                 $scope.groups[$scope.selectGroupIndex].title = group.title;
+                $scope.groups[$scope.selectGroupIndex].adress = group.adress;
                 $scope.groups[$scope.selectGroupIndex].description = group.description;
                 $scope.groups[$scope.selectGroupIndex].ownerName = group.ownerName;
                 $scope.groups[$scope.selectGroupIndex].listofEvents = group.listofEvents;
@@ -87,6 +91,7 @@
             $scope.clickGroup = {
                 "_id": $scope.groups[index]._id,
                 "title": $scope.groups[index].title,
+                "address": $scope.groups[index].address,
                 "ownerName": $scope.groups[index].ownerName,
                 "description": $scope.groups[index].description,
                 "listofEvents:": $scope.groups[index].listofEvents

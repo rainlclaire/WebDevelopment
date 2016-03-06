@@ -5,7 +5,10 @@
         .module("FindGroupApp")
         .controller("DetailsController", DetailsController);
 
-    function DetailsController($rootScope,$location, $scope, $routeParams, GroupService) {
+    function DetailsController($rootScope,$location, $scope, $routeParams, GroupService, GoogleMapService) {
+
+
+
 
         var group_id = $routeParams.group_id;
         console.log(group_id);
@@ -13,24 +16,25 @@
         GroupService.findAllGroups(function(allGroups) {
             $scope.groups= allGroups;
         });
-        console.log($scope.groups);
+        //console.log($scope.groups);
         GroupService.findGroupByID(group_id, function(theGroup) {
             $scope.group = theGroup;
-            console.log($scope.group);
+            //console.log($scope.group);
         });
 
         var groups = $scope.groups;
-        console.log(groups);
+        //console.log(groups);
 
 
 
 
         $scope.findGroup  = findGroup;
         $scope.joinGroup = joinGroup;
+        $scope.findGroupMap = findGroupMap;
 
         function findGroup() {
             for(var i =0; i< groups.size; i++) {
-                console.log("aaa");
+                //console.log("aaa");
                 if (groups[i]._id == group_id) {
                     var group = groups[i];
                     $scope.group = group;
@@ -51,9 +55,19 @@
             }
         }
 
+        function findGroupMap() {
+            console.log($scope.data);
+            GoogleMapService.searchMapByAddress(group.address)
+                .then(function(response) {
+                    $scope.data = response.data;
+                });
+
+            console.log($scope.data);
+        }
 
 
-        console.log($scope.group);
+
+        //console.log($scope.group);
         //var vm = this;
         //
         //var group_id = $routeParams.group_id;
