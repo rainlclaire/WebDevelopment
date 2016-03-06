@@ -38,16 +38,37 @@
             </thead>
             <tbody>
             <tr ng-repeat="group in groups">
-                <td class="form-list"><a href="#details/{{group._id}}" ng-click="search(group.address)">{{group.title}}</a></td>
+                <td class="form-list"><a ng-click="search(group.address)">{{group.title}}</a></td>
                 <td>{{group.description}}</td>
                 <td>{{group.ownerName}}</td>
                 <td class="form-list text-center">
                     <button ng-click="deleteGroup($index)" class="glyphicon glyphicon-remove action-icon"></button>
                     <button ng-click="selectGroup($index)" class="glyphicon glyphicon-pencil action-icon"></button>
                 </td>
+                <td>{{results[0].geometry.location.lat}}</td>
             </tr>
+
+            <tr>
+               <td>
+                   <div id="floating-panel">
+                       <input id="address" type="textbox" value="Sydney, NSW">
+                       <input id="submit" type="button" value="Geocode">
+                   </div>
+                   <div id="map"></div>
+               </td>
+            </tr>
+
+
             </tbody>
         </table>
+
+        <!--<iframe width="488" height="468" style="margin-bottom: 16px;" src={{}}> </iframe>-->
+
+
+        <!--<script async defer-->
+                <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&callback=initMap">-->
+        <!--</script>-->
+
     <!--<table class="table sptable">-->
         <!--<tbody>-->
         <!--<tr>-->
