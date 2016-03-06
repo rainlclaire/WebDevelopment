@@ -364,11 +364,26 @@ body.ng-scope div.ng-scope h1.groupTitle.ng-scope {
     border-radius: 15px;
 }
 
-html, body, #map {
+html, body {
     height: 100%;
-    width: 100%;
-    margin: 0px;
-    padding: 0px
+    margin: 0;
+    padding: 0;
+}
+#map {
+    height: 100%;
+}
+#floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
 }
 
 

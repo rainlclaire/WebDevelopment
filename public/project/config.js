@@ -30,6 +30,10 @@
                 templateUrl: "views/event/event.view.html",
                 controller: "EventController"
             })
+            .when("/event/:event_id", {
+                templateUrl: "views/event/event.view.html",
+                controller: "EventController"
+            })
             .when("/details/:group_id", {
                 templateUrl:"views/details/detail.view.html",
                 controller:"DetailsController"

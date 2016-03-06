@@ -15,7 +15,9 @@
         //}
 
         function searchMapByAddress(address) {
-            var data = $http.get("http://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false");
+            var data = $http.get("http://maps.googleapis.com/maps/api/geocode/json?&address="+address+"&sensor=false");
+            var url= "https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q="+address.toString();
+            console.log(url);
             console.log(data);
             return data;
 

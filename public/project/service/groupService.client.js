@@ -22,8 +22,8 @@
                 "Vivamus varius pretium ligula, a aliquam odio euismod sit amet. " +
                 "Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. " +
                 "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
-                "address":"1155 tremont street, Boston, MA",
-                "listofEvnets": [
+                "address":"Los Angeles, CA",
+                "listofEvents": [
                     {_id:"01"},
                     {_id:"02"}
                 ]

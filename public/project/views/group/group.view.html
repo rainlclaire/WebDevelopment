@@ -38,29 +38,62 @@
             </thead>
             <tbody>
             <tr ng-repeat="group in groups">
-                <td class="form-list"><a ng-click="search(group.address)">{{group.title}}</a></td>
+                <td class="form-list"><a href="#/details/{{group._id}}" ng-click="search(group)">{{group.title}}</a></td>
                 <td>{{group.description}}</td>
                 <td>{{group.ownerName}}</td>
                 <td class="form-list text-center">
                     <button ng-click="deleteGroup($index)" class="glyphicon glyphicon-remove action-icon"></button>
                     <button ng-click="selectGroup($index)" class="glyphicon glyphicon-pencil action-icon"></button>
-                </td>
-                <td>{{results[0].geometry.location.lat}}</td>
-            </tr>
-
-            <tr>
-               <td>
-                   <div id="floating-panel">
-                       <input id="address" type="textbox" value="Sydney, NSW">
-                       <input id="submit" type="button" value="Geocode">
-                   </div>
-                   <div id="map"></div>
-               </td>
+                <!--</td>-->
+                <!--<td>{{results[0].geometry.location.lat}}</td>-->
             </tr>
 
 
-            </tbody>
+
+
+
+
+
         </table>
+
+        <!--<div id="floating-panel">-->
+            <!--<input id="address" type="textbox" value="Sydney, NSW">-->
+            <!--<input id="submit" type="button" value="Geocode">-->
+        <!--</div>-->
+        <!--<div id="map"></div>-->
+        <!--</tbody>-->
+        <!--<script>-->
+            <!--function initMap() {-->
+                <!--var map = new google.maps.Map(document.getElementById('map'), {-->
+                    <!--zoom: 8,-->
+                    <!--center: {lat: -34.397, lng: 150.644}-->
+                <!--});-->
+                <!--var geocoder = new google.maps.Geocoder();-->
+
+                <!--document.getElementById('submit').addEventListener('click', function() {-->
+                    <!--geocodeAddress(geocoder, map);-->
+                <!--});-->
+            <!--}-->
+
+            <!--function geocodeAddress(geocoder, resultsMap) {-->
+                <!--var address = document.getElementById('address').value;-->
+                <!--geocoder.geocode({'address': address}, function(results, status) {-->
+                    <!--if (status === google.maps.GeocoderStatus.OK) {-->
+                        <!--resultsMap.setCenter(results[0].geometry.location);-->
+                        <!--var marker = new google.maps.Marker({-->
+                            <!--map: resultsMap,-->
+                            <!--position: results[0].geometry.location-->
+                        <!--});-->
+                    <!--} else {-->
+                        <!--alert('Geocode was not successful for the following reason: ' + status);-->
+                    <!--}-->
+                <!--});-->
+            <!--}-->
+        <!--</script>-->
+        <!--&lt;!&ndash;<script async defer&ndash;&gt;-->
+                <!--&lt;!&ndash;src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&callback=initMap">&ndash;&gt;-->
+        <!--&lt;!&ndash;</script>&ndash;&gt;-->
+        <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>-->
 
         <!--<iframe width="488" height="468" style="margin-bottom: 16px;" src={{}}> </iframe>-->
 
