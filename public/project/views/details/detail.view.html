@@ -8,14 +8,13 @@
             <div>
             </div>
         </td>
-        <!--<td class="iconright nonebored">-->
-            <!--<span class="likebtn-wrapper" data-theme="drop" data-identifier="item_1"></span>-->
-            <!--<script>(function(d,e,s)-->
-            <!--{if(d.getElementById("likebtn_wjs"))-->
-                <!--return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];-->
-                <!--a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})-->
-            <!--(document,"script","//w.likebtn.com/js/w/widget.js");</script>-->
-        <!--</td>-->
+        <td>
+            <button class="btn btn-primay"
+                    ng-click="favorite(group)">
+                <span class="glyphicon glyphicon-star-empty"></span>
+            </button>
+        </td>
+
     </tr>
     <tr>
         <td class="nonebord">
@@ -41,7 +40,7 @@
         <td>
             <h1>Group Events</h1>
         </td>
-        <td ng-repeat="event in group.listofEvents"><a ng-click="findEvent(group._id, event._id)" href="#/event/{{event._id}}">{{event._id}}</a></td>
+        <td ng-repeat="event in group.listofEvents"><a href="#/event/{{event._id}}">{{event._id}}</a></td>
     </tr>
     <tr>
         <td>Address Map</td>
@@ -52,6 +51,17 @@
         <td><button class="btn btn-danger" ng-click="init(group.address)">Find in Google Maps</button></td>
 
 
+    </tr>
+
+    <tr>
+        <div ng-if="model.group.userLike">
+            <h4>Other Users that like this group</h4>
+            <ul>
+                <li ng-repeat="user in model.group.userLike">
+                    {{user.username}}
+                </li>
+            </ul>
+        </div>
     </tr>
     </tbody>
 </table>

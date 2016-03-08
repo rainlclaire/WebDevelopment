@@ -6,9 +6,9 @@
     function UserService($rootScope) {
         var model = {
             users: [
-                {username: "alice", password: "alice", roles: ["student"], groupJoined:[]},
-                {username: "bob", password: "bob", roles: ["faculty", "admin"], groupJoined:[]},
-                {username: "charlie", password: "charlie", roles: ["employee"], groupJoined:[]}
+                {username: "alice", password: "alice", roles: ["student"], groupJoined:[],likeGroups:[]},
+                {username: "bob", password: "bob", roles: ["faculty", "admin"], groupJoined:[],likeGroups:[]},
+                {username: "charlie", password: "charlie", roles: ["employee"], groupJoined:[],likeGroups:[]}
             ],
             createUser: createUser,
             findUserByUsername: findUserByUsername,
@@ -67,5 +67,7 @@
                 return null;
             }
         }
+
+
     }
 })();

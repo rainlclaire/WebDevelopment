@@ -10,7 +10,7 @@
         var vm = this;
 
         var group_id = $routeParams.group_id;
-        //console.log(group_id);
+        console.log(group_id);
 
         $rootScope.currentGroupid = group_id;
 
@@ -21,15 +21,29 @@
 
 
 
+        $scope.findGroup  = findGroup;
+        $scope.joinGroup = joinGroup;
+
+
+        $scope.findGroupMap = findGroupMap;
+
+        $scope.init = init;
+        $scope.favorite = favorite;
+
+
         GroupService.findAllGroups(function(allGroups) {
             $scope.groups= allGroups;
         });
-        //console.log($scope.groups);
+        console.log($scope.groups);
+
+
         GroupService.findGroupByID(group_id, function(theGroup) {
+            console.log("here");
             $scope.group = theGroup;
-            //console.log("here");
-            console.log($scope.group);
+
+
             $rootScope.currentGroup = $scope.group;
+            console.log($rootScope.group);
         });
 
 
@@ -37,17 +51,9 @@
 
 
         var groups = $scope.groups;
-        //console.log(groups);
 
+        console.log($rootScope.group);
 
-
-
-        $scope.findGroup  = findGroup;
-        $scope.joinGroup = joinGroup;
-
-
-        $scope.findGroupMap = findGroupMap;
-        $scope.init = init;
 
 
 
@@ -97,6 +103,17 @@
                 });
             //
             //console.log($scope.data);
+        }
+
+        function favorite(group) {
+            if (currentUser) {
+                $scope.currentUser.likeGroups.push(group);
+                console.log($scope.currentUser);
+                }
+
+            else {
+                $location.url("/login");
+            }
         }
 
 

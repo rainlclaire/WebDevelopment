@@ -18,13 +18,14 @@
         }
 
         function renderGroups(response) {
-            console.log(response+"response form homesearch");
+            console.log(response);
             if(response.length!=0) {
                 $location.url("search/{{groupTitle}}");
 
                 $scope.errorMessage = "";
 
                 $scope.groups = response;
+                console.log($scope.groups);
                 $rootScope.groups = response;
             }else{
                 alert("no groups found");

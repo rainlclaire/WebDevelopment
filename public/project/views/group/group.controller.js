@@ -13,98 +13,12 @@
 
         });
 
-
-        //function initMap() {
-        //    var map = new google.maps.Map(document.getElementById('map'), {
-        //        zoom: 8,
-        //        center: {lat: -34.397, lng: 150.644}
-        //    });
-        //    var geocoder = new google.maps.Geocoder();
-        //
-        //    document.getElementById('submit').addEventListener('click', function() {
-        //        geocodeAddress(geocoder, map);
-        //    });
-        //}
-        //function geocodeAddress(geocoder, resultsMap) {
-        //    var address = document.getElementById('address').value;
-        //    geocoder.geocode({'address': address}, function(results, status) {
-        //        if (status === google.maps.GeocoderStatus.OK) {
-        //            resultsMap.setCenter(results[0].geometry.location);
-        //            var marker = new google.maps.Marker({
-        //                map: resultsMap,
-        //                position: results[0].geometry.location
-        //            });
-        //        } else {
-        //            alert('Geocode was not successful for the following reason: ' + status);
-        //        }
-        //    });
-        //}
-
-
         var clickGroup = $rootScope.clickGroup;
         //function for form
         $scope.addGroup = addGroup;
         $scope.updateGroup = updateGroup;
         $scope.deleteGroup = deleteGroup;
         $scope.selectGroup = selectGroup;
-        //$scope.search = search;
-
-
-        //function search(group) {
-        //
-        //    console.log("serach");
-        //
-        //    GroupService.findGroupsByTitle(group.title, function (response) {
-        //        console.log(response);
-        //        $scope.groups= response;
-        //        alert("cici");
-        //
-        //    });
-
-
-        //GoogleMapService.searchMapByAddress(group)
-        //    .then(function(response) {
-        //
-        //        console.log(response);
-        //        $scope.results = response.data.results;
-        //        $scope.address = response.data.results[0].formatted_address;
-        //        $scope.url = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q="+$scope.adress;
-        //
-        //        console.log($scope.results[0].geometry.location.lat);
-
-
-        //function initMap() {
-        //    var map = new google.maps.Map(document.getElementById('map'), {
-        //        zoom: 8,
-        //        center: {lat: -34.397, lng: 150.644}
-        //    });
-        //    var geocoder = new google.maps.Geocoder();
-        //
-        //    document.getElementById('submit').addEventListener('click', function() {
-        //        geocodeAddress(geocoder, map);
-        //    });
-        //}
-        //
-        //function geocodeAddress(geocoder, resultsMap) {
-        //    var address = document.getElementById('address').value;
-        //    geocoder.geocode({'address': address}, function(results, status) {
-        //        if (status === google.maps.GeocoderStatus.OK) {
-        //            resultsMap.setCenter(results[0].geometry.location);
-        //            var marker = new google.maps.Marker({
-        //                map: resultsMap,
-        //                position: results[0].geometry.location
-        //            });
-        //        } else {
-        //            alert('Geocode was not successful for the following reason: ' + status);
-        //        }
-        //    });
-        //}
-        //
-        //var myLatLng= {
-        //    lat: $scope.result.value
-        //}
-        //});
-
 
         //add the form to currentForms
         function addGroup(group) {
@@ -142,6 +56,7 @@
                 $scope.groups[$scope.selectGroupIndex].ownerName = group.ownerName;
                 $scope.groups[$scope.selectGroupIndex].listofEvents = group.listofEvents;
 
+                console.log(group);
             } else {
                 alert("You have to select a Form");
             }
@@ -171,6 +86,27 @@
             };
             console.log($scope.clickGroup.ownerName);
 
+        }
+
+        function addUserToGroup(user) {
+            var newUser = {
+                username: user.username,
+                groupid:user.groupid,
+                groupJoined: user.groupJoined,
+                likeGroups: user.likeGroups
+            };
+
+            //inti the title with empty
+            $scope.clickUser.username = "";
+            $scope.clickUser.groupJoined = "";
+            $scope.clickUser.likeGroups = "";
+
+            GroupService.addUserToGropu(newUser,group, function (createdUser) {
+                GroupService.findAllGroups(function (allGroups) {
+                    $scope.groups = allGroups;
+
+                });
+            });
         }
     }
 

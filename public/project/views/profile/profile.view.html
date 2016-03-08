@@ -24,8 +24,11 @@
     <label for="email" class="control-label">Email</label>
     <input ng-model="currentUser.email" type="email" id="email" placeholder="john@doe.com">
 
+    <div ng-repeat="grouplike in currentUser.likeGroups">{{grouplike}}</div>
+
     <button ng-click="updateUser(currentUser)" class="btn btn-primary btn-lg btn-block">Update</button>
     <div ng-show="message" class="alert alert-success" role="alert">{{message}}</div>
     <div ng-show="error"  vclass="alert alert-danger"  role="alert">{{error}}</div>
 
 </div>
+
