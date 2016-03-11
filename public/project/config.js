@@ -53,6 +53,9 @@
                 //    getLoggedIn: getLoggedIn
                 //}
             })
+            .when("/admin", {
+                templateUrl:"views/admin/admin.view.html"
+            })
             .when("/search", {
                 templateUrl:"views/search/search.view.html",
                 controllerAs: "model"

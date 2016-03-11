@@ -385,10 +385,78 @@ html, body {
     line-height: 30px;
     padding-left: 10px;
 }
+/**/
+td {
+    max-width:30px;
+
+    text-overflow:ellipsis;
+    /*white-space: nowrap;*/
+    height: 120px;
+
+}
+button.btn.btn-primary {
+    margin-top:20px;
+}
 
 
+#title-head {
+    margin-top:100px;
+}
 
+div.table-responsive table.table.table-striped.table-hover thead tr td input {
+    margin: 35px 0;
+}
 
+img#user-image {
+    margin-top:10px;
+    border: 1px solid #eee;
+    width: 200px;
+    height: 200px;
+    border-radius:10px;
+    text-align: left;
+}
+input.form-control.uploadImage {
+    width:200px;
+    margin-top:50px;
+}
+
+label.col-md-3.control-label {
+    text-align: left;
+}
+
+input.form-control.profileInput {
+    text-align: left;
+    width:100%;
+
+}
+
+table.table.table-striped.table-hover tbody tr.ng-scope td {
+    font-size:15px;
+
+}
+
+table.table.table-striped.table-hover tbody tr.ng-scope td a {
+
+    color:#166088;
+}
+
+input.form-control.input-sm {
+    margin-top:30px;
+}
+
+div.likeGroups {
+    font-size:15px;
+    color:black;
+
+}
+
+div.likeGroup {
+    margin-top:10px;
+    font-size:10px;
+
+    white-space: nowrap;
+
+}
 
 /*div.container div a img {*/
     /*margin-top:50px;*/

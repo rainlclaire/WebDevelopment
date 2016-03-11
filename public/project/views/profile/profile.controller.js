@@ -18,6 +18,10 @@
         }
 
         $scope.updateUser = updateUser;
+        $scope.goGroup = goGroup;
+        function goGroup(group) {
+            $location.url("/details/"+group._id)
+        }
 
         function updateUser (user) {
             // same validation as register

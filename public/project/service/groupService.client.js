@@ -27,7 +27,7 @@
                 "listofEvents": [
                     {_id: "01"},
                     {_id: "02"}
-                ]
+                ], "listofMembers":[]
 
 
             },
@@ -46,7 +46,7 @@
             "Vivamus varius pretium ligula, a aliquam odio euismod sit amet. " +
             "Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. " +
             "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
-                "listofEvents": ""
+                "listofEvents": "", "listofMembers":[]
             },
             {
                 "_id": "03", "title": "Boston Game Group", "ownerName": "bob",
@@ -64,7 +64,7 @@
                 "Vivamus varius pretium ligula, a aliquam odio euismod sit amet. " +
                 "Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. " +
                 "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
-                "listofEvents": ""
+                "listofEvents": "", "listofMembers":[]
             }
         ];
 

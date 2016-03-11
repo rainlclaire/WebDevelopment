@@ -55,7 +55,7 @@
                 $scope.groups[$scope.selectGroupIndex].description = group.description;
                 $scope.groups[$scope.selectGroupIndex].ownerName = group.ownerName;
                 $scope.groups[$scope.selectGroupIndex].listofEvents = group.listofEvents;
-
+                $scope.groups[$scope.selectGroupIndex].listofMembers = group.listofMembers;
                 console.log(group);
             } else {
                 alert("You have to select a Form");
@@ -82,7 +82,8 @@
                 "address": $scope.groups[index].address,
                 "ownerName": $scope.groups[index].ownerName,
                 "description": $scope.groups[index].description,
-                "listofEvents:": $scope.groups[index].listofEvents
+                "listofEvents": $scope.groups[index].listofEvents,
+                "listofMembers":$scope.groups[index].listofMembers
             };
             console.log($scope.clickGroup.ownerName);
 

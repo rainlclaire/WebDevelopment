@@ -29,6 +29,7 @@
 
         $scope.init = init;
         $scope.favorite = favorite;
+        $scope.manageGroup = manageGroup;
 
 
         GroupService.findAllGroups(function(allGroups) {
@@ -81,13 +82,25 @@
             return $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q="+groupAddress);
 
         }
+        init($scope.group.address);
 
+
+        function manageGroup() {
+            if(currentUser.username = $scope.currentGroup.ownerName) {
+                console.log("go to admin");
+                $location.url("/admin");
+            }
+        }
 
 
 
         function joinGroup() {
             if ($scope.currentUser !=null) {
-                alert("to do this join later");
+                $scope.currentGroup.listofMembers.push($scope.currentUser);
+                $scope.currentUser.groupJoined.push($scope.currentGroup);
+                console.log($scope.currentUser.groupJoined);
+                console.log($scope.currentGroup);
+                alert("success joined")
             } else {
                 alert("You have to login");
                 $location.url("/login");

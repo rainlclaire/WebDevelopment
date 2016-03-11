@@ -32,7 +32,7 @@ a {
     margin-left: -175px;
 }
 
-input[type="text"], input[type="password"] {
+.login input {
     width: 350px;
     padding: 20px 0px;
     background: transparent;

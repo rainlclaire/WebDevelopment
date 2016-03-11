@@ -1,0 +1,84 @@
+
+<div class="container">
+    <h1 class="groupTitle">Administration center</h1>
+    <h1>Add event</h1>
+
+    <!--<div class="col-md-4 col-sm-5">-->
+    <!--<a href="portfolio-item.html">-->
+    <!--<img class="img-responsive img-portfolio img-hover img-thumbnail" src="../image/dancer.jpg" alt="">-->
+    <!--</a>-->
+
+    <!--</div>-->
+    <div class="table-responsive">
+
+        <table class="table table-condensed table-bordered table-striped volumes sptable">
+            <thead>
+            <tr>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event Name</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event Description</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event OwnerName</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
+            </tr>
+            <tr>
+                <td>
+                    <input ng-model="clickGroup.title" class="form-control input-sm" type="text" id="group-title" placeholder="name">
+                </td>
+                <td>
+                    <input ng-model="clickGroup.description" class="form-control input-sm" type="text" id="group-description" placeholder="description">
+                </td>
+                <td>
+                    <input ng-model="clickGroup.ownerName" class="form-control input-sm" type="text" id="group-ownerName" placeholder="ownerName">
+                </td>
+                <td class="iconcenter">
+                    <div class="row-fluid form-inline">
+                        <button ng-click="addGroup(clickGroup)" class="glyphicon glyphicon-plus"></button>
+                        <!--how to put space here-->
+                        <button ng-click="updateGroup(clickGroup)" class="glyphicon glyphicon-ok"></button>
+                    </div>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="group in groups">
+                <td class="form-list"><a href="#/details/{{group._id}}">{{group.title}}</a></td>
+                <td>{{group.description}}</td>
+                <td>{{group.ownerName}}</td>
+                <td class="form-list text-center">
+                    <button ng-click="deleteGroup($index)" class="glyphicon glyphicon-remove action-icon"></button>
+                    <button ng-click="selectGroup($index)" class="glyphicon glyphicon-pencil action-icon"></button>
+                    <!--</td>-->
+                    <!--<td>{{results[0].geometry.location.lat}}</td>-->
+            </tr>
+
+
+
+
+
+
+
+        </table>
+
+    </div>
+    <!--<form>-->
+
+
+
+
+</div>
+
+
+<div class="bottomContent">
+    <form class="extra-content">
+        <hr>
+        <h1>FindGroup</h1>
+        <a href="#">Help</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <p>@2016 FindGroup</p>
+    </form>
+</div>
+
+</body>
+
+
+</html>

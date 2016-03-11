@@ -1,10 +1,17 @@
+<div class="container">
 <h1 class="groupTitle">{{group.title}}</h1>
 
+    <div class="table table-responsive">
 <table class="table sptable">
     <tbody>
     <tr>
         <td class="nonebored">
             <button ng-click="joinGroup()" class="btn btn-danger">Join Us</button>
+            <div>
+            </div>
+        </td>
+        <td class="nonebored">
+            <button ng-show="currentUser.username===group.ownerName" ng-click="manageGroup()" class="btn btn-danger">Manage the Group</button>
             <div>
             </div>
         </td>
@@ -40,33 +47,28 @@
         <td>
             <h1>Group Events</h1>
         </td>
-        <td ng-repeat="event in group.listofEvents"><a href="#/event/{{event._id}}">{{event._id}}</a></td>
+        <td><a ng-repeat="event in group.listofEvents" href="#/event/{{event._id}}">{{event._id}},  </a></td>
     </tr>
     <tr>
-        <td>Address Map</td>
+        <td><h1>Groups Members</h1></td>
+        <td ng-repeat="member in group.listofMembers">{{member.username}}</td>
+    </tr>
+    <tr>
+        <td><h1>Address Map</h1></td>
         <td>
             <div my-map=""></div>
             <iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>
         </td>
-        <td><button class="btn btn-danger" ng-click="init(group.address)">Find in Google Maps</button></td>
+
 
 
     </tr>
 
-    <tr>
-        <div ng-if="model.group.userLike">
-            <h4>Other Users that like this group</h4>
-            <ul>
-                <li ng-repeat="user in model.group.userLike">
-                    {{user.username}}
-                </li>
-            </ul>
-        </div>
-    </tr>
     </tbody>
 </table>
 
-
+</div>
+</div>
 
 
 
