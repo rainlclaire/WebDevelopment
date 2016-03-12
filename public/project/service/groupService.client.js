@@ -25,8 +25,8 @@
                 "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
                 "address": "Los Angeles, CA",
                 "listofEvents": [
-                    {_id: "01"},
-                    {_id: "02"}
+                    {title:"dancer1", _id: "01"},
+                    {title:"dancer2", _id: "02"}
                 ], "listofMembers":[]
 
 
@@ -46,7 +46,7 @@
             "Vivamus varius pretium ligula, a aliquam odio euismod sit amet. " +
             "Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. " +
             "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
-                "listofEvents": "", "listofMembers":[]
+                "listofEvents": [], "listofMembers":[]
             },
             {
                 "_id": "03", "title": "Boston Game Group", "ownerName": "bob",
@@ -64,7 +64,7 @@
                 "Vivamus varius pretium ligula, a aliquam odio euismod sit amet. " +
                 "Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. " +
                 "Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
-                "listofEvents": "", "listofMembers":[]
+                "listofEvents": [], "listofMembers":[]
             }
         ];
 
@@ -75,8 +75,16 @@
             updateGroupById: updateGroupById,
             findGroupByID: findGroupByID,
             findGroupsByTitle: findGroupsByTitle,
-            findEventByID: findEventByID
+            findEventByID: findEventByID,
+            createEvent:createEvent,
+            findAllEvents: findAllEvents,
+            deleteEventById: deleteEventById,
+            createUserForGroup: createUserForGroup,
+            findAllUserForGroup:findAllUserForGroup,
+            deleteUserById:deleteUserById
+
         };
+
         return service;
 
         //create form for user with given user id and form info
@@ -86,29 +94,33 @@
             groups.push(group);
             callback(group);
         }
+        function createEvent(group, event, callback) {
+            var _id = (new Date()).getTime();
+            event._id = _id;
+            for(var i =0; i<groups.length; i++) {
+                if (groups[i]._id === group._id) {
+                   groups[i].listofEvents.push(event);
+                    //console.log(groups[i].listofEvents);
+                    break;
+                }
+
+            }
+            callback(groups[i].listofEvents);
+        }
 
         //find all forms for given user
         function findAllGroups(callback) {
-            //var group = [];  //set the form array to empty
-            ////iterate the forms
-            //for (var k = 0; k < groups.length; k++) {
-            //    if (groups[k].id == userId) {
-            //        group.push(groups[k]);
-            //    }
-            //}
-            console.log(groups);
+
             callback(groups);
         }
 
         function findGroupByID(groupID, callback) {
-            console.log("login here");
+            //console.log("login here");
             for (var i = 0; i < groups.length; i++) {
-                console.log(groups[i]._id);
-                console.log(groupID);
-                console.log(groups[i]._id==groupID);
-                if (groups[i]._id == groupID) {
+                //console.log(groups[i]._id===groupID);
+                if (groups[i]._id === groupID) {
                     var group = groups[i];
-                    console.log(group);
+
                     callback(group);
                     break;
                 }
@@ -121,8 +133,6 @@
                 if (groups[i].title === groupTitle) {
                     var group = groups[i];
                     findGroups.push(group);
-
-
                 }
             }
             callback(findGroups);
@@ -130,16 +140,12 @@
         }
 
         function findEventByID(eventID, callback) {
-            //findGroupByID(groupID, function(theGroup) {
-            //    $scope.group = theGroup;
-            //})
+
             for (var i = 0; i < groups.length; i++) {
-
-
                 for (var j = 0; j < groups[i].listofEvents.length; j++) {
                     if (groups[i].listofEvents[j] === eventID) {
                         var event = groups[i].listofEvents[j];
-                        console.log(event);
+
                         callback(event);
                         break;
                     }
@@ -147,16 +153,15 @@
             }
         }
 
-        function findAllEvents(callback) {
+        function findAllEvents(group, callback) {
             for (var i = 0; i < groups.length; i++) {
-                console.log(groups.listofEvents);
-                for (var j = 0; j < groups.listofEvents.length; j++) {
-                    if (groups[i].listofEvents[j] === eventID) {
-                        var event = groups[i].listofEvents[j];
-                        callback(event);
-                        break;
-                    }
+                //console.log(group._id);
+                if (groups[i]._id === group._id) {
+                    var events = groups[i].listofEvents;
+                    callback(events);
+                    break;
                 }
+
             }
         }
 
@@ -173,10 +178,42 @@
 
         }
 
+
+        function deleteEventById(groupId, eventId, callback) {
+            for (var i = 0; i < groups.length; i++) {
+                if (groups[i]._id === groupId) {
+                    for (var j = 0; j < groups[i].listofEvents.length; j++) {
+                        if (groups[i].listofEvents[j]._id === eventId) {
+                            groups[i].listofEvents.splice(j, 1);
+                            callback(groups[i].listofEvents);
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        function deleteUserById(groupId, UserId, callback) {
+            for (var i = 0; i < groups.length; i++) {
+                if (groups[i]._id === groupId) {
+                    for (var j = 0; j < groups[i].listofMembers.length; j++) {
+
+                        if (groups[i].listofMembers[j].group_id === UserId) {
+                            groups[i].listofMembers.splice(j, 1);
+                            callback(groups[i].listofMembers);
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+
         //update the form by given form's id with new form info
         function updateGroupById(groupId, newGroup, callback) {
             for (var j = 0; j < groups.length; j++) {
-                if (groups[j]._id = groupId) {
+                if (groups[j]._id === groupId) {
                     for (var attr in newGroup) {
                         if (newGroup.hasOwnProperty(attr))
                             groups[j][attr] = newGroup[attr];
@@ -188,12 +225,38 @@
 
         }
 
-        function addUserToGroup(user,group,callback) {
-            var _id = (new Date()).getTime();
-            user.groupid = _id;
-            groups.push(group);
-            callback(group);
+
+        function createUserForGroup(group, user, callback) {
+            var group_id = (new Date()).getTime();
+            var user = {
+                username: user.username,
+                group_id: group_id
+            };
+            //console.log("tst for user");
+            //console.log(user);
+
+            for (var i = 0; i<groups.length;i++) {
+                if (groups[i]._id ===group._id) {
+                    groups[i].listofMembers.push(user);
+                }
+                callback(groups[i].listofMembers);
+
+            }
 
         }
+        function findAllUserForGroup(group, callback) {
+            for (var i = 0; i < groups.length; i++) {
+                if (groups[i]._id === group._id) {
+                    var members = groups[i].listofMembers;
+                    callback(members);
+                    //console.log(members);
+                    break;
+                }
+                //for (var j = 0; j < groups.listofEvents.length; j++) {
+                //    if (groups[i]._id === group._id) {
+                //        var events = groups[i].listofEvents;
+            }
+        }
+
     }
 })();

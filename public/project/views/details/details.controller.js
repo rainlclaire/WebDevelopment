@@ -44,8 +44,11 @@
 
 
             $rootScope.currentGroup = $scope.group;
+
             console.log($rootScope.group);
         });
+
+
 
 
 
@@ -88,7 +91,7 @@
         function manageGroup() {
             if(currentUser.username = $scope.currentGroup.ownerName) {
                 console.log("go to admin");
-                $location.url("/admin");
+                $location.url("/admin/"+$scope.currentGroup._id);
             }
         }
 
@@ -96,7 +99,16 @@
 
         function joinGroup() {
             if ($scope.currentUser !=null) {
-                $scope.currentGroup.listofMembers.push($scope.currentUser);
+                console.log("joingroup");
+                console.log($scope.currentUser._id);
+                var group_id = (new Date()).getTime();
+                var currentUser = {
+                    "username":$scope.currentUser.username,
+                    "_id":$scope.currentUser._id,
+                    "group_id":group_id
+
+                };
+                $scope.currentGroup.listofMembers.push(currentUser);
                 $scope.currentUser.groupJoined.push($scope.currentGroup);
                 console.log($scope.currentUser.groupJoined);
                 console.log($scope.currentGroup);
@@ -122,9 +134,11 @@
             if (currentUser) {
                 $scope.currentUser.likeGroups.push(group);
                 console.log($scope.currentUser);
+                alert("success added!")
                 }
 
             else {
+                alert("You have to login!");
                 $location.url("/login");
             }
         }

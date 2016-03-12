@@ -26,50 +26,38 @@
 
         <!-- edit form column -->
         <div class="col-md-9 personal-info">
-            <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
-                <i class="fa fa-coffee"></i>
-                This is an <strong>.alert</strong>. Use this to show important messages to the user.
-            </div>
+            <!--<div class="alert alert-info alert-dismissable">-->
+                <!--<a class="panel-close close" data-dismiss="alert">×</a>-->
+                <!--<i class="fa fa-coffee"></i>-->
+                <!--This is an <strong>.alert</strong>. Use this to show important messages to the user.-->
+            <!--</div>-->
+            <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
+            <div ng-show="error"  vclass="alert alert-danger"  role="alert">{{error}}</div>
             <h1>Personal info</h1>
 
+
             <form class="form-horizontal" role="form">
+
                 <div class="form-group">
                     <label for="firstName" class="col-md-3 control-label">First name:</label>
-                    <div class="col-lg-9">
+                    <div class="col-md-9">
                         <input ng-model="currentUser.firstName" id="firstName" class="form-control profileInput" type="text" placeholder="First Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="lastName" class="col-md-3 control-label">Last name:</label>
-                    <div class="col-lg-9">
+                    <div class="col-md-9">
                         <input ng-model="currentUser.lastName" type="text" id="lastName" class="form-control profileInput" placeholder="Last Name">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="col-md-3 control-label">Email:</label>
-                    <div class="col-lg-9">
-                        <input ng-model="currentUser.email" id="email" class="form-control profileInput" type="text" placeholder="email">
+                    <div class="col-md-9">
+                        <input ng-model="currentUser.email" id="email" class="form-control profileInput" type="email" placeholder="email">
                     </div>
                 </div>
-                <!--<div class="form-group">-->
-                    <!--<label class="col-lg-3 control-label">Time Zone:</label>-->
-                    <!--<div class="col-lg-8">-->
-                        <!--<div class="ui-select">-->
-                            <!--<select id="user_time_zone" class="form-control">-->
-                                <!--<option value="Hawaii">(GMT-10:00) Hawaii</option>-->
-                                <!--<option value="Alaska">(GMT-09:00) Alaska</option>-->
-                                <!--<option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>-->
-                                <!--<option value="Arizona">(GMT-07:00) Arizona</option>-->
-                                <!--<option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>-->
-                                <!--<option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>-->
-                                <!--<option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>-->
-                                <!--<option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>-->
-                            <!--</select>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
+
                 <div class="form-group">
                     <label for="username" class="col-md-3 control-label">Username:</label>
                     <div class="col-md-9">
@@ -93,10 +81,11 @@
                     <div class="col-md-9">
                         <button ng-click="updateUser(currentUser)" class="btn btn-danger profileUpdate form-control">Update</button>
                         </br>
-                        <button  class="btn btn-primary profileCancel form-control">Cancel</button>
+                        <button ng-click="cancel()" class="btn btn-primary profileCancel form-control">Cancel</button>
                     </div>
                 </div>
             </form>
+            </div>
         </div>
     </div>
 </div>

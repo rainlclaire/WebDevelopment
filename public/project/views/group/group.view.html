@@ -7,9 +7,9 @@
     <!--</a>-->
 
 <!--</div>-->
-    <div class="table-responsive">
 
-        <table class="table table-striped table-hover">
+
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group ID</th>
@@ -18,11 +18,11 @@
                 <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
             </tr>
             <tr>
-                <td>
-                    <input ng-model="clickGroup.title" class="form-control input-sm" type="text" id="group-title" placeholder="GroupID">
+                <td>Auto Assign GroupID
+                    <!--<input ng-model="clickGroup._id" class="form-control input-sm" type="text" id="group-title" placeholder="GroupID">-->
                 </td>
                 <td>
-                    <input ng-model="clickGroup.description" class="form-control input-sm" type="text" id="group-description" placeholder="GroupName">
+                    <input ng-model="clickGroup.title" class="form-control input-sm" type="text" id="group-description" placeholder="GroupName">
                 </td>
                 <td>
                     <input ng-model="clickGroup.ownerName" class="form-control input-sm" type="text" id="group-ownerName" placeholder="GroupownerName">
@@ -56,189 +56,6 @@
 
         </table>
 
-        <!--<div id="floating-panel">-->
-            <!--<input id="address" type="textbox" value="Sydney, NSW">-->
-            <!--<input id="submit" type="button" value="Geocode">-->
-        <!--</div>-->
-        <!--<div id="map"></div>-->
-        <!--</tbody>-->
-        <!--<script>-->
-            <!--function initMap() {-->
-                <!--var map = new google.maps.Map(document.getElementById('map'), {-->
-                    <!--zoom: 8,-->
-                    <!--center: {lat: -34.397, lng: 150.644}-->
-                <!--});-->
-                <!--var geocoder = new google.maps.Geocoder();-->
-
-                <!--document.getElementById('submit').addEventListener('click', function() {-->
-                    <!--geocodeAddress(geocoder, map);-->
-                <!--});-->
-            <!--}-->
-
-            <!--function geocodeAddress(geocoder, resultsMap) {-->
-                <!--var address = document.getElementById('address').value;-->
-                <!--geocoder.geocode({'address': address}, function(results, status) {-->
-                    <!--if (status === google.maps.GeocoderStatus.OK) {-->
-                        <!--resultsMap.setCenter(results[0].geometry.location);-->
-                        <!--var marker = new google.maps.Marker({-->
-                            <!--map: resultsMap,-->
-                            <!--position: results[0].geometry.location-->
-                        <!--});-->
-                    <!--} else {-->
-                        <!--alert('Geocode was not successful for the following reason: ' + status);-->
-                    <!--}-->
-                <!--});-->
-            <!--}-->
-        <!--</script>-->
-        <!--&lt;!&ndash;<script async defer&ndash;&gt;-->
-                <!--&lt;!&ndash;src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&callback=initMap">&ndash;&gt;-->
-        <!--&lt;!&ndash;</script>&ndash;&gt;-->
-        <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>-->
-
-        <!--<iframe width="488" height="468" style="margin-bottom: 16px;" src={{}}> </iframe>-->
-
-
-        <!--<script async defer-->
-                <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&callback=initMap">-->
-        <!--</script>-->
-
-    <!--<table class="table sptable">-->
-        <!--<tbody>-->
-        <!--<tr>-->
-            <!--<td class="nonebored">-->
-                <!--<h1>Group Description</h1>-->
-            <!--</td>-->
-            <!--<td class="iconright nonebored">-->
-                <!--<p>In this article, I’d like to reacquaint you with the humble workhorse of communication that is the paragraph.-->
-                    <!--Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now.-->
-                    <!--Despite their ubiquity, we frequently neglect their presentation. This is a mistake. Here,-->
-                    <!--we’ll refer to some time-honored typesetting conventions, with an emphasis on readability,-->
-                    <!--and offer guidance on adapting them effectively for devices and screens.-->
-                    <!--We’ll see that the ability to embed fonts with @font-face is not by itself a solution-->
-                    <!--to all of our typographic challenges.</p>-->
-
-            <!--</td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="nonebored">-->
-                <!--<button class="btn btn-danger">Join Us</button>-->
-                <!--<div>-->
-                <!--</div>-->
-            <!--</td>-->
-            <!--<td class="iconright nonebored">-->
-                <!--<span class="likebtn-wrapper" data-theme="drop" data-identifier="item_1"></span>-->
-                <!--<script>(function(d,e,s)-->
-                <!--{if(d.getElementById("likebtn_wjs"))-->
-                    <!--return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];-->
-                    <!--a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})-->
-                <!--(document,"script","//w.likebtn.com/js/w/widget.js");</script>-->
-            <!--</td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="nonebord">-->
-                <!--<h1>Group Owner</h1>-->
-            <!--</td>-->
-            <!--<td>-->
-                <!--<a href="#">James Lee</a>-->
-                <!--<a href="#">,Louis James</a>-->
-            <!--</td>-->
-        <!--</tr>-->
-        <!--</tbody>-->
-    <!--</table>-->
-    <!--</div>-->
-    <!--<hr size="30" style='display:inline-block; width:100%;'/>-->
-    <!--<div class="col-md-12 col-sm-8">-->
-        <!--<h1>Recent Events</h1>-->
-        <!--<table class="table table-stripe">-->
-            <!--<thead>-->
-            <!--<tr>-->
-                <!--<th><h2>Event Name</h2></th>-->
-                <!--<th><h2>Event Time</h2></th>-->
-                <!--<th><h2>Event Seats</h2></th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr>-->
-                <!--<td class="col-md-3 col-sm-4 col-xs-4">-->
-                    <!--<a href="#/event"><h2 style="color:lightcoral">2016 Dancer Party</h2></a>-->
-                <!--</td>-->
-                <!--<td class="col-md-5 col-sm-4 col-xs-4">-->
-                    <!--<h2 type="date">01/30/2016,9:30-11:30PM</h2>-->
-                <!--</td>-->
-                <!--<td class="col-md-4 col-sm-4 col-xs-4">-->
-                    <!--<h2>30</h2>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-3 col-sm-4 col-xs-4">-->
-                    <!--<a href="#event"><h2 style="color:lightcoral">Card Game</h2></a>-->
-                <!--</td>-->
-                <!--<td class="col-md-5 col-sm-4 col-xs-4">-->
-                    <!--<h2 type="date">02/30/2016,2:30-5:30PM</h2>-->
-                <!--</td>-->
-                <!--<td class="col-md-4 col-sm-4 col-xs-4">-->
-                    <!--<h2>50</h2>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-3 col-sm-4 col-xs-4">-->
-                    <!--<a href="#/event"><h2 style="color:lightcoral">2016 Dancer Party</h2></a>-->
-                <!--</td>-->
-                <!--<td class="col-md-5 col-sm-4 col-xs-4">-->
-                    <!--<h2 type="date">01/30/2016,9:30-11:30PM</h2>-->
-                <!--</td>-->
-                <!--<td class="col-md-4 col-sm-4 col-xs-4">-->
-                    <!--<h2>30</h2>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-3 col-sm-4 col-xs-4">-->
-                    <!--<a href="#/event"><h2 style="color:lightcoral">Card Game</h2></a>-->
-                <!--</td>-->
-                <!--<td class="col-md-5 col-sm-4 col-xs-4">-->
-                    <!--<h2 type="date">02/30/2016,2:30-5:30PM</h2>-->
-                <!--</td>-->
-                <!--<td class="col-md-4 col-sm-4 col-xs-4">-->
-                    <!--<h2>50</h2>-->
-                <!--</td>-->
-            <!--</tr>-->
-
-
-            <!--</tbody>-->
-            <!--</table>-->
-    </div>
-    <!--<form>-->
-    <!--<div class="col-md-8 col-sm-6">-->
-        <!--<div class="groupDescription">-->
-
-            <!--<button class="btn btn-danger">Join Us</button>-->
-            <!--<p>In this article, I’d like to reacquaint you with the humble workhorse of communication that is the paragraph.-->
-                <!--Paragraphs are everywhere. In fact, at the high risk of stating the obvious, you are reading one now.-->
-                <!--Despite their ubiquity, we frequently neglect their presentation. This is a mistake. Here,-->
-                <!--we’ll refer to some time-honored typesetting conventions, with an emphasis on readability,-->
-                <!--and offer guidance on adapting them effectively for devices and screens.-->
-                <!--We’ll see that the ability to embed fonts with @font-face is not by itself a solution-->
-                <!--to all of our typographic challenges.</p>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="col-md-8 col-sm-6">-->
-        <!--<div class="groupOwner">-->
-             <!--<h1>Group Owner</h1>-->
-            <!--<a href="#">Jame Lin</a>-->
-            <!--<a href="#">,Toms Sharms</a>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="col-md-8 col-sm-6">-->
-        <!--<div class="joinUsButton">-->
-            <!--<button class="btn btn-danger">Join Us</button>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</form>-->
-
-
-
-
-</div>
 
 
 <div class="bottomContent">
@@ -252,7 +69,5 @@
     </form>
 </div>
 
-</body>
+</div>
 
-
-</html>

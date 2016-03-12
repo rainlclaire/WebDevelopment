@@ -94,7 +94,7 @@
 
 
 /*RESET*/
-.slide html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
+.slide html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
 
 /*MAIN*/
 body {
@@ -304,7 +304,7 @@ div form.extra-content a {
 
 }
 body div {
-    background-color:#f4f4f4;
+    /*background-color:#f4f4f4;*/
 }
 
 h1 {
@@ -462,6 +462,68 @@ div.likeGroup {
     /*margin-top:50px;*/
 /*}*/
 
+/*div.container.detailShow table td.nonebored,th.nonebored {*/
+    /*border: none;*/
+    /*border-collapse:collapse;*/
+    /*-moz-border-radius: 0 0 0 5px*/
+
+/*}*/
+
+/*div.container.detailShow table td.theborder {*/
+    /*border-left: solid 3px black;*/
+    /*border-top: solid 3px black;*/
+    /*border-right: solid 3px black;*/
+    /*border-collapse:collapse*/
+/*}*/
+
+/*div.container.detailShow table td, th, tr {*/
+    /*-moz-border-radius: 0 0 0 5px*/
+/*}*/
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+/*div.eventPage.row.content {*/
+    /*margin-top:100px;*/
+/*}*/
+
+
+div.col-md-4.content-left {
+    border-top:solid 3px black;
+    border-left:solid 3px black;
+    border-right:solid 3px black;
+    border-bottom:solid 3px black;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-left:15px;
+    margin-right:60px;
+
+}
+
+
+div.col-md-7.content-right {
+    border-top:solid 3px black;
+    border-left:solid 3px black;
+    border-right:solid 3px black;
+    border-bottom:solid 3px black;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+form.form-horizontal div.form-group label {
+    margin-bottom:25px;
+    text-align:left;
+}
+
+div.collapse.navbar-collapse {
+    background-color:#f4f4f4;
+}
 
 
 

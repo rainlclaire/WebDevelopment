@@ -36,7 +36,7 @@
                 controller: "LogInController",
                 controllerAs:"model"
             })
-            .when("/event/:event_id", {
+            .when("/event/:event_title", {
                 templateUrl: "views/event/event.view.html",
                 controller: "EventController",
                 controllerAs:"model"
@@ -53,8 +53,9 @@
                 //    getLoggedIn: getLoggedIn
                 //}
             })
-            .when("/admin", {
-                templateUrl:"views/admin/admin.view.html"
+            .when("/admin/:group_id", {
+                templateUrl:"views/admin/admin.view.html",
+                controller: "AdminController"
             })
             .when("/search", {
                 templateUrl:"views/search/search.view.html",

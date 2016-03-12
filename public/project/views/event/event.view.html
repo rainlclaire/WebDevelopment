@@ -1,66 +1,38 @@
 
 <div class="container">
-<h1 class="eventTitle">{{event._id}}</h1>
+    <h1 class="groupTitle">{{event.title}}</h1>
+    <div class="eventPage row content">
+        <div class="col-md-4 content-left">
 
-<table class="table sptable">
-    <tbody>
-    <tr>
-        <td class="nonebored">
-            <button ng-click="joinGroup()" class="btn btn-danger">Join Us</button>
             <div>
+                <div class="theborder">
+                    <h1>event Name</h1>
+                </div>
+                <div class="nonebored">
+                    {{event.title}}
+                </div>
             </div>
-        </td>
-        <!--<td class="iconright nonebored">-->
-        <!--<span class="likebtn-wrapper" data-theme="drop" data-identifier="item_1"></span>-->
-        <!--<script>(function(d,e,s)-->
-        <!--{if(d.getElementById("likebtn_wjs"))-->
-        <!--return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];-->
-        <!--a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})-->
-        <!--(document,"script","//w.likebtn.com/js/w/widget.js");</script>-->
-        <!--</td>-->
-    </tr>
-    <tr>
-        <td class="nonebord">
-            <h1>Group Name</h1>
-        </td>
-        <td>
-            {{event._id}}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h1>Group Description</h1>
-        </td>
-        <td>{{event._id}}</td>
-    </tr>
-    <tr>
-        <td>
-            <h1>Group Events</h1>
-        </td>
-        <td><a href="#/details/event/{{event._id}}">{{event._id}}</a></td>
-    </tr>
-    <tr>
-        <td>Address Map</td>
-        <td>
-            <div my-map=""></div>
-            <iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>
-        </td>
-        <td><button class="btn btn-danger">Find in event Maps</button></td>
+            <hr>
+        </div>
 
+        <div class="col-md-7 content-right">
+            <table class="table table-hover">
+                <tbody>
 
-    </tr>
-    </tbody>
-</table>
+                <tr>
+                    <td class="theborder">
+                        <h1>Group ID</h1>
+                    </td>
+                    <td class="nonebored">{{event._id}}</td>
+                </tr>
 
+                </tbody>
+            </table>
+        </div>
 
-<div class="bottomContent">
-    <form class="extra-content">
-        <hr>
-        <h1>FindGroup</h1>
-        <a href="#">Help</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <p>@2016 FindGroup</p>
-    </form>
+    </div>
+
 </div>
-</div>
+
+
+

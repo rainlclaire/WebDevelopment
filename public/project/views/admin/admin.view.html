@@ -1,7 +1,7 @@
 
 <div class="container">
     <h1 class="groupTitle">Administration center</h1>
-    <h1>Add event</h1>
+    <h1>CRUD EVENTS</h1>
 
     <!--<div class="col-md-4 col-sm-5">-->
     <!--<a href="portfolio-item.html">-->
@@ -15,51 +15,88 @@
             <thead>
             <tr>
                 <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event Name</th>
-                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event Description</th>
-                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event OwnerName</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event ID</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event date</th>
                 <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
             </tr>
             <tr>
                 <td>
-                    <input ng-model="clickGroup.title" class="form-control input-sm" type="text" id="group-title" placeholder="name">
+                    <input ng-model="clickEvent.title" class="form-control input-sm" type="text" id="event-title" placeholder="title">
                 </td>
                 <td>
-                    <input ng-model="clickGroup.description" class="form-control input-sm" type="text" id="group-description" placeholder="description">
+                    auto Assign eventID
                 </td>
                 <td>
-                    <input ng-model="clickGroup.ownerName" class="form-control input-sm" type="text" id="group-ownerName" placeholder="ownerName">
+                    <input ng-model="clickEvent.date" class="form-control input-sm" type="date" id="event-date" placeholder="date">
                 </td>
-                <td class="iconcenter">
+                <td>
                     <div class="row-fluid form-inline">
-                        <button ng-click="addGroup(clickGroup)" class="glyphicon glyphicon-plus"></button>
+                        <button ng-click="addEventInGroup(clickEvent)" class="btn btn-danger glyphicon glyphicon-plus"></button>
                         <!--how to put space here-->
-                        <button ng-click="updateGroup(clickGroup)" class="glyphicon glyphicon-ok"></button>
+                        <button ng-click="updateEventInGroup(clickEvent)" class="btn btn-info glyphicon glyphicon-ok"></button>
                     </div>
                 </td>
             </tr>
             </thead>
-            <tbody>
-            <tr ng-repeat="group in groups">
-                <td class="form-list"><a href="#/details/{{group._id}}">{{group.title}}</a></td>
-                <td>{{group.description}}</td>
-                <td>{{group.ownerName}}</td>
-                <td class="form-list text-center">
-                    <button ng-click="deleteGroup($index)" class="glyphicon glyphicon-remove action-icon"></button>
-                    <button ng-click="selectGroup($index)" class="glyphicon glyphicon-pencil action-icon"></button>
-                    <!--</td>-->
-                    <!--<td>{{results[0].geometry.location.lat}}</td>-->
+            <tbody data-ng-repeat="group in groups">
+
+            <tr data-ng-repeat="event in group.listofEvents">
+
+                <td class="form-list"><a href="#/event/{{event.title}}">{{event.title}}</a></td>
+                <td >{{event._id}}</td>
+                <td >{{event.date}}</td>
+                <td  class="form-list">
+                    <button ng-click="deleteEventInGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
+                    <button ng-click="selectEventInGroup($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>
             </tr>
-
-
-
-
-
 
 
         </table>
 
-    </div>
-    <!--<form>-->
+
+        <div class="table-responsive">
+        <h1>CRUD USERS</h1>
+
+        <table class="table table-condensed table-bordered table-striped volumes sptable">
+            <thead>
+            <tr>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> User Name</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> User GroupID</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
+            </tr>
+            <tr>
+            <td>
+            <input ng-model="clickUser.username" class="form-control input-sm" type="text" id="username" placeholder="title">
+            </td>
+            <td>Auto Assign GroupID
+            </td>
+            <td class="iconcenter">
+            <div class="row-fluid form-inline">
+            <button ng-click="addUserInGroup(clickUser)" class="btn btn-danger glyphicon glyphicon-plus"></button>
+            <!--how to put space here-->
+            <button ng-click="updateUsertInGroup(clickUser)" class="btn btn-info glyphicon glyphicon-ok"></button>
+            </div>
+            </td>
+            </tr>
+        </thead>
+        <tbody data-ng-repeat="group in groups">
+            <tr data-ng-repeat="user in group.listofMembers">
+                <td class="form-list">{{user.username}}</td>
+                <td>{{user.group_id}}</td>
+                <td>
+                    <div class="row-fluid form-inline">
+                        <button ng-click="deleteUserInGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
+                        <button ng-click="selectUserInGroup($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>
+                    </div>
+                </td>
+
+
+            </tr>
+
+        </table>
+
+        </div>
+        <!--<form>-->
 
 
 
@@ -78,7 +115,4 @@
     </form>
 </div>
 
-</body>
-
-
-</html>
+</div>
