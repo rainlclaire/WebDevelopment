@@ -5,12 +5,15 @@
         .controller("RegisterController", RegisterController);
 
     function RegisterController($scope,$rootScope, UserService) {
+        var model=this;
+        model.register = register;
 
-        console.log($scope.user);
-        $scope.message = null;
+        model.newUser = {};
+        //console.log($scope.user);
+        //$scope.message = null;
 
-        //register function for register html
-        $scope.register = register;
+        ////register function for register html
+        //$scope.register = register;
 
         function register(newUser) {
 
@@ -42,8 +45,9 @@
                 $scope.message = "You have to provide invalid email";
                 return;
             }
-            UserService.createUser(newUser, function(createUser) {
-                $rootScope.user = createUser;
+            UserService.createUser(newUser)
+            .then(function (createdUser){
+                $rootScope.user = createdUser;
                 if (!$scope.message) {
                     $scope.$location.url("/profile");
                 }

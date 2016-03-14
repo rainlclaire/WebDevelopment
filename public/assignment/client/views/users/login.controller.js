@@ -5,14 +5,18 @@
         .controller("LoginController", LoginController);
 
     function LoginController($scope, $location, $rootScope, UserService) {
-
-        console.log($scope.user);
-        //login function for login html
-        $scope.login = login;
+        var model=this;
+        model.login = login;
+        //console.log($scope.user);
+        ////login function for login html
+        //$scope.login = login;
 
         function login(theUser) {
-            UserService.findUserByCredentials(theUser.username, theUser.password, function (loggedInUser) {
+            console.log('cici');
+            UserService.findUserByCredentials(theUser.username, theUser.password)
+            .then(function(loggedInUser) {
                 if (loggedInUser) {
+                    console.log(loggedInUser);
 
                     //to set up the loggedIn user info
                     $rootScope.user = {

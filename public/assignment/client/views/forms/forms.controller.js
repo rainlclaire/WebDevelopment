@@ -7,10 +7,17 @@
 
     function FormController($scope, $rootScope, FormService) {
 
+        var model = this;
+        model.addForm = addForm;
+        model.updateForm = updateForm;
+        model.deleteForm = deleteForm;
+        model.selectForm = selectForm;
+
         var user= $rootScope.user;
         //form page only show when user logged in
         if (user !=null) {
-            FormService.findAllFormsForUser(user.id, function(allForms) {
+            FormService.findAllFormsForUser(user.id)
+            .then(function(allForms){
                 $scope.forms= allForms;
             });
         } else {
@@ -19,10 +26,7 @@
         }
 
         //function for form
-        $scope.addForm = addForm;
-        $scope.updateForm = updateForm;
-        $scope.deleteForm = deleteForm;
-        $scope.selectForm = selectForm;
+
 
 
         //add the form to currentForms
@@ -36,8 +40,10 @@
             //inti the title with empty
             $scope.clickForm.title="";
 
-            FormService.createFormForUser(user.id, newForm, function(createdForm) {
-                FormService.findAllFormsForUser(user.id, function(allForms) {
+            FormService.createFormForUser(user.id, newForm)
+            .then(function(createdForms){
+                FormService.findAllFormsForUser(user.id)
+                .then(function(allForms){
                     $scope.forms = allForms;
 
                 });
@@ -59,7 +65,8 @@
         //delete the form with given form's index
         function deleteForm(index) {
             var deletedId = $scope.forms[index].id;
-            FormService.deleteFormById(deletedId, function(allOtherForms) {
+            FormService.deleteFormById(deletedId)
+            .then(function(allOtherForms){
                 $scope.forms = allOtherForms;
             });
         }
