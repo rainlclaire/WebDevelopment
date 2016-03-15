@@ -9,6 +9,7 @@
         var model = this;
         model.removeField = removeField;
         model.addField = addField;
+        model.cloneField = cloneField;
 
         var userid = $routeParams.userid;
         var formid = $routeParams.formid;
@@ -46,9 +47,20 @@
                 model.fields = allFields;
             });
 
-        function removeField(index) {
+        function cloneField(field) {
+            FieldService.createFieldForForm(formid, field)
+            .then(function(forms) {
+                model.fields = forms.fields;
+            })
+        }
 
-            FieldService.deleteFieldForForm(formid, model.fields[index].id)
+        //function editField(index) {
+        //    $rootScope.case =
+        //}
+
+        function removeField(field) {
+
+            FieldService.deleteFieldForForm(formid,field.id)
                 .then(function(revisedForm) {
                     model.fields = revisedForm.fields;
                 });
