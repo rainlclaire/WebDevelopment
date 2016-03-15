@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 
-
+require("./public/assignment/server/app.js")(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
