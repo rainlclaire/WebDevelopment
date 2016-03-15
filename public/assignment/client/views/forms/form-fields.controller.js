@@ -10,8 +10,8 @@
         model.removeField = removeField;
         model.addField = addField;
 
-        var userid = $routeParams.userId;
-        var formid = $routeParams.formId;
+        var userid = $routeParams.userid;
+        var formid = $routeParams.formid;
 
         var defaultValues = {
             TEXT: {id: null, label: "New Text Field", type: "TEXT", placeholder: "New Field"},
@@ -47,10 +47,8 @@
             });
 
         function removeField(index) {
-            console.log("test for model fields");
-            console.log(index);
-            console.log(model.fields);
-            FieldService.deleteFieldForForm(formid, index._id)
+
+            FieldService.deleteFieldForForm(formid, model.fields[index].id)
                 .then(function(revisedForm) {
                     model.fields = revisedForm.fields;
                 });
@@ -60,7 +58,6 @@
             var newField = defaultValues[newFieldType];
             FieldService.createFieldForForm(formid, newField)
                 .then(function(revisedForm) {
-                    console.log(revisedForm.fields);
                     model.fields = revisedForm.fields;
                 });
         }

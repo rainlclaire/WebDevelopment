@@ -16,9 +16,9 @@
         return service;
 
         //create form for user with given user id and form info
-        function createFormForUser(userId, form) {
+        function createFormForUser(userid, form) {
             var deferred = $q.defer();
-            $http.post("/api/assignment/user/" + userId + "/form", form)
+            $http.post("/api/assignment/user/" + userid + "/form", form)
                 .success(function(response) {
                     deferred.resolve(response);
                 });
@@ -31,10 +31,10 @@
         }
 
         //find all forms for given user
-        function findAllFormsForUser(userId) {
+        function findAllFormsForUser(userid) {
             var deferred = $q.defer();
 
-            $http.get("/api/assignment/user/" + userId + "/form")
+            $http.get("/api/assignment/user/" + userid + "/form")
                 .success(function(response) {
                     deferred.resolve(response);
                 });
@@ -45,9 +45,9 @@
 
 
         //delete form by given form id
-        function deleteFormById(formId) {
+        function deleteFormById(id) {
             var deferred = $q.defer();
-            $http.delete("/api/assignment/form/" + formId)
+            $http.delete("/api/assignment/form/" + id)
                 .success(function(response) {
                     deferred.resolve(response);
                 });
@@ -62,9 +62,9 @@
 
         }
 
-        function deleteFormByIdForUser(formId, userId) {
+        function deleteFormByIdForUser(id, userid) {
             var deferred = $q.defer();
-            $http.delete("/api/assignment/user/" + userId + "/form/" + formId)
+            $http.delete("/api/assignment/user/" + userid + "/form/" + id)
                 .then(function(response) {
                     deferred.resolve(response);
                 });
@@ -72,23 +72,14 @@
         }
 
         //update the form by given form's id with new form info
-        function updateFormById(formId, newForm) {
+        function updateFormById(id, updatedForm) {
             var deferred = $q.defer();
             $http.put("/api/assignment/form/" + id, updatedForm)
                 .success(function(response) {
                     deferred.resolve(response);
                 });
             return deferred.promise;
-            //for(var j = 0; j < forms.length; j++) {
-            //    if (forms[j].id = formId) {
-            //        for(var attr in updateForm) {
-            //            if (updateForm.hasOwnProperty(attr))
-            //            forms[j][attr] = updateForm[attr];
-            //        }
-            //        callback(forms[j]);
-            //        break;
-            //    }
-            //}
+
 
         }
 

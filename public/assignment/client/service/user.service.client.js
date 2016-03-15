@@ -80,49 +80,27 @@
 
 
             //delete the user by finding the user id
-            function deleteUserById(userId) {
+            function deleteUserById(id) {
 
                 var deferred = $q.defer();
-                $http.delete("/api/assignment/user/" + userId)
+                $http.delete("/api/assignment/user/" + id)
                     .success(function (response) {
                         deferred.resolve(response);
                     });
                 return deferred.promise;
             }
 
-            ////iterate the currentUser
-            //for (var i = 0; i < currentUser.length; i++) {
-            //    if (userId == currentUser[i].id) {
-            //        currentUser.splice(i, 1);
-            //        callback(currentUser);
-            //        break;
-            //    }
-            //}
+
 
 
             //update the user info with given user id, user info, and callback
-            function updateUser(userId, user) {
+            function updateUser(id, updatedUser) {
                 //console.log(userId);
                 //console.log(user);
                 //var deferred = $q.defer();
-                console.log($http.put("/api/assignment/user/" + userId, user));
-                return $http.put("/api/assignment/user/" + userId,user);
-                //    .success(function (response) {
-                //        console.log(response);
-                //        deferred.resolve(response);
-                //    });
-                //return deferred.promise;
-                //for (var i = 0; i < currentUser.length; i++) {
-                //    if (userId == currentUser[i].id) {
-                //        //update the user with given data
-                //        for (var attr in user) {
-                //            if (user.hasOwnProperty(attr))
-                //                currentUser[i][attr] = user[attr];
-                //        }
-                //        callback(user);
-                //        break;
-                //    }
-                //}
+                console.log($http.put("/api/assignment/user/" + id, updatedUser));
+                return $http.put("/api/assignment/user/" + id, updatedUser);
+
 
             }
         }

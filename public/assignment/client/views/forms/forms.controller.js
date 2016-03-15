@@ -13,7 +13,14 @@
         model.deleteForm = deleteForm;
         model.selectForm = selectForm;
 
+        console.log("test form formcontroller");
+
+
         var user= $rootScope.user;
+
+        model.clickForm = {
+            title:""
+        };
         console.log($rootScope.user);
         //form page only show when user logged in
         if (user !=null) {
@@ -21,11 +28,10 @@
             FormService.findAllFormsForUser(user.id)
             .then(function(allForms){
                 //console.log(allForms);
-                $scope.forms= allForms;
+                model.forms= allForms;
             });
         } else {
             alert("You need to login or register");
-            $scope.$location.path("/home");
         }
 
         //function for form
@@ -35,54 +41,59 @@
         //add the form to currentForms
         function addForm(form) {
             var newForm= {
-                title: form.title,
-                _id: form._id,
-                userId: form.userId
+                title: form.title
             };
 
             //inti the title with empty
-            $scope.clickForm.title="";
+            model.clickForm.title="";
 
             FormService.createFormForUser(user.id, newForm)
             .then(function(createdForms){
-                FormService.findAllFormsForUser(user.id)
-                .then(function(allForms){
-                    $scope.forms = allForms;
+                model.forms = createdForms;
 
-                });
             });
         }
 
         //update the select form with the given form info
         function updateForm(form) {
-            if ($scope.selectFormIndex != null) {
-                $scope.forms[$scope.selectFormIndex]._id = form._id;
-                $scope.forms[$scope.selectFormIndex].title = form.title;
-                $scope.forms[$scope.selectFormIndex].userId = form.userId;
-
-            } else {
-                alert("You have to select a Form");
-            }
+            //if ($scope.selectFormIndex != null) {
+            //    $scope.forms[$scope.selectFormIndex]._id = form._id;
+            //    $scope.forms[$scope.selectFormIndex].title = form.title;
+            //    $scope.forms[$scope.selectFormIndex].userId = form.userId;
+            //
+            //} else {
+            //    alert("You have to select a Form");
+            //}
+            FormService.updateFormById(form.id, form)
+                .then(function(allForms) {
+                    // no-op for now
+                });
         }
 
         //delete the form with given form's index
         function deleteForm(index) {
-            var deletedId = $scope.forms[index]._id;
-            FormService.deleteFormById(deletedId)
-            .then(function(allOtherForms){
-                $scope.forms = allOtherForms;
-            });
+            //var deletedId = $scope.forms[index]._id;
+            //FormService.deleteFormById(deletedId)
+            //.then(function(allOtherForms){
+            //    $scope.forms = allOtherForms;
+            //});
+            var deletedId = model.forms[index].id;
+            FormService.deleteFormByIdForUser(deletedId, user.id)
+                .then(function(remainingForms) {
+                    model.forms = remainingForms.data;
+                });
         }
 
         //select the form with given form's index
         function selectForm(index) {
             //$scope.clickForm.title = $scope.forms[index].title;
-            $scope.selectFormIndex = index;
-            $scope.clickForm = {
-                "_id": $scope.forms[index]._id,
-                "title": $scope.forms[index].title,
-                "userId:": $scope.forms[index].userId
-            };
+            //$scope.selectFormIndex = index;
+            //$scope.clickForm = {
+            //    "_id": $scope.forms[index]._id,
+            //    "title": $scope.forms[index].title,
+            //    "userId:": $scope.forms[index].userId
+            //};
+            model.clickForm.title = model.forms[index].title;
         }
 
     }

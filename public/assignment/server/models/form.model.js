@@ -30,7 +30,11 @@ module.exports = function(app, db) {
 
 
     function createFormForUser(newForm, userid) {
-        newForm._id = (new Date()).getTime();
+        console.log("cici");
+        console.log(newForm);
+        console.log(userid);
+
+        newForm.id = (new Date()).getTime();
         newForm.userid = userid;
         forms.push(newForm);
         return findFormsByUserId(userid);
@@ -44,7 +48,7 @@ module.exports = function(app, db) {
     function findById(id) {
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
                 // form found!
                 return forms[i];
             }
@@ -56,7 +60,7 @@ module.exports = function(app, db) {
     function update(id, updatedForm) {
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
 
                 for(var attr in updatedForm) {
                     if(updatedForm.hasOwnProperty(attr))
@@ -71,7 +75,7 @@ module.exports = function(app, db) {
     function remove(id) {
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
                 // form found!
                 forms.splice(i, 1);
                 break;
@@ -83,7 +87,7 @@ module.exports = function(app, db) {
     function removeForUser(id, userid) {
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
                 // form found!
                 forms.splice(i, 1);
                 break;
@@ -108,8 +112,10 @@ module.exports = function(app, db) {
         var userForms = [];
 
         for(var i = 0; i < forms.length; i++) {
+            console.log(i);
+            console.log(forms[i].userId);
             //console.log(userid);
-            if(forms[i].userId == userid) {
+            if(forms[i].userid == userid) {
                 // form found!  add it to the array
                 userForms.push(forms[i]);
                 //console.log("userforms");
@@ -123,7 +129,7 @@ module.exports = function(app, db) {
     function retrieveFormFields(id) {
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
 
                 return forms[i].fields;
             }
@@ -134,10 +140,10 @@ module.exports = function(app, db) {
     function retrieveFormField(id, fieldid) {
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
                 // form found!  now locate requested field
                 for(var j = 0; j < forms[i].fields.length; j++) {
-                    if(forms[i].fields._id == fieldid){
+                    if(forms[i].fields.id == fieldid){
                         // field found!
                         return forms[i].fields[j];
                     }
@@ -149,9 +155,9 @@ module.exports = function(app, db) {
 
     function removeFormField(id, fieldid) {
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
                 for(var j = 0; j < forms[i].fields.length; j++) {
-                    if(forms[i].fields[j]._id == fieldid){
+                    if(forms[i].fields[j].id == fieldid){
                         // field found!  remove it
                         forms[i].fields.splice(j, 1);
                         return forms[i];
@@ -164,10 +170,10 @@ module.exports = function(app, db) {
 
     function createFormField(id, newField) {
         //console.log(newField);
-        //newField.id = (new Date()).getTime();
+        newField.id = (new Date()).getTime();
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
                 // form found!
                 if(!forms[i].fields){
                     forms[i].fields = [];
@@ -182,10 +188,10 @@ module.exports = function(app, db) {
     function updateFormField(id, fieldid, updatedField) {
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i]._id == id) {
+            if(forms[i].id == id) {
 
                 for(var j = 0; j < forms[i].fields.length; j++) {
-                    if(forms[i].fields[j]._id == fieldid){
+                    if(forms[i].fields[j].id == fieldid){
                         // field found!  update it
                         for(var attr in updatedField) {
                             if(updatedField.hasOwnProperty(attr))

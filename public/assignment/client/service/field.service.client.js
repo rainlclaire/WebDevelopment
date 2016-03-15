@@ -15,27 +15,27 @@
         };
         return service;
 
-        function createFieldForForm(formId, field) {
+        function createFieldForForm(formid, field) {
             var deferred = $q.defer();
-            $http.post("/api/assignment/form/" + formId + "/field", field)
+            $http.post("/api/assignment/form/" + formid + "/field", field)
                 .success(function(response) {
                     deferred.resolve(response);
                 });
             return deferred.promise;
         }
 
-        function getFieldsForForm(formId) {
+        function getFieldsForForm(formid) {
             var deferred = $q.defer();
-            $http.get("/api/assignment/form/" + formId + "/field")
+            $http.get("/api/assignment/form/" + formid + "/field")
                 .success(function(response) {
                     deferred.resolve(response);
                 });
             return deferred.promise;
         }
 
-        function getFieldForForm(formId, fieldId) {
+        function getFieldForForm(formid, fieldid) {
             var deferred = $q.defer();
-            $http.get("/api/assignment/form/" + formId + "/field/"+fieldId)
+            $http.get("/api/assignment/form/" + formid + "/field/"+fieldid)
                 .success(function(response) {
                     alert("FORM FIELDCLINET");
                     alert(response);
@@ -44,9 +44,9 @@
             return deferred.promise;
         }
 
-        function deleteFieldForForm(formId, fieldId) {
+        function deleteFieldForForm(formid, fieldid) {
             var deferred = $q.defer();
-            $http.delete("/api/assignment/form/" + formId + "/field/"+fieldId)
+            $http.delete("/api/assignment/form/" + formid + "/field/"+fieldid)
                 .success(function(response) {
                     alert(response);
                     deferred.resolve(response);
@@ -54,9 +54,9 @@
             return deferred.promise;
         }
 
-        function updateField(formId,field, fieldId) {
+        function updateField(formid,field, fieldid) {
             var deferred = $q.defer();
-            $http.put("/api/assignment/form/" + formId + "/field/"+fieldId, field)
+            $http.put("/api/assignment/form/" + formid + "/field/"+fieldid, field)
                 .success(function(response) {
                     deferred.resolve(response);
                 });

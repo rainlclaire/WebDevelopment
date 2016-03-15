@@ -3,11 +3,11 @@
 module.exports = function (app, model, db) {
     app.post("/api/assignment/user", createUser);
     app.get("/api/assignment/user", findUsers);
-    app.get("/api/assignment/user/:id",findById);
-    app.get("/api/assignment/user?username=username", findUserByUsername);
-    app.get("/api/assignment/user?username=alice&password=alice", findAlice);
+    app.get("/api/assignment/user/:id",findUserById);
+    //app.get("/api/assignment/user?username=username", findUserByUsername);
+    //app.get("/api/assignment/user?username=alice&password=alice", findAlice);
     app.put("/api/assignment/user/:id", updateUser);
-    app.delete("/api/assignment/user/:id", deleteUserById);
+    app.delete("/api/assignment/user/:id", deleteUser);
 
 
     function createUser(req, res) {
@@ -52,7 +52,7 @@ module.exports = function (app, model, db) {
     }
 
 
-    function findById(req, res) {
+    function findUserById(req, res) {
 
         res.json(model.findById(req.params.id));
 
@@ -76,7 +76,7 @@ module.exports = function (app, model, db) {
 
     }
 
-    function deleteUserById(req, res) {
+    function deleteUser(req, res) {
         //model.remove(req.params.id)
         //.then(function(users) {
         //    res.json(users);

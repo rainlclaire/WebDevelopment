@@ -27,12 +27,12 @@
                 controller: "LoginController",
                 controllerAs:"model"
             })
-            .when("/user",{
-                templateUrl:"views/forms/form-fields.view.html",
-                controller:"FieldController",
-                controllerAs:"model"
+            .when("/user", {
+                templateUrl: "/views/forms/field.view.html",
+                controller: "FieldController",
+                controllerAs: "model"
             })
-            .when("/user/:userId/form/:formId/fields", {
+            .when("/user/:userid/form/:formid/fields", {
                 templateUrl:"views/forms/form-fields.view.html",
                 controller:"FieldController",
                 controllerAs:"model"
@@ -40,21 +40,6 @@
             .when("/forms", {
                 templateUrl: "views/forms/forms.view.html",
                 controller: "FormController",
-                controllerAs:"model"
-            })
-            .when("/form-fields", {
-                templateUrl: "views/forms/form-fields.view.html",
-                controller:"FieldController",
-                controllerAs:"model"
-            })
-            .when("/form/:formId/fields", {
-                templateUrl: "views/forms/form-fields.view.html",
-                controller:"FieldController",
-                controllerAs:"model"
-            })
-            .when("/form/:formId/fields/:fieldId", {
-                templateUrl:"views/forms/form-fields.view.html",
-                controller:"FieldController",
                 controllerAs:"model"
             })
             .otherwise( {
