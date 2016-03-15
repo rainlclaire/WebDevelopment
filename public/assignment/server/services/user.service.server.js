@@ -21,8 +21,8 @@ module.exports = function (app, model, db) {
     function findUsers(req, res) {
         var reqUsername = req.query.username;
         var reqPassword = req.query.password;
-        console.log(reqUsername);
-        console.log(reqPassword);
+        //console.log(reqUsername);
+        //console.log(reqPassword);
 
         if (reqUsername != null && reqPassword != null) {
 

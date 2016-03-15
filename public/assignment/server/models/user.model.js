@@ -43,7 +43,6 @@ module.exports = function(app, db) {
                     if(updatedUser.hasOwnProperty(attr))
                         users[i][attr] = updatedUser[attr];
                 }
-                console.log(users);
                 return users[i];
 
             }
@@ -74,8 +73,6 @@ module.exports = function(app, db) {
 
     function findUserByCredentials(creds) {
         var matchedUser = null;
-        console.log("usermodel");
-
         for(var i = 0; i < users.length; i++) {
             if(users[i].username === creds.username
                 && users[i].password === creds.password) {

@@ -14,10 +14,13 @@
         model.selectForm = selectForm;
 
         var user= $rootScope.user;
+        console.log($rootScope.user);
         //form page only show when user logged in
         if (user !=null) {
+            console.log("user not null yes");
             FormService.findAllFormsForUser(user.id)
             .then(function(allForms){
+                //console.log(allForms);
                 $scope.forms= allForms;
             });
         } else {
@@ -53,7 +56,7 @@
         //update the select form with the given form info
         function updateForm(form) {
             if ($scope.selectFormIndex != null) {
-                $scope.forms[$scope.selectFormIndex].id = form.id;
+                $scope.forms[$scope.selectFormIndex]._id = form._id;
                 $scope.forms[$scope.selectFormIndex].title = form.title;
                 $scope.forms[$scope.selectFormIndex].userId = form.userId;
 
@@ -64,7 +67,7 @@
 
         //delete the form with given form's index
         function deleteForm(index) {
-            var deletedId = $scope.forms[index].id;
+            var deletedId = $scope.forms[index]._id;
             FormService.deleteFormById(deletedId)
             .then(function(allOtherForms){
                 $scope.forms = allOtherForms;

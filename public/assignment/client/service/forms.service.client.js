@@ -33,10 +33,12 @@
         //find all forms for given user
         function findAllFormsForUser(userId) {
             var deferred = $q.defer();
+
             $http.get("/api/assignment/user/" + userId + "/form")
                 .success(function(response) {
                     deferred.resolve(response);
                 });
+
             return deferred.promise;
             //var form = [];  //set the form array to empty
             ////iterate the forms

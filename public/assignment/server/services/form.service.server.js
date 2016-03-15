@@ -1,7 +1,9 @@
 
 
 module.exports = function (app, model, db) {
-    app.post("/api/assignment/user/:userId/form",findFormsByUserId);
+    "#/user/{{form.userId}}/form/{{form._id}}/fields"
+    //app.post("/api/assignment/user/:userId/form",findFormsByUserId);
+    app.get("/api/assignment/user/:userId/form", findFormsByUserId);
     app.get("/api/assignment/form/:formId", findFormById);
     app.delete("/api/assignment/form/:formId", deleteFormById);
     app.post("/api/assignment/user/:userId/form", createFormForUserById);
@@ -9,14 +11,18 @@ module.exports = function (app, model, db) {
 
 
     function findFormsByUserId(req, res) {
-        model.findFormsByUserId(req.params.userId)
-        .then(function(forms) {
-            res.json(forms);
-        })
+        //console.log(req.params.userId);
+        //console.log(model.findFormsByUserId(req.params.userId));
+        //model.findFormsByUserId(req.params.userId)
+        //.then(function(forms) {
+        //    res.json(forms);
+        //})
+        res.json(model.findFormsByUserId(req.params.userId));
     }
 
+
     function findFormById(req, res) {
-        model.findById(req.params.formid)
+        model.findById(req.params.formId)
         .then(function(forms) {
             res.json(forms);
         })
@@ -37,7 +43,7 @@ module.exports = function (app, model, db) {
     }
 
     function updateFormById(req, res) {
-        model.update(req.params.formid, req.body)
+        model.update(req.params.formId, req.body)
         .then(function(forms) {
             res.json(forms);
         })
