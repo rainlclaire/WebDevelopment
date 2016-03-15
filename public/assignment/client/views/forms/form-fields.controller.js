@@ -5,11 +5,12 @@
         .module("FormBuilderApp")
         .controller("FieldController", FieldController);
 
-    function FieldController($routeParams, FieldService) {
+    function FieldController($routeParams,$uibModal,$rootScope, FieldService) {
         var model = this;
         model.removeField = removeField;
         model.addField = addField;
         model.cloneField = cloneField;
+        model.editField = editField;
 
         var userid = $routeParams.userid;
         var formid = $routeParams.formid;
@@ -54,9 +55,18 @@
             })
         }
 
-        //function editField(index) {
-        //    $rootScope.case =
-        //}
+        function editField(index) {
+            $rootScope.modalInstance = $uibModal.open({
+                templateUrl:"views/forms/field-modal.view.html",
+                controller:"FieldModalInstanceController",
+                size:'sm',
+                resolve: {
+                    clickField: function () {
+                        return model.fields[index];
+                    }
+                }
+            })
+        }
 
         function removeField(field) {
 

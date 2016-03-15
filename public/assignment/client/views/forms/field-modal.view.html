@@ -1,0 +1,25 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">{{clickField.type}}</h3>
+    </div>
+    <div class="modal-body">
+        <label>
+            Label
+            <input type="text" class="form-control">
+        </label>
+
+        <label ng-class="{hide: !Placeholder}">
+            Placeholder
+            <input type="text" class="form-control">
+        </label>
+
+        <label ng-class="{hide: !Textarea}">
+            Options
+            <textarea class="form-control"></textarea>
+        </label>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="submit()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</div>
