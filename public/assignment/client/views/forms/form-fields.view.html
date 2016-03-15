@@ -7,7 +7,7 @@
     </ul>
 
     <form ng-model="model.fields" id="form-fields" class="form-horizontal" ui-tree ui-tree-nodes="">
-        <div ng-repeat="field in model.fields" ng-switch on="field.type" ui-tree-node>
+        <div ng-repeat="field in model.fields track by $index" ng-switch on="field.type" ui-tree-node>
             <div class="form-group">
                 <div class="col-sm-8">
                     <label>{{field.label}}</label>
@@ -45,8 +45,8 @@
 
         <div class="form-group">
             <div class="col-sm-8">
-                <label for="select-new-field-form-fields">Add New Field</label>
-                <select ng-model="model.fieldType" class="form-control" name="select-new-field-form-fields" id="select-new-field-form-fields">
+                <label for="selectfields">Add New Field</label>
+                <select ng-model="model.fieldType" class="form-control" name="selectfields" id="selectfields">
                     <option value="TEXT">Single Line Text</option>
                     <option value="TEXTAREA">Multi Line Text</option>
                     <option value="DATE">Date</option>

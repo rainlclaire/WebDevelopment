@@ -40,14 +40,7 @@
                 });
 
             return deferred.promise;
-            //var form = [];  //set the form array to empty
-            ////iterate the forms
-            //for (var k = 0; k < forms.length; k++) {
-            //    if (forms[k].id == userId) {
-            //        form.push(forms[k]);
-            //    }
-            //}
-            //callback(form);
+
         }
 
 
