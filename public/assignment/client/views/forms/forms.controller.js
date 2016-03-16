@@ -47,6 +47,7 @@
             //inti the title with empty
             model.clickForm.title="";
 
+
             FormService.createFormForUser(user.id, newForm)
             .then(function(createdForms){
                 model.forms = createdForms;
@@ -64,9 +65,22 @@
             //} else {
             //    alert("You have to select a Form");
             //}
+
+            FormService.findAllFormsForUser(user.id)
+                .then(function(allForms){
+                    //console.log(allForms);
+                    model.forms= allForms;
+                });
+            console.log("form controller");
+            console.log(form);
+            //console.log(model.forms[$index]);
             FormService.updateFormById(form.id, form)
                 .then(function(allForms) {
-                    // no-op for now
+                    model.forms[form.index] = allForms;
+                    model.clickForm = {
+                        title:""
+                    };
+
                 });
         }
 

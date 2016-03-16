@@ -8,9 +8,14 @@ module.exports = function (app, model, db) {
     app.delete("/api/assignment/user/:userid/form/:formid", deleteFormByIdForUser);
     app.post("/api/assignment/user/:userid/form", createFormForUser);
     app.put("/api/assignment/form/:formid", updateFormById);
+    app.put("/api/assigment/user/:userid/form/:formid", updateFormForUser);
     app.get("/api/assignment/form", findAllForms);
 
 
+
+    function updateFormForUser(req,res) {
+        res.json(model.updateForUser(req.params.formid,req.params.userid, req.body));
+    }
     function findFormsByUserId(req, res) {
         //console.log(req.params.userId);
         //console.log(model.findFormsByUserId(req.params.userId));

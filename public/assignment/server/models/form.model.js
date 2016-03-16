@@ -18,7 +18,8 @@ module.exports = function(app, db) {
         retrieveFormField: retrieveFormField,
         removeFormField: removeFormField,
         createFormField: createFormField,
-        updateFormField: updateFormField
+        updateFormField: updateFormField,
+        updateForUser:updateForUser
     };
     return api;
 
@@ -36,6 +37,7 @@ module.exports = function(app, db) {
 
         newForm.id = (new Date()).getTime();
         newForm.userid = userid;
+        console.log(newForm);
         forms.push(newForm);
         return findFormsByUserId(userid);
     }
@@ -60,7 +62,12 @@ module.exports = function(app, db) {
     function update(id, updatedForm) {
 
         for(var i = 0; i < forms.length; i++) {
-            if(forms[i].id == id) {
+            console.log("outside if");
+            console.log(id);
+            if(forms[i].id === id) {
+                console.log("inside if");
+                console.log(forms[i].id);
+                console.log(id);
 
                 for(var attr in updatedForm) {
                     if(updatedForm.hasOwnProperty(attr))
@@ -69,6 +76,8 @@ module.exports = function(app, db) {
                 break;
             }
         }
+        console.log("form model");
+        console.log(forms);
         return forms;
     }
 
@@ -93,6 +102,21 @@ module.exports = function(app, db) {
                 break;
             }
         }
+        return findFormsByUserId(userid);
+    }
+
+    function updateForUser(id, userid, updatedForm) {
+        for(var i = 0; i < forms.length; i++) {
+            if(forms[i].id == id) {
+
+                for(var attr in updatedForm) {
+                    if(updatedForm.hasOwnProperty(attr))
+                        forms[i].attr = updatedForm.attr;
+                }
+                break;
+            }
+        }
+        //return forms;
         return findFormsByUserId(userid);
     }
 

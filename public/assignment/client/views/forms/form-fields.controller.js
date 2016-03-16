@@ -83,5 +83,11 @@
                     model.fields = revisedForm.fields;
                 });
         }
+
+        $(function() {
+            $( "#sortable" ).sortable({
+                class: "ui-state-default"
+            });
+        });
     }
 })();

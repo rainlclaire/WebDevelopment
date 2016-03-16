@@ -11,7 +11,8 @@
             findAllFormsForUser: findAllFormsForUser,
             deleteFormById: deleteFormById,
             updateFormById:updateFormById,
-            deleteFormByIdForUser:deleteFormByIdForUser
+            deleteFormByIdForUser:deleteFormByIdForUser,
+            updateFormForUser:updateFormForUser
         };
         return service;
 
@@ -23,11 +24,6 @@
                     deferred.resolve(response);
                 });
             return deferred.promise;
-
-            //var _id = (new Date()).getTime();
-            //form._id = _id;
-            //forms.push(form);
-            //callback(form);
         }
 
         //find all forms for given user
@@ -71,8 +67,20 @@
             return deferred.promise;
         }
 
+        function updateFormForUser(id, updatedForm, userid) {
+            var deferred = $q.defer();
+            $http.put("/api/assignment/user/"+ userid+"/form/" + id, updatedForm)
+                .success(function(response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
+
         //update the form by given form's id with new form info
         function updateFormById(id, updatedForm) {
+            console.log("update from client sever");
+            console.log(updatedForm);
+            console.log(id);
             var deferred = $q.defer();
             $http.put("/api/assignment/form/" + id, updatedForm)
                 .success(function(response) {
