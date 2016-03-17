@@ -27,6 +27,7 @@
                 model.user.password = user.password;
                 model.user.verifyPassword= user.verifyPassword;
                 model.user.email = user.email;
+                model.user.roles = user.roles;
                 model.user.firstName = user.firstName;
                 model.user.lastName = user.lastName;
         } else {
@@ -35,52 +36,55 @@
         }
 
         function update(updateUser) {
-            UserService.updateUser(user.id, updateUser)
-            .then(function(mergeUser) {
-                //console.log(mergeUser.data);
-                //model.user = mergeUser.data;
-                //$rootScope.user = mergeUser.data;
-                //console.log($rootScope.user);
-                //console.log(mergeUser);
-                //error catch for user is null
-                model.message= null;
-                if (updateUser == null) {
-                    model.message = "Please fill in the required fields";
-                    return;
-                }
-                //error catch for username is null
-                if (!updateUser.username) {
-                    model.message = "Please provide a username";
-                    return;
-                }
-                //error catch for password is null
-                if (!updateUser.password || !updateUser.verifyPassword) {
-                    model.message = "Please provide a password or verifyPassword";
-                    return;
-                }
-                //error catch if password not match
-                if (updateUser.password != updateUser.verifyPassword) {
-                    model.message = "Passwords must match";
-                    return;
-                }
-                if (!updateUser.firstName || !updateUser.lastName) {
-                    model.message = "You have to provide your first and last name";
-                }
-                if (!updateUser.email) {
-                    model.message = "Please provide invalid email";
-                }
-                //error message
+            model.message= null;
+            //if (updateUser == null) {
+            //    model.message = "Please fill in the required fields";
+            //    return;
+            //}
+            ////error catch for username is null
+            //if (!updateUser.username) {
+            //    model.message = "Please provide a username";
+            //    return;
+            //}
+            ////error catch for password is null
+            //if (!updateUser.password || !updateUser.verifyPassword) {
+            //    model.message = "Please provide a password or verifyPassword";
+            //    return;
+            //}
+            ////error catch if password not match
+            //if (updateUser.password != updateUser.verifyPassword) {
+            //    model.message = "Passwords must match";
+            //    return;
+            //}
+            //if (!updateUser.firstName || !updateUser.lastName) {
+            //    model.message = "You have to provide your first and last name";
+            //}
+            //if (!updateUser.email) {
+            //    model.message = "Please provide invalid email";
+            //}
 
-                if (!model.message) {
-                    model.user = mergeUser.data;
-                    console.log(mergeUser);
-                    $rootScope.user = mergeUser.data;
-                    $location.path("/home");
-                    alert("user updated successfully");
+            if (!model.message) {
+                UserService.updateUser(user.id, updateUser)
+                .then(function(mergeUser) {
+                    //console.log(mergeUser.data);
+                    //model.user = mergeUser.data;
+                    //$rootScope.user = mergeUser.data;
+                    //console.log($rootScope.user);
+                    //console.log(mergeUser);
+                    //error catch for user is null
 
-                }
+                    //error message
 
-            });
+
+                        model.user = mergeUser.data;
+                        console.log(mergeUser.data.email);
+                        $rootScope.user = mergeUser.data;
+                        $location.path("/home");
+                        alert("user updated successfully");
+
+
+                });
+            }
         }
 
 

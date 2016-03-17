@@ -48,6 +48,15 @@
                 model.fields = allFields;
             });
 
+
+            $(function () {
+                $("#sortable1").sortable({
+                    axis: "y",
+                    connectWith: ".connectedSortable"
+                }).disableSelection()
+            });
+
+
         function cloneField(field) {
             FieldService.createFieldForForm(formid, field)
             .then(function(forms) {

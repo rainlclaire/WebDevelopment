@@ -36,17 +36,22 @@ module.exports = function(app, db) {
     }
 
     function update(id, updatedUser) {
-
-        for(var i = 0; i < users.length; i++) {
-            if(users[i].id == id) {
+        console.log("======================");
+        console.log(users.length);
+        for(var ii in users) {
+            if(users[ii].id == id) {
                 for(var attr in updatedUser) {
-                    if(updatedUser.hasOwnProperty(attr))
-                        users[i][attr] = updatedUser[attr];
+                    console.log(attr);
+                    if(updatedUser.hasOwnProperty(attr)) {
+                        console.log(attr);
+                        users[ii][attr] = updatedUser[attr];
+                    }
                 }
-                return users[i];
+                return users[ii];
 
             }
         }
+        console.log("======================");
     }
 
     function remove(id) {

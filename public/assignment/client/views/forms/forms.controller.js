@@ -66,21 +66,20 @@
             //    alert("You have to select a Form");
             //}
 
-            FormService.findAllFormsForUser(user.id)
-                .then(function(allForms){
-                    //console.log(allForms);
-                    model.forms= allForms;
-                });
-            console.log("form controller");
-            console.log(form);
+            //FormService.findAllFormsForUser(user.id)
+            //    .then(function(allForms){
+            //        //console.log(allForms);
+            //        model.forms= allForms;
+            //    });
+            //console.log("form controller");
+            //console.log(form);
             //console.log(model.forms[$index]);
             FormService.updateFormById(form.id, form)
                 .then(function(allForms) {
-                    model.forms[form.index] = allForms;
+                    model.forms[selectedIndex].title = form.title;
                     model.clickForm = {
                         title:""
                     };
-
                 });
         }
 
@@ -98,6 +97,7 @@
                 });
         }
 
+        var selectedIndex = null;
         //select the form with given form's index
         function selectForm(index) {
             //$scope.clickForm.title = $scope.forms[index].title;
@@ -107,8 +107,11 @@
             //    "title": $scope.forms[index].title,
             //    "userId:": $scope.forms[index].userId
             //};
-            model.clickForm.title = model.forms[index].title;
+            selectedIndex = index;
+            model.clickForm = {
+                title: model.forms[index].title,
+                id: model.forms[index].id
+            };
         }
-
     }
 })();

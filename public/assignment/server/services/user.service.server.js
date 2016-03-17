@@ -71,8 +71,12 @@ module.exports = function (app, model, db) {
         //.then(function(users) {
         //    res.json(user);
         //});
-
-        res.json(model.update(req.params.id, req.body));
+        console.log(req.body);
+        console.log("-1-");
+        var user = model.update(req.params.id, req.body);
+        console.log(user);
+        console.log("-2-");
+        res.json(user);
 
     }
 
