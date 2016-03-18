@@ -5,7 +5,7 @@
     angular.module("FormBuilderApp")
         .controller("FormController", FormController);
 
-    function FormController($scope, $rootScope, FormService) {
+    function FormController($scope, $location, $rootScope, FormService) {
 
         var model = this;
         model.addForm = addForm;
@@ -32,6 +32,7 @@
             });
         } else {
             alert("You need to login or register");
+            $location.url("login");
         }
 
         //function for form
@@ -40,6 +41,10 @@
 
         //add the form to currentForms
         function addForm(form) {
+            if (user ==null ) {
+                alert("you need to login");
+                $location.url("/login");
+            }
             var newForm= {
                 title: form.title
             };
@@ -100,13 +105,7 @@
         var selectedIndex = null;
         //select the form with given form's index
         function selectForm(index) {
-            //$scope.clickForm.title = $scope.forms[index].title;
-            //$scope.selectFormIndex = index;
-            //$scope.clickForm = {
-            //    "_id": $scope.forms[index]._id,
-            //    "title": $scope.forms[index].title,
-            //    "userId:": $scope.forms[index].userId
-            //};
+
             selectedIndex = index;
             model.clickForm = {
                 title: model.forms[index].title,

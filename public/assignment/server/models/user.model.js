@@ -36,14 +36,10 @@ module.exports = function(app, db) {
     }
 
     function update(id, updatedUser) {
-        console.log("======================");
-        console.log(users.length);
         for(var ii in users) {
             if(users[ii].id == id) {
                 for(var attr in updatedUser) {
-                    console.log(attr);
                     if(updatedUser.hasOwnProperty(attr)) {
-                        console.log(attr);
                         users[ii][attr] = updatedUser[attr];
                     }
                 }
@@ -51,7 +47,6 @@ module.exports = function(app, db) {
 
             }
         }
-        console.log("======================");
     }
 
     function remove(id) {

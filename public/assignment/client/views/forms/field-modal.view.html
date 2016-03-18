@@ -5,21 +5,25 @@
     <div class="modal-body">
         <label>
             Label
-            <input type="text" class="form-control">
+            <input ng-model="clickField.label" type="text" class="form-control" value="{{clickField.label}}">
         </label>
 
         <label ng-class="{hide: !Placeholder}">
             Placeholder
-            <input type="text" class="form-control">
+            <div>
+            <input ng-model="clickField.placeholder" type="text" class="form-control" value="{{clickField.placeholder}}">
+            </div>
         </label>
 
-        <label ng-class="{hide: !Textarea}">
+        <label ng-model="$parent.clickField.options" ng-class="{hide: !Textarea}">
             Options
-            <textarea class="form-control"></textarea>
+            <textarea ng-repeat="option in clickField.options" class="form-control">
+                {{option.label}}</textarea>
         </label>
+
     </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="submit()">OK</button>
+    <div for="clickField" class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="submit(clickField)">OK</button>
         <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
     </div>
 </div>

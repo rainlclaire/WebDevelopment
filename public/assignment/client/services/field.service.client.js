@@ -11,9 +11,19 @@
             getFieldsForForm:getFieldsForForm,
             getFieldForForm: getFieldForForm,
             deleteFieldForForm: deleteFieldForForm,
-            updateField:updateField
+            updateField:updateField,
+            reorderField: reorderField
         };
         return service;
+
+        function reorderField(formid, field) {
+            var deferred = $q.defer();
+            $http.put("/api/assignment/form/" + formid + "/field", field)
+                .success(function(response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
 
         function createFieldForForm(formid, field) {
             var deferred = $q.defer();

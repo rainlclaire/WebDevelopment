@@ -49,12 +49,22 @@
             });
 
 
-            $(function () {
-                $("#sortable1").sortable({
-                    axis: "y",
-                    connectWith: ".connectedSortable"
-                }).disableSelection()
-            });
+            //$(function () {
+            //    $("#sortable1").sortable({
+            //        //placeholder:'field.placeholder',
+            //        //helper:function(e,element) {
+            //        //    return $(element).clone.addClass('tmpHelper');
+            //        //},
+            //        axis: "y",
+            //        //connectWith: ".connectedSortable",
+            //        update: function(event, ui) {
+            //            alert("update");
+            //            alert(this.sortable('toArray'));
+            //            var productOrder = $(this).sortable('toArray').toString();
+            //            $("#sortable2").text(productOrder);
+            //        }
+            //    });
+            //});
 
 
         function cloneField(field) {

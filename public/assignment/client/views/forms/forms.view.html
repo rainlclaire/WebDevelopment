@@ -24,9 +24,9 @@
                     </td>
                     <td class="iconcenter">
                         <div class="row-fluid form-inline">
-                            <button ng-click="model.addForm(model.clickForm)" class="glyphicon glyphicon-plus"></button>
+                            <button ng-click="model.addForm(model.clickForm)" class="btn btn-danger glyphicon glyphicon-plus"></button>
                             <!--how to put space here-->
-                            <button ng-click="model.updateForm(model.clickForm)" class="glyphicon glyphicon-ok"></button>
+                            <button ng-click="model.updateForm(model.clickForm)" class="btn btn-info glyphicon glyphicon-ok"></button>
                         </div>
                     </td>
                 </tr>
@@ -37,8 +37,8 @@
                     <td class="form-list">
                         <a ng-href="#/user/{{form.userid}}/form/{{form.id}}/fields">{{form.title}}</a></td>
                     <td class="form-list text-center">
-                        <button ng-click="model.deleteForm($index)" class="glyphicon glyphicon-remove action-icon"></button>
-                        <button ng-click="model.selectForm($index)" class="glyphicon glyphicon-pencil action-icon"></button>
+                        <button ng-click="model.deleteForm($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
+                        <button ng-click="model.selectForm($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>
                     </td>
                 </tr>
 

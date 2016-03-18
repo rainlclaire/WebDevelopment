@@ -1,42 +1,3 @@
-//module.exports = function (app, model, db) {
-//    app.get("/api/assignment/form/:formid/field", findAllFieldByFormId);
-//    app.get("/api/assignment/form/:formId/field/:fieldId", findOneFiledByFormFieldId);
-//    app.delete("/api/assignment/form/:formId/field/:fieldId", deleteOneFieldByFormFieldId);
-//    app.post("/api/assignment/form/:formId/field", createFieldByFormId);
-//    app.put("/api/assignment/form/:formId/field/:fieldId", updateOneFieldByFormFieldId);
-//
-//
-//    function findAllFieldByFormId(req, res) {
-//
-//        res.json(model.retrieveFormFields(req.params.formId));
-//    }
-//
-//    function findOneFiledByFormFieldId(req, res) {
-//
-//        console.log(req.params);
-//        res.json(model.retrieveFormField(req.params.formId, req.params.fieldId));
-//    }
-//
-//    function deleteOneFieldByFormFieldId(req, res) {
-//
-//        res.json(model.removeFormField(req.params.formId, req.params.fieldId));
-//    }
-//
-//
-//    function createFieldByFormId(req, res) {
-//
-//        res.json(model.createFormField(req.params.formId, req.params.fieldId));
-//    }
-//
-//    function updateOneFieldByFormFieldId(req, res) {
-//
-//        res.json(model.updateFormField(req.params.formId,req.params.fieldId, req.body));
-//    }
-//
-//
-//
-//};
-
 "use strict";
 
 module.exports = function(app, model, db) {
@@ -48,7 +9,11 @@ module.exports = function(app, model, db) {
 
     function retrieveFormFields(req, res) {
         // ask the model for the fields of the requested form
-        res.json(model.retrieveFormFields(req.params.formid));
+        res.json(model.retrieveFormFields(req.params.formid, req.params.fieldid, req.body));
+    }
+
+    function reorderField(req, res) {
+        res.json(model.updateFormField(req.params.formid,req.params.fieldid, req.body))
     }
 
     function retrieveFormField(req, res) {
@@ -68,6 +33,6 @@ module.exports = function(app, model, db) {
 
     function updateFormField(req, res) {
         // ask the model to update the requested field in the requested form
-        res.json(model.updateFormField(req.params.formid, req.params.fieldid, req.body));
+        res.json(model.updateFormField(req.params.formid, req.body, req.params.fieldid));
     }
 };
