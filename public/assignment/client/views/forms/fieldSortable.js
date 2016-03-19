@@ -25,7 +25,11 @@
                     scope.$apply();
 
                     alert(scope.model.fields[end].id);
+<<<<<<< HEAD
                     //FieldService.reorderField(scope.model.fields.id, start, end);
+=======
+
+>>>>>>> 46f4527bd2bb7a1cab96d541c3369baedea87607
             }
             });
         }
