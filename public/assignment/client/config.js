@@ -42,6 +42,9 @@
                 controller: "FormController",
                 controllerAs:"model"
             })
+            .when("/field", {
+                templateUrl:"views/forms/form-fields.view.html"
+            })
             .when("/form/:formid/fields", {
                 templateUrl:"views/forms/form-fields.view.html",
                 controller:"FieldController",
