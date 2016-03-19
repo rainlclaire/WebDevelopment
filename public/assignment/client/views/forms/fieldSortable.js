@@ -25,7 +25,7 @@
                     scope.$apply();
 
                     alert(scope.model.fields[end].id);
-                    FieldService.reorderField(scope.model.fields.id, start, end);
+                    //FieldService.reorderField(scope.model.fields.id, start, end);
             }
             });
         }
