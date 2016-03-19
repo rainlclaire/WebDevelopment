@@ -15,9 +15,9 @@
             </div>
         </label>
 
-        <label ng-model="$parent.clickField.options" ng-class="{hide: !Textarea}">
+        <label ng-repeat="option in clickField.options track by $index" ng-model="clickField.options" ng-class="{hide: !Textarea}">
             Options
-            <textarea ng-repeat="option in clickField.options" class="form-control">
+            <textarea ng-model="option.label" row="7" class="form-control">
                 {{option.label}}</textarea>
         </label>
 

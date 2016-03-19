@@ -212,25 +212,6 @@ module.exports = function(app, db) {
         }
         return null;
     }
-    //function reorderFieldForForm(id, fieldid, field){
-    //
-    //    for(var i = 0; i < forms.length; i++) {
-    //        if(forms[i].id == id) {
-    //
-    //            for(var j = 0; j < forms[i].fields.length; j++) {
-    //                if(forms[i].fields[j].id == fieldid){
-    //                    // field found!  update it
-    //                    for(var attr in updatedField) {
-    //                        if(updatedField.hasOwnProperty(attr))
-    //                            forms[i].fields[j].attr = updatedField.attr;
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //    return null;
-    //}
-
 
 
     function updateFormField(id, updatedField,fieldid) {

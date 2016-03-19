@@ -12,6 +12,20 @@
         $scope.submit = submit;
         $scope.cancel = cancel;
 
+        function init()
+        {
+            $scope.Textarea = [];
+            if (clickField.options) {
+                var options = clickField.options;
+                for (var i = 0; i < options.length; i++) {
+                    $scope.Textarea.push(options[i].label + ":" + options[i].value);
+                }
+
+                console.log($scope.textOptions);
+            }
+        }
+
+        init();
         $scope.clickField = clickField;
         $scope.Placeholder = $scope.clickField.type === 'TEXT' || $scope.clickField.type === 'TEXTAREA';
         $scope.Textarea = $scope.clickField.type === 'OPTIONS' || $scope.clickField.type === 'CHECKBOXES' || $scope.clickField.type === 'RADIOS';
