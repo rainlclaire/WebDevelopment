@@ -233,16 +233,20 @@ module.exports = function(app, db) {
 
 
 
-    function updateFormField(id, updatedField, fieldid) {
+    function updateFormField(id, updatedField,fieldid) {
+        console.log("mock");
+        console.log(updatedField);
         for(var i = 0; i < forms.length; i++) {
             if(forms[i].id == id) {
                 for(var j = 0; j < forms[i].fields.length; j++) {
                     if(forms[i].fields[j].id == fieldid){
-                        // field found!  update it
-                        for(var attr in updatedField) {
-                            if(updatedField.hasOwnProperty(attr))
-                                forms[i].fields[j].attr = updatedField.attr;
+                        forms[i].fields[j].id = updatedField.id;
+                        forms[i].fields[j].label = updatedField.label;
+                        forms[i].fields[j].placeholder = updatedField.placeholder;
+                        if (updatedField.options && forms[i].fields[j].options) {
+                            forms[i].fields[j].options = updatedField.options;
                         }
+
                     }
                 }
             }

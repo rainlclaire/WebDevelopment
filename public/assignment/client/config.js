@@ -42,7 +42,6 @@
                 controller: "FormController",
                 controllerAs:"model"
             })
-            //add routing requirement here ?????
             .when("/form/:formid/fields", {
                 templateUrl:"views/forms/form-fields.view.html",
                 controller:"FieldController",

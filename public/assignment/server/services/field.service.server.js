@@ -33,6 +33,9 @@ module.exports = function(app, model, db) {
 
     function updateFormField(req, res) {
         // ask the model to update the requested field in the requested form
+        console.log(req.params.fieldid);
+        console.log(req.body);
         res.json(model.updateFormField(req.params.formid, req.body, req.params.fieldid));
+
     }
 };

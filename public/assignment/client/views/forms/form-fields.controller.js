@@ -82,6 +82,9 @@
                 resolve: {
                     clickField: function () {
                         return model.fields[index];
+                    },
+                    formid: function() {
+                        return formid;
                     }
                 }
             })
@@ -103,10 +106,10 @@
                 });
         }
 
-        $(function() {
-            $( "#sortable" ).sortable({
-                class: "ui-state-default"
-            });
-        });
+        //$(function() {
+        //    $( "#sortable" ).sortable({
+        //        class: "ui-state-default"
+        //    });
+        //});
     }
 })();

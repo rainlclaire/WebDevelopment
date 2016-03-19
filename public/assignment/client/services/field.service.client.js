@@ -64,10 +64,14 @@
             return deferred.promise;
         }
 
-        function updateField(formid,field, fieldid) {
+        function updateField(formid,fieldid, field) {
+            console.log(formid);
+            console.log(fieldid);
+            console.log(field);
             var deferred = $q.defer();
             $http.put("/api/assignment/form/" + formid + "/field/"+fieldid, field)
                 .success(function(response) {
+                    console.log(response);
                     deferred.resolve(response);
                 });
             return deferred.promise;

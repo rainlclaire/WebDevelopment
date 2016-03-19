@@ -6,10 +6,8 @@
         .controller("FieldModalInstanceController", FieldModalInstanceController);
 
 
-    function FieldModalInstanceController($rootScope,$routeParams, $scope, clickField, FieldService) {
+    function FieldModalInstanceController($route,$rootScope,$routeParams, $scope,clickField, FieldService, formid) {
 
-        var formid = $routeParams.formid;
-        console.log(formid);
 
         $scope.submit = submit;
         $scope.cancel = cancel;
@@ -18,15 +16,18 @@
         $scope.Placeholder = $scope.clickField.type === 'TEXT' || $scope.clickField.type === 'TEXTAREA';
         $scope.Textarea = $scope.clickField.type === 'OPTIONS' || $scope.clickField.type === 'CHECKBOXES' || $scope.clickField.type === 'RADIOS';
         function submit() {
-            FieldService.updateField(formid,clickField,clickField.id)
+            console.log("clickfield");
+            console.log(clickField);
+            FieldService.updateField(formid,$scope.clickField.id,$scope.clickField)
                 .then(function(updateForm) {
                     console.log(updateForm);
-                $scope.clickField = updateForm;
+                     $scope.clickField = updateForm;
             });
             console.log("clickFiled=========");
             console.log(clickField.placeholder);
             console.log(clickField.label);
             console.log(clickField.options);
+            //$route.reload();
             $rootScope.modalInstance.close();
         }
 

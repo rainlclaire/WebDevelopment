@@ -1,5 +1,5 @@
 
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-2 main">
     <h1>Forms</h1>
     <ul class="nav nav-tabs">
 
@@ -10,8 +10,6 @@
             <a href="#/user">Fields</a>
         </li>
     </ul>
-
-    {{model.fields}}
 
     <form id="form-fields">
 
@@ -52,11 +50,11 @@
 
 
         <div class="row">
-            <div class="col-xs-12"><hr></div>
+            <div class="col-md-12"><hr></div>
         </div>
 
         <div class="row">
-            <div class="form-group col-xs-7">
+            <div class="form-group col-md-6">
                 <label for="add-new-field">Add New Field:</label>
                 <select ng-model="model.fieldType" id="add-new-field" name="add-new" class="form-control">
                     <option value="TEXT">Single Line Text</option>
@@ -68,7 +66,7 @@
                     <option value="EMAIL">Email Field</option>
                 </select>
             </div>
-            <div class="form-group col-xs-5 text-center valign">
+            <div class="form-group col-md-6 valign">
                 <br>
                 <button ng-click="model.addField(model.fieldType)" class="btn btn-danger glyphicon glyphicon-plus action-icon"></button>
             </div>
