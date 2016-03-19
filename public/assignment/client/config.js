@@ -42,11 +42,8 @@
                 controller: "FormController",
                 controllerAs:"model"
             })
-<<<<<<< HEAD
-            .when("/fields", {
-=======
             .when("/field", {
->>>>>>> 46f4527bd2bb7a1cab96d541c3369baedea87607
+
                 templateUrl:"views/forms/form-fields.view.html"
             })
             .when("/form/:formid/fields", {
