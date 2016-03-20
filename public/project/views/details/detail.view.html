@@ -1,83 +1,148 @@
-<div class="container detailShow">
-<h1 class="groupTitle">{{group.title}}</h1>
+<div class="container">
+    <h1 class="groupTitle">{{group.title}}</h1>
+    <hr>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+            <div>
+                <div>
+                    <div class="theborder">
+                        <h1>Group Name</h1>
+                    </div>
+                    <div class="nonebored">
+                        {{group.title}}
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <button class="btn btn-primay"
+                            ng-click="favorite(group)">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </button>
+                </div>
+                <hr>
+                <div>
+                    <button ng-click="joinGroup()" class="btn btn-danger">Join Us</button>
+                </div>
+                <div>
+                    <button ng-show="currentUser.username===group.ownerName" ng-click="manageGroup()" class="btn btn-danger">Manage the Group</button>
+                </div>
+                <hr>
+                <div>
+                    <div>
+                        <div class="theborder"><h1>Groups Members</h1></div>
+                        <div class="nonebored" ng-repeat="member in group.listofMembers">{{member.username}}</div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <div class="theborder">
+                        <h1>Group Owner</h1>
+                    </div>
+                    <div class="nonebored">{{group.ownerName}}</div>
+                </div>
+                <hr>
+        </div>
+            </div>
 
-    <div class="row content">
-<div class="col-md-4 col-sm-4 col-xs-4 content-left">
 
-    <div>
-        <div class="theborder">
-            <h1>Group Name</h1>
-        </div>
-        <div class="nonebored">
-            {{group.title}}
-        </div>
-    </div>
-    <hr>
-    <div>
-        <button class="btn btn-primay"
-                ng-click="favorite(group)">
-            <span class="glyphicon glyphicon-star-empty"></span>
-        </button>
-    </div>
-    <hr>
-    <div>
-    <button ng-click="joinGroup()" class="btn btn-danger">Join Us</button>
-    </div>
-    <div>
-    <button ng-show="currentUser.username===group.ownerName" ng-click="manageGroup()" class="btn btn-danger">Manage the Group</button>
-    </div>
-    <hr>
-    <div>
-        <div>
-            <div class="theborder"><h1>Groups Members</h1></div>
-            <div class="nonebored" ng-repeat="member in group.listofMembers">{{member.username}}</div>
-        </div>
-    </div>
-    <hr>
-    <div>
-        <div class="theborder">
-            <h1>Group Owner</h1>
-        </div>
-        <div class="nonebored">{{group.ownerName}}</div>
-    </div>
-    <hr>
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+            <table class="table table-hover">
+                <tbody>
 
+                <tr>
+                    <td class="theborder">
+                        <h1>Group Description</h1>
+                    </td>
+                    <td class="nonebored">{{group.description}}</td>
+                </tr>
+
+                <tr>
+                    <td class="theborder">
+                        <h1>Group Events</h1>
+                    </td>
+                    <td class="nonebored"><a ng-repeat="event in group.listofEvents" href="#/event/{{event.title}}">{{event.title}},  </a></td>
+                </tr>
+
+                <tr>
+                    <td class="theborder"><h1>Address Map</h1></td>
+                    <td class="nonebored">
+                        <div my-map=""></div>
+                        <iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>
+                    </td>
+                </tr>
+
+
+                </tbody>
+            </table>
+            <!--<div class="alert alert-info alert-dismissable">-->
+            <!--<a class="panel-close close" data-dismiss="alert">×</a>-->
+            <!--<i class="fa fa-coffee"></i>-->
+            <!--This is an <strong>.alert</strong>. Use this to show important messages to the user.-->
+            <!--</div>-->
+            <!--<div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>-->
+            <!--<div ng-show="error"  vclass="alert alert-danger"  role="alert">{{error}}</div>-->
+            <!--<h1>Personal info</h1>-->
+
+
+            <!--<form class="form-horizontal" role="form">-->
+
+                <!--<div class="form-group">-->
+                    <!--<label for="firstName" class="col-md-3 control-label">First name:</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input ng-model="currentUser.firstName" id="firstName" class="form-control profileInput" type="text" placeholder="First Name">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="lastName" class="col-md-3 control-label">Last name:</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input ng-model="currentUser.lastName" type="text" id="lastName" class="form-control profileInput" placeholder="Last Name">-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="form-group">-->
+                    <!--<label for="email" class="col-md-3 control-label">Email:</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input ng-model="currentUser.email" id="email" class="form-control profileInput" type="email" placeholder="email">-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="form-group">-->
+                    <!--<label for="username" class="col-md-3 control-label">Username:</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input ng-model="currentUser.username" class="form-control profileInput" id="username" type="text" placeholder="Username">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-md-3 control-label">Password:</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input ng-model="currentUser.password" class="form-control profileInput" type="password" placeholder="Password">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="verifyPassword" class="col-md-3 control-label">Verify password:</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input ng-model="currentUser.verifyPassword" class="form-control profileInput" type="password" id="verifyPassword" placeholder="Verify Password">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-md-3 control-label"></label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<button ng-click="updateUser(currentUser)" class="btn btn-danger profileUpdate form-control">Update</button>-->
+                        <!--</br>-->
+                        <!--<button ng-click="cancel()" class="btn btn-primary profileCancel form-control">Cancel</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 </div>
-
-    <div class="col-md-7 col-sm-6 col-xs-5 content-right">
-<table class="table table-hover">
-    <tbody>
-
-    <tr>
-        <td class="theborder">
-            <h1>Group Description</h1>
-        </td>
-        <td class="nonebored">{{group.description}}</td>
-    </tr>
-
-    <tr>
-        <td class="theborder">
-            <h1>Group Events</h1>
-        </td>
-        <td class="nonebored"><a ng-repeat="event in group.listofEvents" href="#/event/{{event.title}}">{{event.title}},  </a></td>
-    </tr>
-
-    <tr>
-        <td class="theborder"><h1>Address Map</h1></td>
-        <td class="nonebored">
-            <div my-map=""></div>
-            <iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>
-        </td>
-    </tr>
+<hr>
 
 
-    </tbody>
-</table>
-    </div>
 
-</div>
-
-</div>
 <div class="bottomContent">
     <form class="extra-content">
         <hr>
@@ -91,3 +156,101 @@
 
 
 
+<!--<div class="container detailShow">-->
+<!--<h1 class="groupTitle">{{group.title}}</h1>-->
+
+    <!--<div class="row content">-->
+        <!--<div class="col-md-12">-->
+            <!--<form class="form form-responsive">-->
+<!--<div class="col-md-4 col-sm-4 col-xs-4 content-left">-->
+
+    <!--<div>-->
+        <!--<div class="theborder">-->
+            <!--<h1>Group Name</h1>-->
+        <!--</div>-->
+        <!--<div class="nonebored">-->
+            <!--{{group.title}}-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<hr>-->
+    <!--<div>-->
+        <!--<button class="btn btn-primay"-->
+                <!--ng-click="favorite(group)">-->
+            <!--<span class="glyphicon glyphicon-star-empty"></span>-->
+        <!--</button>-->
+    <!--</div>-->
+    <!--<hr>-->
+    <!--<div>-->
+    <!--<button ng-click="joinGroup()" class="btn btn-danger">Join Us</button>-->
+    <!--</div>-->
+    <!--<div>-->
+    <!--<button ng-show="currentUser.username===group.ownerName" ng-click="manageGroup()" class="btn btn-danger">Manage the Group</button>-->
+    <!--</div>-->
+    <!--<hr>-->
+    <!--<div>-->
+        <!--<div>-->
+            <!--<div class="theborder"><h1>Groups Members</h1></div>-->
+            <!--<div class="nonebored" ng-repeat="member in group.listofMembers">{{member.username}}</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<hr>-->
+    <!--<div>-->
+        <!--<div class="theborder">-->
+            <!--<h1>Group Owner</h1>-->
+        <!--</div>-->
+        <!--<div class="nonebored">{{group.ownerName}}</div>-->
+    <!--</div>-->
+    <!--<hr>-->
+
+<!--</div>-->
+
+    <!--<div class="col-md-7 col-sm-6 col-xs-5 content-right">-->
+<!--&lt;!&ndash;<table class="table table-hover">&ndash;&gt;-->
+    <!--&lt;!&ndash;<tbody>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td class="theborder">&ndash;&gt;-->
+            <!--&lt;!&ndash;<h1>Group Description</h1>&ndash;&gt;-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td class="nonebored">{{group.description}}</td>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td class="theborder">&ndash;&gt;-->
+            <!--&lt;!&ndash;<h1>Group Events</h1>&ndash;&gt;-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td class="nonebored"><a ng-repeat="event in group.listofEvents" href="#/event/{{event.title}}">{{event.title}},  </a></td>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td class="theborder"><h1>Address Map</h1></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td class="nonebored">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div my-map=""></div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>&ndash;&gt;-->
+        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;</table>&ndash;&gt;-->
+    <!--</div>-->
+
+
+    <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+<!--<div class="bottomContent">-->
+    <!--<form class="extra-content">-->
+        <!--<hr>-->
+        <!--<h1>FindGroup</h1>-->
+        <!--<a href="#">Help</a>-->
+        <!--<a href="#">About</a>-->
+        <!--<a href="#">Contact</a>-->
+        <!--<p>@2016 FindGroup</p>-->
+    <!--</form>-->
+<!--</div>-->
+
+
+
+</div>
+    </div>
