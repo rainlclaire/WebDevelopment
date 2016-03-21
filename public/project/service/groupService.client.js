@@ -118,9 +118,8 @@
             //console.log("login here");
             for (var i = 0; i < groups.length; i++) {
                 //console.log(groups[i]._id===groupID);
-                if (groups[i]._id === groupID) {
+                if (groups[i]._id == groupID) {
                     var group = groups[i];
-
                     callback(group);
                     break;
                 }

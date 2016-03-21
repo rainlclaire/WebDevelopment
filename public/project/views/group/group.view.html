@@ -8,15 +8,21 @@
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Page Heading
-                <small>Secondary Text</small>
+            <h1 class="page-header">FindGroup
+                <small>Groups</small>
+                <button ng-click="addGroup2()" class="btn btn-danger glyphicon glyphicon-plus"></button>
+                <!--how to put space here-->
+                <button ng-click="updateGroup(clickGroup)" class="btn btn-info glyphicon glyphicon-ok"></button>
+
             </h1>
         </div>
     </div>
     <!-- /.row -->
 
     <!-- Project One -->
-    <div class="row">
+
+    <div ng-repeat="group in groups" class="row">
+        <hr>
         <div class="col-md-7">
             <a href="#">
                 <img class="img-responsive" src="http://placehold.it/700x300" alt="">
@@ -25,83 +31,87 @@
         <div class="col-md-5">
             <h3>Project One</h3>
             <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+            <form id="grouplist">
+            <div>GroupID:{{group._id}}</div>
+            <div><a href="#/details/{{group._id}}">GroupTitle:{{group.title}}</a></div>
+                <div>GroupOwner:{{group.ownerName}}</div>
+            </form>
+
             <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div>
     <!-- /.row -->
 
-    <hr>
 
     <!-- Project Two -->
-    <div class="row">
-        <div class="col-md-7">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-5">
-            <h3>Project Two</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-            <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <!-- /.row -->
+    <!--<div class="row">-->
+        <!--<div class="col-md-7">-->
+            <!--<a href="#">-->
+                <!--<img class="img-responsive" src="http://placehold.it/700x300" alt="">-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="col-md-5">-->
+            <!--<h3>Project Two</h3>-->
+            <!--<h4>Subheading</h4>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>-->
+            <!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.row &ndash;&gt;-->
 
-    <hr>
+    <!--<hr>-->
 
-    <!-- Project Three -->
-    <div class="row">
-        <div class="col-md-7">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-5">
-            <h3>Project Three</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-            <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <!-- /.row -->
+    <!--&lt;!&ndash; Project Three &ndash;&gt;-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-7">-->
+            <!--<a href="#">-->
+                <!--<img class="img-responsive" src="http://placehold.it/700x300" alt="">-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="col-md-5">-->
+            <!--<h3>Project Three</h3>-->
+            <!--<h4>Subheading</h4>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>-->
+            <!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.row &ndash;&gt;-->
 
-    <hr>
+    <!--<hr>-->
 
-    <!-- Project Four -->
-    <div class="row">
+    <!--&lt;!&ndash; Project Four &ndash;&gt;-->
+    <!--<div class="row">-->
 
-        <div class="col-md-7">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-5">
-            <h3>Project Four</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-            <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <!-- /.row -->
+        <!--<div class="col-md-7">-->
+            <!--<a href="#">-->
+                <!--<img class="img-responsive" src="http://placehold.it/700x300" alt="">-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="col-md-5">-->
+            <!--<h3>Project Four</h3>-->
+            <!--<h4>Subheading</h4>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>-->
+            <!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.row &ndash;&gt;-->
 
-    <hr>
+    <!--<hr>-->
 
-    <!-- Project Five -->
-    <div class="row">
-        <div class="col-md-7">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-5">
-            <h3>Project Five</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
-            <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
+    <!--&lt;!&ndash; Project Five &ndash;&gt;-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-7">-->
+            <!--<a href="#">-->
+                <!--<img class="img-responsive" src="http://placehold.it/700x300" alt="">-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="col-md-5">-->
+            <!--<h3>Project Five</h3>-->
+            <!--<h4>Subheading</h4>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>-->
+            <!--<a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>-->
+        <!--</div>-->
+    <!--</div>-->
     <!-- /.row -->
 
     <hr>
@@ -136,68 +146,67 @@
     </div>
     <!-- /.row -->
 
-    <hr>
+
 </div>
     </div>
 </body>
-<!--<div class="container">-->
-    <!--<h1 class="groupTitle">Groups</h1>-->
-<!--&lt;!&ndash;<div class="col-md-4 col-sm-5">&ndash;&gt;-->
-    <!--&lt;!&ndash;<a href="portfolio-item.html">&ndash;&gt;-->
-        <!--&lt;!&ndash;<img class="img-responsive img-portfolio img-hover img-thumbnail" src="../image/dancer.jpg" alt="">&ndash;&gt;-->
-    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+<div class="container">
+    <h1 class="groupTitle">Groups</h1>
+<!--<div class="col-md-4 col-sm-5">-->
+    <!--<a href="portfolio-item.html">-->
+    <!--</a>-->
 
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-
-        <!--<table class="table table-hover">-->
-            <!--<thead>-->
-            <!--<tr>-->
-                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Group ID</th>-->
-                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Group Name</th>-->
-                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Group OwnerName</th>-->
-                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>Auto Assign GroupID-->
-                    <!--&lt;!&ndash;<input ng-model="clickGroup._id" class="form-control input-sm" type="text" id="group-title" placeholder="GroupID">&ndash;&gt;-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<input ng-model="clickGroup.title" class="form-control input-sm" type="text" id="group-description" placeholder="GroupName">-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<input ng-model="clickGroup.ownerName" class="form-control input-sm" type="text" id="group-ownerName" placeholder="GroupownerName">-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<div class="row-fluid form-inline text-center">-->
-                        <!--<button ng-click="addGroup(clickGroup)" class="btn btn-danger glyphicon glyphicon-plus"></button>-->
-                        <!--&lt;!&ndash;how to put space here&ndash;&gt;-->
-                        <!--<button ng-click="updateGroup(clickGroup)" class="btn btn-info glyphicon glyphicon-ok"></button>-->
-                    <!--</div>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr ng-repeat="group in groups">-->
-                <!--<td>{{group._id}}</td>-->
-                <!--<td class="form-list"><a href="#/details/{{group._id}}">{{group.title}}</a></td>-->
-                <!--<td>{{group.ownerName}}</td>-->
-                <!--<td class="form-list form-inline text-center">-->
-                    <!--<button ng-click="deleteGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>-->
-                    <!--<button ng-click="selectGroup($index)" class="btn btn-default glyphicon glyphicon-pencil action-icon"></button>-->
-                <!--&lt;!&ndash;</td>&ndash;&gt;-->
-                <!--&lt;!&ndash;<td>{{results[0].geometry.location.lat}}</td>&ndash;&gt;-->
-            <!--</tr>-->
-        <!--</table>-->
 <!--</div>-->
-<!--<div class="bottomContent">-->
-    <!--<form class="extra-content">-->
-        <!--<hr>-->
-        <!--<h1>FindGroup</h1>-->
-        <!--<a href="#">Help</a>-->
-        <!--<a href="#">About</a>-->
-        <!--<a href="#">Contact</a>-->
-        <!--<p>@2016 FindGroup</p>-->
-    <!--</form>-->
-<!--</div>-->
+
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group ID</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group Name</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group OwnerName</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
+            </tr>
+            <tr>
+                <td>Auto Assign GroupID
+                    <!--<input ng-model="clickGroup._id" class="form-control input-sm" type="text" id="group-title" placeholder="GroupID">-->
+                </td>
+                <td>
+                    <input ng-model="clickGroup.title" class="form-control input-sm" type="text" id="group-description" placeholder="GroupName">
+                </td>
+                <td>
+                    <input ng-model="clickGroup.ownerName" class="form-control input-sm" type="text" id="group-ownerName" placeholder="GroupownerName">
+                </td>
+                <td>
+                    <div class="row-fluid form-inline text-center">
+                        <button ng-click="addGroup(clickGroup)" class="btn btn-danger glyphicon glyphicon-plus"></button>
+                        <!--how to put space here-->
+                        <button ng-click="updateGroup(clickGroup)" class="btn btn-info glyphicon glyphicon-ok"></button>
+                    </div>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="group in groups">
+                <td>{{group._id}}</td>
+                <td class="form-list"><a href="#/details/{{group._id}}">{{group.title}}</a></td>
+                <td>{{group.ownerName}}</td>
+                <td class="form-list form-inline text-center">
+                    <button ng-click="deleteGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
+                    <button ng-click="selectGroup($index)" class="btn btn-default glyphicon glyphicon-pencil action-icon"></button>
+                <!--</td>-->
+                <!--<td>{{results[0].geometry.location.lat}}</td>-->
+            </tr>
+        </table>
+</div>
+<div class="bottomContent">
+    <form class="extra-content">
+        <hr>
+        <h1>FindGroup</h1>
+        <a href="#">Help</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <p>@2016 FindGroup</p>
+    </form>
+</div>
 

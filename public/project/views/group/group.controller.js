@@ -4,7 +4,7 @@
     angular.module('FindGroupApp')
         .controller("GroupController", GroupController);
 
-    function GroupController($scope, $rootScope, GroupService, GoogleMapService) {
+    function GroupController($scope, $uibModal, $rootScope, GroupService, GoogleMapService) {
 
         var user = $rootScope.currentUser;
 
@@ -19,6 +19,7 @@
         $scope.updateGroup = updateGroup;
         $scope.deleteGroup = deleteGroup;
         $scope.selectGroup = selectGroup;
+        $scope.addGroup2 = addGroup2;
 
         //add the form to currentForms
         function addGroup(group) {
@@ -44,6 +45,29 @@
 
                 });
             });
+        }
+
+        function addGroup2() {
+            if ($rootScope.currentUser == null){
+                alert("You have to login/register");
+                $scope.$location.url("/login");
+
+            } else {
+                $rootScope.modalInstance = $uibModal.open({
+                    templateUrl: "views/group/test.html",
+                    controller: "groupModalController",
+                    size: 'lg',
+                    resolve: {
+                        clickGroup: function () {
+                            return $scope.clickGroup;
+                        },
+                        groups: function() {
+                            return $scope.groups;
+                        }
+
+                    }
+                })
+            }
         }
 
         //update the select form with the given form info

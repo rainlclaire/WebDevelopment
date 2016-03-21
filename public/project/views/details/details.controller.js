@@ -26,7 +26,7 @@
 
 
         $scope.findGroupMap = findGroupMap;
-
+        $scope.initGroup = initGroup;
         $scope.init = init;
         $scope.favorite = favorite;
         $scope.manageGroup = manageGroup;
@@ -35,7 +35,10 @@
         GroupService.findAllGroups(function(allGroups) {
             $scope.groups= allGroups;
         });
+
         console.log($scope.groups);
+
+
 
 
         GroupService.findGroupByID(group_id, function(theGroup) {
@@ -56,7 +59,7 @@
 
         var groups = $scope.groups;
 
-        console.log($rootScope.group);
+        //console.log($scope.group);
 
 
 
@@ -78,14 +81,30 @@
             }
             return null;
         }
+
+        function initGroup() {
+
+            GroupService.findGroupByID(group_id, function(theGroup) {
+                console.log("here");
+                $scope.group = theGroup;
+                $rootScope.currentGroup = $scope.group;
+                console.log($rootScope.group);
+                init($scope.group.address);
+            });
+
+        }
+
+        initGroup();
+
         function init(groupAddress) {
+
 
             var theurl = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q='+groupAddress;
             $scope.url = $sce.trustAsResourceUrl(theurl);
             return $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q="+groupAddress);
 
         }
-        init($scope.group.address);
+        //init($scope.group.address);
 
 
         function manageGroup() {

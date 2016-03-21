@@ -464,6 +464,19 @@ body {
 footer {
     margin: 50px 0;
 }
+/*div ul#grouplist {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*list-style-type: none;*/
+    /*text-align: center;*/
+
+/*}*/
+/*div ul#grouplist li {*/
+    /*display: table-row;*/
+    /*float:left;*/
+
+
+/*}*/
 
 /*div.container div a img {*/
     /*margin-top:50px;*/
@@ -530,6 +543,10 @@ form.form-horizontal div.form-group label {
 
 div.collapse.navbar-collapse {
     background-color:#f4f4f4;
+}
+
+div.form-group input#description {
+    height:100px;
 }
 
 

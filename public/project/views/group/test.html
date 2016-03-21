@@ -1,0 +1,38 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Add a new group</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" role="form">
+
+            <div class="form-group">
+                <label for="title" class="col-md-3 control-label">Title:</label>
+                <div class="col-md-9">
+                    <input ng-model="newgroup.title" id="title" class="form-control profileInput" type="text" placeholder="title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ownerName" class="col-md-3 control-label">OwnerName:</label>
+                <div class="col-md-9">
+                    <input ng-model="newgroup.ownerName" type="text" id="ownerName" class="form-control profileInput"
+                    />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-md-3 control-label">Description:</label>
+                <div class="col-md-9">
+                    <input ng-model="newgroup.description" id="description" class="form-control profileInput" type="text" placeholder="description">
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    </div>
+    <div  class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="addGroupToGroups(newgroup)">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</div>
+
