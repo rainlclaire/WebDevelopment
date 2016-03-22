@@ -1,11 +1,10 @@
 "use strict";
 
 module.exports = function(app) {
-    console.log(require("../server/models/user.model.js"));
-    var uModel = require("../server/models/user.model.js")(app);
-    var gModel = require("../server/models/group.model.js")(app);
-    require("../server/services/user.service.server.js")(app, uModel);
-    require("../server/services/form.service.server.js")(app, gModel);
-    //require("server/services/field.service.server.js")(eventModel);
-
-};
+    var userModel = require("./models/user.model.js")(app);
+    //var groupModel = require("./models/group.model.js")(app);
+    //var eventModel = require("./models/event.model.js")(app);
+    require("./services/user.service.server.js")(app, userModel);
+    //require("./services/group.service.server.js")(app, groupModel);
+    //require("./services/event.service.server.js")(app, eventModel);
+}();

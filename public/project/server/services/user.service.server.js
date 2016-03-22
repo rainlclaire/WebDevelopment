@@ -1,16 +1,13 @@
-
-
-
 module.exports = function (app, model, db) {
-    app.post("/api/project/user", createUser);
-    app.get("/api/project/user", findUsers);
-    app.get("/api/project/user/:id", findUserById);
+    app.post("/api/assignment/user", createUser);
+    app.get("/api/assignment/user", findUsers);
+    app.get("/api/assignment/user/:id", findUserById);
     //to comment out here
-    app.get("/api/project/user?username=username", findUserByUsername);
-    app.get("/api/project/user?username=alice&password=alice", findAlice);
+    app.get("/api/assignment/user?username=username", findUserByUsername);
+    app.get("/api/assignment/user?username=alice&password=alice", findAlice);
     //end
-    app.put("/api/project/user/:id", updateUser);
-    app.delete("/api/project/user/:id", deleteUser);
+    app.put("/api/assignment/user/:id", updateUser);
+    app.delete("/api/assignment/user/:id", deleteUser);
 
 
     function createUser(req, res) {
@@ -105,4 +102,4 @@ module.exports = function (app, model, db) {
     }
 
 
-};
+}();
