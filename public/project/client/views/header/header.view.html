@@ -31,10 +31,10 @@
             <ul class="nav navbar-nav">
                 <li ng-class="{'active': $location.url()=='/home'}"><a href="#/home">Home</a></li>
                 <li ng-class="{'active': $location.url()=='/group'}"><a href="#/group">group</a></li>
-                <li ng-show="!currentUser" ng-class="{'active': $location.url()=='/signUp'}"><a href="#/signUp">sign up</a></li>
-                <li ng-show="!currentUser" ng-class="{'active': $location.url()=='/login'}"><a href="#/login">log in</a></li>
-                <li><a ng-show="currentUser" ng-click="logout(currentUser)">logout</a></li>
-                <li ng-show="currentUser" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>
+                <li ng-show="!user" ng-class="{'active': $location.url()=='/signUp'}"><a href="#/signUp">sign up</a></li>
+                <li ng-show="!user" ng-class="{'active': $location.url()=='/login'}"><a href="#/login">log in</a></li>
+                <li><a ng-show="user" ng-click="logout(user)">logout</a></li>
+                <li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>
                 <!--<li ng-class="{'active': $location.url()=='/search'}"><a href="#/search">Search</a></li>-->
 
             </ul>

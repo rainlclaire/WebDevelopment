@@ -78,7 +78,7 @@
 
         //update the form by given form's id with new form info
         function updateFormById(id, updatedForm) {
-            console.log("update from client sever");
+
             console.log(updatedForm);
             console.log(id);
             var deferred = $q.defer();

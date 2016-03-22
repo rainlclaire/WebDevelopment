@@ -78,7 +78,7 @@ module.exports = function(app, db) {
                 break;
             }
         }
-        console.log("form model");
+
         console.log(forms);
         return forms;
     }

@@ -1,0 +1,5 @@
+[
+  {"id":"000","username": "alice", "password": "alice", "roles": ["student"], "groupJoined":[],"likeGroups":[], "email":"aaa@gmail.com"},
+  {"id":"001","username": "bob", "password": "bob", "roles": ["faculty", "admin"], "groupJoined":[],"likeGroups":[],"email":"bbb@gmail.com"},
+  {"id":"002","username": "charlie", "password": "charlie", "roles": ["employee"], "groupJoined":[],"likeGroups":[], "email":"ccc@gmail.com"}
+]
