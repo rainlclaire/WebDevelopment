@@ -106,7 +106,7 @@
 
         function findUserByUsername(username) {
             var deferred = $q.defer();
-            $http.get("/api/assignment/user?username=" + username)
+            $http.get("/api/project/user?username=" + username)
                 .success(function (response) {
                     deferred.resolve(response);
                 });
@@ -117,8 +117,11 @@
         function findUserByCredentials(username, password) {
             var deferred = $q.defer();
             console.log("userservice");
-            console.log($http.get("/api/assignment/user?username=" + username + "&password=" + password));
-            $http.get("/api/assignment/user?username=" + username + "&password=" + password)
+            console.log(username);
+            console.log(password);
+            //console.log($http.get("/api/project/user?username=" + username + "&password=" + password));
+            console.log($http.get("/api/project/user?username=" + username + "&password=" + password));
+            $http.get("/api/project/user?username=" + username + "&password=" + password)
                 .success(function (response) {
                     console.log(response);
                     deferred.resolve(response);
@@ -137,7 +140,7 @@
         //find the current all users
         function findAllUsers() {
             var deferred = $q.defer();
-            $http.get("/api/assignment/user")
+            $http.get("/api/project/user")
                 .success(function (response) {
                     deferred.resolve(response);
                 });
@@ -148,7 +151,7 @@
         //create the user with give user
         function createUser(user) {
             var deferred = $q.defer();
-            $http.post("/api/assignment/user", user)
+            $http.post("/api/project/user", user)
                 .success(function (response) {
                     deferred.resolve(response);
                 });
@@ -165,7 +168,7 @@
         function deleteUserById(id) {
 
             var deferred = $q.defer();
-            $http.delete("/api/assignment/user/" + id)
+            $http.delete("/api/project/user/" + id)
                 .success(function (response) {
                     deferred.resolve(response);
                 });

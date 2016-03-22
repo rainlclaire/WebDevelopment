@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(app) {
-    console.log(require("./models/user.model.js")(app));
+
     var userModel = require("./models/user.model.js")(app);
     var formModel = require("./models/form.model.js")(app);
     require("./services/user.service.server.js")(app, userModel);
