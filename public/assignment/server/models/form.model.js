@@ -141,13 +141,13 @@ module.exports = function(app, db) {
 
         for(var i = 0; i < forms.length; i++) {
             console.log(i);
-            console.log(forms[i].userId);
+            console.log(forms[i].userid);
             //console.log(userid);
             if(forms[i].userid == userid) {
                 // form found!  add it to the array
                 userForms.push(forms[i]);
                 //console.log("userforms");
-                console.log(userForms[0].fields[0]);
+                //console.log(userForms[0].fields[0]);
 
             }
         }
