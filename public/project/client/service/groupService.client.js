@@ -201,9 +201,9 @@
         //delete form by given form id
         function deleteGroupById(groupId) {
             var deferred = $q.defer();
-            $http.delete("/api/project/group"+groupId)
+            $http.delete("/api/project/group/"+groupId)
             .success(function(response) {
-                deferred.resolve(respponse);
+                deferred.resolve(response);
             });
             return deferred.promise;
             //for (var i = 0; i < groups.length; i++) {
