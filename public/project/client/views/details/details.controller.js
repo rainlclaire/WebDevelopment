@@ -13,6 +13,8 @@
         console.log(group_id);
 
         $rootScope.currentGroupid = group_id;
+        console.log("print current Groupid");
+        console.log(group_id);
 
 
         var currentUser = $rootScope.currentUser;
@@ -86,9 +88,10 @@
             GroupService.findGroupByID(group_id)
             .then(function (theGroup){
                 console.log("here");
+                console.log(theGroup);
                 model.group = theGroup;
                 $rootScope.currentGroup = model.group;
-                console.log($rootScope.group);
+                console.log(model.group);
                 init(model.group.address);
             } );
 

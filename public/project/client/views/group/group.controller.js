@@ -63,6 +63,7 @@
                 $rootScope.modalInstance = $uibModal.open({
                     templateUrl: "views/group/test.html",
                     controller: "groupModalController",
+                    controllerAs:"model",
                     size: 'lg',
                     resolve: {
                         clickGroup: function () {

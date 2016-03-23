@@ -6,7 +6,7 @@
         .controller("groupModalController", groupModalController);
 
 
-    function groupModalController($route,$rootScope,$routeParams, $scope, $location, groups, clickGroup) {
+    function groupModalController($route,$rootScope,$routeParams, $scope, $location, groups, clickGroup, GroupService) {
 
 
         $scope.addGroupToGroups = addGroupToGroups;
@@ -20,17 +20,21 @@
 
             } else {
                 var newGroup = {
-                    _id: (new Date()).getTime(),
+                    _id: newgroup._id,
                     title: newgroup.title,
                     ownerName: newgroup.ownerName,
                     description: newgroup.description,
-                    address:"undefine",
+                    address:newgroup.address,
                     listofEvents:[],
                     listofMembers:[]
 
                 };
+                GroupService.createGroup(newGroup)
+                .then(function(theGroups) {
+                    groups = theGroups;
+                });
 
-                groups.push(newGroup);
+                //groups.push(newGroup);
 
                 console.log(groups);
                 $rootScope.modalInstance.close();

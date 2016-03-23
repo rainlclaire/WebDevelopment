@@ -25,7 +25,8 @@ module.exports = function(app) {
 
 
     function create(newGroup) {
-
+        console.log("print create newgroup");
+        console.log(newGroup);
         newGroup._id = (new Date).getTime();
         groups.push(newGroup);
 

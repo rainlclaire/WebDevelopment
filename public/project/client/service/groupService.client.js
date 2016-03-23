@@ -92,10 +92,10 @@
         //create form for user with given user id and form info
         function createGroup(group) {
             var deferred = $q.defer();
-            $http.get("/api/project/group")
+            $http.post("/api/project/group", group)
             .success(function(response) {
                 deferred.resolve(response);
-                $rootScope.groups = response;
+                //$rootScope.groups = response;
             });
             return deferred.promise;
 
