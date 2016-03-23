@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="groupTitle">{{group.title}}</h1>
+    <h1 class="groupTitle">{{model.group.title}}</h1>
     <hr>
     <div class="row">
         <!-- left column -->
@@ -10,28 +10,28 @@
                         <h1>Group Name</h1>
                     </div>
                     <div class="nonebored">
-                        {{group.title}}
+                        {{model.group.title}}
                     </div>
                 </div>
                 <hr>
                 <div>
                     <button class="btn btn-primay"
-                            ng-click="favorite(group)">
+                            ng-click="model.favorite(model.group)">
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </button>
                 </div>
                 <hr>
                 <div>
-                    <button ng-click="joinGroup()" class="btn btn-danger">Join Us</button>
+                    <button ng-click="model.joinGroup()" class="btn btn-danger">Join Us</button>
                 </div>
                 <div>
-                    <button ng-show="currentUser.username===group.ownerName" ng-click="manageGroup()" class="btn btn-danger">Manage the Group</button>
+                    <button ng-show="currentUser.username===model.group.ownerName" ng-click="model.manageGroup()" class="btn btn-danger">Manage the Group</button>
                 </div>
                 <hr>
                 <div>
                     <div>
                         <div class="theborder"><h1>Groups Members</h1></div>
-                        <div class="nonebored" ng-repeat="member in group.listofMembers">{{member.username}}</div>
+                        <div class="nonebored" ng-repeat="member in model.group.listofMembers">{{member.username}}</div>
                     </div>
                 </div>
                 <hr>
@@ -39,7 +39,7 @@
                     <div class="theborder">
                         <h1>Group Owner</h1>
                     </div>
-                    <div class="nonebored">{{group.ownerName}}</div>
+                    <div class="nonebored">{{model.group.ownerName}}</div>
                 </div>
                 <hr>
         </div>
@@ -55,14 +55,14 @@
                     <td class="theborder">
                         <h1>Group Description</h1>
                     </td>
-                    <td class="nonebored">{{group.description}}</td>
+                    <td class="nonebored">{{model.group.description}}</td>
                 </tr>
 
                 <tr>
                     <td class="theborder">
                         <h1>Group Events</h1>
                     </td>
-                    <td class="nonebored"><a ng-repeat="event in group.listofEvents" href="#/event/{{event.title}}">{{event.title}},  </a></td>
+                    <td class="nonebored"><a ng-repeat="event in model.group.listofEvents" href="#/event/{{event.title}}">{{event.title}},  </a></td>
                 </tr>
 
                 <tr>

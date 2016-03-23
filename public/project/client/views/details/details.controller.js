@@ -7,7 +7,7 @@
 
     function DetailsController($sce, $rootScope,$location, $scope, $routeParams, GroupService, GoogleMapService) {
 
-        var vm = this;
+        var model = this;
 
         var group_id = $routeParams.group_id;
         console.log(group_id);
@@ -18,35 +18,34 @@
         var currentUser = $rootScope.currentUser;
         //vm.favorite = favorite;
 
+        model.findGroup  = findGroup;
+        model.joinGroup = joinGroup;
 
 
-
-        $scope.findGroup  = findGroup;
-        $scope.joinGroup = joinGroup;
-
-
-        $scope.findGroupMap = findGroupMap;
-        $scope.initGroup = initGroup;
-        $scope.init = init;
-        $scope.favorite = favorite;
-        $scope.manageGroup = manageGroup;
+        model.findGroupMap = findGroupMap;
+        model.initGroup = initGroup;
+        model.init = init;
+        model.favorite = favorite;
+        model.manageGroup = manageGroup;
 
 
-        GroupService.findAllGroups(function(allGroups) {
-            $scope.groups= allGroups;
+        GroupService.findAllGroups()
+        .then(function(allGroups) {
+            model.groups= allGroups;
         });
 
-        console.log($scope.groups);
+        console.log(model.groups);
 
 
 
 
-        GroupService.findGroupByID(group_id, function(theGroup) {
+        GroupService.findGroupByID(group_id)
+        .then(function(theGroup){
             console.log("here");
-            $scope.group = theGroup;
+            model.group = theGroup;
 
 
-            $rootScope.currentGroup = $scope.group;
+            $rootScope.currentGroup = model.group;
 
             console.log($rootScope.group);
         });
@@ -57,7 +56,7 @@
 
 
 
-        var groups = $scope.groups;
+        var groups = model.groups;
 
         //console.log($scope.group);
 
@@ -72,7 +71,7 @@
                 //console.log("aaa");
                 if (groups[i]._id == group_id) {
                     var group = groups[i];
-                    $scope.group = group;
+                    model.group = group;
                     return group;
 
                     break;
@@ -84,13 +83,14 @@
 
         function initGroup() {
 
-            GroupService.findGroupByID(group_id, function(theGroup) {
+            GroupService.findGroupByID(group_id)
+            .then(function (theGroup){
                 console.log("here");
-                $scope.group = theGroup;
-                $rootScope.currentGroup = $scope.group;
+                model.group = theGroup;
+                $rootScope.currentGroup = model.group;
                 console.log($rootScope.group);
-                init($scope.group.address);
-            });
+                init(model.group.address);
+            } );
 
         }
 
