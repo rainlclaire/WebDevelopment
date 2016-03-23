@@ -87,7 +87,7 @@
         .factory("UserService", UserService);
 
 
-    function UserService($http,$q) {
+    function UserService($http,$q, $rootScope) {
         //init the current users
 
 
@@ -125,6 +125,7 @@
                 .success(function (response) {
                     console.log(response);
                     deferred.resolve(response);
+                    $rootScope.currentUser = response;
                 });
             return deferred.promise;
             //var result = null; //set the result to null

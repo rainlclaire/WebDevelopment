@@ -4,22 +4,27 @@
     angular.module('FindGroupApp')
         .controller("GroupController", GroupController);
 
-    function GroupController($scope, $uibModal, $rootScope, GroupService, GoogleMapService) {
-
+    function GroupController($scope, $uibModal,$location, $rootScope, GroupService, GoogleMapService) {
+        var model = this;
         var user = $rootScope.currentUser;
 
-        GroupService.findAllGroups(function (allGroups) {
-            $scope.groups = allGroups;
+        function init() {
+            GroupService.findAllGroups()
+            .then(function(groups) {
+                model.groups = groups;
+            });
+        }
+        init();
 
-        });
+
 
         var clickGroup = $rootScope.clickGroup;
         //function for form
-        $scope.addGroup = addGroup;
-        $scope.updateGroup = updateGroup;
-        $scope.deleteGroup = deleteGroup;
-        $scope.selectGroup = selectGroup;
-        $scope.addGroup2 = addGroup2;
+        model.addGroup = addGroup;
+        model.updateGroup = updateGroup;
+        model.deleteGroup = deleteGroup;
+        model.selectGroup = selectGroup;
+        model.addGroup2 = addGroup2;
 
         //add the form to currentForms
         function addGroup(group) {
@@ -33,15 +38,17 @@
             };
 
             //inti the title with empty
-            $scope.clickGroup.title = "";
-            $scope.clickGroup.ownerName = "";
-            $scope.clickGroup.address = "";
-            $scope.clickGroup.description = "";
-            $scope.clickGroup.listofEvents = "";
+            model.clickGroup.title = "";
+            model.clickGroup.ownerName = "";
+            model.clickGroup.address = "";
+            model.clickGroup.description = "";
+            model.clickGroup.listofEvents = "";
 
-            GroupService.createGroup(newGroup, function (createdGroups) {
-                GroupService.findAllGroups(function (allGroups) {
-                    $scope.groups = allGroups;
+            GroupService.createGroup(newGroup)
+            .then(function(newGroup){
+                GroupService.findAllGroups()
+                .then(function(allGroups) {
+                    model.groups = allGroups;
 
                 });
             });
@@ -50,7 +57,7 @@
         function addGroup2() {
             if ($rootScope.currentUser == null){
                 alert("You have to login/register");
-                $scope.$location.url("/login");
+                $location.url("/login");
 
             } else {
                 $rootScope.modalInstance = $uibModal.open({
@@ -59,10 +66,10 @@
                     size: 'lg',
                     resolve: {
                         clickGroup: function () {
-                            return $scope.clickGroup;
+                            return model.clickGroup;
                         },
                         groups: function() {
-                            return $scope.groups;
+                            return model.groups;
                         }
 
                     }
@@ -72,14 +79,14 @@
 
         //update the select form with the given form info
         function updateGroup(group) {
-            if ($scope.selectGroupIndex != null) {
-                $scope.groups[$scope.selectGroupIndex]._id = group._id;
-                $scope.groups[$scope.selectGroupIndex].title = group.title;
-                $scope.groups[$scope.selectGroupIndex].adress = group.adress;
-                $scope.groups[$scope.selectGroupIndex].description = group.description;
-                $scope.groups[$scope.selectGroupIndex].ownerName = group.ownerName;
-                $scope.groups[$scope.selectGroupIndex].listofEvents = group.listofEvents;
-                $scope.groups[$scope.selectGroupIndex].listofMembers = group.listofMembers;
+            if (model.selectGroupIndex != null) {
+                model.groups[model.selectGroupIndex]._id = group._id;
+                model.groups[model.selectGroupIndex].title = group.title;
+                model.groups[model.selectGroupIndex].adress = group.adress;
+                model.groups[model.selectGroupIndex].description = group.description;
+                model.groups[model.selectGroupIndex].ownerName = group.ownerName;
+                model.groups[model.selectGroupIndex].listofEvents = group.listofEvents;
+                model.groups[model.selectGroupIndex].listofMembers = group.listofMembers;
                 console.log(group);
             } else {
                 alert("You have to select a Form");
@@ -88,51 +95,52 @@
 
         //delete the form with given form's index
         function deleteGroup(index) {
-            var deletedId = $scope.groups[index]._id;
+            var deletedId = model.groups[index]._id;
             console.log(deletedId);
-            GroupService.deleteGroupById(deletedId, function (allOtherGroups) {
-                $scope.groups = allOtherGroups;
+            GroupService.deleteGroupById(deletedId)
+            .then(function(allOtherGroups) {
+                model.groups = allOtherGroups;
             });
         }
 
         //select the form with given form's index
         function selectGroup(index) {
             //$scope.clickForm.title = $scope.forms[index].title;
-            $scope.selectGroupIndex = index;
+            model.selectGroupIndex = index;
             console.log($scope.groups[index].ownerName);
-            $scope.clickGroup = {
-                "_id": $scope.groups[index]._id,
-                "title": $scope.groups[index].title,
-                "address": $scope.groups[index].address,
-                "ownerName": $scope.groups[index].ownerName,
-                "description": $scope.groups[index].description,
-                "listofEvents": $scope.groups[index].listofEvents,
-                "listofMembers":$scope.groups[index].listofMembers
+            model.clickGroup = {
+                "_id": model.groups[index]._id,
+                "title": model.groups[index].title,
+                "address": model.groups[index].address,
+                "ownerName": model.groups[index].ownerName,
+                "description": model.groups[index].description,
+                "listofEvents": model.groups[index].listofEvents,
+                "listofMembers":model.groups[index].listofMembers
             };
-            console.log($scope.clickGroup.ownerName);
+            console.log(model.clickGroup.ownerName);
 
         }
 
-        function addUserToGroup(user) {
-            var newUser = {
-                username: user.username,
-                groupid:user.groupid,
-                groupJoined: user.groupJoined,
-                likeGroups: user.likeGroups
-            };
-
-            //inti the title with empty
-            $scope.clickUser.username = "";
-            $scope.clickUser.groupJoined = "";
-            $scope.clickUser.likeGroups = "";
-
-            GroupService.addUserToGropu(newUser,group, function (createdUser) {
-                GroupService.findAllGroups(function (allGroups) {
-                    $scope.groups = allGroups;
-
-                });
-            });
-        }
+        //function addUserToGroup(user) {
+        //    var newUser = {
+        //        username: user.username,
+        //        groupid:user.groupid,
+        //        groupJoined: user.groupJoined,
+        //        likeGroups: user.likeGroups
+        //    };
+        //
+        //    //inti the title with empty
+        //    model.clickUser.username = "";
+        //    model.clickUser.groupJoined = "";
+        //    model.clickUser.likeGroups = "";
+        //
+        //    GroupService.addUserToGropu(newUser,group, function (createdUser) {
+        //        GroupService.findAllGroups(function (allGroups) {
+        //            model.groups = allGroups;
+        //
+        //        });
+        //    });
+        //}
     }
 
 

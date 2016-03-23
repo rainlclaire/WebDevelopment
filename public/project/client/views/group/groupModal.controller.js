@@ -24,7 +24,7 @@
                     title: newgroup.title,
                     ownerName: newgroup.ownerName,
                     description: newgroup.description,
-                    address:" ",
+                    address:"undefine",
                     listofEvents:[],
                     listofMembers:[]
 
