@@ -2,7 +2,7 @@
     angular.module("FindGroupApp")
         .factory("EventService", EventService);
 
-    function EventService() {
+    function EventService($http, $q) {
         //init the current forms
         //var events = groups.listofEvents;
 
@@ -12,7 +12,8 @@
         //console.log(events);
         var service = {
             //createEvent: createEvent,
-            findAllEvents: findAllEvents
+            findAllEvents: findAllEvents,
+            findEventByTitle:findEventByTitle
             //deleteGroupById: deleteGroupById,
             //updateGroupById: updateGroupById,
             //findEventByID: findEventByID
@@ -20,6 +21,9 @@
         };
         return service;
 
+        function findEventByTitle(){
+
+        }
 
 
 
