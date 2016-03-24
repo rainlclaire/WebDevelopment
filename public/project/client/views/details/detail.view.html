@@ -72,7 +72,7 @@
                     <td class="theborder">
                         <h1>Group Events</h1>
                     </td>
-                    <td class="nonebored"><a ng-repeat="event in model.group.listofEvents" href="#/event/{{event.title}}">{{event.title}},  </a></td>
+                    <td class="nonebored"><a ng-repeat="event in model.group.listofEvents" href="#/group/{{model.group._id}}/event/{{event.title}}">{{event.title}},  </a></td>
                 </tr>
 
                 <tr>

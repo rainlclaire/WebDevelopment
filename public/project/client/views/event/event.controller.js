@@ -11,6 +11,7 @@
         var vm = this;
         var groupid = $routeParams.groupid;
         var event_title = $routeParams.event_title;
+        console.log(groupid);
         console.log(event_title);
 
 
