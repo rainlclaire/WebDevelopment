@@ -17,10 +17,11 @@
     </thead>
     <tbody>
     <tr>
-        <td ng-repeat="group in groups">{{group._id}}</td>
-        <td ng-repeat="group in groups"><a href="#/details/{{group._id}}">{{group.title}}</a></td>
-        <td ng-repeat="group in groups">{{group.description}}</td>
-        <td ng-repeat="group in groups">{{group.ownerName}}</td>
+        <td>{{groups}}</td>
+        <td ng-repeat="group in model.groups">{{group._id}}</td>
+        <td ng-repeat="group in model.groups"><a href="#/details/{{group._id}}">{{group.title}}</a></td>
+        <td ng-repeat="group in model.groups">{{group.description}}</td>
+        <td ng-repeat="group in model.groups">{{group.ownerName}}</td>
        </td>
     </tr>
 

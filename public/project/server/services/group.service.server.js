@@ -1,5 +1,5 @@
 module.exports = function (app, model) {
-    app.get("/api/project/group?title=groupTitle", findGroupByTitle);
+    //app.get("/api/project/group?title=groupTitle", findGroupByTitle);
     app.get("/api/project/group", findGroups);
     app.get("/api/project/group/:groupid", findGroupById);
     app.put("/api/project/group/:groupid", updateGroup);
@@ -28,11 +28,11 @@ module.exports = function (app, model) {
        res.json(model.create(req.body));
     }
 
-    function findGroupByTitle(req, res) {
-        console.log("in server findtitle");
-        var reqTitle = req.query.groupTitle;
-        res.json(model.findGroupByTitle(reqTitle));
-    }
+    //function findGroupByTitle(req, res) {
+    //    console.log("in server findtitle");
+    //    var reqTitle = req.query.groupTitle;
+    //    res.json(model.findGroupByTitle(reqTitle));
+    //}
 
     function updateGroup(req,res) {
         var group = model.update(req.params.groupid, req.body);

@@ -4,11 +4,11 @@
         .controller("HomeController", HomeController);
 
     function HomeController($scope, $routeParams,$rootScope, $location, GroupService) {
-        //var model = this;
+        var model = this;
         //$scope.groupTitle = "Dancer Club";
-        $scope.errorMessage = "";
+        model.errorMessage = "";
 
-        $scope.fetchGroup = fetchGroup;
+        model.fetchGroup = fetchGroup;
        //console.log($scope.groups);
 
         function fetchGroup(group_title) {
@@ -17,11 +17,15 @@
             GroupService.findGroupsByTitle(group_title)
             .then(function(groups) {
                 console.log(groups);
-                $scope.groups = groups;
-                console.log($scope.groups);
+                model.groups = groups;
+                console.log(model.groups);
+                $location.url("/search/{{group_title}}")
             });
-            console.log($scope.groups);
-            $location.url("/search/{{group_title}}");
+            //console.log($scope.groups);
+            //if ($scope.groups !=null) {
+            //    $location.url("/search/{{group_title}}");
+            //}
+
 
         }
 
