@@ -9,7 +9,15 @@ module.exports = function (app, model) {
 
 
     function findGroups(req, res) {
-        res.json(model.findAll());
+        var title = req.query.title;
+        if (title) {
+            var titleGroup = model.findGroupByTitle(title);
+            res.status(200).send(titleGroup);
+            return;
+        }
+
+        res.status(200).send(model.findAll());
+        return;
     }
     function findGroupById(req, res) {
         res.json(model.findById(req.params.groupid));
