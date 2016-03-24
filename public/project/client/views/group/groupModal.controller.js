@@ -31,14 +31,13 @@
                 };
                 GroupService.createGroup(newGroup)
                 .then(function(theGroup) {
-                    console.log(theGroup);
+
                     groups.push(theGroup);
 
                 });
 
                 //groups.push(newGroup);
 
-                console.log(groups);
                 $rootScope.modalInstance.close();
             }
 

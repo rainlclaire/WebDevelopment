@@ -153,9 +153,11 @@
         }
 
         function findGroupsByTitle(groupTitle) {
-
+            console.log("find by title in sercice.clinet");
+            console.log(groupTitle);
             var deferred = $q.defer();
-            $http.get("/api/project/group/"+groupTitle)
+            console.log($http.get("/api/project/group?title="+groupTitle));
+            $http.get("/api/project/group?title="+groupTitle)
             .success(function (response) {
                 deferred.resolve(response);
             });
