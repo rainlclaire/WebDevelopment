@@ -161,6 +161,7 @@
             $http.get("/api/project/group?title="+groupTitle)
             .success(function (response) {
                 deferred.resolve(response);
+                console.log(response);
             });
             return deferred.promise;
             //var findGroups = [];
