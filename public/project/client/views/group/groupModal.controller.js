@@ -7,9 +7,9 @@
 
 
     function groupModalController($route,$rootScope,$routeParams, $scope, $location, groups, clickGroup, GroupService) {
+        var model = this;
 
-
-        $scope.addGroupToGroups = addGroupToGroups;
+        model.addGroupToGroups = addGroupToGroups;
 
 
         function addGroupToGroups(newgroup) {
@@ -30,8 +30,10 @@
 
                 };
                 GroupService.createGroup(newGroup)
-                .then(function(theGroups) {
-                    groups = theGroups;
+                .then(function(theGroup) {
+                    console.log(theGroup);
+                    groups.push(theGroup);
+
                 });
 
                 //groups.push(newGroup);
