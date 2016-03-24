@@ -60,8 +60,7 @@
             })
             .when("/search", {
                 templateUrl:"views/search/search.view.html",
-                controller:"HomeController",
-                controllerAs:"model"
+                controller:"HomeController"
                 //resolve: {
                 //    getLoggedIn: getLoggedIn
                 //}
@@ -69,8 +68,7 @@
             })
             .when("/search/:groupTitle", {
                 templateUrl:"views/search/search.view.html",
-                controller:"HomeController",
-                controllerAs:"model"
+                controller:"HomeController"
                 //resolve: {
                 //    getLoggedIn: getLoggedIn
                 //}

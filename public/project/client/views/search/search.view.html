@@ -2,10 +2,6 @@
 <div class="container">
 
 <h1 id="title-head">Search Results</h1>
-
-<!--<a ng-click="fetchGroup(groupTitle)" class="btn btn-primary btn-block">-->
-    <!--Search-->
-<!--</a>-->
 <table class="table table-hover">
     <thead>
     <tr>
@@ -17,19 +13,19 @@
     </thead>
     <tbody>
     <tr>
-        <td>{{groups}}</td>
-        <td ng-repeat="group in model.groups">{{group._id}}</td>
-        <td ng-repeat="group in model.groups"><a href="#/details/{{group._id}}">{{group.title}}</a></td>
-        <td ng-repeat="group in model.groups">{{group.description}}</td>
-        <td ng-repeat="group in model.groups">{{group.ownerName}}</td>
-       </td>
+        <td>{{groups._id}}</td>
+        <td><a href="#/details/{{groups._id}}">{{groups.title}}</a></td>
+        <!--<td>{{group._id}}</td>-->
+        <!--<td ng-repeat="group in groups"><a href="#/details/{{group._id}}">{{group.title}}</a></td>-->
+        <!--<td ng-repeat="group in groups">{{group.description}}</td>-->
+        <!--<td ng-repeat="group in groups">{{group.ownerName}}</td>-->
     </tr>
 
-    <tr ng-repeat="group in groups">
-        <td>
+    <!--<tr ng-repeat="group in groups">-->
+        <!--<td>-->
 
-        </td>
-    </tr>
+        <!--</td>-->
+    <!--</tr>-->
     <tr>{{errorMessage}}</tr>
     </tbody>
 </table>

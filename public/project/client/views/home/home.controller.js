@@ -17,8 +17,8 @@
             GroupService.findGroupsByTitle(group_title)
             .then(function(groups) {
                 console.log(groups);
-                model.groups = groups;
-                console.log(model.groups);
+                $rootScope.groups = groups;
+                console.log($rootScope.groups);
                 $location.url("/search/{{group_title}}")
             });
             //console.log($scope.groups);
