@@ -9,7 +9,7 @@
     function EventController($sce, $rootScope,$location, $scope, $routeParams, EventService, GroupService, GoogleMapService) {
 
         var vm = this;
-
+        var groupid = $routeParams.groupid;
         var event_title = $routeParams.event_title;
         console.log(event_title);
 
@@ -35,7 +35,7 @@
             //    model.evetn = event;
             //});
             //});
-            EventService.findEventByTitle(event_title)
+            EventService.findEventByTitle(groupid, event_title)
             .then(function(theEvent) {
                 model.event = theEvent;
             });

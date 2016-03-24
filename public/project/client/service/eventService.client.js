@@ -21,8 +21,15 @@
         };
         return service;
 
-        function findEventByTitle(){
+        function findEventByTitle(groupid, title){
+            var deferred = $q.defer();
 
+            $http.get("/api/project/group/"+groupid+"/event/"+title)
+                .success(function (response) {
+                    deferred.resolve(response);
+                    console.log(response);
+                });
+            return deferred.promise;
         }
 
 
@@ -36,7 +43,15 @@
         //}
         //
         ////find all forms for given user
-        function findAllEvents(callback) {
+        function findAllEvents(groupid) {
+            var deferred = $q.defer();
+
+            $http.get("/api/project/group/"+groupid+"/event")
+                .success(function (response) {
+                    deferred.resolve(response);
+                    console.log(response);
+                });
+            return deferred.promise;
             //var group = [];  //set the form array to empty
             ////iterate the forms
             //for (var k = 0; k < groups.length; k++) {
