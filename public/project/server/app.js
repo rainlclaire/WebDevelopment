@@ -7,5 +7,5 @@ module.exports = function(app) {
     //var eventModel = require("./models/event.model.js")(app);
     require("./services/user.service.server.js")(app, userModel);
     require("./services/group.service.server.js")(app, groupModel);
-    //require("./services/event.service.server.js")(app, eventModel);
+    require("./services/event.service.serve.js")(app, groupModel);
 };

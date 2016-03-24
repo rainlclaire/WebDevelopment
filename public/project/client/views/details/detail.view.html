@@ -1,5 +1,8 @@
 <div class="container">
     <h1 class="groupTitle">{{model.group.title}}</h1>
+
+
+
     <hr>
     <div class="row">
         <!-- left column -->
@@ -42,6 +45,13 @@
                     <div class="nonebored">{{model.group.ownerName}}</div>
                 </div>
                 <hr>
+                <div class="form-group col-md-6">
+                    <select ng-model="thecolor" id="add-new-field" name="add-new" class="form-control">
+                        <option value="white">white</option>
+                        <option value="red">red</option>
+                    </select>
+                </div>
+                <button ng-click="model.changeBackGround(thecolor)">change color</button>
         </div>
             </div>
 

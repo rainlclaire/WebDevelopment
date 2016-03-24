@@ -9,9 +9,34 @@ module.exports = function(app) {
         update: update,
         remove: remove,
         findGroupByTitle: findGroupByTitle,
-        findGroupById: findGroupById
+        findGroupById: findGroupById,
+        findEventByTitle:findEventByTitle,
+        findAllEvents: findAllEvents
     };
     return api;
+
+    function findEventByTitle(groupid,eventtitle) {
+        for (var i =0; i <groups.length; i++) {
+            if (groups[i]._id = groupid) {
+                for (var j =0 ; j <groups[i].listofEvents.length; j++) {
+                    if (groups[i].listofEvents[j].title = eventtitle) {
+                        return groups[i].listofEvents[j];
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+
+    function findAllEvents(groupid){
+        for (var i =0; i <groups.length; i++) {
+            if (groups[i]._id = groupid) {
+                return groups[i].listofEvents;
+            }
+        }
+        return null;
+    }
 
 
     function findGroupById(groupid) {

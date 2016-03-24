@@ -29,7 +29,14 @@
         model.init = init;
         model.favorite = favorite;
         model.manageGroup = manageGroup;
+        model.changeBackGround = changeBackGround;
 
+
+        function changeBackGround(color) {
+            console.log("o go t");
+            console.log(color);
+            document.body.style.background = color;
+        }
 
         GroupService.findAllGroups()
         .then(function(allGroups) {

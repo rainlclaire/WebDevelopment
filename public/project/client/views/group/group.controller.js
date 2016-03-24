@@ -26,6 +26,7 @@
         model.selectGroup = selectGroup;
         model.addGroup2 = addGroup2;
 
+
         //add the form to currentForms
         function addGroup(group) {
             var newGroup = {
@@ -77,6 +78,8 @@
                 })
             }
         }
+
+
 
         //update the select form with the given form info
         function updateGroup(group) {

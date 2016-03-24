@@ -74,7 +74,8 @@
             deleteGroupById: deleteGroupById,
             updateGroupById: updateGroupById,
             findGroupByID: findGroupByID,
-            findGroupsByTitle: findGroupsByTitle
+            findGroupsByTitle: findGroupsByTitle,
+            findEventByTitle:findEventByTitle
             //findEventByID: findEventByID,
             //createEvent:createEvent,
             //findAllEvents: findAllEvents,
@@ -170,6 +171,16 @@
             //    }
             //}
             //callback(findGroups);
+
+        }
+
+        function findEventByTitle(groupid, eventtitle) {
+            var deferred = $q.defer();
+            $http.delete("/api/project/group/"+groupId+"/event/"+eventtitle)
+                .success(function(response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
 
         }
 
