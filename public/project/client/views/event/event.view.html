@@ -1,6 +1,6 @@
 
 <div class="container">
-    <h1 class="groupTitle">{{event.title}}</h1>
+    <h1 class="groupTitle">{{model.event.title}}</h1>
     <div class="eventPage row content">
         <div class="col-md-4 content-left">
 
@@ -9,7 +9,7 @@
                     <h1>event Name</h1>
                 </div>
                 <div class="nonebored">
-                    {{event.title}}
+                    {{model.event.title}}
                 </div>
             </div>
             <hr>
@@ -23,7 +23,7 @@
                     <td class="theborder">
                         <h1>Group ID</h1>
                     </td>
-                    <td class="nonebored">{{event._id}}</td>
+                    <td class="nonebored">{{model.event._id}}</td>
                 </tr>
 
                 </tbody>

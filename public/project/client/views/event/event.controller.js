@@ -8,7 +8,7 @@
 
     function EventController($sce, $rootScope,$location, $scope, $routeParams, EventService, GroupService, GoogleMapService) {
 
-        var vm = this;
+        var model = this;
         var groupid = $routeParams.groupid;
         var event_title = $routeParams.event_title;
         console.log(groupid);
