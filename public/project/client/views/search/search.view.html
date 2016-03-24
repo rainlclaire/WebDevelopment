@@ -12,13 +12,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>{{groups._id}}</td>
-        <td><a href="#/details/{{groups._id}}">{{groups.title}}</a></td>
-        <!--<td>{{group._id}}</td>-->
-        <!--<td ng-repeat="group in groups"><a href="#/details/{{group._id}}">{{group.title}}</a></td>-->
-        <td >{{groups.description}}</td>
-        <td>{{groups.ownerName}}</td>
+    <tr ng-repeat="group in groups">
+        {{groups}}
+        <td>{{group._id}}</td>
+        <td><a href="#/details/{{group._id}}">{{group.title}}</a></td>
+        <td>{{group.description}}</td>
+        <td>{{group.ownerName}}</td>
+        <!--<td ng-repeat="group in groups track by $index"><a href="#/details/{{group._id}}">{{group.title}}</a></td>-->
+        <!--&lt;!&ndash;<td>{{group._id}}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td ng-repeat="group in groups"><a href="#/details/{{group._id}}">{{group.title}}</a></td>&ndash;&gt;-->
+        <!--<td ng-repeat="group in groups track by $index" >{{group.description}}</td>-->
+        <!--<td ng-repeat="group in groups track by $index">{{group.ownerName}}</td>-->
     </tr>
 
     <tr>{{errorMessage}}</tr>

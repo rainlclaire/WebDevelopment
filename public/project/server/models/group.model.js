@@ -101,12 +101,14 @@ module.exports = function(app) {
     }
 
     function findGroupByTitle(groupTitle) {
+        console.log("groupmodel searchbytitle");
+        var searchResult = [];
         for (var i =0; i<groups.length;i++) {
             if (groups[i].title == groupTitle) {
-                return groups[i];
+                searchResult.push(groups[i]);
             }
         }
-        return null;
+        return searchResult;
     }
 
 }();
