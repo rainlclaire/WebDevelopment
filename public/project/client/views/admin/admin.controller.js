@@ -4,8 +4,8 @@
     angular.module('FindGroupApp')
         .controller("AdminController", AdminController);
 
-    function AdminController($scope,$routeParams, $location, $rootScope,GroupService) {
-
+    function AdminController($scope,$routeParams, $location, $rootScope,GroupService,EventService) {
+        var model = this;
 
 
         var user = $rootScope.currentUser;
@@ -19,18 +19,25 @@
         //console.log($rootScope.currentGroup);
 
         GroupService.findAllGroups(function(allGroups) {
-            $scope.groups = allGroups;
+            model.groups = allGroups;
+            console.log("from admin model.groups");
+            console.log(model.groups);
         });
 
-        GroupService.findAllEvents($rootScope.currentGroup,function (allEvents) {
-            $scope.events = allEvents;
+        EventService.findAllEvents($rootScope.currentGroup._id)
+        .then(function(allEvents){
+            console.log("from admin model.events");
+
+            console.log(allEvents);
+            model.events = allEvents;
+            console.log(model.events);
 
         });
 
-        GroupService.findAllUserForGroup($rootScope.currentGroup,function (allUsers) {
-            $scope.users = allUsers;
-
-        });
+        //GroupService.findAllUserForGroup($rootScope.currentGroup,function (allUsers) {
+        //    model.users = allUsers;
+        //
+        //});
 
 
         var clickEvent = $rootScope.clickEvent;
@@ -38,10 +45,10 @@
 
 
         //function for form
-        $scope.addEventInGroup = addEventInGroup;
-        $scope.updateEventInGroup = updateEventInGroup;
-        $scope.deleteEventInGroup = deleteEventInGroup;
-        $scope.selectEventInGroup = selectEventInGroup;
+        model.addEventInGroup = addEventInGroup;
+        model.updateEventInGroup = updateEventInGroup;
+        model.deleteEventInGroup = deleteEventInGroup;
+        model.selectEventInGroup = selectEventInGroup;
 
         //add the form to currentForms
         function addEventInGroup(event) {
@@ -61,9 +68,11 @@
             $scope.clickEvent.date = "";
             $scope.clickEvent.description = "";
 
-            GroupService.createEvent($scope.currentGroup, newEvent, function (createdGroups) {
-                GroupService.findAllEvents(function (allEvents) {
-                    $scope.events = allEvents;
+            GroupService.createEvent($scope.currentGroup, newEvent)
+            .then(function(newEvent){
+                GroupService.findAllEvents()
+                .then(function (allEvents){
+                    model.events = allEvents;
 
                 });
             });
@@ -111,10 +120,10 @@
 
 
 
-        $scope.addUserInGroup = addUserInGroup;
-        $scope.updateUsertInGroup = updateUserInGroup;
-        $scope.deleteUserInGroup = deleteUserInGroup;
-        $scope.selectUserInGroup = selectUserInGroup;
+        model.addUserInGroup = addUserInGroup;
+        model.updateUsertInGroup = updateUserInGroup;
+        model.deleteUserInGroup = deleteUserInGroup;
+        model.selectUserInGroup = selectUserInGroup;
 
         //add the form to currentForms
         function addUserInGroup(user) {

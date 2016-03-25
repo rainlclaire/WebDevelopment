@@ -61,6 +61,7 @@ module.exports = function(app) {
 
     function findAll() {
         console.log("findall");
+        console.log(groups);
         return groups;
     }
 

@@ -176,24 +176,5 @@
 
 
 
-        //console.log($scope.group);
-        //var vm = this;
-        //
-        //var group_id = $routeParams.group_id;
-        //console.log(group_id);
-        //
-        //function init() {
-        //    fetchGroup(group_id);
-        //}
-        //init();
-        //
-        //function fetchGroup(group_id) {
-        //    MovieService.findMovieByImdbId(group_id, renderDetails);
-        //}
-        //
-        //function renderDetails(response) {
-        //    console.log(response);
-        //    vm.details = response;
-        //}
     }
 })();

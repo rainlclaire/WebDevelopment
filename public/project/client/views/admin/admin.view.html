@@ -31,23 +31,24 @@
                 </td>
                 <td>
                     <div class="row-fluid form-inline">
-                        <button ng-click="addEventInGroup(clickEvent)" class="btn btn-danger glyphicon glyphicon-plus"></button>
+                        <button ng-click="model.addEventInGroup(clickEvent)" class="btn btn-danger glyphicon glyphicon-plus"></button>
                         <!--how to put space here-->
-                        <button ng-click="updateEventInGroup(clickEvent)" class="btn btn-info glyphicon glyphicon-ok"></button>
+                        <button ng-click="model.updateEventInGroup(clickEvent)" class="btn btn-info glyphicon glyphicon-ok"></button>
                     </div>
                 </td>
             </tr>
             </thead>
-            <tbody data-ng-repeat="group in groups">
+            {{model.events}}
+            <tbody>
 
-            <tr data-ng-repeat="event in group.listofEvents">
+            <tr ng-repeat="event in model.events">
 
-                <td class="form-list"><a href="#/event/{{event.title}}">{{event.title}}</a></td>
+                <td class="form-list"><a href="#/group/{{currentGroup._id}}/event/{{event.title}}">{{event.title}}</a></td>
                 <td >{{event._id}}</td>
                 <td >{{event.date}}</td>
                 <td  class="form-list">
-                    <button ng-click="deleteEventInGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
-                    <button ng-click="selectEventInGroup($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>
+                    <button ng-click="model.deleteEventInGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
+                    <button ng-click="model.selectEventInGroup($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>
             </tr>
 
 

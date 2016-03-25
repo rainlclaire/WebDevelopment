@@ -11,6 +11,8 @@
         function init() {
             GroupService.findAllGroups()
             .then(function(groups) {
+                console.log("from group contrller");
+                console.log(groups);
                 model.groups = groups;
             });
         }
@@ -125,26 +127,7 @@
 
         }
 
-        //function addUserToGroup(user) {
-        //    var newUser = {
-        //        username: user.username,
-        //        groupid:user.groupid,
-        //        groupJoined: user.groupJoined,
-        //        likeGroups: user.likeGroups
-        //    };
-        //
-        //    //inti the title with empty
-        //    model.clickUser.username = "";
-        //    model.clickUser.groupJoined = "";
-        //    model.clickUser.likeGroups = "";
-        //
-        //    GroupService.addUserToGropu(newUser,group, function (createdUser) {
-        //        GroupService.findAllGroups(function (allGroups) {
-        //            model.groups = allGroups;
-        //
-        //        });
-        //    });
-        //}
+
     }
 
 
