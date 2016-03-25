@@ -102,11 +102,19 @@
         //delete the form with given form's index
         function deleteGroup(index) {
             var deletedId = model.groups[index]._id;
-            console.log(deletedId);
-            GroupService.deleteGroupById(deletedId)
-            .then(function(allOtherGroups) {
-                model.groups = allOtherGroups;
-            });
+            if (user == null) {
+                alert("you are not the administration");
+                $location.url("/login");
+            }
+            if (model.groups[index].ownerName == user.username) {
+                console.log(deletedId);
+                GroupService.deleteGroupById(deletedId)
+                    .then(function (allOtherGroups) {
+                        model.groups = allOtherGroups;
+                    });
+            } else {
+                alert("you have not the owner of the group, you cannot delete it");
+            }
         }
 
         //select the form with given form's index

@@ -151,55 +151,55 @@
 </div>
     </div>
 </body>
-<div class="container">
-    <h1 class="groupTitle">Groups</h1>
-<!--<div class="col-md-4 col-sm-5">-->
-    <!--<a href="portfolio-item.html">-->
-    <!--</a>-->
+<!--<div class="container">-->
+    <!--<h1 class="groupTitle">Groups</h1>-->
+<!--&lt;!&ndash;<div class="col-md-4 col-sm-5">&ndash;&gt;-->
+    <!--&lt;!&ndash;<a href="portfolio-item.html">&ndash;&gt;-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
 
-<!--</div>-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
 
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group ID</th>
-                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group Name</th>
-                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Group OwnerName</th>
-                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
-            </tr>
-            <tr>
-                <td>Auto Assign GroupID
-                    <!--<input ng-model="clickGroup._id" class="form-control input-sm" type="text" id="group-title" placeholder="GroupID">-->
-                </td>
-                <td>
-                    <input ng-model="model.clickGroup.title" class="form-control input-sm" type="text" id="group-description" placeholder="GroupName">
-                </td>
-                <td>
-                    <input ng-model="model.clickGroup.ownerName" class="form-control input-sm" type="text" id="group-ownerName" placeholder="GroupownerName">
-                </td>
-                <td>
-                    <div class="row-fluid form-inline text-center">
-                        <button ng-click="model.addGroup(model.clickGroup)" class="btn btn-danger glyphicon glyphicon-plus"></button>
-                        <!--how to put space here-->
-                        <button ng-click="model.updateGroup(model.clickGroup)" class="btn btn-info glyphicon glyphicon-ok"></button>
-                    </div>
-                </td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="group in model.groups">
-                <td>{{group._id}}</td>
-                <td class="form-list"><a href="#/details/{{group._id}}">{{group.title}}</a></td>
-                <td>{{group.ownerName}}</td>
-                <td class="form-list form-inline text-center">
-                    <button ng-click="model.deleteGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
-                    <button ng-click="model.selectGroup($index)" class="btn btn-default glyphicon glyphicon-pencil action-icon"></button>
+        <!--<table class="table table-hover">-->
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Group ID</th>-->
+                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Group Name</th>-->
+                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Group OwnerName</th>-->
+                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Auto Assign GroupID-->
+                    <!--&lt;!&ndash;<input ng-model="clickGroup._id" class="form-control input-sm" type="text" id="group-title" placeholder="GroupID">&ndash;&gt;-->
                 <!--</td>-->
-                <!--<td>{{results[0].geometry.location.lat}}</td>-->
-            </tr>
-        </table>
-</div>
+                <!--<td>-->
+                    <!--<input ng-model="model.clickGroup.title" class="form-control input-sm" type="text" id="group-description" placeholder="GroupName">-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<input ng-model="model.clickGroup.ownerName" class="form-control input-sm" type="text" id="group-ownerName" placeholder="GroupownerName">-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<div class="row-fluid form-inline text-center">-->
+                        <!--<button ng-click="model.addGroup(model.clickGroup)" class="btn btn-danger glyphicon glyphicon-plus"></button>-->
+                        <!--&lt;!&ndash;how to put space here&ndash;&gt;-->
+                        <!--<button ng-click="model.updateGroup(model.clickGroup)" class="btn btn-info glyphicon glyphicon-ok"></button>-->
+                    <!--</div>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr ng-repeat="group in model.groups">-->
+                <!--<td>{{group._id}}</td>-->
+                <!--<td class="form-list"><a href="#/details/{{group._id}}">{{group.title}}</a></td>-->
+                <!--<td>{{group.ownerName}}</td>-->
+                <!--<td class="form-list form-inline text-center">-->
+                    <!--<button ng-click="model.deleteGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>-->
+                    <!--<button ng-click="model.selectGroup($index)" class="btn btn-default glyphicon glyphicon-pencil action-icon"></button>-->
+                <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>{{results[0].geometry.location.lat}}</td>&ndash;&gt;-->
+            <!--</tr>-->
+        <!--</table>-->
+<!--</div>-->
 <div class="bottomContent">
     <form class="extra-content">
         <hr>
