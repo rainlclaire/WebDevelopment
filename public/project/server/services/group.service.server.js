@@ -8,6 +8,7 @@ module.exports = function (app, model) {
 
 
 
+
     function findGroups(req, res) {
         var title = req.query.title;
         if (title) {
@@ -35,6 +36,8 @@ module.exports = function (app, model) {
     //}
 
     function updateGroup(req,res) {
+        console.log("updategroup sever");
+        console.log(req.params.groupid);
         var group = model.update(req.params.groupid, req.body);
         res.json(group);
     }

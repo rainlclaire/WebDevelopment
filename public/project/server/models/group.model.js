@@ -122,6 +122,8 @@ module.exports = function(app) {
     }
 
     function update(groupid, updateGroup) {
+        console.log("update model groupid");
+
         for (var i =0; i<groups.length;i++) {
             if (groups[i]._id = groupid) {}
             groups[i]._id = updateGroup._id;
@@ -132,7 +134,7 @@ module.exports = function(app) {
             groups[i].listofMemers = updateGroup.listofMemers;
             groups[i].listofEvents = updateGroup.listofEvents;
 
-            return groups[i];
+            return groups;
         }
 
         return null;

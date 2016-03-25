@@ -4,8 +4,9 @@
     angular.module('FindGroupApp')
         .controller("AdminController", AdminController);
 
-    function AdminController($scope,$routeParams, $location, $rootScope,GroupService,EventService) {
+    function AdminController($uibModal, $scope, $routeParams, $location, $rootScope, GroupService, EventService) {
         var model = this;
+        var groupid = $routeParams.group_id;
 
 
         var user = $rootScope.currentUser;
@@ -18,21 +19,27 @@
         }
         //console.log($rootScope.currentGroup);
 
-        GroupService.findAllGroups(function(allGroups) {
+        GroupService.findGroupByID(groupid)
+        .then(function(theGroup){
+            model.currentGroup = theGroup;
+        });
+
+        GroupService.findAllGroups()
+        .then(function(allGroups){
             model.groups = allGroups;
             console.log("from admin model.groups");
             console.log(model.groups);
         });
 
         EventService.findAllEvents($rootScope.currentGroup._id)
-        .then(function(allEvents){
-            console.log("from admin model.events");
+            .then(function (allEvents) {
+                console.log("from admin model.events");
 
-            console.log(allEvents);
-            model.events = allEvents;
-            console.log(model.events);
+                console.log(allEvents);
+                model.events = allEvents;
+                console.log(model.events);
 
-        });
+            });
 
         //GroupService.findAllUserForGroup($rootScope.currentGroup,function (allUsers) {
         //    model.users = allUsers;
@@ -49,6 +56,26 @@
         model.updateEventInGroup = updateEventInGroup;
         model.deleteEventInGroup = deleteEventInGroup;
         model.selectEventInGroup = selectEventInGroup;
+        model.editGroup = editGroup;
+
+        function editGroup() {
+            $rootScope.modalInstance = $uibModal.open({
+                templateUrl: "views/admin/editGroup.view.html",
+                controller: "editGroupModalController",
+                controllerAs: "model",
+                size: 'lg',
+                resolve: {
+                   currentGroup: function() {
+                       console.log(model.currentGroup);
+                       return model.currentGroup;
+                   },
+                    groups: function() {
+                        return model.groups;
+                    }
+                }
+            })
+        }
+
 
         //add the form to currentForms
         function addEventInGroup(event) {

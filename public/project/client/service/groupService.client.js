@@ -117,7 +117,8 @@
         //update the form by given form's id with new form info
         function updateGroupById(groupId, newGroup) {
             var deferred = $q.defer();
-            $http.post("/api/project/group/" + groupId, newGroup)
+            console.log(groupId);
+            $http.put("/api/project/group/" + groupId, newGroup)
                 .success(function (response) {
                     deferred.resolve(response);
                 });
