@@ -22,9 +22,11 @@ module.exports = function(app) {
         for (var i =0; i<groups.length;i++) {
             if (groups[i]._id = groupid) {
                 for (var j = 0; j < groups[i].listofEvents.length; j++) {
-                    if (groups[i].listofEvents[j]._id = eventid) {
+                    if (groups[i].listofEvents[j]._id == eventid) {
                         groups[i].listofEvents[j]._id = event._id;
                         groups[i].listofEvents[j].title = event.title;
+                        groups[i].listofEvents[j].date = event.date;
+                        groups[i].listofEvents[j].description = event.description;
 
 
 
