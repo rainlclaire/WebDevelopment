@@ -11,13 +11,40 @@ module.exports = function(app) {
         findGroupByTitle: findGroupByTitle,
         findGroupById: findGroupById,
         findEventByTitle:findEventByTitle,
-        findAllEvents: findAllEvents
+        findAllEvents: findAllEvents,
+        createEventForGroup: createEventForGroup,
+        deleteEventForGroup:deleteEventForGroup
     };
     return api;
 
+    function deleteEventForGroup(groupid, eventid) {
+        for (var i = 0; i < groups.length; i++) {
+            if (groups[i]._id = groupid) {
+                for (var j = 0; j < groups[i].listofEvents.length; j++) {
+                    if (groups[i].listofEvents[j]._id == eventid) {
+                        groups[i].listofEvents.splice(j, 1)
+                        return groups[i].listofEvents;
+                    }
+                }
+            }
+        }
+    }
+
+    function createEventForGroup(groupid, event) {
+        event._id = (new Date).getTime();
+        for (var i = 0; i < groups.length; i++) {
+
+            if (groups[i]._id = groupid) {
+                groups[i].listofEvents.push(event);
+
+                return event;
+            }
+        }
+    }
+
     function findEventByTitle(groupid,eventtitle) {
         for (var i =0; i <groups.length; i++) {
-           
+
             if (groups[i]._id = groupid) {
 
                 for (var j =0 ; j <groups[i].listofEvents.length; j++) {

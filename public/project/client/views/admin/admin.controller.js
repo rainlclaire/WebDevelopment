@@ -68,9 +68,9 @@
             $scope.clickEvent.date = "";
             $scope.clickEvent.description = "";
 
-            GroupService.createEvent($scope.currentGroup, newEvent)
+            EventService.createEvent($scope.currentGroup._id, newEvent)
             .then(function(newEvent){
-                GroupService.findAllEvents()
+                EventService.findAllEvents($scope.currentGroup._id)
                 .then(function (allEvents){
                     model.events = allEvents;
 
@@ -97,9 +97,12 @@
 
         //delete the form with given form's index
         function deleteEventInGroup(index) {
-            var deletedId = $scope.events[index]._id;
-            GroupService.deleteEventById($scope.currentGroup._id, deletedId, function (allOtherEvents) {
-                $scope.events = allOtherEvents;
+            var deletedId = model.events[index]._id;
+            console.log("deleteeventid");
+            console.log(deletedId);
+            EventService.deleteEventById($scope.currentGroup._id, deletedId)
+            .then(function(allOtherEvents){
+                model.events = allOtherEvents;
             });
         }
 

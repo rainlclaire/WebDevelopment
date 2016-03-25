@@ -13,13 +13,33 @@
         var service = {
             //createEvent: createEvent,
             findAllEvents: findAllEvents,
-            findEventByTitle:findEventByTitle
+            createEvent:createEvent,
+            findEventByTitle:findEventByTitle,
+            deleteEventById:deleteEventById
             //deleteGroupById: deleteGroupById,
             //updateGroupById: updateGroupById,
             //findEventByID: findEventByID
             //findGroupsByTitle: findGroupsByTitle
         };
         return service;
+
+        function deleteEventById(groupid, eventid) {
+            var deferred = $q.defer();
+            $http.delete("/api/project/group/"+groupid+"/event/"+eventid)
+                .success(function (response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
+
+        function createEvent(groupid, event) {
+            var deferred = $q.defer();
+            $http.post("/api/project/group/"+groupid+"/event", event)
+                .success(function (response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
 
         function findEventByTitle(groupid, title){
             var deferred = $q.defer();
