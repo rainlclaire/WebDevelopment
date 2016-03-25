@@ -24,7 +24,7 @@ module.exports = function (app, model) {
     }
 
     function createGroup(req, res) {
-        console.log(req.body);
+
        res.json(model.create(req.body));
     }
 

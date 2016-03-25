@@ -17,9 +17,13 @@ module.exports = function(app) {
 
     function findEventByTitle(groupid,eventtitle) {
         for (var i =0; i <groups.length; i++) {
+           
             if (groups[i]._id = groupid) {
+
                 for (var j =0 ; j <groups[i].listofEvents.length; j++) {
-                    if (groups[i].listofEvents[j].title = eventtitle) {
+
+                    if (groups[i].listofEvents[j].title == eventtitle) {
+
                         return groups[i].listofEvents[j];
                     }
                 }
@@ -50,8 +54,6 @@ module.exports = function(app) {
 
 
     function create(newGroup) {
-        console.log("print create newgroup");
-        console.log(newGroup);
         newGroup._id = (new Date).getTime();
         groups.push(newGroup);
 
@@ -60,8 +62,6 @@ module.exports = function(app) {
 
 
     function findAll() {
-        console.log("findall");
-        console.log(groups);
         return groups;
     }
 
@@ -102,7 +102,7 @@ module.exports = function(app) {
     }
 
     function findGroupByTitle(groupTitle) {
-        console.log("groupmodel searchbytitle");
+
         var searchResult = [];
         for (var i =0; i<groups.length;i++) {
             if (groups[i].title == groupTitle) {

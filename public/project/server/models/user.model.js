@@ -16,9 +16,9 @@ module.exports = function(app) {
     return api;
 
     function create(newUser) {
-        console.log(newUser);
+
         newUser.id = (new Date).getTime();
-        console.log(newUser);
+
         users.push(newUser);
         return newUser;
     }
@@ -75,8 +75,7 @@ module.exports = function(app) {
 
 
     function findUserByCredentials(creds) {
-        console.log("cici");
-        console.log(creds);
+
         var matchedUser = null;
         for (var i = 0; i < users.length; i++) {
             if (users[i].username === creds.username

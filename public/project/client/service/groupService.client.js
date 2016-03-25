@@ -58,6 +58,7 @@
         }
 
         function findGroupByID(groupID) {
+
             var deferred = $q.defer();
             $http.get("/api/project/group/" + groupID)
                 .success(function (response) {
@@ -78,10 +79,17 @@
                     console.log(response);
                 });
             return deferred.promise;
-
+            //var findGroups = [];
+            //for (var i = 0; i < groups.length; i++) {
+            //    if (groups[i].title === groupTitle) {
+            //        var group = groups[i];
+            //        findGroups.push(group);
+            //    }
+            //}
+            //callback(findGroups);
 
         }
-        //
+
         //function findEventByTitle(groupid, eventtitle) {
         //    var deferred = $q.defer();
         //    $http.delete("/api/project/group/" + groupid + "/event/" + eventtitle)
