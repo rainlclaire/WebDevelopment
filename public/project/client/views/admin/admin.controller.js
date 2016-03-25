@@ -82,17 +82,23 @@
 
         //update the select form with the given form info
         function updateEventInGroup(event) {
+            console.log(event);
+            EventService.updateEventForGroup($scope.currentGroup._id,event._id, event)
+            .then(function(updateEvents) {
+                console.log(updateEvents);
+                model.events = updateEvents;
+            });
 
-            if ($scope.selectEventIndex != null) {
-                $scope.events[$scope.selectEventIndex].title = event.title;
-                $scope.events[$scope.selectEventIndex]._id = event._id;
-                $scope.events[$scope.selectEventIndex].date = event.date;
-                $scope.events[$scope.selectEventIndex].description = event.description;
-
-                //console.log(event);
-            } else {
-                alert("You have to select a Form");
-            }
+            //if ($scope.selectEventIndex != null) {
+            //    model.events[$scope.selectEventIndex].title = event.title;
+            //    model.events[$scope.selectEventIndex]._id = event._id;
+            //    model.events[$scope.selectEventIndex].date = event.date;
+            //    model.events[$scope.selectEventIndex].description = event.description;
+            //
+            //    //console.log(event);
+            //} else {
+            //    alert("You have to select a Form");
+            //}
         }
 
         //delete the form with given form's index
@@ -108,14 +114,14 @@
 
         //select the form with given form's index
         function selectEventInGroup(index) {
-
             //$scope.clickForm.title = $scope.forms[index].title;
             $scope.selectEventIndex = index;
+            console.log($scope.selectEventIndex);
             $scope.clickEvent = {
-                "_id": $scope.events[index]._id,
-                "title": $scope.events[index].title,
-                "date": $scope.events[index].date,
-                "description": $scope.events[index].description
+                "_id": model.events[index]._id,
+                "title": model.events[index].title,
+                "date": model.events[index].date,
+                "description": model.events[index].description
             };
             //console.log($scope.clickEvent.title);
 

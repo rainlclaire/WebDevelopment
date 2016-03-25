@@ -13,9 +13,27 @@ module.exports = function(app) {
         findEventByTitle:findEventByTitle,
         findAllEvents: findAllEvents,
         createEventForGroup: createEventForGroup,
-        deleteEventForGroup:deleteEventForGroup
+        deleteEventForGroup:deleteEventForGroup,
+        updateEventForGroup:updateEventForGroup
     };
     return api;
+
+    function updateEventForGroup(groupid,eventid, event) {
+        for (var i =0; i<groups.length;i++) {
+            if (groups[i]._id = groupid) {
+                for (var j = 0; j < groups[i].listofEvents.length; j++) {
+                    if (groups[i].listofEvents[j]._id = eventid) {
+                        groups[i].listofEvents[j]._id = event._id;
+                        groups[i].listofEvents[j].title = event.title;
+
+
+
+                        return groups[i].listofEvents;
+                    }
+                }
+            }
+        }
+    }
 
     function deleteEventForGroup(groupid, eventid) {
         for (var i = 0; i < groups.length; i++) {

@@ -3,7 +3,11 @@ module.exports = function (app, model) {
     app.get("/api/project/group/:groupid/event", findAllEvents);
     app.post("/api/project/group/:groupid/event", createEvent);
     app.delete("/api/project/group/:groupid/event/:eventid", deleteEvent);
+    app.put("/api/project/group/:groupid/event/:eventid", updateEvent);
 
+    function updateEvent(req, res) {
+        res.json(model.updateEventForGroup(req.params.groupid,req.params.eventid, req.body));
+    }
 
     function deleteEvent(req, res) {
         res.json(model.deleteEventForGroup(req.params.groupid, req.params.eventid));

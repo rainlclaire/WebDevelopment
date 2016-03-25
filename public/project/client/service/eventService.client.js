@@ -15,13 +15,23 @@
             findAllEvents: findAllEvents,
             createEvent:createEvent,
             findEventByTitle:findEventByTitle,
-            deleteEventById:deleteEventById
+            deleteEventById:deleteEventById,
+            updateEventForGroup:updateEventForGroup
             //deleteGroupById: deleteGroupById,
             //updateGroupById: updateGroupById,
             //findEventByID: findEventByID
             //findGroupsByTitle: findGroupsByTitle
         };
         return service;
+
+        function updateEventForGroup(groupid, eventid, event) {
+            var deferred = $q.defer();
+            $http.put("/api/project/group/"+groupid+"/event/"+eventid, event)
+                .success(function (response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
 
         function deleteEventById(groupid, eventid) {
             var deferred = $q.defer();
