@@ -109,6 +109,7 @@
         //update the form by given form's id with new form info
         function updateGroupById(groupId, newGroup) {
             var deferred = $q.defer();
+            console.log("update group by id in sevverice client");
             console.log(groupId);
             $http.put("/api/project/group/" + groupId, newGroup)
                 .success(function (response) {

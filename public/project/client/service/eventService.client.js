@@ -46,6 +46,8 @@
             var deferred = $q.defer();
             $http.post("/api/project/group/"+groupid+"/event", event)
                 .success(function (response) {
+                    console.log("createevent response");
+                    console.log(response);
                     deferred.resolve(response);
                 });
             return deferred.promise;

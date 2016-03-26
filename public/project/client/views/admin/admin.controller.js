@@ -95,13 +95,17 @@
             $scope.clickEvent.date = "";
             $scope.clickEvent.description = "";
 
+            console.log($scope.currentGroup._id);
             EventService.createEvent($scope.currentGroup._id, newEvent)
             .then(function(newEvent){
-                EventService.findAllEvents($scope.currentGroup._id)
-                .then(function (allEvents){
-                    model.events = allEvents;
-
-                });
+                console.log(newEvent);
+                model.events = newEvent;
+                //EventService.findAllEvents($scope.currentGroup._id)
+                //.then(function (allEvents){
+                //    console.log(allEvents);
+                //    model.events = allEvents;
+                //
+                //});
             });
 
 

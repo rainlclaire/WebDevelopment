@@ -31,7 +31,7 @@ module.exports = function(app) {
 
     function updateEventForGroup(groupid,eventid, event) {
         for (var i =0; i<groups.length;i++) {
-            if (groups[i]._id = groupid) {
+            if (groups[i]._id == groupid) {
                 for (var j = 0; j < groups[i].listofEvents.length; j++) {
                     if (groups[i].listofEvents[j]._id == eventid) {
                         groups[i].listofEvents[j]._id = event._id;
@@ -39,7 +39,8 @@ module.exports = function(app) {
                         groups[i].listofEvents[j].date = event.date;
                         groups[i].listofEvents[j].description = event.description;
 
-
+                        console.log("updateevent in model ");
+                        console.log(groups[i].listofEvents);
 
                         return groups[i].listofEvents;
                     }
@@ -50,7 +51,7 @@ module.exports = function(app) {
 
     function deleteEventForGroup(groupid, eventid) {
         for (var i = 0; i < groups.length; i++) {
-            if (groups[i]._id = groupid) {
+            if (groups[i]._id == groupid) {
                 for (var j = 0; j < groups[i].listofEvents.length; j++) {
                     if (groups[i].listofEvents[j]._id == eventid) {
                         groups[i].listofEvents.splice(j, 1);
@@ -63,12 +64,15 @@ module.exports = function(app) {
 
     function createEventForGroup(groupid, event) {
         event._id = (new Date).getTime();
+        console.log("start hrer to see groups");
+        console.log(groups);
         for (var i = 0; i < groups.length; i++) {
-
+            console.log("groups in create");
             if (groups[i]._id == groupid) {
+                console.log(groups[i]);
                 groups[i].listofEvents.push(event);
 
-                return event;
+                return groups[i].listofEvents;
             }
         }
     }
@@ -76,7 +80,7 @@ module.exports = function(app) {
     function findEventByTitle(groupid,eventtitle) {
         for (var i =0; i <groups.length; i++) {
 
-            if (groups[i]._id = groupid) {
+            if (groups[i]._id == groupid) {
 
                 for (var j =0 ; j <groups[i].listofEvents.length; j++) {
 
@@ -94,9 +98,9 @@ module.exports = function(app) {
     function findAllEvents(groupid){
         for (var i =0; i <groups.length; i++) {
             if (groups[i]._id == groupid) {
-                console.log("findall event for groupid");
-                console.log(i);
-                console.log(groups[i].listofEvents);
+                //console.log("findall event for groupid");
+                //console.log(i);
+                //console.log(groups[i].listofEvents);
                 return groups[i].listofEvents;
             }
         }
@@ -106,7 +110,7 @@ module.exports = function(app) {
 
     function findGroupById(groupid) {
         for(var i = 0; i <groups.length;i++) {
-            if (groups[i]._id = groupid) {
+            if (groups[i]._id == groupid) {
                 return groups[i];
             }
         }
@@ -139,16 +143,19 @@ module.exports = function(app) {
         console.log("update model groupid");
 
         for (var i =0; i<groups.length;i++) {
-            if (groups[i]._id = groupid) {}
-            groups[i]._id = updateGroup._id;
-            groups[i].title = updateGroup.title;
-            groups[i].ownerName = updateGroup.ownerName;
-            groups[i].description = updateGroup.description;
-            groups[i].address = updateGroup.address;
-            groups[i].listofMemers = updateGroup.listofMemers;
-            groups[i].listofEvents = updateGroup.listofEvents;
+            if (groups[i]._id == groupid) {
+                //groups[i]._id = updateGroup._id;
+                groups[i].title = updateGroup.title;
+                groups[i].ownerName = updateGroup.ownerName;
+                groups[i].description = updateGroup.description;
+                groups[i].address = updateGroup.address;
+                groups[i].listofMemers = updateGroup.listofMemers;
+                groups[i].listofEvents = updateGroup.listofEvents;
 
-            return groups;
+                console.log("update");
+                console.log(groups[i]);
+                return groups[i];
+            }
         }
 
         return null;
