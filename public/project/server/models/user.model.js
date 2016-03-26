@@ -10,10 +10,22 @@ module.exports = function(app) {
         update: update,
         remove: remove,
         findUserByUsername: findUserByUsername,
-        findUserByCredentials: findUserByCredentials
+        findUserByCredentials: findUserByCredentials,
+        joinedGroups:joinedGroups
     };
 
     return api;
+
+    function joinedGroups(userid, group) {
+        console.log(userid);
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].id == userid) {
+                users[i].joinedGroups.push(group);
+                return users[i].joinedGroups;
+            }
+        }
+        return null;
+    }
 
     function create(newUser) {
 

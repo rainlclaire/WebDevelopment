@@ -8,7 +8,12 @@ module.exports = function (app, model) {
     //end
     app.put("/api/project/user/:id", updateUser);
     app.delete("/api/project/user/:id", deleteUser);
+    app.post("/api/project/user/:userid", joinedGroups);
 
+
+    function joinedGroups(req, res) {
+        res.json(model.joinedGroups(req.params.userid, req.body));
+    }
 
     function createUser(req, res) {
         //model.create(req.body)

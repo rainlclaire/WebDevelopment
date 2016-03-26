@@ -98,11 +98,21 @@
             findAllUsers: findAllUsers,
             createUser: createUser,
             deleteUserById: deleteUserById,
-            updateUser: updateUser
+            updateUser: updateUser,
+            joinGroup:joinGroup
 
         };
 
         return service;
+
+        function joinGroup(userid, group) {
+            var deferred = $q.defer();
+            $http.post("/api/project/user/"+userid, group)
+                .success(function (response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
 
         function findUserByUsername(username) {
             var deferred = $q.defer();
@@ -128,14 +138,6 @@
                     $rootScope.currentUser = response;
                 });
             return deferred.promise;
-            //var result = null; //set the result to null
-            ////iterate the current users
-            //for (var i = 0; i < currentUser.length; i++) {
-            //    if ((currentUser[i].username == username) && (currentUser[i].password = password)) {
-            //        result = currentUser[i];
-            //    }
-            //}
-            //callback(result);
         }
 
         //find the current all users

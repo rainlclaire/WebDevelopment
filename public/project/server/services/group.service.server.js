@@ -5,10 +5,15 @@ module.exports = function (app, model) {
     app.put("/api/project/group/:groupid", updateGroup);
     app.delete("/api/project/group/:groupid", removeGroup);
     app.post("/api/project/group", createGroup);
+    app.post("/api/project/group/:groupid", userJoinGroup);
 
 
 
-
+    function userJoinGroup(req, res) {
+        console.log("group sevrice sever");
+        console.log(req.params.groupid);
+        res.json(model.userJoinGroup(req.params.groupid, req.body));
+    }
     function findGroups(req, res) {
         var title = req.query.title;
         if (title) {

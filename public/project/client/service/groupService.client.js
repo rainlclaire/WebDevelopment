@@ -12,7 +12,8 @@
             deleteGroupById: deleteGroupById,
             updateGroupById: updateGroupById,
             findGroupByID: findGroupByID,
-            findGroupsByTitle: findGroupsByTitle
+            findGroupsByTitle: findGroupsByTitle,
+            userJoinGroup:userJoinGroup
             //findEventByTitle: findEventByTitle
             //findEventByID: findEventByID,
             //createEvent:createEvent,
@@ -25,6 +26,16 @@
         };
 
         return service;
+
+        function userJoinGroup(user, groupid) {
+            var deferred = $q.defer();
+            $http.post("/api/project/group/"+groupid, user)
+                .success(function (response) {
+                    deferred.resolve(response);
+                    //$rootScope.groups = response;
+                });
+            return deferred.promise;
+        }
 
 
         //create form for user with given user id and form info
@@ -79,27 +90,8 @@
                     console.log(response);
                 });
             return deferred.promise;
-            //var findGroups = [];
-            //for (var i = 0; i < groups.length; i++) {
-            //    if (groups[i].title === groupTitle) {
-            //        var group = groups[i];
-            //        findGroups.push(group);
-            //    }
-            //}
-            //callback(findGroups);
 
         }
-
-        //function findEventByTitle(groupid, eventtitle) {
-        //    var deferred = $q.defer();
-        //    $http.delete("/api/project/group/" + groupid + "/event/" + eventtitle)
-        //        .success(function (response) {
-        //            deferred.resolve(response);
-        //        });
-        //    return deferred.promise;
-        //
-        //}
-
 
         //delete form by given form id
         function deleteGroupById(groupId) {

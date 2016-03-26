@@ -14,9 +14,21 @@ module.exports = function(app) {
         findAllEvents: findAllEvents,
         createEventForGroup: createEventForGroup,
         deleteEventForGroup:deleteEventForGroup,
-        updateEventForGroup:updateEventForGroup
+        updateEventForGroup:updateEventForGroup,
+        userJoinGroup:userJoinGroup
     };
     return api;
+
+    function userJoinGroup(groupid, user) {
+        console.log(groupid);
+        for (var i = 0; i < groups.length; i++) {
+            if (groups[i]._id == groupid) {
+                console.log(groups[i]);
+                groups[i].listofMemers.push(user);
+                return groups[i].listofMemers;
+            }
+        }
+    }
 
     function updateEventForGroup(groupid,eventid, event) {
         for (var i =0; i<groups.length;i++) {
@@ -42,7 +54,7 @@ module.exports = function(app) {
             if (groups[i]._id = groupid) {
                 for (var j = 0; j < groups[i].listofEvents.length; j++) {
                     if (groups[i].listofEvents[j]._id == eventid) {
-                        groups[i].listofEvents.splice(j, 1)
+                        groups[i].listofEvents.splice(j, 1);
                         return groups[i].listofEvents;
                     }
                 }
@@ -54,7 +66,7 @@ module.exports = function(app) {
         event._id = (new Date).getTime();
         for (var i = 0; i < groups.length; i++) {
 
-            if (groups[i]._id = groupid) {
+            if (groups[i]._id == groupid) {
                 groups[i].listofEvents.push(event);
 
                 return event;
@@ -82,7 +94,10 @@ module.exports = function(app) {
 
     function findAllEvents(groupid){
         for (var i =0; i <groups.length; i++) {
-            if (groups[i]._id = groupid) {
+            if (groups[i]._id == groupid) {
+                console.log("findall event for groupid");
+                console.log(i);
+                console.log(groups[i].listofEvents);
                 return groups[i].listofEvents;
             }
         }

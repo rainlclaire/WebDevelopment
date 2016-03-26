@@ -5,7 +5,7 @@
         .module("FindGroupApp")
         .controller("DetailsController", DetailsController);
 
-    function DetailsController($sce, $rootScope,$location, $scope, $routeParams, GroupService, GoogleMapService) {
+    function DetailsController($sce, $rootScope,$location, $scope, $routeParams, GroupService,UserService, GoogleMapService) {
 
         var model = this;
 
@@ -59,19 +59,7 @@
             console.log($rootScope.group);
         });
 
-
-
-
-
-
-
         var groups = model.groups;
-
-        //console.log($scope.group);
-
-
-
-
 
 
         //console.log(group.address);
@@ -118,35 +106,53 @@
 
 
         function manageGroup() {
-            if(currentUser.username = $scope.currentGroup.ownerName) {
+            if(currentUser.username == $scope.currentGroup.ownerName) {
                 console.log("go to admin");
                 $location.url("/admin/"+$scope.currentGroup._id);
             }
         }
 
-
-
         function joinGroup() {
-            if ($scope.currentUser !=null) {
-                console.log("joingroup");
-                console.log($scope.currentUser._id);
-                var group_id = (new Date()).getTime();
-                var currentUser = {
-                    "username":$scope.currentUser.username,
-                    "_id":$scope.currentUser._id,
-                    "group_id":group_id
-
-                };
-                $scope.currentGroup.listofMembers.push(currentUser);
-                $scope.currentUser.groupJoined.push($scope.currentGroup);
-                console.log($scope.currentUser.groupJoined);
-                console.log($scope.currentGroup);
-                alert("success joined")
-            } else {
-                alert("You have to login");
+            if (currentUser == null) {
                 $location.url("/login");
+            } else {
+
+                GroupService.userJoinGroup($rootScope.user, group_id)
+                    .then(function (usersInGroup) {
+
+                        model.group.listofMembers = usersInGroup;
+                        console.log(model.group.listofMembers);
+                        UserService.joinGroup(currentUser._id, model.group)
+                            .then(function (joinedGroups) {
+                                $scope.currentUser.groupJoined = joinedGroups;
+                            })
+                    });
             }
         }
+
+
+
+        //function joinGroup() {
+        //    if ($scope.currentUser !=null) {
+        //        console.log("joingroup");
+        //        console.log($scope.currentUser._id);
+        //        var group_id = (new Date()).getTime();
+        //        var currentUser = {
+        //            "username":$scope.currentUser.username,
+        //            "_id":$scope.currentUser._id,
+        //            "group_id":group_id
+        //
+        //        };
+        //        $scope.currentGroup.listofMembers.push(currentUser);
+        //        $scope.currentUser.groupJoined.push($scope.currentGroup);
+        //        console.log($scope.currentUser.groupJoined);
+        //        console.log($scope.currentGroup);
+        //        alert("success joined")
+        //    } else {
+        //        alert("You have to login");
+        //        $location.url("/login");
+        //    }
+        //}
 
         function findGroupMap() {
 

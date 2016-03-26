@@ -34,6 +34,18 @@
                 {{currentGroup.address}}
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Address:</label>
+            <div class="col-md-9">
+                {{currentGroup.listofEvents}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Address:</label>
+            <div class="col-md-9">
+                {{currentGroup.listofMembers}}
+            </div>
+        </div>
 
     </form>
     <button ng-click="model.editGroup()" class="btn btn-danger">Edit Group Info</button>
@@ -71,7 +83,7 @@
             {{model.events}}
             <tbody>
 
-            <tr ng-repeat="event in model.events">
+            <tr ng-repeat="event in currentGroup.listofEvents">
 
                 <td class="form-list"><a href="#/group/{{currentGroup._id}}/event/{{event.title}}">{{event.title}}</a></td>
                 <td >{{event._id}}</td>

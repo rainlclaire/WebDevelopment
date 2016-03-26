@@ -8,10 +8,11 @@
         var model = this;
         var user = $rootScope.currentUser;
 
+
         function init() {
             GroupService.findAllGroups()
             .then(function(groups) {
-                console.log("from group contrller")
+                console.log("from group contrller");
                 console.log(groups);
                 model.groups = groups;
             });

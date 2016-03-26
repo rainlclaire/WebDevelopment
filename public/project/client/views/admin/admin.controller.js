@@ -99,7 +99,7 @@
             .then(function(newEvent){
                 EventService.findAllEvents($scope.currentGroup._id)
                 .then(function (allEvents){
-                    model.events = allEvents;
+                    $scope.currentGroup.listofEvents = allEvents;
 
                 });
             });
@@ -113,7 +113,7 @@
             EventService.updateEventForGroup($scope.currentGroup._id,event._id, event)
             .then(function(updateEvents) {
                 console.log(updateEvents);
-                model.events = updateEvents;
+                $scope.currentGroup.listofEvents = updateEvents;
             });
 
             //if ($scope.selectEventIndex != null) {
@@ -135,7 +135,7 @@
             console.log(deletedId);
             EventService.deleteEventById($scope.currentGroup._id, deletedId)
             .then(function(allOtherEvents){
-                model.events = allOtherEvents;
+                $scope.currentGroup.listofEvents = allOtherEvents;
             });
         }
 
