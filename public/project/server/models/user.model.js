@@ -20,8 +20,8 @@ module.exports = function(app) {
         console.log(userid);
         for (var i = 0; i < users.length; i++) {
             if (users[i].id == userid) {
-                users[i].joinedGroups.push(group);
-                return users[i].joinedGroups;
+                users[i].groupJoined.push(group);
+                return users[i].groupJoined;
             }
         }
         return null;

@@ -121,8 +121,8 @@
                     .then(function (usersInGroup) {
 
                         model.group.listofMembers = usersInGroup;
-                        console.log(model.group.listofMembers);
-                        UserService.joinGroup(currentUser._id, model.group)
+                        console.log(currentUser.id);
+                        UserService.joinGroup(currentUser.id, model.group)
                             .then(function (joinedGroups) {
                                 $scope.currentUser.groupJoined = joinedGroups;
                             })
