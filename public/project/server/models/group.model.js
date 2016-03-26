@@ -23,9 +23,8 @@ module.exports = function(app) {
         console.log(groupid);
         for (var i = 0; i < groups.length; i++) {
             if (groups[i]._id == groupid) {
-                console.log(groups[i]);
-                groups[i].listofMemers.push(user);
-                return groups[i].listofMemers;
+                groups[i].listofMembers.push(user);
+                return groups[i].listofMembers;
             }
         }
     }
