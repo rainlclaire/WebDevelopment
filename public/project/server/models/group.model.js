@@ -32,6 +32,7 @@ module.exports = function(app) {
     function userLikeGroup(groupid, user) {
         for (var i = 0; i < groups.length; i++) {
             if (groups[i]._id == groupid) {
+                console.log(groups[i].usersLikeGroup);
                 groups[i].usersLikeGroup.push(user);
                 return groups[i].usersLikeGroup;
             }

@@ -26,7 +26,8 @@
                     description: newgroup.description,
                     address:newgroup.address,
                     listofEvents:[],
-                    listofMembers:[]
+                    listofMembers:[],
+                    usersLikeGroup:[]
 
                 };
                 GroupService.createGroup(newGroup)
