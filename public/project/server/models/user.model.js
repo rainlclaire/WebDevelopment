@@ -40,7 +40,16 @@ module.exports = function(app) {
 
     function create(newUser) {
 
-        newUser.id = (new Date).getTime();
+
+        newUser  = {
+            "id":(new Date).getTime(),
+            "role":[],
+            "username":newUser.username,
+            "password":newUser.password,
+            "groupJoined":[],
+            "likeGroups":[],
+            "email":null
+        };
 
         users.push(newUser);
         return newUser;

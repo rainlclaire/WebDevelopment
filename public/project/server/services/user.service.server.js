@@ -11,6 +11,8 @@ module.exports = function (app, model) {
     app.post("/api/project/user/:userid/userJoinGroup", joinedGroups);
     app.post("/api/project/user/:userid/userLikeGroup", userLikeGroup);
 
+
+
     function userLikeGroup(req, res) {
         console.log("userid");
         console.log(req.params.userid);
