@@ -99,7 +99,7 @@
             .then(function(newEvent){
                 EventService.findAllEvents($scope.currentGroup._id)
                 .then(function (allEvents){
-                    $scope.currentGroup.listofEvents = allEvents;
+                    model.events = allEvents;
 
                 });
             });
@@ -113,19 +113,9 @@
             EventService.updateEventForGroup($scope.currentGroup._id,event._id, event)
             .then(function(updateEvents) {
                 console.log(updateEvents);
-                $scope.currentGroup.listofEvents = updateEvents;
+                model.events = updateEvents;
             });
 
-            //if ($scope.selectEventIndex != null) {
-            //    model.events[$scope.selectEventIndex].title = event.title;
-            //    model.events[$scope.selectEventIndex]._id = event._id;
-            //    model.events[$scope.selectEventIndex].date = event.date;
-            //    model.events[$scope.selectEventIndex].description = event.description;
-            //
-            //    //console.log(event);
-            //} else {
-            //    alert("You have to select a Form");
-            //}
         }
 
         //delete the form with given form's index
@@ -135,7 +125,7 @@
             console.log(deletedId);
             EventService.deleteEventById($scope.currentGroup._id, deletedId)
             .then(function(allOtherEvents){
-                $scope.currentGroup.listofEvents = allOtherEvents;
+                model.events = allOtherEvents;
             });
         }
 
@@ -144,9 +134,10 @@
             //$scope.clickForm.title = $scope.forms[index].title;
             $scope.selectEventIndex = index;
             console.log($scope.selectEventIndex);
+            console.log(model.currentGroup.listofEvents);
             $scope.clickEvent = {
                 "_id": model.events[index]._id,
-                "title": model.events[index].title,
+                "title":model.events[index].title,
                 "date": model.events[index].date,
                 "description": model.events[index].description
             };

@@ -65,7 +65,7 @@
 
             } else {
                 $rootScope.modalInstance = $uibModal.open({
-                    templateUrl: "views/group/test.html",
+                    templateUrl: "views/group/addGroupModal.html",
                     controller: "groupModalController",
                     controllerAs:"model",
                     size: 'lg',
