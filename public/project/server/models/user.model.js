@@ -11,10 +11,21 @@ module.exports = function(app) {
         remove: remove,
         findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
-        joinedGroups:joinedGroups
+        joinedGroups:joinedGroups,
+        userLikeGroup:userLikeGroup
     };
 
     return api;
+
+    function userLikeGroup(userid, group) {
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].id == userid) {
+                users[i].likeGroups.push(group);
+                return users[i].likeGroups;
+            }
+        }
+        return null;
+    }
 
     function joinedGroups(userid, group) {
         console.log(userid);

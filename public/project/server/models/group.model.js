@@ -15,10 +15,19 @@ module.exports = function(app) {
         createEventForGroup: createEventForGroup,
         deleteEventForGroup:deleteEventForGroup,
         updateEventForGroup:updateEventForGroup,
-        userJoinGroup:userJoinGroup
+        userJoinGroup:userJoinGroup,
+        userLikeGroup:userLikeGroup
     };
     return api;
 
+    function userLikeGroup(groupid, user) {
+        for (var i = 0; i < groups.length; i++) {
+            if (groups[i]._id == groupid) {
+                groups[i].usersLikeGroup.push(user);
+                return groups[i].usersLikeGroup;
+            }
+        }
+    }
     function userJoinGroup(groupid, user) {
         console.log(groupid);
         for (var i = 0; i < groups.length; i++) {
@@ -98,9 +107,7 @@ module.exports = function(app) {
     function findAllEvents(groupid){
         for (var i =0; i <groups.length; i++) {
             if (groups[i]._id == groupid) {
-                //console.log("findall event for groupid");
-                //console.log(i);
-                //console.log(groups[i].listofEvents);
+
                 return groups[i].listofEvents;
             }
         }
@@ -149,8 +156,9 @@ module.exports = function(app) {
                 groups[i].ownerName = updateGroup.ownerName;
                 groups[i].description = updateGroup.description;
                 groups[i].address = updateGroup.address;
-                groups[i].listofMemers = updateGroup.listofMemers;
+                groups[i].listofMembers = updateGroup.listofMembers;
                 groups[i].listofEvents = updateGroup.listofEvents;
+                groups[i].usersLikeGroup = updateGroup.usersLikeGroup;
 
                 console.log("update");
                 console.log(groups[i]);

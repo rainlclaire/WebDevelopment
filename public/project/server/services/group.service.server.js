@@ -5,9 +5,12 @@ module.exports = function (app, model) {
     app.put("/api/project/group/:groupid", updateGroup);
     app.delete("/api/project/group/:groupid", removeGroup);
     app.post("/api/project/group", createGroup);
-    app.post("/api/project/group/:groupid", userJoinGroup);
+    app.post("/api/project/group/:groupid/userJoinGroup", userJoinGroup);
+    app.post("/api/project/group/:groupid/userLikeGroup", userLikeGroup);
 
-
+    function userLikeGroup(req, res) {
+        res.json(model.userLikeGroup(req.params.groupid, req.body));
+    }
 
     function userJoinGroup(req, res) {
         console.log("group sevrice sever");

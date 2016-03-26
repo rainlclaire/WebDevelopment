@@ -13,7 +13,8 @@
             updateGroupById: updateGroupById,
             findGroupByID: findGroupByID,
             findGroupsByTitle: findGroupsByTitle,
-            userJoinGroup:userJoinGroup
+            userJoinGroup:userJoinGroup,
+            userLikeGroup:userLikeGroup
             //findEventByTitle: findEventByTitle
             //findEventByID: findEventByID,
             //createEvent:createEvent,
@@ -27,9 +28,18 @@
 
         return service;
 
+        function userLikeGroup(user, groupid) {
+            var deferred = $q.defer();
+            $http.post("/api/project/group/"+groupid+"/userLikeGroup", user)
+                .success(function (response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
+
         function userJoinGroup(user, groupid) {
             var deferred = $q.defer();
-            $http.post("/api/project/group/"+groupid, user)
+            $http.post("/api/project/group/"+groupid+"/userJoinGroup", user)
                 .success(function (response) {
                     deferred.resolve(response);
                     //$rootScope.groups = response;

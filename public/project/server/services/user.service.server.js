@@ -8,7 +8,14 @@ module.exports = function (app, model) {
     //end
     app.put("/api/project/user/:id", updateUser);
     app.delete("/api/project/user/:id", deleteUser);
-    app.post("/api/project/user/:userid", joinedGroups);
+    app.post("/api/project/user/:userid/userJoinGroup", joinedGroups);
+    app.post("/api/project/user/:userid/userLikeGroup", userLikeGroup);
+
+    function userLikeGroup(req, res) {
+        console.log("userid");
+        console.log(req.params.userid);
+        res.json(model.userLikeGroup(req.params.userid, req.body));
+    }
 
 
     function joinedGroups(req, res) {

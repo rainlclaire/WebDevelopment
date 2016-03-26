@@ -545,8 +545,16 @@ div.collapse.navbar-collapse {
     background-color:#f4f4f4;
 }
 
-div.form-group input#description {
-    height:100px;
+
+div#inputSearch button {
+    margin-top:0px;
+}
+div.mylivechat_collapsed_text {
+    margin-botton:0px;
+
+}
+div.modal-footer.ng-scope button {
+    margin-top:20px;
 }
 
 

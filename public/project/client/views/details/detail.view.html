@@ -17,9 +17,11 @@
                     </div>
                 </div>
                 <hr>
+                {{model.group.likeGroups}}
+                {{model.group.listofMemers}}
                 <div>
                     <button class="btn btn-primay"
-                            ng-click="model.favorite(model.group)">
+                            ng-click="model.favorite()">
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </button>
                 </div>

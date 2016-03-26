@@ -130,29 +130,24 @@
             }
         }
 
+        function favorite() {
+            if (currentUser == null) {
+                $location.url("/login");
+            } else {
+                GroupService.userLikeGroup($rootScope.user, group_id)
+                    .then(function (usersLikeGroup) {
 
+                        model.group.usersLikeGroup = usersLikeGroup;
+                        console.log(currentUser.id);
+                        UserService.userfavoriteGroups(currentUser.id, model.group)
+                            .then(function (likeGroups) {
+                                $scope.currentUser.likeGroups = likeGroups;
+                            })
+                    });
 
-        //function joinGroup() {
-        //    if ($scope.currentUser !=null) {
-        //        console.log("joingroup");
-        //        console.log($scope.currentUser._id);
-        //        var group_id = (new Date()).getTime();
-        //        var currentUser = {
-        //            "username":$scope.currentUser.username,
-        //            "_id":$scope.currentUser._id,
-        //            "group_id":group_id
-        //
-        //        };
-        //        $scope.currentGroup.listofMembers.push(currentUser);
-        //        $scope.currentUser.groupJoined.push($scope.currentGroup);
-        //        console.log($scope.currentUser.groupJoined);
-        //        console.log($scope.currentGroup);
-        //        alert("success joined")
-        //    } else {
-        //        alert("You have to login");
-        //        $location.url("/login");
-        //    }
-        //}
+            }
+        }
+
 
         function findGroupMap() {
 
@@ -165,18 +160,7 @@
             //console.log($scope.data);
         }
 
-        function favorite(group) {
-            if (currentUser) {
-                $scope.currentUser.likeGroups.push(group);
-                console.log($scope.currentUser);
-                alert("success added!")
-                }
 
-            else {
-                alert("You have to login!");
-                $location.url("/login");
-            }
-        }
 
 
 

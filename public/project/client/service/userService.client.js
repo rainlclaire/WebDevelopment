@@ -99,15 +99,25 @@
             createUser: createUser,
             deleteUserById: deleteUserById,
             updateUser: updateUser,
-            joinGroup:joinGroup
+            joinGroup:joinGroup,
+            userfavoriteGroups:userfavoriteGroups
 
         };
 
         return service;
 
+        function userfavoriteGroups(userid, group) {
+            var deferred = $q.defer();
+            $http.post("/api/project/user/"+userid+"/userLikeGroup", group)
+                .success(function (response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
+
         function joinGroup(userid, group) {
             var deferred = $q.defer();
-            $http.post("/api/project/user/"+userid, group)
+            $http.post("/api/project/user/"+userid+"/userJoinGroup", group)
                 .success(function (response) {
                     deferred.resolve(response);
                 });
