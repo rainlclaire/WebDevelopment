@@ -20,16 +20,16 @@
         //console.log($rootScope.currentGroup);
 
         GroupService.findGroupByID(groupid)
-        .then(function(theGroup){
-            model.currentGroup = theGroup;
-        });
+            .then(function (theGroup) {
+                model.currentGroup = theGroup;
+            });
 
         GroupService.findAllGroups()
-        .then(function(allGroups){
-            model.groups = allGroups;
-            console.log("from admin model.groups");
-            console.log(model.groups);
-        });
+            .then(function (allGroups) {
+                model.groups = allGroups;
+                console.log("from admin model.groups");
+                console.log(model.groups);
+            });
 
         EventService.findAllEvents($rootScope.currentGroup._id)
             .then(function (allEvents) {
@@ -40,11 +40,6 @@
                 console.log(model.events);
 
             });
-
-        //GroupService.findAllUserForGroup($rootScope.currentGroup,function (allUsers) {
-        //    model.users = allUsers;
-        //
-        //});
 
 
         var clickEvent = $rootScope.clickEvent;
@@ -65,11 +60,11 @@
                 controllerAs: "model",
                 size: 'lg',
                 resolve: {
-                   currentGroup: function() {
-                       console.log(model.currentGroup);
-                       return model.currentGroup;
-                   },
-                    groups: function() {
+                    currentGroup: function () {
+                        console.log(model.currentGroup);
+                        return model.currentGroup;
+                    },
+                    groups: function () {
                         return model.groups;
                     }
                 }
@@ -97,16 +92,11 @@
 
             console.log($scope.currentGroup._id);
             EventService.createEvent($scope.currentGroup._id, newEvent)
-            .then(function(newEvent){
-                console.log(newEvent);
-                model.events = newEvent;
-                //EventService.findAllEvents($scope.currentGroup._id)
-                //.then(function (allEvents){
-                //    console.log(allEvents);
-                //    model.events = allEvents;
-                //
-                //});
-            });
+                .then(function (newEvent) {
+                    console.log(newEvent);
+                    model.events = newEvent;
+
+                });
 
 
         }
@@ -114,11 +104,11 @@
         //update the select form with the given form info
         function updateEventInGroup(event) {
             console.log(event);
-            EventService.updateEventForGroup($scope.currentGroup._id,event._id, event)
-            .then(function(updateEvents) {
-                console.log(updateEvents);
-                model.events = updateEvents;
-            });
+            EventService.updateEventForGroup($scope.currentGroup._id, event._id, event)
+                .then(function (updateEvents) {
+                    console.log(updateEvents);
+                    model.events = updateEvents;
+                });
 
         }
 
@@ -128,9 +118,9 @@
             console.log("deleteeventid");
             console.log(deletedId);
             EventService.deleteEventById($scope.currentGroup._id, deletedId)
-            .then(function(allOtherEvents){
-                model.events = allOtherEvents;
-            });
+                .then(function (allOtherEvents) {
+                    model.events = allOtherEvents;
+                });
         }
 
         //select the form with given form's index
@@ -141,82 +131,16 @@
             console.log(model.currentGroup.listofEvents);
             $scope.clickEvent = {
                 "_id": model.events[index]._id,
-                "title":model.events[index].title,
+                "title": model.events[index].title,
                 "date": model.events[index].date,
                 "description": model.events[index].description
             };
-            //console.log($scope.clickEvent.title);
-
-        }
-
-
-
-        model.addUserInGroup = addUserInGroup;
-        model.updateUsertInGroup = updateUserInGroup;
-        model.deleteUserInGroup = deleteUserInGroup;
-        model.selectUserInGroup = selectUserInGroup;
-
-        //add the form to currentForms
-        function addUserInGroup(user) {
-
-            var group_id = (new Date()).getTime();
-            var newUser = {
-                username: user.username,
-                group_id:group_id
-
-            };
-            //console.log(newUser);
-
-            //inti the title with empty
-            $scope.clickUser.useraname = "";
-
-
-            GroupService.createUserForGroup($rootScope.currentGroup, newUser, function (createdUserForGroup) {
-                GroupService.findAllUserForGroup(function (allUsers) {
-                    $scope.users = allUsers;
-                    //console.log(users);
-
-                });
-            });
 
 
         }
 
-        //update the select form with the given form info
-        function updateUserInGroup(user) {
-            if ($scope.selectUserIndex != null) {
-                $scope.users[$scope.selectUserIndex].username = user.username;
-                $scope.users[$scope.selectUserIndex].group_id = user.group_id;
 
-                //console.log(user);
-            } else {
-                alert("You have to select an user");
-            }
-        }
-
-        //delete the form with given form's index
-        function deleteUserInGroup(index) {
-            var deletedId = $scope.users[index].group_id;
-            //console.log(deletedId);
-            GroupService.deleteUserById($scope.currentGroup._id, deletedId, function (allOtherUserss) {
-                $scope.users = allOtherUserss;
-            });
-        }
-
-        //select the form with given form's index
-        function selectUserInGroup(index) {
-            //$scope.clickForm.title = $scope.forms[index].title;
-            $scope.selectUserIndex = index;
-            //console.log($scope.users[index].username);
-            $scope.clickUser = {
-                "group_id": $scope.users[index].group_id,
-                "username": $scope.users[index].username
-            };
-            //console.log($scope.clickUser.username);
-
-        }
-
-
+        //
     }
 
 })();

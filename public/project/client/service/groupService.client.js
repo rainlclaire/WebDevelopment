@@ -14,7 +14,8 @@
             findGroupByID: findGroupByID,
             findGroupsByTitle: findGroupsByTitle,
             userJoinGroup:userJoinGroup,
-            userLikeGroup:userLikeGroup
+            userLikeGroup:userLikeGroup,
+            findAllUserForGroup:findAllUserForGroup
             //findEventByTitle: findEventByTitle
             //findEventByID: findEventByID,
             //createEvent:createEvent,
@@ -27,6 +28,15 @@
         };
 
         return service;
+
+        function findAllUserForGroup(groupid) {
+            var deferred = $q.defer();
+            $http.get("/api/project/group/"+groupid+"/groupUsers")
+                .success(function (response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
 
         function userLikeGroup(user, groupid) {
             var deferred = $q.defer();

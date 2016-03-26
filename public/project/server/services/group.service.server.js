@@ -7,6 +7,11 @@ module.exports = function (app, model) {
     app.post("/api/project/group", createGroup);
     app.post("/api/project/group/:groupid/userJoinGroup", userJoinGroup);
     app.post("/api/project/group/:groupid/userLikeGroup", userLikeGroup);
+    app.get("/api/project/group/:groupid/groupUsers", findUserForGroup);
+
+    function findUserForGroup(req, res) {
+        res.json(model.findAllUser(req.params.groupid));
+    }
 
     function userLikeGroup(req, res) {
         res.json(model.userLikeGroup(req.params.groupid, req.body));

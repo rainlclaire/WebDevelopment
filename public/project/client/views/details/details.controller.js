@@ -134,6 +134,7 @@
             if (currentUser == null) {
                 $location.url("/login");
             } else {
+                $("span.glyphicon-star-empty").removeClass('glyphicon-star-empty').addClass('glyphicon-star');
                 GroupService.userLikeGroup($rootScope.user, group_id)
                     .then(function (usersLikeGroup) {
 

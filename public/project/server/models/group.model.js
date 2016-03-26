@@ -16,9 +16,18 @@ module.exports = function(app) {
         deleteEventForGroup:deleteEventForGroup,
         updateEventForGroup:updateEventForGroup,
         userJoinGroup:userJoinGroup,
-        userLikeGroup:userLikeGroup
+        userLikeGroup:userLikeGroup,
+        findAllUser:findAllUser
     };
     return api;
+
+    function findAllUser(groupid) {
+        for (var i = 0; i < groups.length; i++) {
+            if (groups[i]._id == groupid) {
+                return groups[i].listofMembers;
+            }
+        }
+    }
 
     function userLikeGroup(groupid, user) {
         for (var i = 0; i < groups.length; i++) {
