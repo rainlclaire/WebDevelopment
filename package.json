@@ -1,48 +1,37 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "test2",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "description": "this is a test project",
   "keywords": [
     "OpenShift",
     "Node.js",
     "application",
     "openshift"
   ],
-  "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
-  },
+  "author": "claire qin",
   "homepage": "http://www.openshift.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/openshift/origin-server"
   },
-
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
   },
-
   "dependencies": {
-    "express": "~3.4.4",
     "body-parser": "^1.15.0",
-    "multer": "^1.1.0"
+    "express": "~3.4.4",
+    "mongoose": "^4.4.10",
+    "multer": "^1.1.0",
+    "node-uuid": "^1.4.7",
+    "q": "^1.4.1"
   },
   "devDependencies": {},
   "bundleDependencies": [],
-
   "private": true,
-  "main": "server.js",
-
-  "name": "test2",
-  "version": "1.0.0",
-  "description": "this is a test project",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "claire qin",
   "license": "ISC"
-
 }

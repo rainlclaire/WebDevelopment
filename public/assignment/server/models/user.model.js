@@ -2,9 +2,9 @@ var users = require("./user.mock.json");
 
 var q = require("q");
 
-module.exports = function(app, db, mongoose) {
+module.exports = function(db,mongoose) {
 
-    var UserSchema = require("./user.schema.js");
+    var UserSchema = require("./user.schema.server.js")(mongoose);
     var assignmentUser = mongoose.model("assignmentUser", UserSchema);
     var api = {
         create:create,
@@ -52,7 +52,7 @@ module.exports = function(app, db, mongoose) {
     function findById(id) {
         var deferred = q.defer();
         assignmentUser.findOne(
-            {id:id},
+            {_id:id},
         function (err, assignmentUser) {
             if (!err) {
                 deferred.resolve(assignmentUser);
@@ -70,13 +70,16 @@ module.exports = function(app, db, mongoose) {
     }
 
     function update(id, updatedUser) {
+        console.log("check for id");
+        console.log(id);
         var deferred = q.defer();
-
-        assignmentUser.update(
-            {id:id},
+        console.log(updatedUser);
+        assignmentUser.update(id,
             {$set:updatedUser},
+            {new:true},
             function (err, stats) {
                 if (!err) {
+                    console.log(stats);
                     deferred.resolve(stats);
                 } else {
                     deferred.reject(err);
@@ -91,7 +94,7 @@ module.exports = function(app, db, mongoose) {
         var deferred = q.defer();
 
         assignmentUser.remove(
-            {id: id},
+            {_id: id},
             function (err, stats) {
                 if (!err) {
                     deferred.resolve(stats);
@@ -130,8 +133,8 @@ module.exports = function(app, db, mongoose) {
     function findUserByCredentials(creds) {
         var deferred = q.defer();
         assignmentUser.findOne(
-            {username:username,
-            password:password},
+            {username:creds.username,
+            password:creds.password},
             function (err, assignmentUser) {
                 if (!err) {
                     deferred.resolve(assignmentUser);
