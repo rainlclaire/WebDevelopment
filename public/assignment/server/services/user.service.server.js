@@ -13,11 +13,19 @@ module.exports = function (app, model, db) {
 
 
     function createUser(req, res) {
-        //model.create(req.body)
-        //.then(function(users) {
-        //    res.json(users);
-        //});
-        res.json(model.create(req.body));
+
+        var user = req.body;
+        model.
+        create(user)
+        .then(
+            function(user) {
+            res.json(user);
+            },
+            function(err) {
+                res.status(400).send(err);
+            });
+
+        //rs.json(model.create(req.body));
     }
 
     function findUsers(req, res) {
@@ -28,36 +36,55 @@ module.exports = function (app, model, db) {
 
         if (reqUsername != null && reqPassword != null) {
 
-            var credentials = {
-                username: reqUsername,
-                password: reqPassword
-            };
-            //model.findUserByCredentials(credentials)
-            //    .then(function (user) {
-            //        res.json(user);
-            res.json(model.findUserByCredentials({
-                username:reqUsername,
-                password:reqPassword
-            }));
+            model.findUserByCredentials(
+                {username:reqUsername, password:reqUsername})
+            .then(
+                function(user) {
+                    res.json(user);
+                },
+                function(err) {
+                    res.status(400).send(err);
+            }
+            );
         } else if (reqUsername != null) {
             //model.findUserByUsername(reqUsername)
             //    .then(function (user) {
             //        res.json(user);
-            res.json(model.findUserByUsername(reqUsername));
+            model.findUserByUsername(reqUsername)
+            .then(
+                function(user) {
+                    res.json(user);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
+
         } else {
-            //model.findAllUsers()
-            //    .then(function (users) {
-            //        res.json(users);
-            //    });
-            res.json(model.findAll());
+            model.findAll()
+            .then(
+                function(user) {
+                    res.json(user);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
         }
     }
 
 
     function findUserById(req, res) {
-
-        res.json(model.findById(req.params.id));
-
+        var userid = req.params.id;
+        model.findById(userid)
+        .then(
+            function(user) {
+                res.json(user);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
     }
 
     function findUserByUsername(req, res) {
@@ -65,7 +92,16 @@ module.exports = function (app, model, db) {
         //.then(function(user) {
         //    res.json(user);
         //})
-        res.json(model.findUserByUsername(req.query.username));
+        var username = req.query.username;
+        model.findUserByUsername(username)
+        .then(
+            function(user) {
+                res.json(user);
+            },
+            function(err){
+                res.status(400).send(err);
+            }
+        );
     }
 
     function updateUser(req, res) {
@@ -73,25 +109,47 @@ module.exports = function (app, model, db) {
         //.then(function(users) {
         //    res.json(user);
         //});
-        console.log(req.body);
-        console.log("-1-");
-        var user = model.update(req.params.id, req.body);
-        console.log(user);
-        console.log("-2-");
-        res.json(user);
+        var userid = req.params.id;
+        var user = req.body;
+        model.update(userid, user)
+        .then(
+            function(user){
+                res.send(200);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+        //console.log(req.body);
+        //console.log("-1-");
+        //var user = model.update(req.params.id, req.body);
+        //console.log(user);
+        //console.log("-2-");
+        //res.json(user);
 
     }
 
     function deleteUser(req, res) {
-        //model.remove(req.params.id)
-        //.then(function(users) {
-        //    res.json(users);
-        //});
-        model.remove(req.params.id);
-        res.json(model.findAll());
+        var userid = req.params.id;
+        model.remove(userid)
+        .then(
+            function(stats) {
+                res.send(200);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+        ////model.remove(req.params.id)
+        ////.then(function(users) {
+        ////    res.json(users);
+        ////});
+        //model.remove(req.params.id);
+        //res.json(model.findAll());
     }
 
     function findAlice(req, res) {
+
         var reqUsername = req.query.username;
         var reqPassword = req.query.password;
 
@@ -99,7 +157,16 @@ module.exports = function (app, model, db) {
         //.then(function(users) {
         //    res.json(users);
         //})
-        res.json(model.findUserByCredentials(reqUsername, reqPassword));
+        model.findUserByCredentials({username:reqUsername, password:reqPassword})
+        .then(
+            function(user) {
+                res.json(user);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+
 
     }
 

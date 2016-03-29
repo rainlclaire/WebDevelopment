@@ -1,7 +1,11 @@
 var users = require("./user.mock.json");
 
+var q = require("q");
 
-module.exports = function(app, db) {
+module.exports = function(app, db, mongoose) {
+
+    var UserSchema = require("./user.schema.js");
+    var assignmentUser = mongoose.model("assignmentUser", UserSchema);
     var api = {
         create:create,
         findAll: findAll,
@@ -15,74 +19,126 @@ module.exports = function(app, db) {
     return api;
 
     function create(newUser) {
-        newUser.id = (new Date).getTime();
-        users.push(newUser);
-        return newUser;
+
+        var deferred = q.defer();
+        assignmentUser.create(newUser, function(err, doc) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(doc);
+            }
+        });
+
+        return deferred.promise;
     }
 
 
     function findAll() {
-        return users;
+        var deferred = q.defer();
+        assignmentUser.find(function(err, assignmentUser) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(assignmentUser);
+            }
+        });
+
+        return deferred.promise;
+
+        //return users;
     }
 
 
     function findById(id) {
-        for(var i = 0; i< users.length; i++) {
-            if (users[i].id  == id) {
-                return users[i];
+        var deferred = q.defer();
+        assignmentUser.findOne(
+            {id:id},
+        function (err, assignmentUser) {
+            if (!err) {
+                deferred.resolve(assignmentUser);
+            } else {
+                deferred.reject(err);
             }
-        }
-        return null;
+        });
+        return deferred.promise;
+        //for(var i = 0; i< users.length; i++) {
+        //    if (users[i].id  == id) {
+        //        return users[i];
+        //    }
+        //}
+        //return null;
     }
 
     function update(id, updatedUser) {
-        for(var ii in users) {
-            if(users[ii].id == id) {
-                for(var attr in updatedUser) {
-                    if(updatedUser.hasOwnProperty(attr)) {
-                        users[ii][attr] = updatedUser[attr];
-                    }
-                }
-                return users[ii];
+        var deferred = q.defer();
 
+        assignmentUser.update(
+            {id:id},
+            {$set:updatedUser},
+            function (err, stats) {
+                if (!err) {
+                    deferred.resolve(stats);
+                } else {
+                    deferred.reject(err);
+                }
             }
-        }
+        );
+        return deferred.promise;
+
     }
 
     function remove(id) {
+        var deferred = q.defer();
 
-        for(var i = 0; i < users.length; i++) {
-            if(users[i].id == id) {
-                users.splice(i, 1);
+        assignmentUser.remove(
+            {id: id},
+            function (err, stats) {
+                if (!err) {
+                    deferred.resolve(stats);
+                } else {
+                    deferred.rej(err);
+                }
             }
-        }
+        );
+        return deferred.promise;
+
     }
 
 
     function findUserByUsername(username) {
-
-        for(var i = 0; i < users.length; i++) {
-            if(users[i].username === username) {
-                // user found!
-                return users[i];
-            }
-        }
-        return null;
+        var deferred = q.defer();
+        assignmentUser.findOne(
+            {username:username},
+            function (err, assignmentUser) {
+                if (!err) {
+                    deferred.resolve(assignmentUser);
+                } else {
+                    deferred.reject(err);
+                }
+            });
+        return deferred.promise;
+        //for(var i = 0; i < users.length; i++) {
+        //    if(users[i].username === username) {
+        //        // user found!
+        //        return users[i];
+        //    }
+        //}
+        //return null;
     }
 
 
     function findUserByCredentials(creds) {
-        var matchedUser = null;
-        for(var i = 0; i < users.length; i++) {
-            if(users[i].username === creds.username
-                && users[i].password === creds.password) {
-                return users[i];
-            }
-        }
-        return null;
+        var deferred = q.defer();
+        assignmentUser.findOne(
+            {username:username,
+            password:password},
+            function (err, assignmentUser) {
+                if (!err) {
+                    deferred.resolve(assignmentUser);
+                } else {
+                    deferred.reject(err);
+                }
+            });
+        return deferred.promise;
     }
-
-
-
-
 };
