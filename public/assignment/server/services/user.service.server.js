@@ -110,11 +110,15 @@ module.exports = function (app, model, db) {
         //    res.json(user);
         //});
         var userid = req.params.id;
+        console.log("check userid");
+        console.log(userid);
         var user = req.body;
         model.update(userid, user)
         .then(
             function(user){
-                res.send(200);
+                conosole.log("here the upda");
+                console.log(user);
+                res.json(user);
             },
             function(err) {
                 res.status(400).send(err);

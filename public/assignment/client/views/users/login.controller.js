@@ -19,16 +19,7 @@
                     console.log(loggedInUser);
 
                     //to set up the loggedIn user info
-                    $rootScope.user = {
-                        id:loggedInUser.id,
-                        username: loggedInUser.username,
-                        password: loggedInUser.password,
-                        verifyPassword: loggedInUser.verifyPassword,
-                        firstName: loggedInUser.firstName,
-                        lastName: loggedInUser.lastName,
-                        email: loggedInUser.email,
-                        roles: loggedInUser.roles
-                    };
+                    $rootScope.user = loggedInUser;
                     //set up the path for navigating to profile
                     $location.path("/profile");
                 }

@@ -95,11 +95,14 @@
 
             //update the user info with given user id, user info, and callback
             function updateUser(id, updatedUser) {
-                //console.log(userId);
-                //console.log(user);
-                //var deferred = $q.defer();
-                console.log($http.put("/api/assignment/user/" + id, updatedUser));
-                return $http.put("/api/assignment/user/" + id, updatedUser);
+                var deferred = $q.defer();
+                $http.put("/api/assignment/user/" + id, updatedUser)
+                .success(function(response) {
+                    console.log("respnse form user lcient");
+                    console.log(response);
+                    deferred.resolve(response);
+                });
+                return deferred.promise;
 
 
             }

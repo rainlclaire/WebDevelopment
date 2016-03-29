@@ -21,7 +21,7 @@
 
         //set the user info to user
         if (user != null) {
-            console.log(model);
+
                 model.user = {};
                 model.user.username = user.username;
                 model.user.password = user.password;
@@ -37,35 +37,10 @@
 
         function update(updateUser) {
             model.message= null;
-            //if (updateUser == null) {
-            //    model.message = "Please fill in the required fields";
-            //    return;
-            //}
-            ////error catch for username is null
-            //if (!updateUser.username) {
-            //    model.message = "Please provide a username";
-            //    return;
-            //}
-            ////error catch for password is null
-            //if (!updateUser.password || !updateUser.verifyPassword) {
-            //    model.message = "Please provide a password or verifyPassword";
-            //    return;
-            //}
-            ////error catch if password not match
-            //if (updateUser.password != updateUser.verifyPassword) {
-            //    model.message = "Passwords must match";
-            //    return;
-            //}
-            //if (!updateUser.firstName || !updateUser.lastName) {
-            //    model.message = "You have to provide your first and last name";
-            //}
-            //if (!updateUser.email) {
-            //    model.message = "Please provide invalid email";
-            //}
 
-            if (!model.message) {
-                UserService.updateUser(user.id, updateUser)
+                UserService.updateUser(user._id, updateUser)
                 .then(function(mergeUser) {
+                    console.log("here");
                     //console.log(mergeUser.data);
                     //model.user = mergeUser.data;
                     //$rootScope.user = mergeUser.data;
@@ -76,17 +51,18 @@
                     //error message
 
 
-                        model.user = mergeUser.data;
-                        console.log(mergeUser.data.email);
-                        $rootScope.user = mergeUser.data;
+                        model.user = mergeUser;
+                        console.log("mergerUser");
+                        console.log(mergeUser);
+                        $rootScope.user = mergeUser;
+                    if (mergeUser) {
                         $location.path("/home");
                         alert("user updated successfully");
+                    }
 
 
                 });
             }
-        }
-
 
     }
 })();
