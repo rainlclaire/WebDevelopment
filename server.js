@@ -43,7 +43,7 @@ app.get("/", function(req, res) {
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var myDataBase = "/cs4550assignment";
-var connectionString = "mongodb://"+"127.0.0.1/cs4550assignment";
+var connectionString = "mongodb://"+"localhost/cs4550assignment";
 
 if (typeof ipaddress === "undefined") {
     //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
