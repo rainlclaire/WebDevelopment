@@ -48,9 +48,13 @@ if (typeof ipaddress === "undefined") {
     //  allows us to run/test the app locally.
     console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
     ipaddress = "127.0.0.1";
+    mongoose.connect("mongodb://"+"localhost/cs4550assignment");
 
+} else {
+    mongoose.connect("mongodb://" + process.env.OPENSHIFT_MONGODB_DB_HOST + ":"
+        + process.env.OPENSHIFT_MONGODB_DB_PORT + database_name, options);
 }
-mongoose.connect("mongodb://"+"localhost/cs4550assignment");
+
 
 var db = mongoose.connection;
 
