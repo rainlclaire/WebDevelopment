@@ -50,7 +50,7 @@ if (typeof ipaddress === "undefined") {
     ipaddress = "127.0.0.1";
 
 }
-mongoose.connect("mongodb://"+ipaddress+myDataBase);
+mongoose.connect("mongodb://"+"localhost/cs4550assignment");
 
 var db = mongoose.connection;
 
