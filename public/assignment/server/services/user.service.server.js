@@ -29,6 +29,7 @@ module.exports = function (app, model, db) {
     }
 
     function findUsers(req, res) {
+        console.log("findUsers");
         var reqUsername = req.query.username;
         var reqPassword = req.query.password;
         //console.log(reqUsername);
@@ -37,7 +38,7 @@ module.exports = function (app, model, db) {
         if (reqUsername != null && reqPassword != null) {
 
             model.findUserByCredentials(
-                {username:reqUsername, password:reqUsername})
+                {username:reqUsername, password:reqPassword})
             .then(
                 function(user) {
                     res.json(user);
@@ -88,6 +89,7 @@ module.exports = function (app, model, db) {
     }
 
     function findUserByUsername(req, res) {
+        console.log("findUserByUsername");
         //model.findUserByUsername(req.params.username)
         //.then(function(user) {
         //    res.json(user);
@@ -147,6 +149,7 @@ module.exports = function (app, model, db) {
     }
 
     function findAlice(req, res) {
+        console.log("findAlice");
 
         var reqUsername = req.query.username;
         var reqPassword = req.query.password;
