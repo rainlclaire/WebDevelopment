@@ -25,7 +25,6 @@
                 model.user = {};
                 model.user.username = user.username;
                 model.user.password = user.password;
-                model.user.verifyPassword= user.verifyPassword;
                 model.user.email = user.email;
                 model.user.roles = user.roles;
                 model.user.firstName = user.firstName;
@@ -41,15 +40,6 @@
                 UserService.updateUser(user._id, updateUser)
                 .then(function(mergeUser) {
                     console.log("here");
-                    //console.log(mergeUser.data);
-                    //model.user = mergeUser.data;
-                    //$rootScope.user = mergeUser.data;
-                    //console.log($rootScope.user);
-                    //console.log(mergeUser);
-                    //error catch for user is null
-
-                    //error message
-
 
                         model.user = mergeUser;
                         console.log("mergerUser");

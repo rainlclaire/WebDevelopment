@@ -95,9 +95,12 @@
 
             //update the user info with given user id, user info, and callback
             function updateUser(id, updatedUser) {
+                console.log("update in cline se");
                 var deferred = $q.defer();
+                console.log("update in cline se2");
                 $http.put("/api/assignment/user/" + id, updatedUser)
                 .success(function(response) {
+                    console.log("update in cline se3");
                     console.log("respnse form user lcient");
                     console.log(response);
                     deferred.resolve(response);

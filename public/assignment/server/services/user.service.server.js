@@ -110,27 +110,21 @@ module.exports = function (app, model, db) {
         //    res.json(user);
         //});
         var userid = req.params.id;
-        console.log("check userid");
         console.log(userid);
+
         var user = req.body;
+        console.log(user);
         model.update(userid, user)
         .then(
             function(user){
-                conosole.log("here the upda");
                 console.log(user);
                 res.json(user);
             },
             function(err) {
+                console.log("here error");
                 res.status(400).send(err);
             }
         );
-        //console.log(req.body);
-        //console.log("-1-");
-        //var user = model.update(req.params.id, req.body);
-        //console.log(user);
-        //console.log("-2-");
-        //res.json(user);
-
     }
 
     function deleteUser(req, res) {

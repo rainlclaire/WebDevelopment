@@ -63,6 +63,7 @@ module.exports = function(app, db) {
 
     function update(id, updatedForm) {
 
+
         for(var i = 0; i < forms.length; i++) {
             console.log("outside if");
             console.log(id);

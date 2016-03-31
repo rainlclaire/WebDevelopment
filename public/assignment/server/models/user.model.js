@@ -73,12 +73,13 @@ module.exports = function(db,mongoose) {
         console.log("check for id");
         console.log(id);
         var deferred = q.defer();
-        console.log(updatedUser);
-        assignmentUser.update(id,
+        assignmentUser.findByIdAndUpdate(
+            id,
             {$set:updatedUser},
             {new:true},
             function (err, stats) {
                 if (!err) {
+                    console.log("stats print");
                     console.log(stats);
                     deferred.resolve(stats);
                 } else {
