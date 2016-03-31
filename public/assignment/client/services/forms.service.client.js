@@ -62,6 +62,7 @@
             var deferred = $q.defer();
             $http.delete("/api/assignment/user/" + userid + "/form/" + id)
                 .then(function(response) {
+                    console.log(response);
                     deferred.resolve(response);
                 });
             return deferred.promise;

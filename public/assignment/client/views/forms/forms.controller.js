@@ -25,7 +25,7 @@
         //form page only show when user logged in
         if (user !=null) {
             console.log("user not null yes");
-            FormService.findAllFormsForUser(user.id)
+            FormService.findAllFormsForUser(user._id)
             .then(function(allForms){
                 //console.log(allForms);
                 model.forms= allForms;
@@ -51,10 +51,11 @@
 
             //inti the title with empty
             model.clickForm.title="";
-
-
-            FormService.createFormForUser(user.id, newForm)
+            console.log("pinrt user in form controller");
+            console.log(user);
+            FormService.createFormForUser(user._id, newForm)
             .then(function(createdForms){
+                console.log(createdForms);
                 model.forms = createdForms;
 
             });
@@ -79,7 +80,7 @@
             //console.log("form controller");
             //console.log(form);
             //console.log(model.forms[$index]);
-            FormService.updateFormById(form.id, form)
+            FormService.updateFormById(form._id, form)
                 .then(function(allForms) {
                     model.forms[selectedIndex].title = form.title;
                     model.clickForm = {
@@ -95,10 +96,10 @@
             //.then(function(allOtherForms){
             //    $scope.forms = allOtherForms;
             //});
-            var deletedId = model.forms[index].id;
-            FormService.deleteFormByIdForUser(deletedId, user.id)
-                .then(function(remainingForms) {
-                    model.forms = remainingForms.data;
+            var deletedId = model.forms[index]._id;
+            FormService.deleteFormByIdForUser(deletedId, user._id)
+                .then(function(forms) {
+                    model.forms = forms.data;
                 });
         }
 
@@ -109,7 +110,7 @@
             selectedIndex = index;
             model.clickForm = {
                 title: model.forms[index].title,
-                id: model.forms[index].id
+                _id: model.forms[index]._id
             };
         }
     }

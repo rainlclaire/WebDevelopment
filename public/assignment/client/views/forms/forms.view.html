@@ -11,8 +11,6 @@
 
         <li  ng-class="{'active': $location.url()=='/fields'}" role="presentation"><a href="#/fields">Fields</a>
 
-        <li  ng-class="{'active': $location.url()=='/form-fields'}" role="presentation"><a href="#/field">Fields</a>
-
         </li>
     </ul>
     <div class="tab-content" class="active">
@@ -39,7 +37,7 @@
 
                 <tr ng-repeat="form in model.forms">
                     <td class="form-list">
-                        <a ng-href="#/user/{{form.userid}}/form/{{form.id}}/fields">{{form.title}}</a></td>
+                        <a ng-href="#/user/{{form.userid}}/form/{{form._id}}/fields">{{form.title}}</a></td>
                     <td class="form-list text-center">
                         <button ng-click="model.deleteForm($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
                         <button ng-click="model.selectForm($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>

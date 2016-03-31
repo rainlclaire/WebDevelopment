@@ -14,7 +14,15 @@ module.exports = function (app, model, db) {
 
 
     function updateFormForUser(req,res) {
-        res.json(model.updateForUser(req.params.formid,req.params.userid, req.body));
+        model.updateForUser(req.params.formid, req.params.userid, req.body)
+        .then(
+            function(form) {
+                res.json(form);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
     }
     function findFormsByUserId(req, res) {
         //console.log(req.params.userId);
@@ -23,7 +31,16 @@ module.exports = function (app, model, db) {
         //.then(function(forms) {
         //    res.json(forms);
         //})
-        res.json(model.findFormsByUserId(req.params.userid));
+        model.findFormsByUserId(req.params.userid)
+        .then(
+            function(form) {
+                res.json(form);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+
     }
 
 
@@ -32,7 +49,15 @@ module.exports = function (app, model, db) {
         //.then(function(forms) {
         //    res.json(forms);
         //})
-        res.json(model.findById(req.params.formid));
+        model.findById(req.params.formid)
+        .then(
+            function(form) {
+                res.json(form);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
     }
 
     function deleteFormById(req, res) {
@@ -40,11 +65,30 @@ module.exports = function (app, model, db) {
         //.then(function(forms) {
         //    res.json(forms);
         //})
-        res.json(model.remove(req.params.formid));
+        model.remove(req.params.formid)
+        .then(
+            function(form) {
+                console.log(form);
+                res.json(form);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+
     }
     function deleteFormByIdForUser(req, res) {
+        model.removeForUser(req.params.formid, req.params.userid)
+        .then(
+            function(form) {
+                console.log(form);
+                res.json(form);
+            },
+            function(err){
+                res.status(400).send(err);
+            }
+        );
 
-        res.json(model.removeForUser(req.params.formid, req.params.userid));
     }
 
     function createFormForUser(req, res) {
@@ -52,16 +96,40 @@ module.exports = function (app, model, db) {
         //.then(function(forms) {
         //    res.json(forms);
         //})
-        console.log(req.query);
-        res.json(model.createFormForUser(req.body, req.params.userid));
+        model.createFormForUser(req.body, req.params.userid)
+        .then(
+            function(form) {
+                res.json(form)
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
     }
 
     function updateFormById(req, res) {
-        res.json(model.update(req.params.formid, req.body));
+        model.update(req.params.formid, req.body)
+        .then(
+            function(form) {
+                res.json(form);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+
     }
 
     function findAllForms(req, res) {
-        res.json(model.findAll());
+        model.findAll()
+        .then(
+            function(forms) {
+                res.json(forms);
+            },
+            function(err) {
+            res.status(400).send(err);
+        }
+        );
     }
 
 
