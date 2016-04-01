@@ -47,7 +47,7 @@
             }
             UserService.createUser(newUser)
             .then(function (createdUser){
-                createdUser.email = createdUser.email[0].split(",");
+
                 console.log(createdUser);
 
                 $rootScope.user = createdUser;

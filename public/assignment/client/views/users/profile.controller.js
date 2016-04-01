@@ -26,7 +26,7 @@
                 model.user = {};
                 model.user.username = user.username;
                 model.user.password = user.password;
-                user.email = user.email[0].split(",");
+                //user.email = user.email[0].split(",");
             console.log(user.email);
                 model.user.email = user.email;
 
@@ -43,7 +43,7 @@
 
                 UserService.updateUser(user._id, updateUser)
                 .then(function(mergeUser) {
-                    mergeUser.email = mergeUser.email[0].split(",");
+
 
 
                         model.user = mergeUser;

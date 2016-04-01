@@ -19,7 +19,7 @@ module.exports = function (app, model, db) {
         create(user)
         .then(
             function(user) {
-                user.email = user.email[0].split(",");
+
             res.json(user);
             },
             function(err) {
@@ -42,7 +42,7 @@ module.exports = function (app, model, db) {
                 {username:reqUsername, password:reqPassword})
             .then(
                 function(user) {
-                    user.email = user.email[0].split(",");
+
                     res.json(user);
                 },
                 function(err) {
@@ -56,7 +56,6 @@ module.exports = function (app, model, db) {
             model.findUserByUsername(reqUsername)
             .then(
                 function(user) {
-                    user.email = user.email[0].split(",");
                     res.json(user);
                 },
                 function(err) {
@@ -68,7 +67,6 @@ module.exports = function (app, model, db) {
             model.findAll()
             .then(
                 function(user) {
-                    user.email = user.email[0].split(",");
                     res.json(user);
                 },
                 function(err) {
@@ -84,7 +82,6 @@ module.exports = function (app, model, db) {
         model.findById(userid)
         .then(
             function(user) {
-                user.email = user.email[0].split(",");
                 res.json(user);
             },
             function(err) {
@@ -103,7 +100,6 @@ module.exports = function (app, model, db) {
         model.findUserByUsername(username)
         .then(
             function(user) {
-                user.email = user.email[0].split(",");
                 res.json(user);
             },
             function(err){
@@ -130,7 +126,9 @@ module.exports = function (app, model, db) {
         .then(
             function(user){
                 console.log(user);
-                user.email = user.email[0].split(",");
+                //user.email = user.email[0].split(",");
+                console.log("thi si suser");
+                console.log(user);
                 res.json(user);
             },
             function(err) {
