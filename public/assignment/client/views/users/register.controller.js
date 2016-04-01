@@ -47,6 +47,8 @@
             }
             UserService.createUser(newUser)
             .then(function (createdUser){
+                console.log(createdUser);
+                createdUser.email = createdUser.email[0].split(",");
                 $rootScope.user = createdUser;
                 if (!$scope.message) {
                     $scope.$location.url("/profile");

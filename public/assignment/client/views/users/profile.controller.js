@@ -21,11 +21,15 @@
 
         //set the user info to user
         if (user != null) {
-
+            console.log(user);
+            console.log(model.user);
                 model.user = {};
                 model.user.username = user.username;
                 model.user.password = user.password;
+                user.email = user.email[0].split(",");
+            console.log(user.email);
                 model.user.email = user.email;
+
                 model.user.roles = user.roles;
                 model.user.firstName = user.firstName;
                 model.user.lastName = user.lastName;
@@ -44,6 +48,7 @@
                         model.user = mergeUser;
                         console.log("mergerUser");
                         console.log(mergeUser);
+
                         $rootScope.user = mergeUser;
                     if (mergeUser) {
                         $location.path("/home");

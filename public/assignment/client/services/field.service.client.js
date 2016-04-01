@@ -12,7 +12,8 @@
             getFieldForForm: getFieldForForm,
             deleteFieldForForm: deleteFieldForForm,
             updateField:updateField,
-            reorderField: reorderField
+            reorderField: reorderField,
+            sortOrder:sortOrder
         };
         return service;
 
@@ -70,6 +71,16 @@
             console.log(field);
             var deferred = $q.defer();
             $http.put("/api/assignment/form/" + formid + "/field/"+fieldid, field)
+                .success(function(response) {
+                    console.log(response);
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
+
+        function sortOrder(formid, startindex, endindex) {
+            var deferred = $q.defer();
+            $http.put("/api/assignment/form/" + formid + "/field?startIndex="+startindex+"&endIndex="+endindex)
                 .success(function(response) {
                     console.log(response);
                     deferred.resolve(response);

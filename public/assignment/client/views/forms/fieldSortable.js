@@ -19,12 +19,10 @@
                 stop: function(event, ui) {
                     end = ui.item.index();
 
-                    var temp = scope.model.fields[start];
-                    scope.model.fields[start] = scope.model.fields[end];
-                    scope.model.fields[end] = temp;
-                    scope.$apply();
-
-                    alert(scope.model.fields[end].id);
+                    if(start>=end) {
+                        start--;
+                    }
+                    scope.model.sortOrder(start,end);
 
 
             }

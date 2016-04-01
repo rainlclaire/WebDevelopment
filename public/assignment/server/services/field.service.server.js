@@ -6,9 +6,40 @@ module.exports = function(app, model, db) {
     app.delete("/api/assignment/form/:formid/field/:fieldid", removeFormField);
     app.post("/api/assignment/form/:formid/field", createFormField);
     app.put("/api/assignment/form/:formid/field/:fieldid", updateFormField);
+    app.put("/api/assignment/form/:formid/field", updateFields);
+
+    function updateFields(req, res) {
+
+        var formid = req.params.formid;
+
+        var startindex = req.query.startIndex;
+        var endindex = req.query.endIndex;
+
+        if (startindex &&endindex) {
+
+            model.sortOrder(formid, startindex, endindex)
+            .then(
+                function(stat) {
+                    return model.retrieveFormFields(formid);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            )
+            .then(
+                function(form) {
+
+                    res.json(form.field);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
+        }
+    }
 
     function retrieveFormFields(req, res) {
-        model.retrieveFormFields(req.params.formid, req.params.fieldid, req.body)
+        model.retrieveFormFields(req.params.formid)
         .then(
             function(fields) {
                 res.json(fields);

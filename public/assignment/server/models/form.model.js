@@ -21,11 +21,32 @@ module.exports = function(app,mongoose, db) {
         removeFormField: removeFormField,
         createFormField: createFormField,
         updateFormField: updateFormField,
-        updateForUser:updateForUser
+        updateForUser:updateForUser,
+        sortOrder:sortOrder
 
 
     };
     return api;
+
+    function sortOrder(formid, startindex, endindex) {
+        var deferred = q.defer();
+        assignmentForm.findById(
+            formid)
+            .then(function(form) {
+                //console.log("stortpage form model");
+                //console.log(form);
+                //console.log(endindex);
+                //console.log(startindex);
+                //var temp = form.field.splice(startindex+1, 1)
+                //console.log(temp)
+                form.field.splice(endindex, 0, form.field.splice(startindex+1, 1)[0]);
+                //console.log(form);
+                form.markModified("field");
+                form.save();
+                res.json(form);
+        });
+        return deferred.promise;
+    }
 
     function create(newForm) {
         var deferred = q.defer();

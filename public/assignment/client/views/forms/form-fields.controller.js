@@ -11,6 +11,7 @@
         model.addField = addField;
         model.cloneField = cloneField;
         model.editField = editField;
+        model.sortOrder = sortOrder;
 
         var userid = $routeParams.userid;
         var formid = $routeParams.formid;
@@ -86,6 +87,19 @@
             FieldService.createFieldForForm(formid, newField)
                 .then(function(revisedFormField) {
                     model.fields = revisedFormField;
+                });
+        }
+
+
+        function sortOrder(start,end) {
+            console.log("applysort");
+            FieldService.sortOrder(formid, start,end)
+            .then(function(response) {
+                if (response.data) {
+                    model.fields = response.data;
+                } else {
+                    console.log("this is a err for sort");
+                }
                 });
         }
 
