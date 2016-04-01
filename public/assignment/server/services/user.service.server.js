@@ -114,25 +114,22 @@ module.exports = function (app, model, db) {
         //    res.json(user);
         //});
         var userid = req.params.id;
-        console.log(userid);
+
 
         var user = req.body;
-        console.log("updateuser");
-        console.log(user.email);
-        user.email = user.email.split(",");
-        //user.email = user.email[0].split(",");
         console.log(user);
+
+        //console.log(user.phone);
+        //user.phone = user.phone.split(",");
+        //user.email = user.email[0].split(",");
+
         model.update(userid, user)
         .then(
             function(user){
-                console.log(user);
-                //user.email = user.email[0].split(",");
-                console.log("thi si suser");
-                console.log(user);
                 res.json(user);
             },
             function(err) {
-                console.log("here error");
+
                 res.status(400).send(err);
             }
         );
@@ -143,7 +140,7 @@ module.exports = function (app, model, db) {
         model.remove(userid)
         .then(
             function(stats) {
-                stats.email = stats.email[0].split(",");
+
                 res.send(200);
             },
             function(err) {

@@ -15,50 +15,63 @@
         model.message = null;
 
 
-
         var user = $rootScope.user;
-        console.log(user);
+
 
         //set the user info to user
         if (user != null) {
             console.log(user);
             console.log(model.user);
-                model.user = {};
-                model.user.username = user.username;
-                model.user.password = user.password;
-                //user.email = user.email[0].split(",");
-            console.log(user.email);
-                model.user.email = user.email;
+            model.user = {};
+            model.user.username = user.username;
+            model.user.password = user.password;
+            //user.email = user.email[0].split(",");
 
-                model.user.roles = user.roles;
-                model.user.firstName = user.firstName;
-                model.user.lastName = user.lastName;
+            model.user.email = user.email;
+            model.user.phone = user.phone;
+
+            model.user.roles = user.roles;
+            model.user.firstName = user.firstName;
+            model.user.lastName = user.lastName
+
+            console.log(model.user);
+
+
         } else {
             $location.url("/home");
+
 
         }
 
         function update(updateUser) {
-            model.message= null;
+            console.log("updatecontoler");
+            console.log(updateUser);
+            model.message = null;
+            if (!model.user.email) {
+                alert("you have to provide email");
+            } else {
+                if (user.email != updateUser.email) {
+                    updateUser.email = updateUser.email.split(",");
 
-                UserService.updateUser(user._id, updateUser)
-                .then(function(mergeUser) {
-
-
-
-                        model.user = mergeUser;
-                        console.log("mergerUser");
-                        console.log(mergeUser);
-
-
-                        $rootScope.user = mergeUser;
-                    if (mergeUser) {
-                        $location.path("/home");
-                        alert("user updated successfully");
-                    }
+                }
+                    UserService.updateUser(user._id, updateUser)
+                        .then(function (mergeUser) {
 
 
-                });
+                            model.user = mergeUser;
+                            console.log("mergerUser");
+                            console.log(mergeUser);
+
+
+                            $rootScope.user = mergeUser;
+                            if (mergeUser) {
+                                $location.path("/home");
+                                alert("user updated successfully");
+                            }
+
+
+                        });
+                }
             }
 
     }

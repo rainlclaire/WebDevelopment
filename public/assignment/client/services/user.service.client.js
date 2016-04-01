@@ -98,6 +98,7 @@
                 console.log("update in cline se");
                 var deferred = $q.defer();
                 console.log("update in cline se2");
+                console.log(updatedUser);
                 $http.put("/api/assignment/user/" + id, updatedUser)
                 .success(function(response) {
                     console.log("update in cline se3");
