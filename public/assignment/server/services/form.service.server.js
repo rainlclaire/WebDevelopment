@@ -68,7 +68,7 @@ module.exports = function (app, model, db) {
         model.remove(req.params.formid)
         .then(
             function(form) {
-                console.log(form);
+                //console.log(form);
                 res.json(form);
             },
             function(err) {
@@ -81,7 +81,7 @@ module.exports = function (app, model, db) {
         model.removeForUser(req.params.formid, req.params.userid)
         .then(
             function(form) {
-                console.log(form);
+                //console.log(form);
                 res.json(form);
             },
             function(err){

@@ -6,7 +6,7 @@ module.exports = function() {
     var FormSchema = mongoose.Schema( {
         userid:String,
         title:String,
-        field:[FieldSchema],
+        field:[{type:mongoose.Schema.Types.Object, ref:'assignmentField'}],
         created:Date,
         updated:Date
     }, {collection: 'assignmentForm'});
