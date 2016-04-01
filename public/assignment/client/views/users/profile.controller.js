@@ -43,11 +43,13 @@
 
                 UserService.updateUser(user._id, updateUser)
                 .then(function(mergeUser) {
-                    console.log("here");
+                    mergeUser.email = mergeUser.email[0].split(",");
+
 
                         model.user = mergeUser;
                         console.log("mergerUser");
                         console.log(mergeUser);
+
 
                         $rootScope.user = mergeUser;
                     if (mergeUser) {

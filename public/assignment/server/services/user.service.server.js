@@ -19,6 +19,7 @@ module.exports = function (app, model, db) {
         create(user)
         .then(
             function(user) {
+                user.email = user.email[0].split(",");
             res.json(user);
             },
             function(err) {
@@ -41,6 +42,7 @@ module.exports = function (app, model, db) {
                 {username:reqUsername, password:reqPassword})
             .then(
                 function(user) {
+                    user.email = user.email[0].split(",");
                     res.json(user);
                 },
                 function(err) {
@@ -54,6 +56,7 @@ module.exports = function (app, model, db) {
             model.findUserByUsername(reqUsername)
             .then(
                 function(user) {
+                    user.email = user.email[0].split(",");
                     res.json(user);
                 },
                 function(err) {
@@ -65,6 +68,7 @@ module.exports = function (app, model, db) {
             model.findAll()
             .then(
                 function(user) {
+                    user.email = user.email[0].split(",");
                     res.json(user);
                 },
                 function(err) {
@@ -80,6 +84,7 @@ module.exports = function (app, model, db) {
         model.findById(userid)
         .then(
             function(user) {
+                user.email = user.email[0].split(",");
                 res.json(user);
             },
             function(err) {
@@ -89,7 +94,7 @@ module.exports = function (app, model, db) {
     }
 
     function findUserByUsername(req, res) {
-        console.log("findUserByUsername");
+
         //model.findUserByUsername(req.params.username)
         //.then(function(user) {
         //    res.json(user);
@@ -98,6 +103,7 @@ module.exports = function (app, model, db) {
         model.findUserByUsername(username)
         .then(
             function(user) {
+                user.email = user.email[0].split(",");
                 res.json(user);
             },
             function(err){
@@ -115,11 +121,16 @@ module.exports = function (app, model, db) {
         console.log(userid);
 
         var user = req.body;
+        console.log("updateuser");
+        console.log(user.email);
+        user.email = user.email.split(",");
+        //user.email = user.email[0].split(",");
         console.log(user);
         model.update(userid, user)
         .then(
             function(user){
                 console.log(user);
+                user.email = user.email[0].split(",");
                 res.json(user);
             },
             function(err) {
@@ -134,6 +145,7 @@ module.exports = function (app, model, db) {
         model.remove(userid)
         .then(
             function(stats) {
+                stats.email = stats.email[0].split(",");
                 res.send(200);
             },
             function(err) {
