@@ -226,6 +226,7 @@ module.exports = function(app,mongoose, db) {
                 if (!err) {
                     findFormsByUserId(userid)
                         .then(function(allforms) {
+
                             deferred.resolve(allforms);
                         });
                 } else {
@@ -416,46 +417,67 @@ module.exports = function(app,mongoose, db) {
 
 
         return deferred.promise;
-        //newField.id = (new Date()).getTime();
-        //
-        //for(var i = 0; i < forms.length; i++) {
-        //    if(forms[i].id == id) {
-        //        // form found!
-        //        if(!forms[i].fields){
-        //            forms[i].fields = [];
-        //        }
-        //        forms[i].fields.push(newField);
-        //        return forms[i];
-        //    }
-        //}
-        //return null;
+
     }
 
 
     function updateFormField(id, updatedField,fieldid) {
+
         var deferred = q.defer();
         assignmentForm.findById(
             id,
             function (err, assignmentForm) {
+                console.log(assignmentForm);
+                console.log(updatedField);
                 if (!err) {
-                    for (var i = 0; i < assignmentForm.field.length; i++) {
-                        if (assignmentForm.field[i]._id == fieldid) {
-                            for(var attr in updatedField) {
-                                if(updatedField.hasOwnProperty(attr))
-                                    form.fields[i].attr = updatedField.attr;
-                            }
-                            assignmentForm.save(function (err, forms) {
-                                if (!err) {
-                                    deferred.resolve(forms);
-                                } else {
-                                    deferred.reject(err);
-                                }
-                            });
+                    if (assignmentForm) {
+                        console.log("test form upa");
+                        console.log(fieldid);
+                        for (var i =0 ; i< assignmentForm.field.length; i++) {
 
+                            if (assignmentForm.field[i]._id ==fieldid) {
+                                console.log(assignmentForm.field[i]._id);
+                                assignmentForm.field[i] = updatedField;
+                                console.log(assignmentForm.field[i]);
+                            }
                         }
+                        assignmentForm.save(function (err) {
+                            if (!err) {
+                                deferred.resolve(assignmentForm);
+
+                            } else {
+                                deferred.reject(err);
+                            }
+                        });
+                    } else {
+                        deferred.reject(err);
                     }
-                }
-            });
+                } else {
+                    deferred.reject(err);
+                }});
+                //    for (var i = 0; i < assignmentForm.field.length; i++) {
+                //        if (assignmentForm.field[i]._id == fieldid) {
+                //            assignmentForm.field[i].label = updatedField.label;
+                //            assignmentForm.field[i].type = updatedField.type;
+                //            assignmentForm.field[i].placeholder = updatedField.placeholder;
+                //            console.log(assignmentForm);
+                //            assignmentForm.save(function (err, forms) {
+                //                if (!err) {
+                //                    console.log("forms hre---");
+                //                    console.log(forms.field);
+                //
+                //                    deferred.resolve(forms);
+                //
+                //                } else {
+                //                    deferred.reject(err);
+                //                }
+                //            });
+                //
+                //        }
+                //    }
+                //}
+
+            //});
         return deferred.promise;
 
         //for(var i = 0; i < forms.length; i++) {
@@ -475,6 +497,7 @@ module.exports = function(app,mongoose, db) {
         //}
         //return null;
     }
+
 
 
 };

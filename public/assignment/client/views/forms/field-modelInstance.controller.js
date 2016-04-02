@@ -31,18 +31,44 @@
         $scope.Textarea = $scope.clickField.type === 'OPTIONS' || $scope.clickField.type === 'CHECKBOXES' || $scope.clickField.type === 'RADIOS';
         function submit() {
             console.log("clickfield");
+            var clickField = {
+                label:$scope.clickField.label,
+                placeholder:$scope.clickField.placeholder,
+                type:$scope.clickField.type,
+                options:$scope.clickField.options
+            };
+
             console.log(clickField);
-            FieldService.updateField(formid,$scope.clickField.id,$scope.clickField)
+
+            FieldService.updateField(formid,$scope.clickField._id,clickField)
                 .then(function(updateForm) {
-                    console.log(updateForm);
-                     $scope.clickField = updateForm;
+
+                    $scope.clickField = updateForm;
+                    //console.log(updateForm);
+                    //for (var i= 0; i< updateForm.length; i++) {
+                    //    if ($scope.clickField._id = updateForm[i]._id) {
+                    //        $scope.clickField.placeholder = updateForm[i].placeholder;
+                    //        $scope.clickField.label = updateForm[i].label;
+                    //        $scope.clickField.options = updateForm[i].options;
+                    //    }
+                    //}
+                    //console.log("clickFiled=========");
+                    //console.log(clickField);
+
+
+                    //$route.reload();
+
+
+
+
+
+                    //$scope.clickField.placeholder = updateForm.placeholder;
+                    //$scope.clickField.label = updateForm.label;
+                    //$scope.clickField.options = updateForm.options;
             });
-            console.log("clickFiled=========");
-            console.log(clickField.placeholder);
-            console.log(clickField.label);
-            console.log(clickField.options);
-            //$route.reload();
             $rootScope.modalInstance.close();
+
+
         }
 
         function cancel() {

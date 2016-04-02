@@ -46,6 +46,7 @@
 
         FieldService.getFieldsForForm(formid)
             .then(function(allFields) {
+                console.log("go to hereh now");
                 model.fields = allFields;
             });
 
@@ -69,7 +70,7 @@
                     },
                     formid: function() {
                         return formid;
-                    }
+                    },
                 }
             })
         }

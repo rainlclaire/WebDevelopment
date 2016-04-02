@@ -115,9 +115,20 @@ module.exports = function(app, model, db) {
         //console.log(req.params.fieldid);
         //console.log(req.body);
         model.updateFormField(req.params.formid, req.body, req.params.fieldid)
+        //.then(
+        //    function(form) {
+        //        console.log(form);
+        //        return model.retrieveFormFields(req.params.formid);
+        //    },
+        //    function(err) {
+        //        res.status(400).send(err);
+        //    }
+        //)
         .then(
-            function(field) {
-                res.json(field);
+            function(form) {
+                console.log("ser--------ver");
+                console.log(form);
+                res.json(form);
             },
             function(err) {
                 res.status(400).send(err);

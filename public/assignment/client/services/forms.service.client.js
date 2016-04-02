@@ -32,6 +32,8 @@
 
             $http.get("/api/assignment/user/" + userid + "/form")
                 .success(function(response) {
+                    console.log("findallform");
+                    console.log(response);
                     deferred.resolve(response);
                 });
 

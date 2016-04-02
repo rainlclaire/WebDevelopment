@@ -27,7 +27,7 @@
             console.log("user not null yes");
             FormService.findAllFormsForUser(user._id)
             .then(function(allForms){
-                //console.log(allForms);
+                console.log(allForms);
                 model.forms= allForms;
             });
         } else {
