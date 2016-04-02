@@ -41,10 +41,12 @@
             //    return;
             //}
             ////error catch for invalid email or null
+
             if (!newUser.email) {
                 $scope.message = "You have to provide invalid email";
                 return;
-            } else {
+            }
+            else {
                 UserService.createUser(newUser)
                     .then(function (createdUser) {
 
