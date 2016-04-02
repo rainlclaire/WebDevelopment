@@ -5,7 +5,10 @@
         .module("FormBuilderApp")
         .controller("FieldController", FieldController);
 
-    function FieldController($routeParams,$uibModal,$rootScope, FieldService) {
+    function FieldController($routeParams,$location,$uibModal,$rootScope, FieldService) {
+        if (!$rootScope.user) {
+            $location.url("/login");
+        }
         var model = this;
         model.removeField = removeField;
         model.addField = addField;

@@ -433,14 +433,14 @@ module.exports = function(app,mongoose, db) {
                     if (assignmentForm) {
                         console.log("test form upa");
                         console.log(fieldid);
-                        for (var i =0 ; i< assignmentForm.field.length; i++) {
-
-                            if (assignmentForm.field[i]._id ==fieldid) {
-                                console.log(assignmentForm.field[i]._id);
-                                assignmentForm.field[i] = updatedField;
-                                console.log(assignmentForm.field[i]);
-                            }
-                        }
+                        //for (var i =0 ; i< assignmentForm.field.length; i++) {
+                        //
+                        //    if (assignmentForm.field[i]._id ==fieldid) {
+                        //        console.log(assignmentForm.field[i]._id);
+                        //        assignmentForm.field[i] = updatedField;
+                        //        console.log(assignmentForm.field[i]);
+                        //    }
+                        //}
                         assignmentForm.save(function (err) {
                             if (!err) {
                                 deferred.resolve(assignmentForm);

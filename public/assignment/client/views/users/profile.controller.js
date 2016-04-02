@@ -49,7 +49,7 @@
             model.message = null;
             if (!model.user.email) {
                 alert("you have to provide email");
-            } 
+            }
             if (!model.user.phone) {
                 alert("you have to provide phone");
             } else {
