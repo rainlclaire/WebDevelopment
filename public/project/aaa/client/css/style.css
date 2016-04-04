@@ -142,7 +142,35 @@ div.single_sidebar button.createGroup {
 	width: 150px;
 }
 
+div.login.ng-scope form.ng-pristine.ng-valid form p{
+	width:350px;
+	text-align: center;
 
+}
+div.findGroupLogin {
+	margin-top:50px;
+	text-align:center;
+
+
+
+}
+
+div.findGroupLogin form {
+	display: inline-block;
+	text-align: center;
+	margin-right:230px;
+
+
+}
+div.findGroupLogin input {
+
+	display:block;
+	margin-bottom: 10px;
+	width:250%;
+
+
+	vertical-align: middle;
+}
 @media screen and (max-width: 830px) {
 	.ei-title{
 		position: absolute;

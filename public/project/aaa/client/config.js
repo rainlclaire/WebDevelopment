@@ -19,24 +19,24 @@
                 controller: "GroupController",
                 controllerAs:"model"
             })
-            //.when("/profile", {
-            //    templateUrl: "views/profile/profile.view.html",
-            //    controller:"ProfileController",
-            //    controllerAs:"model"
-            //    //resolve: {
-            //    //    checkLoggedIn:checkLoggedIn
-            //    //}
-            //})
-            //.when("/signUp", {
-            //    templateUrl: "views/signUp/signUp.view.html",
-            //    controller: "SignUpController",
-            //    controllerAs:"model"
-            //})
-            //.when("/login", {
-            //    templateUrl: "views/login/logIn.view.html",
-            //    controller: "LogInController",
-            //    controllerAs:"model"
-            //})
+            .when("/profile", {
+                templateUrl: "views/profile/profile.view.html",
+                controller:"ProfileController",
+                controllerAs:"model"
+                //resolve: {
+                //    checkLoggedIn:checkLoggedIn
+                //}
+            })
+            .when("/signup", {
+                templateUrl: "views/signup/signup.view.html",
+                controller: "SignUpController",
+                controllerAs:"model"
+            })
+            .when("/login", {
+                templateUrl: "views/login/login.view.html",
+                controller: "LogInController",
+                controllerAs:"model"
+            })
             //.when("/group/:groupid/event/:event_title", {
             //    templateUrl: "views/event/event.view.html",
             //    controller: "EventController",
