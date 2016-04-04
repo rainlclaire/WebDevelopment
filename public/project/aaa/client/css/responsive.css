@@ -1,0 +1,172 @@
+/*Default Layout: 992px.*/
+
+/* Home page style ********************************/
+.structure{width:940px;}
+.header{width: 940px;}
+.footer{width: 940px;}
+#selectnav1{display:none}
+#nav{display:block;}
+.single_service{width: 300px;}
+.single_blog_post,.single_work{width: 220px;margin-left: 18px;}
+.single_footer{width: 275px;}
+
+/* single page style *******************************/
+
+.single_main_content{width: 670px;}
+.single_sidebar_area{width: 220px;}
+
+/* Contact page style ****************************/
+
+#googleMap{width:670px;height:300px;}
+.address{width: 239px;}
+.cf{width: 420px;}
+.cf_msg{width: 100%;}
+
+/* Blog page style ********************************/
+
+.post_meta{width: 180px;}
+.excerpt {width: 450px;}
+.post_pro_img_normal,.post_pro_img_video,.post_pro_img_slider,.post_pro_img_quote,.post_pro_img_attachment{display:block;}
+
+/* Portfolio page style ****************************/
+
+.portfolio-content, .portfolio-area{width:940px;}
+.portfolio-area li{width: 220px;}
+.home-portfolio-text{width: 214px;}
+
+
+
+
+
+/*Tablet Layout: 768px.*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+/* Home page style ********************************/
+.structure{width:750px;}
+.header{width: 750px;}
+.footer{width: 750px;}
+#selectnav1{display:none}
+#nav{display:block;}
+.single_service{width: 236px;}
+.single_blog_post,.single_work{width: 174px;}
+.single_footer{width: 213px;}
+
+/* Single page style *******************************/
+
+.single_main_content{width: 550px;}
+.single_sidebar_area{width: 180px;}
+
+/* Contact page style *******************************/
+
+#googleMap{width:550px;}
+.address{width: 170px;}
+.cf{width: 366px;}
+.cf_msg{width: 96%;}
+
+/* Blog page style ********************************/
+
+.post_meta{width: 150px;}
+.excerpt {width: 355px;}
+.post_pro_img_normal,.post_pro_img_video,.post_pro_img_slider,.post_pro_img_quote,.post_pro_img_attachment{display:none;}
+
+/* Portfolio page style ****************************/
+
+.portfolio-content, .portfolio-area{width:750px;}
+.portfolio-area li{width: 174px;}
+.home-portfolio-text{width: 168px;}
+
+}
+
+
+
+/*Mobile Layout: 320px.*/
+
+@media only screen and (max-width: 767px) {
+
+/* Home page style ********************************/
+.structure{width:300px;}
+.header{width: 300px;}
+.footer{width: 300px;}
+#selectnav1{display: block;
+margin-right: 15px;
+margin-top: 12px;}
+#nav{display: none;}
+.single_service{width: 300px;
+margin-bottom: 30px;}
+.portfolio h2{line-height:24px;}
+.single_blog_post,.single_work{width: 220px;
+margin-left: 20%;}
+.single_footer{width: 280px;}
+
+/* Single page style *******************************/
+
+.single_main_content{padding: 5px;width: 290px;}
+.single_sidebar_area{padding: 5px;width: 290px;margin-top:20px}
+
+/* Contact page style *******************************/
+
+#googleMap{width:290px;height:170px;}
+.address{padding: 10px;
+width: 280px;}
+.cf{padding: 10px;
+width: 280px;}
+.cf_msg{width: 96%;}
+
+/* Blog page style ********************************/
+
+.post_meta{width: 75px;}
+.excerpt {width: 175px;}
+.post_pro_img_normal,.post_pro_img_video,.post_pro_img_slider,.post_pro_img_quote,.post_pro_img_attachment{display:none;}
+
+/* Portfolio page style ****************************/
+
+.portfolio-content, .portfolio-area{width:300px;}
+.portfolio-area li{width: 137px;}
+.home-portfolio-text{width: 131px;}
+}
+
+
+
+/*Wide Mobile Layout: 480px.*/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+/* Home page style ********************************/
+.structure{width:450px;}
+.header{width: 450px;}
+.footer{width: 450px;}
+#selectnav1{display: block;
+margin-right: 15px;
+margin-top: 10px;}
+#nav{display: none;}
+.single_service{width: 450px;
+margin-bottom: 30px;}
+.portfolio h2{line-height:50px;}
+.single_blog_post,.single_work{width: 216px;margin-left: 18px;}
+.single_footer{width: 430px;}
+
+/* Single page style *******************************/
+
+.single_main_content{padding: 5px;width: 440px;}
+.single_sidebar_area{padding: 5px;width: 440px;margin-top:20px}
+
+/* Contact page style *******************************/
+
+#googleMap{width:440px;height:180px;}
+.address{width: 120px;padding: 5px;}
+.cf{width: 290px;padding: 5px;}
+.cf_msg{width: 96%;}
+
+/* Blog page style ********************************/
+
+.post_meta{width: 115px;}
+.excerpt {width: 285px;}
+.post_pro_img_normal,.post_pro_img_video,.post_pro_img_slider,.post_pro_img_quote,.post_pro_img_attachment{display:none;}
+
+/* Portfolio page style ****************************/
+
+.portfolio-content, .portfolio-area{width:450px;}
+.portfolio-area li{width: 137px;}
+.home-portfolio-text{width: 131px;}
+}
