@@ -171,6 +171,20 @@ div.findGroupLogin input {
 
 	vertical-align: middle;
 }
+div.homeSearch {
+	margin-top:50px;
+	margin-bottom:50px;
+	text-align:center;
+
+}
+div.homeSearch input{
+	width:90%;
+	line-height: 50px;
+}
+div.homeSearch button{
+	line-height: 50px;
+	background:none repeat scroll 0 0 #E8663C;
+}
 @media screen and (max-width: 830px) {
 	.ei-title{
 		position: absolute;
