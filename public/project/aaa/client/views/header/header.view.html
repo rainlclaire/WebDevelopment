@@ -5,11 +5,17 @@
         </div>
         <div class="mainmenu floatright">
             <ul id="nav">
-                <li><a href="#/home" class="active">Home</a></li>
-                <li><a href="#/group">Group</a></li>
-                <li><a href="#/profile">Profile</a></li>
-                <li><a href="#/signup">Sign Up</a></li>
-                <li><a href="#/login">Log In</a></li>
+                <!--<li><a href="#/home" class="active">Home</a></li>-->
+                <!--<li><a href="#/group">Group</a></li>-->
+                <!--<li><a href="#/profile">Profile</a></li>-->
+                <!--<li><a href="#/signup">Sign Up</a></li>-->
+                <!--<li><a href="#/login">Log In</a></li>-->
+                <li ng-class="{'active': $location.url()=='/home'}"><a href="#/home">Home</a></li>
+                <li ng-class="{'active': $location.url()=='/group'}"><a href="#/group">group</a></li>
+                <li ng-show="!user" ng-class="{'active': $location.url()=='/signup'}"><a href="#/signup">sign up</a></li>
+                <li ng-show="!user" ng-class="{'active': $location.url()=='/login'}"><a href="#/login">log in</a></li>
+                <li><a ng-show="user" ng-click="logout(user)">logout</a></li>
+                <li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>
             </ul>
             <select class="selectnav" id="selectnav1"><option value="">
                 -Navigation-</option>
@@ -18,10 +24,12 @@
             </select>
 
     </div>
-        </div>
-    <div class="header_bottom_area"></div>
 
-    </div>
-</div>
+
+
+    <!--<div class="header_bottom_area"></div>-->
+
+    <!--</div>-->
 </div>
 
+</div>

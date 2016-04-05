@@ -73,7 +73,7 @@
                     },
                     formid: function() {
                         return formid;
-                    },
+                    }
                 }
             })
         }
@@ -100,7 +100,7 @@
             FieldService.sortOrder(formid, start,end)
             .then(function(response) {
                 if (response.data) {
-                    model.fields = response.data;
+                   
                 } else {
                     console.log("this is a err for sort");
                 }

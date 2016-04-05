@@ -39,7 +39,7 @@ module.exports = function(app,mongoose, db) {
                 //console.log(startindex);
                 //var temp = form.field.splice(startindex+1, 1)
                 //console.log(temp)
-                form.field.splice(endindex, 0, form.field.splice(startindex+1, 1)[0]);
+                form.field.splice(endindex, 0, form.field.splice(startindex, 1)[0]);
                 //console.log(form);
                 form.markModified("field");
                 form.save();

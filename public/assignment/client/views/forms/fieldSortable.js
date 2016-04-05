@@ -22,13 +22,16 @@
                     if(start>=end) {
                         start--;
                     }
-                    scope.model.sortOrder(start,end);
+                    scope.fieldSortableCallback({start:start,end:end});
 
 
             }
             });
         }
         return{
+            scope: {
+                fieldSortableCallback:'&'
+            },
             link:link
         }
     }

@@ -37,44 +37,44 @@
                 controller: "LogInController",
                 controllerAs:"model"
             })
-            //.when("/group/:groupid/event/:event_title", {
-            //    templateUrl: "views/event/event.view.html",
-            //    controller: "EventController",
-            //    controllerAs:"model"
-            //    //resolve: {
-            //    //    getLoggedIn:getLoggedIn
-            //    //}
-            //
-            //})
-            //.when("/details/:group_id", {
-            //    templateUrl:"views/details/detail.view.html",
-            //    controller:"DetailsController",
-            //    controllerAs: "model"
-            //    //resolve: {
-            //    //    getLoggedIn: getLoggedIn
-            //    //}
-            //})
+            .when("/group/:groupid/event/:event_title", {
+                templateUrl: "views/event/event.view.html",
+                controller: "EventController",
+                controllerAs:"model"
+                //resolve: {
+                //    getLoggedIn:getLoggedIn
+                //}
+
+            })
+            .when("/details/:group_id", {
+                templateUrl:"views/details/detail.view.html",
+                controller:"DetailsController",
+                controllerAs: "model"
+                //resolve: {
+                //    getLoggedIn: getLoggedIn
+                //}
+            })
             //.when("/admin/:group_id", {
             //    templateUrl:"views/admin/admin.view.html",
             //    controller: "AdminController",
             //    controllerAs:"model"
             //})
-            //.when("/search", {
-            //    templateUrl:"views/search/search.view.html",
-            //    controller:"HomeController"
-            //    //resolve: {
-            //    //    getLoggedIn: getLoggedIn
-            //    //}
-            //    //controller:"HomeController"
-            //})
-            //.when("/search/:groupTitle", {
-            //    templateUrl:"views/search/search.view.html",
-            //    controller:"HomeController"
-            //    //resolve: {
-            //    //    getLoggedIn: getLoggedIn
-            //    //}
-            //    //controller:"HomeController"
-            //})
+            .when("/search", {
+                templateUrl:"views/search/search.view.html",
+                controller:"HomeController"
+                //resolve: {
+                //    getLoggedIn: getLoggedIn
+                //}
+                //controller:"HomeController"
+            })
+            .when("/search/:groupTitle", {
+                templateUrl:"views/search/search.view.html",
+                controller:"HomeController"
+                //resolve: {
+                //    getLoggedIn: getLoggedIn
+                //}
+                //controller:"HomeController"
+            })
             .otherwise( {
                 redirectTo: "/home"
             });

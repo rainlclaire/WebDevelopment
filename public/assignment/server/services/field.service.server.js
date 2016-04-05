@@ -20,16 +20,16 @@ module.exports = function(app, model, db) {
             model.sortOrder(formid, startindex, endindex)
             .then(
                 function(stat) {
-                    return model.retrieveFormFields(formid);
-                },
-                function(err) {
-                    res.status(400).send(err);
-                }
-            )
-            .then(
-                function(form) {
+            //        return model.retrieveFormFields(formid);
+            //    },
+            //    function(err) {
+            //        res.status(400).send(err);
+            //    }
+            //)
+            //.then(
+            //    function(form) {
 
-                    res.json(form.field);
+                    res.json(200);
                 },
                 function(err) {
                     res.status(400).send(err);
