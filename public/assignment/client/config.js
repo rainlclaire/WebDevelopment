@@ -73,7 +73,7 @@
         UserService
             .getCurrentUser()
             .then(function(response) {
-                var user = response.data;
+                var user = response;
                 if(user != '0') {
                     UserService.setCurrentUser(user);
                     deferred.resolve();
@@ -92,7 +92,7 @@
         UserService
             .getCurrentUser()
             .then(function(response) {
-                var user = response.data;
+                var user = response;
                 if (user != '0' && user.roles.indexOf('admin') != -1) {
                     UserService.setCurrentUser(user);
                     deferred.resolve();
