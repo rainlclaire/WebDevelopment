@@ -54,22 +54,14 @@
                 username:username,
                 password:password
             };
-            console.log("userservice");
-            console.log($http.get("/api/assignment/user?username=" + username + "&password=" + password));
+
             $http.post("/api/assignment/login", cred)
                 .success(function (response) {
                     console.log(response);
                     deferred.resolve(response);
                 });
             return deferred.promise;
-            //var result = null; //set the result to null
-            ////iterate the current users
-            //for (var i = 0; i < currentUser.length; i++) {
-            //    if ((currentUser[i].username == username) && (currentUser[i].password = password)) {
-            //        result = currentUser[i];
-            //    }
-            //}
-            //callback(result);
+            
         }
 
         //find the current all users

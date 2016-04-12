@@ -5,7 +5,7 @@
     angular.module("FormBuilderApp")
         .controller("FormController", FormController);
 
-    function FormController($scope, $location, $rootScope, FormService) {
+    function FormController($scope, $location, $rootScope, FormService, UserService) {
 
         var model = this;
         model.addForm = addForm;
@@ -15,25 +15,44 @@
 
         console.log("test form formcontroller");
 
+        function init() {
+            UserService.getCurrentUser()
+                .then(function (response) {
+                    console.log(response);
+                    $rootScope.user = response;
+                    if ($rootScope.user) {
+                        model.user = $rootScope.user;
+                        FormService.findAllFormsForUser(model.user._id)
+                    }
 
-        var user= $rootScope.user;
+                    })
+                    .then(function(allForms) {
+                        model.forms = allForms;
+
+                    });
+
+        }
+        init();
+
+
+
 
         model.clickForm = {
             title:""
         };
-        console.log($rootScope.user);
-        //form page only show when user logged in
-        if (user !=null) {
-            console.log("user not null yes");
-            FormService.findAllFormsForUser(user._id)
-            .then(function(allForms){
-                console.log(allForms);
-                model.forms= allForms;
-            });
-        } else {
-            alert("You need to login or register");
-            $location.url("login");
-        }
+        //console.log($rootScope.user);
+        ////form page only show when user logged in
+        //if ($rootScope.user !=null) {
+        //    console.log("user not null yes");
+        //    FormService.findAllFormsForUser($rootScope.user._id)
+        //    .then(function(allForms){
+        //        console.log(allForms);
+        //        model.forms= allForms;
+        //    });
+        //} else {
+        //    alert("You need to login or register");
+        //    $location.url("login");
+        //}
 
         //function for form
 
@@ -41,7 +60,7 @@
 
         //add the form to currentForms
         function addForm(form) {
-            if (user ==null ) {
+            if (model.user  ==null ) {
                 alert("you need to login");
                 $location.url("/login");
             }
@@ -52,10 +71,10 @@
             //inti the title with empty
             model.clickForm.title="";
             console.log("pinrt user in form controller");
-            console.log(user);
-            FormService.createFormForUser(user._id, newForm)
+
+            FormService.createFormForUser(model.user ._id, newForm)
             .then(function(createdForms){
-                console.log(createdForms);
+
                 model.forms = createdForms;
 
             });
@@ -97,7 +116,7 @@
             //    $scope.forms = allOtherForms;
             //});
             var deletedId = model.forms[index]._id;
-            FormService.deleteFormByIdForUser(deletedId, user._id)
+            FormService.deleteFormByIdForUser(deletedId, model.user ._id)
                 .then(function(forms) {
                     model.forms = forms.data;
                 });

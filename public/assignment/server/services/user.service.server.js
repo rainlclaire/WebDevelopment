@@ -5,13 +5,13 @@ module.exports = function (app, model, db) {
     var auth = authorized;
     var authAdmin = isAdmin;
     app.post("/api/assignment/user", createUser);
-    app.get("/api/assignment/user", findUsers);
+    //app.get("/api/assignment/user", findUsers);
     app.get("/api/assignment/user/:id", findUserById);
     //to comment out here
     app.get("/api/assignment/user?username=username", findUserByUsername);
     //app.get("/api/assignment/user?username=alice&password=alice", findAlice);
     //end
-    //app.put("/api/assignment/user/:id", auth,updateUser);
+    app.put("/api/assignment/user/:id", auth,updateUser);
     //app.delete("/api/assignment/user/:id",auth, deleteUser);
     app.post("/api/assignment/login", passport.authenticate("local"), login);
     app.post("/api/assignment/logout", logout);
@@ -79,10 +79,11 @@ module.exports = function (app, model, db) {
 
     // determine whether the user is admin or not
     function isAdmin(user) {
-        if (user.roles.indexOf("admin") > 0) {
-            return true;
+        if (user.roles.indexOf("admin") >-1) {
+           return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     // implement authorized function
@@ -132,18 +133,33 @@ module.exports = function (app, model, db) {
             );
     }
 
-    function findUsers(req, res) {
+    function findUserByCredentials(req, res) {
+        var credentials = {
+            username: req.query.username,
+            password: req.query.password
+        };
 
-        if (isAdmin(req.user)) {
-            model.findAll()
-                .then(
-                    function (doc) {
-                        res.json(doc);
-                    },
-                    function (err) {
-                        res.status(400).send(err);
-                    })
-        }
+        model
+            .findUserByCredentials(credentials)
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
+    }
+    //
+    //function findUsers(req, res) {
+    //    if (req.query.username && req.query.password) {
+    //        findUserByCredentials(req, res);
+    //    }
+    //    else if (req.query.username) {
+    //        findUserByUsername(req, res);
+    //    }
+    //    }
+
 
 
         //console.log("findUsers");
@@ -359,7 +375,8 @@ module.exports = function (app, model, db) {
         );
 
 
-    }
+
+
 
 
 

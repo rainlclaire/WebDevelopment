@@ -21,8 +21,12 @@
                     //to set up the loggedIn user info
                     $rootScope.user = loggedInUser;
                     console.log($rootScope.user);
+                    if (loggedInUser.roles != null && loggedInUser.roles.indexOf("admin") >= 0) {
+                        $location.url("/admin");
+                    } else {
+                        $location.url("/profile");
+                    }
                     //set up the path for navigating to profile
-                    $location.path("/profile");
                 }
 
                 else {

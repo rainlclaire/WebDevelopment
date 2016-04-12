@@ -72,11 +72,11 @@
             if (!model.user.phone) {
                 alert("you have to provide phone");
             } else {
-                if (user.email != updateUser.email) {
+                if ($rootScope.user.email != updateUser.email) {
                     updateUser.email = updateUser.email.split(",");
 
                 }
-                    UserService.updateUser(user._id, updateUser)
+                    UserService.updateUser($rootScope.user._id, updateUser)
                         .then(function (mergeUser) {
 
 

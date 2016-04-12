@@ -48,7 +48,7 @@
                 controller: "FormController",
                 controllerAs:"model",
                 resolve: {
-                    checkAdmin: checkLoggedin
+                    checkLoggedin: checkLoggedin
                 }
             })
             .when("/field", {
@@ -60,7 +60,7 @@
                 controller:"FieldController",
                 controllerAs:"model",
                 resolve: {
-                    checkAdmin: checkLoggedin
+                    checkLoggedin: checkLoggedin
                 }
             })
             .otherwise( {
