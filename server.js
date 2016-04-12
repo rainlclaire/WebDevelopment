@@ -24,16 +24,28 @@
 
 
 //  OpenShift sample Node application
-var express = require("express");
+var express = require('express');
 var app = express();
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
-var multer  = require("multer");
-
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var mongoose = require('mongoose');
+var multer = require('multer');
+var passport = require('passport');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+app.use(multer());
+app.use(cookieParser());
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 app.get("/", function(req, res) {
     res.sendfile('index.html', {root: __dirname });
 });

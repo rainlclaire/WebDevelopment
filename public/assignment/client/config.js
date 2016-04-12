@@ -12,10 +12,16 @@
             .when("/profile", {
                 templateUrl: "views/users/profile.view.html",
                 controller: "ProfileController",
-                controllerAs:"model"
+                controllerAs:"model",
+                resolve: {
+                    checkAdmin: checkLoggedin
+                }
             })
             .when("/admin", {
-                templateUrl: "views/admin/admin.view.html"
+                templateUrl: "views/admin/admin.view.html",
+                resolve: {
+                 checkAdmin: checkAdmin
+            }
             })
             .when("/register", {
                 templateUrl: "views/users/register.view.html",
@@ -40,7 +46,10 @@
             .when("/forms", {
                 templateUrl: "views/forms/forms.view.html",
                 controller: "FormController",
-                controllerAs:"model"
+                controllerAs:"model",
+                resolve: {
+                    checkAdmin: checkLoggedin
+                }
             })
             .when("/field", {
 
@@ -49,12 +58,54 @@
             .when("/form/:formid/fields", {
                 templateUrl:"views/forms/form-fields.view.html",
                 controller:"FieldController",
-                controllerAs:"model"
+                controllerAs:"model",
+                resolve: {
+                    checkAdmin: checkLoggedin
+                }
             })
             .otherwise( {
                 redirectTo: "/home"
             });
     }
+    function checkLoggedin(UserService, $q, $location) {
+        var deferred = $q.defer();
+
+        UserService
+            .getCurrentUser()
+            .then(function(response) {
+                var user = response.data;
+                if(user != '0') {
+                    UserService.setCurrentUser(user);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                    $location.url("/home");
+                }
+            });
+
+        return deferred.promise;
+    }
+
+    function checkAdmin(UserService, $q, $location) {
+        var deferred = $q.defer();
+
+        UserService
+            .getCurrentUser()
+            .then(function(response) {
+                var user = response.data;
+                if (user != '0' && user.roles.indexOf('admin') != -1) {
+                    UserService.setCurrentUser(user);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                    $location.url("/home");
+                }
+            });
+
+        return deferred.promise;
+    }
+
+
 })();
 
 

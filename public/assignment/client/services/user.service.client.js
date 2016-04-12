@@ -5,12 +5,14 @@
         .factory("UserService", UserService);
 
 
-    function UserService($http,$q) {
+    function UserService($http,$q,$rootScope) {
         //init the current users
 
 
         //function implement
         var service = {
+            setCurrentUser:setCurrentUser,
+            getCurrentUser:getCurrentUser,
             findUserByUsername: findUserByUsername,
             findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
@@ -21,6 +23,20 @@
         };
 
         return service;
+
+        function setCurrentUser(user) {
+            $rootScope.user = user;
+        }
+
+        function getCurrentUser() {
+            var deferred = $q.defer();
+            $http.get("/api/assignment/loggedin")
+                .success(function (response) {
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+
+        }
 
         function findUserByUsername(username) {
             var deferred = $q.defer();
@@ -34,9 +50,13 @@
         //find user by username and password
         function findUserByCredentials(username, password) {
             var deferred = $q.defer();
+            var cred = {
+                username:username,
+                password:password
+            };
             console.log("userservice");
             console.log($http.get("/api/assignment/user?username=" + username + "&password=" + password));
-            $http.get("/api/assignment/user?username=" + username + "&password=" + password)
+            $http.post("/api/assignment/login", cred)
                 .success(function (response) {
                     console.log(response);
                     deferred.resolve(response);

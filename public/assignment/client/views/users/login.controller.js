@@ -20,6 +20,7 @@
 
                     //to set up the loggedIn user info
                     $rootScope.user = loggedInUser;
+                    console.log($rootScope.user);
                     //set up the path for navigating to profile
                     $location.path("/profile");
                 }
