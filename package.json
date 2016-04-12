@@ -23,6 +23,7 @@
     "connect": "^3.4.1",
     "express": "~3.4.4",
     "express-session":"^1.13.0",
+    "cookie-parser": "^1.4.1",
     "login": "^0.8.0",
     "mongodb": "^2.1.13",
     "mongoose": "^4.4.10",
