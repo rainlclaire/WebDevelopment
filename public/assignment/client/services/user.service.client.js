@@ -61,7 +61,7 @@
                     deferred.resolve(response);
                 });
             return deferred.promise;
-            
+
         }
 
         //find the current all users
