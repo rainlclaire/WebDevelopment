@@ -1,0 +1,42 @@
+
+<div class="container">
+
+<h1 id="title-head">Search Results</h1>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>OwnerName</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="group in groups">
+        <td>{{group._id}}</td>
+        <td><a href="#/details/{{group._id}}">{{group.title}}</a></td>
+        <td>{{group.description}}</td>
+        <td>{{group.ownerName}}</td>
+        <!--<td ng-repeat="group in groups track by $index"><a href="#/details/{{group._id}}">{{group.title}}</a></td>-->
+        <!--&lt;!&ndash;<td>{{group._id}}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td ng-repeat="group in groups"><a href="#/details/{{group._id}}">{{group.title}}</a></td>&ndash;&gt;-->
+        <!--<td ng-repeat="group in groups track by $index" >{{group.description}}</td>-->
+        <!--<td ng-repeat="group in groups track by $index">{{group.ownerName}}</td>-->
+    </tr>
+
+    <tr>{{errorMessage}}</tr>
+    </tbody>
+</table>
+</div>
+
+
+<div class="bottomContent">
+    <form class="extra-content">
+        <hr>
+        <h1>FindGroup</h1>
+        <a href="#">Help</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <p>@2016 FindGroup</p>
+    </form>
+</div>

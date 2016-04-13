@@ -1,43 +1,35 @@
-<!--<header class="header">-->
-    <!--<img src="../image/logo2.png" id="logo"/>-->
-    <!--<a href="#/home" type="button" id="createGroup" class="btn btn-danger">Create My Group</a>-->
-    <!--<nav>-->
-
-        <!--<a href="#" id="menu-icon"></a>-->
-        <!--<ul>-->
-            <!--<li class="menu-btn"><a class="btn btn-primary framed" href="#/signUp" class="current">Sign Up</a></li>-->
-            <!--<li class="menu-btn"><a class="btn btn-primary" href="#/login">Log In</a></li>-->
-            <!--<li class="menu-btn"><a class="btn btn-primary" href="#/profile">Profile</a></li>-->
-            <!--<li class="menu-btn"><a class="btn btn-primary" href="#/group">Group</a></li>-->
-        <!--</ul>-->
-
-    <!--</nav>-->
-<!--</header>-->
-<div class="navbar navbar-inverse navbar-fixed-top top-nav" role="navigation">
-
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <!--<img src="../../../image/logo2.png" title="PixelMock Logo">-->
-            </a>
+<div class="header_area">
+    <div class="fix header">
+        <div class="logo fix floatleft">
+            <a href="#"><h1>Find<span>Group</span></h1></a>
         </div>
-        <div class="collapse navbar-collapse">
-
-            <ul class="nav navbar-nav">
+        <div class="mainmenu floatright">
+            <ul id="nav">
+                <!--<li><a href="#/home" class="active">Home</a></li>-->
+                <!--<li><a href="#/group">Group</a></li>-->
+                <!--<li><a href="#/profile">Profile</a></li>-->
+                <!--<li><a href="#/signup">Sign Up</a></li>-->
+                <!--<li><a href="#/login">Log In</a></li>-->
                 <li ng-class="{'active': $location.url()=='/home'}"><a href="#/home">Home</a></li>
                 <li ng-class="{'active': $location.url()=='/group'}"><a href="#/group">group</a></li>
-                <li ng-show="!user" ng-class="{'active': $location.url()=='/signUp'}"><a href="#/signUp">sign up</a></li>
+                <li ng-show="!user" ng-class="{'active': $location.url()=='/signup'}"><a href="#/signup">sign up</a></li>
                 <li ng-show="!user" ng-class="{'active': $location.url()=='/login'}"><a href="#/login">log in</a></li>
                 <li><a ng-show="user" ng-click="logout(user)">logout</a></li>
                 <li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>
-                <!--<li ng-class="{'active': $location.url()=='/search'}"><a href="#/search">Search</a></li>-->
-
             </ul>
-        </div>
+            <select class="selectnav" id="selectnav1"><option value="">
+                -Navigation-</option>
+                <option selected="">HOME</option><option >ABOUT US</option><option>BLOG
+                </option><option>PORTFOLIO</option><option>CONTACT US</option>
+            </select>
+
+    </div>
+
+
+
+    <!--<div class="header_bottom_area"></div>-->
+
+    <!--</div>-->
+</div>
 
 </div>

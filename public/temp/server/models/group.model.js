@@ -1,10 +1,7 @@
-var mongoose = require('mongoose');
+//var groups = require("./group.mock.json");
 
-var q = require("q");
 module.exports = function(app) {
 
-    var GroupSchema = require("./group.schema.server.js")();
-    var projectGroup = mongoose.model("projectGroup", GroupSchema);
     var api = {
         create: create,
         findAll: findAll,
@@ -147,18 +144,7 @@ module.exports = function(app) {
 
 
     function findAll() {
-        //return groups;
-        console.log("find all group");
-        var deferred = q.defer();
-        projectGroup.find(
-            function (err, projectGroup) {
-                if (!err) {
-                    deferred.resolve(projectGroup);
-                } else {
-                    deferred.reject(err);
-                }
-            });
-        return deferred.promise;
+        return groups;
     }
 
     function findById(groupid) {
@@ -204,26 +190,14 @@ module.exports = function(app) {
     }
 
     function findGroupByTitle(groupTitle) {
-        console.log("findgroup by title");
-        var deferred = q.defer();
-        projectGroup.find(
-            {title:groupTitle},
-            function(err, projectGroup) {
-                if (!err) {
-                    deferred.resolve(projectGroup);
-                } else {
-                    deferred.reject(err);
-                }
-            }
-        );
 
-        //var searchResult = [];
-        //for (var i =0; i<groups.length;i++) {
-        //    if (groups[i].title == groupTitle) {
-        //        searchResult.push(groups[i]);
-        //    }
-        //}
-        //return searchResult;
+        var searchResult = [];
+        for (var i =0; i<groups.length;i++) {
+            if (groups[i].title == groupTitle) {
+                searchResult.push(groups[i]);
+            }
+        }
+        return searchResult;
     }
 
 }();

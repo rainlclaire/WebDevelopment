@@ -27,13 +27,13 @@
                 //    checkLoggedIn:checkLoggedIn
                 //}
             })
-            .when("/signup", {
-                templateUrl: "views/signup/signup.view.html",
+            .when("/signUp", {
+                templateUrl: "views/signUp/signUp.view.html",
                 controller: "SignUpController",
                 controllerAs:"model"
             })
             .when("/login", {
-                templateUrl: "views/login/login.view.html",
+                templateUrl: "views/login/logIn.view.html",
                 controller: "LogInController",
                 controllerAs:"model"
             })
@@ -54,11 +54,11 @@
                 //    getLoggedIn: getLoggedIn
                 //}
             })
-            //.when("/admin/:group_id", {
-            //    templateUrl:"views/admin/admin.view.html",
-            //    controller: "AdminController",
-            //    controllerAs:"model"
-            //})
+            .when("/admin/:group_id", {
+                templateUrl:"views/admin/admin.view.html",
+                controller: "AdminController",
+                controllerAs:"model"
+            })
             .when("/search", {
                 templateUrl:"views/search/search.view.html",
                 controller:"HomeController"

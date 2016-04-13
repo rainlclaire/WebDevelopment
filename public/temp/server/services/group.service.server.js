@@ -1,13 +1,13 @@
 module.exports = function (app, model) {
     //app.get("/api/temp/group?title=groupTitle", findGroupByTitle);
-    app.get("/api/project/group", findGroups);
-    app.get("/api/project/group/:groupid", findGroupById);
-    app.put("/api/project/group/:groupid", updateGroup);
-    app.delete("/api/project/group/:groupid", removeGroup);
-    app.post("/api/project/group", createGroup);
-    app.post("/api/project/group/:groupid/userJoinGroup", userJoinGroup);
-    app.post("/api/project/group/:groupid/userLikeGroup", userLikeGroup);
-    app.get("/api/project/group/:groupid/groupUsers", findUserForGroup);
+    app.get("/api/temp/group", findGroups);
+    app.get("/api/temp/group/:groupid", findGroupById);
+    app.put("/api/temp/group/:groupid", updateGroup);
+    app.delete("/api/temp/group/:groupid", removeGroup);
+    app.post("/api/temp/group", createGroup);
+    app.post("/api/temp/group/:groupid/userJoinGroup", userJoinGroup);
+    app.post("/api/temp/group/:groupid/userLikeGroup", userLikeGroup);
+    app.get("/api/temp/group/:groupid/groupUsers", findUserForGroup);
 
     function findUserForGroup(req, res) {
         res.json(model.findAllUser(req.params.groupid));

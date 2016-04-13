@@ -1,0 +1,77 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="FindGroupApp">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-tree/2.15.0/angular-ui-tree.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signUp.css" rel="stylesheet"/>
+    <link href="css/mystyle.css" rel="stylesheet"/>
+    <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">-->
+    <!--<link rel="awsomeIcon" href="https://fortawesome.github.io/Font-Awesome/icons/#awesomeicons">-->
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
+    <script src="views/group/group.controller.js"></script>
+    <script src="views/main/main.controller.js"></script>
+    <script src="views/login/logIn.controller.js"></script>
+    <script src="views/signup/singUp.controller.js"></script>
+    <script src="service/userService.client.js"></script>
+    <script src="views/profile/profile.controller.js"></script>
+    <script src="views/group/group.controller.js"></script>
+
+    <script src="views/event/event.controller.js"></script>
+    <script src="service/groupService.client.js"></script>
+    <script src="service/eventService.client.js"></script>
+    <script src="service/userService.client.js"></script>
+    <script src="views/header/header.controller.js"></script>
+    <script src="views/signup/singUp.controller.js"></script>
+    <script src="views/details/details.controller.js"></script>
+    <script src="views/home/home.controller.js"></script>
+    <script src="service/googeMap.service.client.js"></script>
+    <script src="views/admin/admin.controller.js"></script>
+    <script src="views/group/groupModal.controller.js"></script>
+    <script src="views/admin/editGroupModalController.controller.js"></script>
+    <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=59110036"></script>
+
+</head>
+
+
+
+
+
+<body ng-controller="MainController">
+
+
+<div class="container" ng-controller="HeaderController">
+    <div  ng-include src="'views/header/header.view.html'" class="navbar navbar-inverse navbar-fixed-top">
+        <!--<div ></div>-->
+    </div>
+
+
+</div>
+
+
+<div ng-view> </div>
+
+</body>
+
+
+</html>

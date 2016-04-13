@@ -32,6 +32,9 @@ var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 var multer = require('multer');
 var passport = require('passport');
+var fs = require('fs');
+var Grid = require('gridfs-stream');
+Grid.mongo = mongoose.mongo;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -77,7 +80,13 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 
 var db = mongoose.connect(connectionString);
 
+//db.once('open', function() {
+//    var gfs = Grid(db.db);
+//    app.set('gridfs', gfs);
+//});
+
 require("./public/assignment/server/app.js")(app, db,mongoose);
+require("./public/temp/server/app.js")(app,db,mongoose);
 require("./public/project/server/app.js")(app,db,mongoose);
 
 

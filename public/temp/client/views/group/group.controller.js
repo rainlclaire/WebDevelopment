@@ -4,18 +4,18 @@
     angular.module('FindGroupApp')
         .controller("GroupController", GroupController);
 
-    function GroupController($scope, $uibModal,$location, $rootScope, GroupService) {
+    function GroupController($scope, $uibModal,$location, $rootScope, GroupService, GoogleMapService) {
         var model = this;
         var user = $rootScope.currentUser;
 
 
         function init() {
             GroupService.findAllGroups()
-                .then(function(groups) {
-                    console.log("from group contrller");
-                    console.log(groups);
-                    model.groups = groups;
-                });
+            .then(function(groups) {
+                console.log("from group contrller");
+                console.log(groups);
+                model.groups = groups;
+            });
         }
         init();
 
@@ -49,13 +49,13 @@
             model.clickGroup.listofEvents = "";
 
             GroupService.createGroup(newGroup)
-                .then(function(newGroup){
-                    GroupService.findAllGroups()
-                        .then(function(allGroups) {
-                            model.groups = allGroups;
+            .then(function(newGroup){
+                GroupService.findAllGroups()
+                .then(function(allGroups) {
+                    model.groups = allGroups;
 
-                        });
                 });
+            });
         }
 
         function addGroup2() {

@@ -91,7 +91,7 @@ function youtubeVidScroll() {
 function startProject(){
     var wScroll = $(window).scrollTop();
 
-    if($('section.project').offset().top - $(window).height()/1.2 < wScroll) {
+    if($('section.temp').offset().top - $(window).height()/1.2 < wScroll) {
         $('.article-thumb').each(function(i){
             setTimeout(function(){
                 $('.article-thumb').eq(i).addClass('is-visible');

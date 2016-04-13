@@ -108,7 +108,7 @@
 
         function userfavoriteGroups(userid, group) {
             var deferred = $q.defer();
-            $http.post("/api/project/user/"+userid+"/userLikeGroup", group)
+            $http.post("/api/temp/user/"+userid+"/userLikeGroup", group)
                 .success(function (response) {
                     deferred.resolve(response);
                 });
@@ -117,7 +117,7 @@
 
         function joinGroup(userid, group) {
             var deferred = $q.defer();
-            $http.post("/api/project/user/"+userid+"/userJoinGroup", group)
+            $http.post("/api/temp/user/"+userid+"/userJoinGroup", group)
                 .success(function (response) {
                     deferred.resolve(response);
                 });
@@ -126,7 +126,7 @@
 
         function findUserByUsername(username) {
             var deferred = $q.defer();
-            $http.get("/api/project/user?username=" + username)
+            $http.get("/api/temp/user?username=" + username)
                 .success(function (response) {
                     deferred.resolve(response);
                 });
@@ -140,12 +140,12 @@
             console.log(username);
             console.log(password);
             //console.log($http.get("/api/temp/user?username=" + username + "&password=" + password));
-            console.log($http.get("/api/project/user?username=" + username + "&password=" + password));
-            $http.get("/api/project/user?username=" + username + "&password=" + password)
+            console.log($http.get("/api/temp/user?username=" + username + "&password=" + password));
+            $http.get("/api/temp/user?username=" + username + "&password=" + password)
                 .success(function (response) {
                     console.log(response);
                     deferred.resolve(response);
-                    //$rootScope.currentUser = response;
+                    $rootScope.currentUser = response;
                 });
             return deferred.promise;
         }
@@ -153,7 +153,7 @@
         //find the current all users
         function findAllUsers() {
             var deferred = $q.defer();
-            $http.get("/api/project/user")
+            $http.get("/api/temp/user")
                 .success(function (response) {
                     deferred.resolve(response);
                 });
@@ -164,7 +164,7 @@
         //create the user with give user
         function createUser(user) {
             var deferred = $q.defer();
-            $http.post("/api/project/user", user)
+            $http.post("/api/temp/user", user)
                 .success(function (response) {
                     deferred.resolve(response);
                 });
