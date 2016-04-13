@@ -47,7 +47,8 @@ module.exports = function (app, model) {
                 username: reqUsername,
                 password: reqPassword
             };
-            model.findUserByUsername(
+
+            model.findUserByCredentials(
                 {username:reqUsername, password:reqPassword})
             .then(
                 function(user) {
@@ -65,6 +66,7 @@ module.exports = function (app, model) {
             //    password: reqPassword
             //}));
         } else if (reqUsername != null) {
+            console.log(reqUsername);
             model.findUserByUsername(reqUsername)
             .then(
                 function(user) {
@@ -114,6 +116,7 @@ module.exports = function (app, model) {
     }
 
     function findUserByUsername(req, res) {
+        console.log(req.query.username);
         var username = req.query.username;
         model.findUserByUsername(username)
             .then(

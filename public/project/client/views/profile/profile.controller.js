@@ -17,22 +17,19 @@
 
         var user = $rootScope.user;
 
-
         //set the user info to user
         if (user != null) {
             console.log(user);
             console.log(model.user);
-            //model.user = {};
-            //model.user.username = user.username;
-            //model.user.password = user.password;
-            ////user.email = user.email[0].split(",");
-            //
-            //model.user.email = user.email;
-            //model.user.phone = user.phone;
-            //
-            //model.user.roles = user.roles;
-            //model.user.firstName = user.firstName;
-            //model.user.lastName = user.lastName
+            model.user = {};
+            model.user.username = user.username;
+            model.user.password = user.password;
+
+            model.user.email = user.email;
+
+            model.user.roles = user.roles;
+            model.user.likeGroups = user.likeGroups;
+            model.user.groupJoined = user.groupJoined;
 
             console.log(model.user);
 
