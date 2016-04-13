@@ -41,6 +41,7 @@
 
                         //to set up the loggedIn user info
                         $rootScope.user = {
+                            _id:loggedInUser._id,
                             username: loggedInUser.username,
                             password: loggedInUser.password,
                             verifyPassword: loggedInUser.verifyPassword,

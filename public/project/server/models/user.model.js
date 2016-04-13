@@ -20,15 +20,16 @@ module.exports = function(app,db) {
     return api;
 
     function userLikeGroup(userid, group) {
+        console.log("userlike group server");
+        console.log(group);
         var deferred = q.defer();
-        ProjectUser.findById(
+        projectUser.findById(
             userid,
             function(err, user) {
+                console.log(user);
                 if (!err) {
                     if (user) {
-                        for (var i = 0; i < user.likeGroups.length; i++) {
-                            user.likeGroups.push(group);
-                        }
+                        user.likeGroups.push(group.title);
                         user.save(function (err) {
                             if (!err) {
                                 deferred.resolve(user);
@@ -43,6 +44,7 @@ module.exports = function(app,db) {
                     deferred.reject(err);
                 }
             });
+        return deferred.promise;
         //for (var i = 0; i < users.length; i++) {
         //    if (users[i].id == userid) {
         //        users[i].likeGroups.push(group);
@@ -54,7 +56,7 @@ module.exports = function(app,db) {
 
     function joinedGroups(userid, group) {
         var deferred = q.defer();
-        ProjectUser.findById(
+        projectUser.findById(
             userid,
             function(err, user) {
                 if (!err) {
@@ -76,6 +78,7 @@ module.exports = function(app,db) {
                     deferred.reject(err);
                 }
             });
+        return deferred.promise;
 
 
 

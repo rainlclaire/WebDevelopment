@@ -22,6 +22,7 @@
             console.log(user);
             console.log(model.user);
             model.user = {};
+            model.user._id = user._id;
             model.user.username = user.username;
             model.user.password = user.password;
 

@@ -17,7 +17,8 @@
         console.log(group_id);
 
 
-        var currentUser = $rootScope.currentUser;
+        var user = $rootScope.user;
+        console.log($rootScope.user);
         //vm.favorite = favorite;
 
         model.findGroup  = findGroup;
@@ -108,14 +109,14 @@
 
 
         function manageGroup() {
-            if(currentUser.username == $scope.currentGroup.ownerName) {
+            if(user.username == $scope.currentGroup.ownerName) {
                 console.log("go to admin");
                 $location.url("/admin/"+$scope.currentGroup._id);
             }
         }
 
         function joinGroup() {
-            if (currentUser == null) {
+            if ($rootScope.user == null) {
                 $location.url("/login");
             } else {
 
@@ -123,17 +124,17 @@
                     .then(function (usersInGroup) {
 
                         model.group.listofMembers = usersInGroup;
-                        console.log(currentUser.id);
-                        UserService.joinGroup(currentUser.id, model.group)
+                        console.log($rootScope.user._id);
+                        UserService.joinGroup($rootScope.user._id, model.group)
                             .then(function (joinedGroups) {
-                                $scope.currentUser.groupJoined = joinedGroups;
+                                $scope.user.groupJoined = joinedGroups;
                             })
                     });
             }
         }
 
         function favorite() {
-            if (currentUser == null) {
+            if ($rootScope.user == null) {
                 $location.url("/login");
             } else {
                 $("span.glyphicon-star-empty").removeClass('glyphicon-star-empty').addClass('glyphicon-star');
@@ -141,10 +142,10 @@
                     .then(function (usersLikeGroup) {
 
                         model.group.usersLikeGroup = usersLikeGroup;
-                        console.log(currentUser.id);
-                        UserService.userfavoriteGroups(currentUser.id, model.group)
+                        console.log($rootScope.user._id);
+                        UserService.userfavoriteGroups($rootScope.user._id, model.group)
                             .then(function (likeGroups) {
-                                $scope.currentUser.likeGroups = likeGroups;
+                                $scope.user.likeGroups = likeGroups;
                             })
                     });
 

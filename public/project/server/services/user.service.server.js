@@ -17,9 +17,13 @@ module.exports = function (app, model) {
 
 
     function userLikeGroup(req, res) {
+        console.log("------1");
+        console.log(req.params.userid);
+        console.log("------2");
+        console.log(req.body);
         var userid = req.params.userid;
-        var user = req.body;
-        model.userLikeGroup(userid, user)
+        var group = req.body;
+        model.userLikeGroup(userid, group)
         .then(
             function(doc) {
                 res.json(doc);
