@@ -39,9 +39,9 @@
         }
 
         GroupService.findAllGroups()
-        .then(function(allGroups) {
-            model.groups= allGroups;
-        });
+            .then(function(allGroups) {
+                model.groups= allGroups;
+            });
 
         console.log(model.groups);
 
@@ -49,15 +49,15 @@
 
 
         GroupService.findGroupByID(group_id)
-        .then(function(theGroup){
-            console.log("here");
-            model.group = theGroup;
+            .then(function(theGroup){
+                console.log("here");
+                model.group = theGroup;
 
 
-            $rootScope.currentGroup = model.group;
+                $rootScope.currentGroup = model.group;
 
-            console.log($rootScope.group);
-        });
+                console.log($rootScope.group);
+            });
 
         var groups = model.groups;
 
@@ -65,7 +65,7 @@
         //console.log(group.address);
         function findGroup() {
             for(var i =0; i< groups.size; i++) {
-                //console.log("project");
+                //console.log("aaa");
                 if (groups[i]._id == group_id) {
                     var group = groups[i];
                     model.group = group;
@@ -81,14 +81,14 @@
         function initGroup() {
 
             GroupService.findGroupByID(group_id)
-            .then(function (theGroup){
-                console.log("here");
-                console.log(theGroup);
-                model.group = theGroup;
-                $rootScope.currentGroup = model.group;
-                console.log(model.group);
-                init(model.group.address);
-            } );
+                .then(function (theGroup){
+                    console.log("here");
+                    console.log(theGroup);
+                    model.group = theGroup;
+                    $rootScope.currentGroup = model.group;
+                    console.log(model.group);
+                    init(model.group.address);
+                } );
 
         }
 
@@ -97,8 +97,10 @@
         function init(groupAddress) {
 
 
+            console.log(groupAddress);
             var theurl = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q='+groupAddress;
             $scope.url = $sce.trustAsResourceUrl(theurl);
+            console.log($scope.url);
             return $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q="+groupAddress);
 
         }
@@ -151,9 +153,9 @@
 
 
         function findGroupMap() {
-
+            console.log("findgroup map");
             //console.log($scope.data);
-            GoogleMapService.searchMapByAddress(group.address)
+            GoogleMapService.searchMapByAddress(model.group.address)
                 .then(function(response) {
                     $scope.data = response.data;
                 });

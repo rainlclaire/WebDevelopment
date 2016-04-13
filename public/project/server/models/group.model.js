@@ -235,6 +235,21 @@ module.exports = function(app) {
     }
 
     function findEventByTitle(groupid,eventtitle) {
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function (err, group) {
+                if (!err) {
+                    for (var i = 0; i < group.listofEvents.length; i++) {
+                        if (group.listofEvents[i].title = eventtitle) {
+                            deferred.resolve(group.listofEvents[i]);
+                        }
+                    }
+                } else {
+                    deferred.reject(err);
+                }
+        });
+        return deferred.promise;
 
         //for (var i =0; i <groups.length; i++) {
         //
@@ -254,6 +269,18 @@ module.exports = function(app) {
 
 
     function findAllEvents(groupid){
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function(err, group) {
+                if (!err) {
+                    deferred.resolve(group.listofEvents);
+                } else {
+                    deferred.reject(err);
+                }
+        });
+        return deferred.promise;
+
         //for (var i =0; i <groups.length; i++) {
         //    if (groups[i]._id == groupid) {
         //
@@ -265,6 +292,19 @@ module.exports = function(app) {
 
 
     function findGroupById(groupid) {
+
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function(err, group) {
+                if (!err) {
+                    deferred.resolve(group);
+                } else {
+                    deferred.reject(err);
+                }
+
+        });
+        return deferred.promise;
         //for(var i = 0; i <groups.length;i++) {
         //    if (groups[i]._id == groupid) {
         //        return groups[i];
@@ -275,6 +315,19 @@ module.exports = function(app) {
 
 
     function create(newGroup) {
+        var deferred = q.defer();
+        projectGroup.create(
+            newGroup,
+            function(err, group) {
+                if (!err) {
+                    deferred.resolve(group);
+
+                } else {
+                    deferred.reject(err);
+                }
+
+        });
+        return deferred.promise;
         //newGroup._id = (new Date).getTime();
         //groups.push(newGroup);
         //
@@ -298,6 +351,20 @@ module.exports = function(app) {
     }
 
     function findById(groupid) {
+
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function(err, group) {
+                if (!err) {
+
+                    deferred.resolve(group);
+                } else {
+                    deferred.reject(err);
+                }
+
+        });
+        return deferred.promise;
         //for (var i = 0; i< groups.length;i++) {
         //    if (groups[i]._id == groupid) {
         //        return groups[i];
@@ -307,6 +374,22 @@ module.exports = function(app) {
     }
 
     function update(groupid, updateGroup) {
+        var deferred = q.defer();
+        projectGroup.findByIdAndUpdate(
+            groupid,
+            {$set:updateGroup},
+            {new:true},
+            function(err, group) {
+                if (!err) {
+                    deferred.resolve(group);
+                } else {
+                    deferred.reject(err);
+                }
+
+        });
+        return deferred.promise;
+
+
         //console.log("update model groupid");
         //
         //for (var i =0; i<groups.length;i++) {
@@ -330,6 +413,21 @@ module.exports = function(app) {
     }
 
     function remove(groupid) {
+
+        var deferred = q.defer();
+        projectGroup.remove(
+            groupid,
+            function(err, projectGroup) {
+                if (!err) {
+                    findAll()
+                    .then(function(group) {
+                        deferred.resolve(group);
+                    });
+                } else {
+                    deferred.reject(err);
+                }
+            }
+        );
         //for (var i =0; i<groups.length;i++) {
         //    if (groups[i]._id == groupid) {
         //        groups.splice(i,1);

@@ -52,10 +52,12 @@ module.exports = function (app, model) {
         //return;
     }
     function findGroupById(req, res) {
+        console.log("find grou by id sever");
         var groupid = req.params.groupid;
         model.findById(groupid)
         .then(
             function(group) {
+                console.log(group);
                 res.json(group);
             },
             function(err) {

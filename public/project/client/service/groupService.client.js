@@ -89,10 +89,12 @@
         }
 
         function findGroupByID(groupID) {
+            console.log("go to group by id");
 
             var deferred = $q.defer();
             $http.get("/api/project/group/" + groupID)
                 .success(function (response) {
+                    console.log(response);
                     deferred.resolve(response);
                 });
             return deferred.promise;

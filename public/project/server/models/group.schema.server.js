@@ -8,8 +8,7 @@ module.exports = function() {
         address: String,
         usersLikeGroup:[{type:mongoose.Schema.Types.Object, ref:'projectUser'}],
         listofEvents:[{type:mongoose.Schema.Types.Object, ref:'projectEvent'}],
-        listofMembers:[{type:mongoose.Schema.Types.Object, ref:'projectUser'}],
-        roles:[String]
+        listofMembers:[{type:mongoose.Schema.Types.Object, ref:'projectUser'}]
     }, {collection: "projectGroup"});
     return GroupSchema;
 };
