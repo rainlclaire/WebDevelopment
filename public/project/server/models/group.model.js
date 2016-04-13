@@ -25,124 +25,260 @@ module.exports = function(app) {
     return api;
 
     function findAllUser(groupid) {
-        for (var i = 0; i < groups.length; i++) {
-            if (groups[i]._id == groupid) {
-                return groups[i].listofMembers;
+        var deferred = q.defer();
+        projectGroup.find(
+            groupid,
+            function(err, group) {
+                if (!err) {
+                    deferred.resolve(group.listofMembers);
+                } else {
+                    deferred.reject(err);
+                }
             }
-        }
+        );
+        //for (var i = 0; i < groups.length; i++) {
+        //    if (groups[i]._id == groupid) {
+        //        return groups[i].listofMembers;
+        //    }
+        //}
+        return deferred.promise;
     }
 
     function userLikeGroup(groupid, user) {
-        for (var i = 0; i < groups.length; i++) {
-            if (groups[i]._id == groupid) {
-                console.log(groups[i].usersLikeGroup);
-                groups[i].usersLikeGroup.push(user);
-                return groups[i].usersLikeGroup;
-            }
-        }
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function(err, group) {
+                if (!err) {
+                    for (var i = 0; i < group.usersLikeGroup.length; i++) {
+                        group.usersLikeGroup.push(user);
+                    }
+                    group.save(
+                        function (err, group) {
+                            if (!err) {
+                                deferred.resolve(group);
+                            } else {
+                                deferred.reject();
+                            }
+                        }
+                    );
+                    //for (var i = 0; i < groups.length; i++) {
+                    //    if (groups[i]._id == groupid) {
+                    //        console.log(groups[i].usersLikeGroup);
+                    //        groups[i].usersLikeGroup.push(user);
+                    //        return groups[i].usersLikeGroup;
+                    //    }
+                    //}
+                }
+            });
+        return deferred.promise;
     }
     function userJoinGroup(groupid, user) {
-        console.log(groupid);
-        for (var i = 0; i < groups.length; i++) {
-            if (groups[i]._id == groupid) {
-                groups[i].listofMembers.push(user);
-                return groups[i].listofMembers;
-            }
-        }
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function(err, group) {
+                if (!err) {
+                    for (var i = 0; i < group.listofMembers.length; i++) {
+                        group.listofMembers.push(user);
+                    }
+                    group.save(
+                        function (err, group) {
+                            if (!err) {
+                                deferred.resolve(group);
+                            } else {
+                                deferred.reject();
+                            }
+                        }
+                    );
+                }
+                //console.log(groupid);
+                //for (var i = 0; i < groups.length; i++) {
+                //    if (groups[i]._id == groupid) {
+                //        groups[i].listofMembers.push(user);
+                //        return groups[i].listofMembers;
+                //    }
+                //}
+
+            });
+        return deferred.promise;
     }
+
 
     function updateEventForGroup(groupid,eventid, event) {
-        for (var i =0; i<groups.length;i++) {
-            if (groups[i]._id == groupid) {
-                for (var j = 0; j < groups[i].listofEvents.length; j++) {
-                    if (groups[i].listofEvents[j]._id == eventid) {
-                        groups[i].listofEvents[j]._id = event._id;
-                        groups[i].listofEvents[j].title = event.title;
-                        groups[i].listofEvents[j].date = event.date;
-                        groups[i].listofEvents[j].description = event.description;
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function (err, group) {
+                if (!err) {
 
-                        console.log("updateevent in model ");
-                        console.log(groups[i].listofEvents);
+                    if (group) {
 
-                        return groups[i].listofEvents;
+                        for (var i = 0; i < group.listofEvents.length; i++) {
+                            if (group.listofEvents[i]._id == eventid) {
+
+                                group.listofEvents[i] == event;
+                            }
+                        }
+
+                        group.save(function (err) {
+                            if (!err) {
+                                deferred.resolve(project)
+                            } else {
+                                deferred.reject(err);
+                            }
+                        })
                     }
                 }
-            }
-        }
+            });
+        return deferred.promise;
     }
 
+
+
+
+
+
+
+
+
+        //for (var i =0; i<groups.length;i++) {
+        //    if (groups[i]._id == groupid) {
+        //        for (var j = 0; j < groups[i].listofEvents.length; j++) {
+        //            if (groups[i].listofEvents[j]._id == eventid) {
+        //                groups[i].listofEvents[j]._id = event._id;
+        //                groups[i].listofEvents[j].title = event.title;
+        //                groups[i].listofEvents[j].date = event.date;
+        //                groups[i].listofEvents[j].description = event.description;
+        //
+        //                console.log("updateevent in model ");
+        //                console.log(groups[i].listofEvents);
+        //
+        //                return groups[i].listofEvents;
+        //            }
+        //        }
+        //    }
+        //}
+
+
     function deleteEventForGroup(groupid, eventid) {
-        for (var i = 0; i < groups.length; i++) {
-            if (groups[i]._id == groupid) {
-                for (var j = 0; j < groups[i].listofEvents.length; j++) {
-                    if (groups[i].listofEvents[j]._id == eventid) {
-                        groups[i].listofEvents.splice(j, 1);
-                        return groups[i].listofEvents;
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function (err, group) {
+                if (!err) {
+
+                    if (group) {
+
+                        for (var i = 0; i < group.listofEvents.length; i++) {
+                            if (group.listofEvents[i]._id == eventid) {
+
+                                group.listofEvents.splice(i,1);
+                            }
+                        }
+
+                        group.save(function (err) {
+                            if (!err) {
+                                deferred.resolve(project)
+                            } else {
+                                deferred.reject(err);
+                            }
+                        })
                     }
                 }
-            }
-        }
+            });
+        return deferred.promise;
+
+        //for (var i = 0; i < groups.length; i++) {
+        //    if (groups[i]._id == groupid) {
+        //        for (var j = 0; j < groups[i].listofEvents.length; j++) {
+        //            if (groups[i].listofEvents[j]._id == eventid) {
+        //                groups[i].listofEvents.splice(j, 1);
+        //                return groups[i].listofEvents;
+        //            }
+        //        }
+        //    }
+        //}
     }
 
     function createEventForGroup(groupid, event) {
-        event._id = (new Date).getTime();
-        console.log("start hrer to see groups");
-        console.log(groups);
-        for (var i = 0; i < groups.length; i++) {
-            console.log("groups in create");
-            if (groups[i]._id == groupid) {
-                console.log(groups[i]);
-                groups[i].listofEvents.push(event);
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function (err, group) {
 
-                return groups[i].listofEvents;
-            }
-        }
+                event._id = mongoose.Types.ObjectId();
+                group.field.push(event);
+                group.save(function (err, event) {
+                    if (!err) {
+                        console.log("this is form");
+
+                        deferred.resolve(group.listofEvents);
+                    } else {
+                        deferred.reject(err);
+                    }
+                });
+            });
+
+        //event._id = (new Date).getTime();
+        //console.log("start hrer to see groups");
+        //console.log(groups);
+        //for (var i = 0; i < groups.length; i++) {
+        //    console.log("groups in create");
+        //    if (groups[i]._id == groupid) {
+        //        console.log(groups[i]);
+        //        groups[i].listofEvents.push(event);
+        //
+        //        return groups[i].listofEvents;
+        //    }
+        //}
     }
 
     function findEventByTitle(groupid,eventtitle) {
-        for (var i =0; i <groups.length; i++) {
 
-            if (groups[i]._id == groupid) {
-
-                for (var j =0 ; j <groups[i].listofEvents.length; j++) {
-
-                    if (groups[i].listofEvents[j].title == eventtitle) {
-
-                        return groups[i].listofEvents[j];
-                    }
-                }
-            }
-        }
-        return null;
+        //for (var i =0; i <groups.length; i++) {
+        //
+        //    if (groups[i]._id == groupid) {
+        //
+        //        for (var j =0 ; j <groups[i].listofEvents.length; j++) {
+        //
+        //            if (groups[i].listofEvents[j].title == eventtitle) {
+        //
+        //                return groups[i].listofEvents[j];
+        //            }
+        //        }
+        //    }
+        //}
+        //return null;
     }
 
 
     function findAllEvents(groupid){
-        for (var i =0; i <groups.length; i++) {
-            if (groups[i]._id == groupid) {
-
-                return groups[i].listofEvents;
-            }
-        }
-        return null;
+        //for (var i =0; i <groups.length; i++) {
+        //    if (groups[i]._id == groupid) {
+        //
+        //        return groups[i].listofEvents;
+        //    }
+        //}
+        //return null;
     }
 
 
     function findGroupById(groupid) {
-        for(var i = 0; i <groups.length;i++) {
-            if (groups[i]._id == groupid) {
-                return groups[i];
-            }
-        }
-        return null;
+        //for(var i = 0; i <groups.length;i++) {
+        //    if (groups[i]._id == groupid) {
+        //        return groups[i];
+        //    }
+        //}
+        //return null;
     }
 
 
     function create(newGroup) {
-        newGroup._id = (new Date).getTime();
-        groups.push(newGroup);
-
-        return newGroup;
+        //newGroup._id = (new Date).getTime();
+        //groups.push(newGroup);
+        //
+        //return newGroup;
     }
 
 
@@ -162,45 +298,45 @@ module.exports = function(app) {
     }
 
     function findById(groupid) {
-        for (var i = 0; i< groups.length;i++) {
-            if (groups[i]._id == groupid) {
-                return groups[i];
-            }
-        }
-        return null;
+        //for (var i = 0; i< groups.length;i++) {
+        //    if (groups[i]._id == groupid) {
+        //        return groups[i];
+        //    }
+        //}
+        //return null;
     }
 
     function update(groupid, updateGroup) {
-        console.log("update model groupid");
-
-        for (var i =0; i<groups.length;i++) {
-            if (groups[i]._id == groupid) {
-                //groups[i]._id = updateGroup._id;
-                groups[i].title = updateGroup.title;
-                groups[i].ownerName = updateGroup.ownerName;
-                groups[i].description = updateGroup.description;
-                groups[i].address = updateGroup.address;
-                groups[i].listofMembers = updateGroup.listofMembers;
-                groups[i].listofEvents = updateGroup.listofEvents;
-                groups[i].usersLikeGroup = updateGroup.usersLikeGroup;
-
-                console.log("update");
-                console.log(groups[i]);
-                return groups[i];
-            }
-        }
-
-        return null;
+        //console.log("update model groupid");
+        //
+        //for (var i =0; i<groups.length;i++) {
+        //    if (groups[i]._id == groupid) {
+        //        //groups[i]._id = updateGroup._id;
+        //        groups[i].title = updateGroup.title;
+        //        groups[i].ownerName = updateGroup.ownerName;
+        //        groups[i].description = updateGroup.description;
+        //        groups[i].address = updateGroup.address;
+        //        groups[i].listofMembers = updateGroup.listofMembers;
+        //        groups[i].listofEvents = updateGroup.listofEvents;
+        //        groups[i].usersLikeGroup = updateGroup.usersLikeGroup;
+        //
+        //        console.log("update");
+        //        console.log(groups[i]);
+        //        return groups[i];
+        //    }
+        //}
+        //
+        //return null;
     }
 
     function remove(groupid) {
-        for (var i =0; i<groups.length;i++) {
-            if (groups[i]._id == groupid) {
-                groups.splice(i,1);
-
-                return groups;
-            }
-        }
+        //for (var i =0; i<groups.length;i++) {
+        //    if (groups[i]._id == groupid) {
+        //        groups.splice(i,1);
+        //
+        //        return groups;
+        //    }
+        //}
     }
 
     function findGroupByTitle(groupTitle) {

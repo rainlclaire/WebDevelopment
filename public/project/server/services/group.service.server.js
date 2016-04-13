@@ -25,21 +25,59 @@ module.exports = function (app, model) {
     function findGroups(req, res) {
         var title = req.query.title;
         if (title) {
-            var titleGroup = model.findGroupByTitle(title);
-            res.status(200).send(titleGroup);
-            return;
+            model.findOne(title)
+            .then(
+                function(group) {
+                    res.json(group);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
+            //var titleGroup = model.findGroupByTitle(title);
+            //res.status(200).send(titleGroup);
+            //return;
         }
 
-        res.status(200).send(model.findAll());
-        return;
+        model.findAll()
+        .then(
+            function(group) {
+                res.json(group);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+        //res.status(200).send(model.findAll());
+        //return;
     }
     function findGroupById(req, res) {
-        res.json(model.findById(req.params.groupid));
+        var groupid = req.params.groupid;
+        model.findById(groupid)
+        .then(
+            function(group) {
+                res.json(group);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+        //res.json(model.findById(req.params.groupid));
     }
 
     function createGroup(req, res) {
+        var newGroup = req.body;
+        model.create(newGroup)
+        .then(
+            function(newGroup) {
+                res.json(newGroup);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
 
-       res.json(model.create(req.body));
+       //res.json(model.create(req.body));
     }
 
     //function findGroupByTitle(req, res) {
@@ -49,16 +87,38 @@ module.exports = function (app, model) {
     //}
 
     function updateGroup(req,res) {
-        console.log("updategroup sever");
-        console.log(req.params.groupid);
-        var group = model.update(req.params.groupid, req.body);
-        res.json(group);
+        var groupid = req.params.groupid;
+        var upatedGroup = req.body;
+        model.update(groupid, updateGroup()
+        .then(
+            function(group) {
+                res.json(group);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        ));
+
+        //console.log("updategroup sever");
+        //console.log(req.params.groupid);
+        //var group = model.update(req.params.groupid, req.body);
+        //res.json(group);
     }
 
     function removeGroup(req, res) {
-       model.remove(req.params.groupid);
-
-        res.json(model.findAll());
+        var groupid = req.params.groupid;
+        model.remove(groupid)
+        .then(
+            function(group) {
+                res.json(group);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+       //model.remove(req.params.groupid);
+       //
+       // res.json(model.findAll());
     }
 
 };

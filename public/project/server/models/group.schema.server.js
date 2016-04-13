@@ -6,6 +6,7 @@ module.exports = function() {
         createDate:Date,
         description: String,
         address: String,
+        usersLikeGroup:[{type:mongoose.Schema.Types.Object, ref:'projectUser'}],
         listofEvents:[{type:mongoose.Schema.Types.Object, ref:'projectEvent'}],
         listofMembers:[{type:mongoose.Schema.Types.Object, ref:'projectUser'}],
         roles:[String]

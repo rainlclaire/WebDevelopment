@@ -59,7 +59,7 @@
         }
 
         function addGroup2() {
-            if ($rootScope.currentUser == null){
+            if ($rootScope.user == null){
                 alert("You have to login/register");
                 $location.url("/login");
 

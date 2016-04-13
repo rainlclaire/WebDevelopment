@@ -17,22 +17,54 @@ module.exports = function (app, model) {
 
 
     function userLikeGroup(req, res) {
-        console.log("userid");
-        console.log(req.params.userid);
-        res.json(model.userLikeGroup(req.params.userid, req.body));
+        var userid = req.params.userid;
+        var user = req.body;
+        model.userLikeGroup(userid, user)
+        .then(
+            function(doc) {
+                res.json(doc);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+        //console.log("userid");
+        //console.log(req.params.userid);
+        //res.json(model.userLikeGroup(req.params.userid, req.body));
     }
 
 
     function joinedGroups(req, res) {
-        res.json(model.joinedGroups(req.params.userid, req.body));
+        var userid = req.params.userid;
+        var user = req.body;
+        model.joinedGroups(userid, user)
+        .then(
+            function(doc) {
+                res.json(doc);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+        //res.json(model.joinedGroups(req.params.userid, req.body));
     }
 
     function createUser(req, res) {
+        var newuser = req.body;
+        model.create(newuser)
+        .then(
+            function(user) {
+                res.json(user);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
         //model.create(req.body)
         //.then(function(users) {
         //    res.json(users);
         //});
-        res.json(model.create(req.body));
+        //res.json(model.create(req.body));
     }
 
     function findUsers(req, res) {

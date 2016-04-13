@@ -1,0 +1,129 @@
+<div class="container">
+    <h1>Edit Profile</h1>
+    <hr>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+            <div>
+                <img id="user-image" src="//placehold.it/200" class="avatar img-circle" alt="avatar">
+
+
+                <input type="file" class="form-control uploadImage">
+            </div>
+            <hr>
+            <div>
+                <div class="likeGroups"> Favorite Groups</div>
+                <div class="likeGroup"><a ng-repeat="group in user.likeGroups"><br>{{group.title}}</a></div>
+            </div>
+
+            <hr>
+            <div>
+                <div class="likeGroups"> Join Groups</div>
+                <div class="likeGroup"><a ng-repeat="group in user.groupJoined"><br>{{group.title}}</a></div>
+            </div>
+        </div>
+
+
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+            <!--<div class="alert alert-info alert-dismissable">-->
+            <!--<a class="panel-close close" data-dismiss="alert">×</a>-->
+            <!--<i class="fa fa-coffee"></i>-->
+            <!--This is an <strong>.alert</strong>. Use this to show important messages to the user.-->
+            <!--</div>-->
+            <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
+            <div ng-show="error"  vclass="alert alert-danger"  role="alert">{{error}}</div>
+            <h1>Personal info</h1>
+
+
+            <form class="form-horizontal" role="form">
+
+                <!--<div class="form-group">-->
+                    <!--<label for="firstName" class="col-md-3 control-label">First name:</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input ng-model="model.user.firstName" id="firstName" class="form-control profileInput" type="text" placeholder="First Name">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label for="lastName" class="col-md-3 control-label">Last name:</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input ng-model="model.user.lastName" type="text" id="lastName" class="form-control profileInput" placeholder="Last Name">-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div class="form-group">
+                    <label for="email" class="col-md-3 control-label">Email:</label>
+                    <div class="col-md-9">
+                        <input ng-model="model.user.email" id="email" class="form-control profileInput" type="email" placeholder="email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="col-md-3 control-label">Username:</label>
+                    <div class="col-md-9">
+                        <input ng-model="model.user.username" class="form-control profileInput" id="username" type="text" placeholder="Username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Password:</label>
+                    <div class="col-md-9">
+                        <input ng-model="model.user.password" class="form-control profileInput" type="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="verifyPassword" class="col-md-3 control-label">Verify password:</label>
+                    <div class="col-md-9">
+                        <input ng-model="model.user.verifyPassword" class="form-control profileInput" type="password" id="verifyPassword" placeholder="Verify Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        <button ng-click="model.update(model.user)" class="btn btn-danger profileUpdate form-control">Update</button>
+                        </br>
+                        <button ng-click="model.cancel()" class="btn btn-primary profileCancel form-control">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+
+
+<!--<label for="username" class="control-label">Username</label>-->
+<!--<input ng-model="currentUser.username" type="text" id="username" placeholder="johndoe">-->
+
+<!--<label for="password" class="control-label">Password</label>-->
+<!--<input ng-model="currentUser.password" type="password" id="password" placeholder="p@ssw0rd">-->
+
+<!--<label for="password2" class="control-label">Verify Password</label>-->
+<!--<input ng-model="currentUser.password2" type="password" id="password2" placeholder="p@ssw0rd">-->
+
+
+<!--<label for="firstName" class="control-label">First Name</label>-->
+<!--<input ng-model="currentUser.firstName" type="text" id="firstName" placeholder="John">-->
+
+<!--<label for="lastName" class="control-label">Last Name</label>-->
+<!--<input ng-model="currentUser.lastName" type="text" id="lastName" placeholder="Doe">-->
+
+
+<!--<label for="email" class="control-label">Email</label>-->
+<!--<input ng-model="currentUser.email" type="email" id="email" placeholder="john@doe.com">-->
+
+<!--<button ng-click="updateUser(currentUser)" class="btn btn-primary btn-lg btn-block">Update</button>-->
+<!--<div ng-show="message" class="alert alert-success" role="alert">{{message}}</div>-->
+
+
+
+<div class="bottomContent">
+    <form class="extra-content">
+        <hr>
+        <h1>FindGroup</h1>
+        <a href="#">Help</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <p>@2016 FindGroup</p>
+    </form>
+</div>
