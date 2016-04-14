@@ -36,6 +36,7 @@
                 title: group.title,
                 _id: group._id,
                 ownerName: group.ownerName,
+                htmlVariable:group.htmlVariable,
                 description: group.description,
                 listofEvents: group.listofEvents,
                 address: group.address
@@ -44,6 +45,7 @@
             //inti the title with empty
             model.clickGroup.title = "";
             model.clickGroup.ownerName = "";
+            model.clickGroup.htmlVariable="";
             model.clickGroup.address = "";
             model.clickGroup.description = "";
             model.clickGroup.listofEvents = "";
