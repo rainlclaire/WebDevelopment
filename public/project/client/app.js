@@ -2,5 +2,5 @@
 "use strict";
 
 (function() {
-    angular.module("FindGroupApp", ["ngRoute","ui.bootstrap"]);
+    angular.module("FindGroupApp", ["ngRoute","ui.bootstrap","textAngular"]);
 })();
