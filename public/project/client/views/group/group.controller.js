@@ -9,11 +9,20 @@
         var user = $rootScope.currentUser;
 
 
+
         function init() {
             GroupService.findAllGroups()
                 .then(function(groups) {
                     console.log("from group contrller");
                     console.log(groups);
+                    function htmlString (str) {
+                        return "<h1>" + str + "</h1>";
+                    }
+                   for (var i = 0; i< groups.length;i++){
+                       var str = groups[i].htmlVariable;
+                       $scope.htmlString = htmlString(str);
+                       console.log($scope.htmlString);
+                   }
                     model.groups = groups;
                 });
         }
@@ -32,6 +41,10 @@
 
         //add the form to currentForms
         function addGroup(group) {
+            init();
+
+
+            console.log(textAngular);
             var newGroup = {
                 title: group.title,
                 _id: group._id,
@@ -52,12 +65,28 @@
 
             GroupService.createGroup(newGroup)
                 .then(function(newGroup){
+                    function htmlString (str) {
+                        return "<h1>" + str + "</h1>";
+                    }
+                    var str = newGroup.htmlVariable;
+                    $scope.htmlString = htmlString(str);
+                    console.log($scope.htmlString);
                     GroupService.findAllGroups()
                         .then(function(allGroups) {
+                            //function htmlString (str) {
+                            //    return "<h1>" + str + "</h1>";
+                            //}
+                            //for (var i = 0; i< allGroups.length;i++){
+                            //    var str = allGroups[i].htmlVariable;
+                            //    $scope.htmlString = htmlString(str);
+                            //    console.log($scope.htmlString);
+                            //}
+                            init();
                             model.groups = allGroups;
 
                         });
                 });
+
         }
 
         function addGroup2() {

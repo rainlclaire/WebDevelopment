@@ -15,9 +15,10 @@
 
 
         function addGroupToGroups(newgroup) {
+
             console.log(newgroup.ownerName);
             console.log($rootScope.user.username);
-            console.log(newgroup.htmlVariable);
+
             if (newgroup.ownerName != $rootScope.user.username) {
                 alert("You have to keep the default ownername!");
 
