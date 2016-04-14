@@ -15,6 +15,9 @@
                 ng-click="model.favorite()">
                 <span class="glyphicon glyphicon-star-empty"></span>
                 </button>
+                <button class="btn btn-primay"
+                        ng-click="model.joinGroup()">Join Group Now
+                    </button>
                 <button class="createGroup" ng-show="user.username===model.group.ownerName" ng-click="model.manageGroup()">Manage the Group</button>
 
             </div>
@@ -47,9 +50,11 @@
                         <p><span>Group Owner</span></p>
                         <p>{{model.group.ownerName}}</p>
                         <p><span>Event Number</span></p>
-                        <p>{{model.group.listofEvents.length}}</p>
+                        <p>{{model.group.listofEvents}}</p>
                         <p><span>Member Number</span></p>
-                        <p>{{model.group.listofMembers.length}}</p>
+                        <p>{{model.group.listofMembers}}</p>
+                        <p><span>userlike Number</span></p>
+                        <p>{{model.group.usersLikeGroup}}</p>
                         <p><span>COMMENTS</span></p>
                         <p>4</p>
 

@@ -50,9 +50,7 @@ module.exports = function(app) {
             groupid,
             function(err, group) {
                 if (!err) {
-                    for (var i = 0; i < group.usersLikeGroup.length; i++) {
-                        group.usersLikeGroup.push(user);
-                    }
+                    group.usersLikeGroup.push(user.username);
                     group.save(
                         function (err, group) {
                             if (!err) {
@@ -79,9 +77,7 @@ module.exports = function(app) {
             groupid,
             function(err, group) {
                 if (!err) {
-                    for (var i = 0; i < group.listofMembers.length; i++) {
-                        group.listofMembers.push(user);
-                    }
+                    group.listofMembers.push(user.username);
                     group.save(
                         function (err, group) {
                             if (!err) {

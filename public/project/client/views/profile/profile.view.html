@@ -13,13 +13,15 @@
             <hr>
             <div>
                 <div class="likeGroups"> Favorite Groups</div>
-                <div class="likeGroup"><a ng-repeat="group in user.likeGroups"><br>{{group.title}}</a></div>
+                {{user.likeGroups}}
+                <!--<div class="likeGroup"><a ng-repeat="group in user.likeGroups"><br>{{group.title}}</a></div>-->
             </div>
 
             <hr>
             <div>
                 <div class="likeGroups"> Join Groups</div>
-                <div class="likeGroup"><a ng-repeat="group in user.groupJoined"><br>{{group.title}}</a></div>
+                {{user.groupJoined}}
+                <!--<div class="likeGroup"><a ng-repeat="group in user.groupJoined"><br>{{group.title}}</a></div>-->
             </div>
         </div>
 

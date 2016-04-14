@@ -119,6 +119,7 @@
             var deferred = $q.defer();
             $http.post("/api/project/user/"+userid+"/userJoinGroup", group)
                 .success(function (response) {
+                    console.log(response);
                     deferred.resolve(response);
                 });
             return deferred.promise;

@@ -44,11 +44,10 @@
                             _id:loggedInUser._id,
                             username: loggedInUser.username,
                             password: loggedInUser.password,
-                            verifyPassword: loggedInUser.verifyPassword,
-                            firstName: loggedInUser.firstName,
-                            lastName: loggedInUser.lastName,
                             email: loggedInUser.email,
-                            roles: loggedInUser.roles
+                            roles: loggedInUser.roles,
+                            likeGroups: loggedInUser.likeGroups,
+                            groupJoined: loggedInUser.groupJoined
                         };
                         //set up the path for navigating to profile
                         $location.path("/profile");

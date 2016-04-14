@@ -10,18 +10,51 @@ module.exports = function (app, model) {
     app.get("/api/project/group/:groupid/groupUsers", findUserForGroup);
 
     function findUserForGroup(req, res) {
-        res.json(model.findAllUser(req.params.groupid));
+        var groupid = req.params.groupid;
+        model.findAllUser(groupid)
+        .then(
+            function(users) {
+                res.json(users);
+            },
+            function(err){
+                res.status(400).send(err);
+            }
+        );
+        //res.json(model.findAllUser(req.params.groupid));
     }
 
     function userLikeGroup(req, res) {
-        res.json(model.userLikeGroup(req.params.groupid, req.body));
+        var groupid = req.params.groupid;
+        var user = req.body;
+        model.userLikeGroup(groupid, user)
+        .then(
+            function(group) {
+                res.json(group);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+        //res.json(model.userLikeGroup(req.params.groupid, req.body));
     }
 
     function userJoinGroup(req, res) {
         console.log("group sevrice sever");
         console.log(req.params.groupid);
-        res.json(model.userJoinGroup(req.params.groupid, req.body));
+        var groupid = req.params.groupid;
+        var user = req.body;
+        model.userJoinGroup(groupid, user)
+        .then(
+            function(group) {
+                res.json(group);
+            },
+            function(err) {
+                res.status(400).send(err);
+            }
+        );
+        //res.json(model.userJoinGroup(req.params.groupid, req.body));
     }
+
     function findGroups(req, res) {
         var title = req.query.title;
         if (title) {

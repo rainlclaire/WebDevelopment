@@ -122,12 +122,14 @@
 
                 GroupService.userJoinGroup($rootScope.user, group_id)
                     .then(function (usersInGroup) {
+                        console.log(usersInGroup);
 
-                        model.group.listofMembers = usersInGroup;
+                        model.group.listofMembers = usersInGroup.listofMembers;
                         console.log($rootScope.user._id);
                         UserService.joinGroup($rootScope.user._id, model.group)
-                            .then(function (joinedGroups) {
-                                $scope.user.groupJoined = joinedGroups;
+                            .then(function (user) {
+                                console.log(user);
+                                $scope.user.groupJoined = user.groupJoined;
                             })
                     });
             }
@@ -140,12 +142,13 @@
                 $("span.glyphicon-star-empty").removeClass('glyphicon-star-empty').addClass('glyphicon-star');
                 GroupService.userLikeGroup($rootScope.user, group_id)
                     .then(function (usersLikeGroup) {
-
-                        model.group.usersLikeGroup = usersLikeGroup;
+                        console.log(usersLikeGroup);
+                        model.group.usersLikeGroup = usersLikeGroup.usersLikeGroup;
                         console.log($rootScope.user._id);
                         UserService.userfavoriteGroups($rootScope.user._id, model.group)
-                            .then(function (likeGroups) {
-                                $scope.user.likeGroups = likeGroups;
+                            .then(function (user) {
+                                console.log(user);
+                                $scope.user.likeGroups = user.likeGroups;
                             })
                     });
 

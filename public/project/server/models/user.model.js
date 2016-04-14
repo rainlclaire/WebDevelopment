@@ -61,9 +61,9 @@ module.exports = function(app,db) {
             function(err, user) {
                 if (!err) {
                     if (user) {
-                        for (var i = 0; i < user.groupJoined.length; i++) {
-                            user.groupJoined.push(group);
-                        }
+                        user.groupJoined.push(group.title);
+                        console.log('joinedGrouphere ----');
+                        console.log(user);
                         user.save(function (err) {
                             if (!err) {
                                 deferred.resolve(user);
