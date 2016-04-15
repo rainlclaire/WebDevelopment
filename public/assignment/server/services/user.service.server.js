@@ -206,7 +206,7 @@ module.exports = function (app, model, db) {
         //        }
         //    );
         //}
-    }
+
 
 
     function findUserById(req, res) {
@@ -364,19 +364,18 @@ module.exports = function (app, model, db) {
         //.then(function(users) {
         //    res.json(users);
         //})
-        model.findUserByCredentials({username:reqUsername, password:reqPassword})
-        .then(
-            function(user) {
-                res.json(user);
-            },
-            function(err) {
-                res.status(400).send(err);
-            }
-        );
+        model.findUserByCredentials({username: reqUsername, password: reqPassword})
+            .then(
+                function (user) {
+                    res.json(user);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
 
 
-
-
+    }
 
 
 
