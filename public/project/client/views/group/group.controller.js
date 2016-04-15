@@ -4,25 +4,28 @@
     angular.module('FindGroupApp')
         .controller("GroupController", GroupController);
 
-    function GroupController($scope, $uibModal,$location, $rootScope, GroupService) {
+    function GroupController($scope, $sce,$uibModal,$location, $rootScope, GroupService) {
         var model = this;
         var user = $rootScope.currentUser;
-
+        var htmlString = $scope.htmlString;
 
 
         function init() {
             GroupService.findAllGroups()
                 .then(function(groups) {
-                    console.log("from group contrller");
-                    console.log(groups);
-                    function htmlString (str) {
-                        return "<h1>" + str + "</h1>";
-                    }
-                   for (var i = 0; i< groups.length;i++){
-                       var str = groups[i].htmlVariable;
-                       $scope.htmlString = htmlString(str);
-                       console.log($scope.htmlString);
-                   }
+                   // console.log("from group contrller");
+                   // console.log(groups);
+                   // function htmlString (str) {
+                   //     return "<h1>" + str + "</h1>";
+                   // }
+                   //for (var i = 0; i< groups.length;i++){
+                   //    console.log(groups[i].htmlVariable);
+                   //    groups[i].htmlVariable = $sce.trustAsHtml(groups[i].htmlVariable);
+                   //    console.log(groups[i]);
+                   //    //var str = groups[i].htmlVariable;
+                   //    //$scope.htmlString = htmlString(str);
+                   //    //console.log($scope.htmlString);
+                   //}
                     model.groups = groups;
                 });
         }
@@ -32,7 +35,6 @@
 
         var clickGroup = $rootScope.clickGroup;
         //function for form
-        model.addGroup = addGroup;
         model.updateGroup = updateGroup;
         model.deleteGroup = deleteGroup;
         model.selectGroup = selectGroup;
@@ -40,54 +42,49 @@
 
 
         //add the form to currentForms
-        function addGroup(group) {
-            init();
-
-
-            console.log(textAngular);
-            var newGroup = {
-                title: group.title,
-                _id: group._id,
-                ownerName: group.ownerName,
-                htmlVariable:group.htmlVariable,
-                description: group.description,
-                listofEvents: group.listofEvents,
-                address: group.address
-            };
-
-            //inti the title with empty
-            model.clickGroup.title = "";
-            model.clickGroup.ownerName = "";
-            model.clickGroup.htmlVariable="";
-            model.clickGroup.address = "";
-            model.clickGroup.description = "";
-            model.clickGroup.listofEvents = "";
-
-            GroupService.createGroup(newGroup)
-                .then(function(newGroup){
-                    function htmlString (str) {
-                        return "<h1>" + str + "</h1>";
-                    }
-                    var str = newGroup.htmlVariable;
-                    $scope.htmlString = htmlString(str);
-                    console.log($scope.htmlString);
-                    GroupService.findAllGroups()
-                        .then(function(allGroups) {
-                            //function htmlString (str) {
-                            //    return "<h1>" + str + "</h1>";
-                            //}
-                            //for (var i = 0; i< allGroups.length;i++){
-                            //    var str = allGroups[i].htmlVariable;
-                            //    $scope.htmlString = htmlString(str);
-                            //    console.log($scope.htmlString);
-                            //}
-                            init();
-                            model.groups = allGroups;
-
-                        });
-                });
-
-        }
+        //function addGroup(group) {
+        //    init();
+        //
+        //
+        //    console.log(textAngular);
+        //    var newGroup = {
+        //        title: group.title,
+        //        _id: group._id,
+        //        ownerName: group.ownerName,
+        //        htmlVariable:group.htmlVariable,
+        //        description: group.description,
+        //        listofEvents: group.listofEvents,
+        //        address: group.address
+        //    };
+        //
+        //    //inti the title with empty
+        //    model.clickGroup.title = "";
+        //    model.clickGroup.ownerName = "";
+        //    model.clickGroup.htmlVariable="";
+        //    model.clickGroup.address = "";
+        //    model.clickGroup.description = "";
+        //    model.clickGroup.listofEvents = "";
+        //
+        //    GroupService.createGroup(newGroup)
+        //        .then(function(newGroup){
+        //            GroupService.findAllGroups()
+        //                .then(function(allGroups) {
+        //                    //console.log("add group test for -----");
+        //                    //console.log(allGroups);
+        //                    //function htmlString (str) {
+        //                    //    return "<h1>" + str + "</h1>";
+        //                    //}
+        //                    //for (var i = 0; i< allGroups.length;i++){
+        //                    //    var str = allGroups[i].htmlVariable;
+        //                    //    $scope.htmlString = htmlString(str);
+        //                    //    console.log($scope.htmlString);
+        //                    //}
+        //                    model.groups = allGroups;
+        //
+        //                });
+        //        });
+        //
+        //}
 
         function addGroup2() {
             if ($rootScope.user == null){
@@ -111,6 +108,8 @@
                     }
                 })
             }
+
+
         }
 
 
