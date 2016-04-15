@@ -29,7 +29,6 @@
                     title: newgroup.title,
                     ownerName: newgroup.ownerName,
                     htmlVariable:newgroup.htmlVariable,
-                    description: newgroup.description,
                     address:newgroup.address,
                     listofEvents:[],
                     listofMembers:[],
@@ -46,16 +45,6 @@
 
                                 allGroups[i].htmlVariable = $sce.trustAsHtml(allGroups[i].htmlVariable);
                                 console.log($sce.valueOf(allGroups[i].htmlVariable));
-                                //console.log("add group test for -----");
-                                //console.log(allGroups);
-                                //function htmlString (str) {
-                                //    return "<h1>" + str + "</h1>";
-                                //}
-                                //for (var i = 0; i< allGroups.length;i++){
-                                //    var str = allGroups[i].htmlVariable;
-                                //    $scope.htmlString = htmlString(str);
-                                //    console.log($scope.htmlString);
-                                //}
                             }
                             model.groups = allGroups;
 

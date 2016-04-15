@@ -120,7 +120,6 @@
                 model.groups[model.selectGroupIndex]._id = group._id;
                 model.groups[model.selectGroupIndex].title = group.title;
                 model.groups[model.selectGroupIndex].adress = group.adress;
-                model.groups[model.selectGroupIndex].description = group.description;
                 model.groups[model.selectGroupIndex].ownerName = group.ownerName;
                 model.groups[model.selectGroupIndex].listofEvents = group.listofEvents;
                 model.groups[model.selectGroupIndex].listofMembers = group.listofMembers;
@@ -158,7 +157,6 @@
                 "title": model.groups[index].title,
                 "address": model.groups[index].address,
                 "ownerName": model.groups[index].ownerName,
-                "description": model.groups[index].description,
                 "listofEvents": model.groups[index].listofEvents,
                 "listofMembers":model.groups[index].listofMembers
             };

@@ -185,6 +185,21 @@ div.homeSearch button{
 	line-height: 50px;
 	background:none repeat scroll 0 0 #E8663C;
 }
+div.groupAddPage.form-group div {
+
+
+}
+div.groupAddPage.form-group label {
+	text-align:left;
+
+}
+
+div.groupAddPage input {
+	text-align:left;
+	width:97%;
+	margin-left:15px;
+
+}
 @media screen and (max-width: 830px) {
 	.ei-title{
 		position: absolute;
