@@ -43,7 +43,9 @@
             FieldService.updateField(formid,$scope.clickField._id,clickField)
                 .then(function(updateForm) {
 
+
                     $scope.clickField = updateForm;
+                    console.log($scope.clickField);
                     //console.log(updateForm);
                     //for (var i= 0; i< updateForm.length; i++) {
                     //    if ($scope.clickField._id = updateForm[i]._id) {

@@ -23,12 +23,10 @@
                     if ($rootScope.user) {
                         model.user = $rootScope.user;
                         FormService.findAllFormsForUser(model.user._id)
+                        .then(function(allForms) {
+                            model.forms = allForms;
+                        })
                     }
-
-                    })
-                    .then(function(allForms) {
-                        model.forms = allForms;
-
                     });
 
         }

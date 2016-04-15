@@ -14,12 +14,14 @@ module.exports = function(app, model, db) {
 
         var startindex = req.query.startIndex;
         var endindex = req.query.endIndex;
+        console.log("updateFieldsSrot - "+formid+" "+startindex+" "+endindex);
 
         if (startindex &&endindex) {
 
             model.sortOrder(formid, startindex, endindex)
             .then(
                 function(stat) {
+                    return res.json(200);
             //        return model.retrieveFormFields(formid);
             //    },
             //    function(err) {
@@ -28,8 +30,6 @@ module.exports = function(app, model, db) {
             //)
             //.then(
             //    function(form) {
-
-                    res.json(200);
                 },
                 function(err) {
                     res.status(400).send(err);

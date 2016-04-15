@@ -19,6 +19,7 @@
         var userid = $routeParams.userid;
         var formid = $routeParams.formid;
 
+
         var defaultValues = {
             TEXT: {_id: null, label: "New Text Field", type: "TEXT", placeholder: "New Field"},
 
@@ -100,7 +101,8 @@
             FieldService.sortOrder(formid, start,end)
             .then(function(response) {
                 if (response.data) {
-                   
+                    console.log(response.data);
+                   model.fields = response.data;
                 } else {
                     console.log("this is a err for sort");
                 }

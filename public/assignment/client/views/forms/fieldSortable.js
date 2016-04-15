@@ -18,10 +18,10 @@
 
                 stop: function(event, ui) {
                     end = ui.item.index();
-
-                    if(start>=end) {
-                        start--;
-                    }
+                    console.log(start+" "+end);
+                    //if(start>=end) {
+                    //    start--;
+                    //}
                     scope.fieldSortableCallback({start:start,end:end});
 
 

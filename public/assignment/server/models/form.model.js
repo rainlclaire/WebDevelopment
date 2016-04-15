@@ -34,12 +34,14 @@ module.exports = function(app,mongoose, db) {
             formid)
             .then(function(form) {
                 //console.log("stortpage form model");
-                //console.log(form);
+                console.log(form);
                 //console.log(endindex);
                 //console.log(startindex);
                 //var temp = form.field.splice(startindex+1, 1)
                 //console.log(temp)
                 form.field.splice(endindex, 0, form.field.splice(startindex, 1)[0]);
+
+                console.log(form);
                 //console.log(form);
                 form.markModified("field");
                 form.save();
@@ -427,21 +429,26 @@ module.exports = function(app,mongoose, db) {
         assignmentForm.findById(
             id,
             function (err, assignmentForm) {
-                console.log(assignmentForm);
-                console.log(updatedField);
+                //console.log(assignmentForm);
+                //console.log(updatedField);
                 if (!err) {
                     if (assignmentForm) {
                         console.log("test form upa");
                         console.log(fieldid);
-                        //for (var i =0 ; i< assignmentForm.field.length; i++) {
-                        //
-                        //    if (assignmentForm.field[i]._id ==fieldid) {
-                        //        console.log(assignmentForm.field[i]._id);
-                        //        assignmentForm.field[i] = updatedField;
-                        //        console.log(assignmentForm.field[i]);
-                        //    }
-                        //}
-                        assignmentForm.save(function (err) {
+                        for (var i =0 ; i< assignmentForm.field.length; i++) {
+
+                            if (assignmentForm.field[i]._id == fieldid) {
+                                console.log(assignmentForm.field[i]._id);
+                                updatedField._id = fieldid;
+                                assignmentForm.field[i] = updatedField;
+                                console.log(assignmentForm.field[i]);
+                            }
+                        }
+                        console.log("After saving")
+                        //console.log(assignmentForm);
+                        assignmentForm.markModified("field");
+                        assignmentForm.save(function (err,res) {
+                            console.log(res);
                             if (!err) {
                                 deferred.resolve(assignmentForm);
 

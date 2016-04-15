@@ -1,0 +1,163 @@
+
+<div class="container">
+    <h1 class="groupTitle">Administration center</h1>
+    <h1>Edit Group Info</h1>
+    <form class="form-horizontal" role="form">
+
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group ID:</label>
+            <div class="col-md-9">
+               {{currentGroup._id}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Title:</label>
+            <div class="col-md-9">
+                {{currentGroup.title}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Description:</label>
+            <div class="col-md-9">
+                {{currentGroup.description}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Owner:</label>
+            <div class="col-md-9">
+                {{currentGroup.ownerName}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Address:</label>
+            <div class="col-md-9">
+                {{currentGroup.address}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Events:</label>
+            <div class="col-md-9">
+                {{currentGroup.listofEvents}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Members:</label>
+            <div class="col-md-9">
+                {{currentGroup.listofMembers}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Members:</label>
+            <div class="col-md-9">
+                {{currentGroup.usersLikeGroup}}
+            </div>
+        </div>
+
+    </form>
+    <button ng-click="model.editGroup()" class="btn btn-danger">Edit Group Info</button>
+    <h1>CRUD EVENTS</h1>
+
+    <div class="table-responsive">
+
+        <table class="table table-condensed table-bordered table-striped volumes sptable">
+            <thead>
+            <tr>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event Name</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event ID</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event date</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
+            </tr>
+            <tr>
+                <td>
+                    <input ng-model="clickEvent.title" class="form-control input-sm" type="text" id="event-title" placeholder="title">
+                </td>
+                <td>
+                    auto Assign eventID
+                </td>
+                <td>
+                    <input ng-model="clickEvent.date" class="form-control input-sm" type="date" id="event-date" placeholder="date">
+                </td>
+                <td>
+                    <div class="row-fluid form-inline">
+                        <button ng-click="model.addEventInGroup(clickEvent)" class="btn btn-danger glyphicon glyphicon-plus"></button>
+                        <!--how to put space here-->
+                        <button ng-click="model.updateEventInGroup(clickEvent)" class="btn btn-info glyphicon glyphicon-ok"></button>
+                    </div>
+                </td>
+            </tr>
+            </thead>
+            {{model.events}}
+            <tbody>
+
+            <tr ng-repeat="event in model.events">
+
+                <td class="form-list"><a href="#/group/{{currentGroup._id}}/event/{{event.title}}">{{event.title}}</a></td>
+                <td >{{event._id}}</td>
+                <td >{{event.date}}</td>
+                <td  class="form-list">
+                    <button ng-click="model.deleteEventInGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
+                    <button ng-click="model.selectEventInGroup($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>
+            </tr>
+
+
+        </table>
+
+
+        <!--<div class="table-responsive">-->
+        <!--<h1>CRUD USERS</h1>-->
+
+        <!--<table class="table table-condensed table-bordered table-striped volumes sptable">-->
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> User Name</th>-->
+                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> User GroupID</th>-->
+                <!--<th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td>-->
+            <!--<input ng-model="clickUser.username" class="form-control input-sm" type="text" id="username" placeholder="title">-->
+            <!--</td>-->
+            <!--<td>Auto Assign GroupID-->
+            <!--</td>-->
+            <!--<td class="iconcenter">-->
+            <!--<div class="row-fluid form-inline">-->
+            <!--<button ng-click="addUserInGroup(clickUser)" class="btn btn-danger glyphicon glyphicon-plus"></button>-->
+            <!--&lt;!&ndash;how to put space here&ndash;&gt;-->
+            <!--<button ng-click="updateUsertInGroup(clickUser)" class="btn btn-info glyphicon glyphicon-ok"></button>-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody data-ng-repeat="group in groups">-->
+            <!--<tr data-ng-repeat="user in group.listofMembers">-->
+                <!--<td class="form-list">{{user.username}}</td>-->
+                <!--<td>{{user.group_id}}</td>-->
+                <!--<td>-->
+                    <!--<div class="row-fluid form-inline">-->
+                        <!--<button ng-click="deleteUserInGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>-->
+                        <!--<button ng-click="selectUserInGroup($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>-->
+                    <!--</div>-->
+                <!--</td>-->
+
+
+            <!--</tr>-->
+
+        <!--</table>-->
+
+        <!--</div>-->
+
+</div>
+
+
+</div>
+
+<div class="bottomContent">
+    <form class="extra-content">
+        <hr>
+        <h1>FindGroup</h1>
+        <a href="#">Help</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <p>@2016 FindGroup</p>
+    </form>
+</div>
