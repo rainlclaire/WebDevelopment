@@ -41,6 +41,10 @@
 
         GroupService.findAllGroups()
             .then(function(allGroups) {
+                for (var i =0; i<allGroups.length;i++) {
+                    allGroups[i].htmlVariable = $sce.trustAsHtml(allGroups[i].htmlVariable);
+
+                }
                 model.groups= allGroups;
             });
 
@@ -51,7 +55,7 @@
 
         GroupService.findGroupByID(group_id)
             .then(function(theGroup){
-                console.log("here");
+                theGroup.htmlVariable = $sce.trustAsHtml(theGroup.htmlVariable);
                 model.group = theGroup;
 
 
@@ -69,6 +73,7 @@
                 //console.log("aaa");
                 if (groups[i]._id == group_id) {
                     var group = groups[i];
+                    group.htmlVariable = $sce.trustAsHtml(group.htmlVariable);
                     model.group = group;
                     return group;
 
@@ -85,6 +90,7 @@
                 .then(function (theGroup){
                     console.log("here");
                     console.log(theGroup);
+                    theGroup.htmlVariable = $sce.trustAsHtml(theGroup.htmlVariable);
                     model.group = theGroup;
                     $rootScope.currentGroup = model.group;
                     console.log(model.group);

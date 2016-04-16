@@ -58,7 +58,7 @@ module.exports = function (app, model) {
     function findGroups(req, res) {
         var title = req.query.title;
         if (title) {
-            model.findOne(title)
+            model.findGroupByTitle(title)
             .then(
                 function(group) {
                     res.json(group);
@@ -84,6 +84,8 @@ module.exports = function (app, model) {
         //res.status(200).send(model.findAll());
         //return;
     }
+
+
     function findGroupById(req, res) {
         console.log("find grou by id sever");
         var groupid = req.params.groupid;

@@ -215,6 +215,7 @@ module.exports = function(app) {
                     }
                 });
             });
+        return deferred.promise;
 
         //event._id = (new Date).getTime();
         //console.log("start hrer to see groups");
@@ -431,6 +432,7 @@ module.exports = function(app) {
         //        return groups;
         //    }
         //}
+        return deferred.promise;
     }
 
     function findGroupByTitle(groupTitle) {
@@ -446,6 +448,7 @@ module.exports = function(app) {
                 }
             }
         );
+        return deferred.promise;
 
         //var searchResult = [];
         //for (var i =0; i<groups.length;i++) {

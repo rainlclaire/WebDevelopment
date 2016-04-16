@@ -120,6 +120,7 @@
                 model.groups[model.selectGroupIndex]._id = group._id;
                 model.groups[model.selectGroupIndex].title = group.title;
                 model.groups[model.selectGroupIndex].adress = group.adress;
+                model.groups[model.selectGroupIndex].htmlVariable = group.htmlVariable;
                 model.groups[model.selectGroupIndex].ownerName = group.ownerName;
                 model.groups[model.selectGroupIndex].listofEvents = group.listofEvents;
                 model.groups[model.selectGroupIndex].listofMembers = group.listofMembers;
@@ -156,6 +157,7 @@
                 "_id": model.groups[index]._id,
                 "title": model.groups[index].title,
                 "address": model.groups[index].address,
+                "htmlVariable": model.groups[index].htmlVariable,
                 "ownerName": model.groups[index].ownerName,
                 "listofEvents": model.groups[index].listofEvents,
                 "listofMembers":model.groups[index].listofMembers
