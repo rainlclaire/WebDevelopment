@@ -120,6 +120,8 @@
                 model.groups[model.selectGroupIndex]._id = group._id;
                 model.groups[model.selectGroupIndex].title = group.title;
                 model.groups[model.selectGroupIndex].adress = group.adress;
+                model.groups[model.selectGroupIndex].groupType = group.groupType;
+                model.groups[model.selectGroupIndex].createDate = group.createDate;
                 model.groups[model.selectGroupIndex].htmlVariable = group.htmlVariable;
                 model.groups[model.selectGroupIndex].ownerName = group.ownerName;
                 model.groups[model.selectGroupIndex].listofEvents = group.listofEvents;
@@ -157,6 +159,8 @@
                 "_id": model.groups[index]._id,
                 "title": model.groups[index].title,
                 "address": model.groups[index].address,
+                "groupType":model.group[index].groupType,
+                "createDate": model.groups[index].createDate,
                 "htmlVariable": model.groups[index].htmlVariable,
                 "ownerName": model.groups[index].ownerName,
                 "listofEvents": model.groups[index].listofEvents,

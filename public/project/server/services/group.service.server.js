@@ -126,7 +126,7 @@ module.exports = function (app, model) {
     function updateGroup(req,res) {
         var groupid = req.params.groupid;
         var upatedGroup = req.body;
-        model.update(groupid, updateGroup()
+        model.update(groupid, upatedGroup)
         .then(
             function(group) {
                 res.json(group);
@@ -134,7 +134,7 @@ module.exports = function (app, model) {
             function(err) {
                 res.status(400).send(err);
             }
-        ));
+        );
 
         //console.log("updategroup sever");
         //console.log(req.params.groupid);

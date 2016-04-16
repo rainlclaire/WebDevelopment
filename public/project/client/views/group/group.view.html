@@ -47,7 +47,7 @@
                         <div class="post_meta floatleft">
 
                             <p><span>Created Date</span></p>
-                            <p>April 15,2013</p>
+                            <p>{{group.createDate}}</p>
                             <p><span>Group Owner</span></p>
                             <p>{{group.ownerName}}</p>
                             <p><span>Event Number</span></p>
@@ -60,7 +60,10 @@
                         </div>
                         <div class="excerpt floatright">
                             <a href="#/details/{{group._id}}"><h2>{{group.title}}</h2></a>
+                            <h2>Group Description:</h2>
                             <div ng-bind-html="group.htmlVariable"></div>
+                            <h2>Group Type:</h2>
+                            <div>{{group.groupType}}</div>
                         </div>
                         <!--<div class="excerpt floatright">-->
                             <!--<h2>TextAngular</h2>-->

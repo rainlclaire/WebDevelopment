@@ -4,6 +4,7 @@ module.exports = function() {
         title: String,
         ownerName: String,
         createDate:Date,
+        groupType:String,
         htmlVariable:{type: mongoose.Schema.Types.Mixed},
         address: String,
         usersLikeGroup:[{type:mongoose.Schema.Types.Object, ref:'projectUser'}],

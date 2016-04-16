@@ -7,7 +7,9 @@
     <tr>
         <th>ID</th>
         <th>Title</th>
-        <th>Description</th>
+        <th>NumberOfMembers</th>
+        <th>NumberOfEvents</th>
+        <td>Type</td>
         <th>OwnerName</th>
     </tr>
     </thead>
@@ -15,7 +17,9 @@
     <tr ng-repeat="group in groups">
         <td>{{group._id}}</td>
         <td><a href="#/details/{{group._id}}">{{group.title}}</a></td>
-        <td>{{group.description}}</td>
+        <td>{{group.listofMembers.length}}</td>
+        <td>{{group.listofEvents.length}}</td>
+        <td>{{group.groupType}}</td>
         <td>{{group.ownerName}}</td>
         <!--<td ng-repeat="group in groups track by $index"><a href="#/details/{{group._id}}">{{group.title}}</a></td>-->
         <!--&lt;!&ndash;<td>{{group._id}}</td>&ndash;&gt;-->

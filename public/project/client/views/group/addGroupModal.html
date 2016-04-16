@@ -22,16 +22,25 @@
                     <input ng-model="newgroup.title" id="title" class="form-control profileInput" type="text" placeholder="title">
 
             </div>
-            <div class="form-group groupAddPage">
-                <label for="ownerName" class="col-md-3 control-label">OwnerName:</label>
 
-                    <input ng-model="newgroup.ownerName" type="text" id="ownerName" class="form-control profileInput"/>
+            <div class="form-group groupAddPage">
+                <label for="address" class="col-md-3 control-label">Address:</label>
+                    <input ng-model="newgroup.address" id="address" class="form-control profileInput" type="text" placeholder="address">
 
             </div>
             <div class="form-group groupAddPage">
-                <label for="address" class="col-md-3 control-label">Description:</label>
-                    <input ng-model="newgroup.address" id="address" class="form-control profileInput" type="text" placeholder="address">
-
+                <label for="grouptype">Add New Field:</label>
+                <select ng-model="newgroup.groupType" id="grouptype" class="form-control profileInput" type="text" placeholder="Group Type">
+                    <option value="Sports">Sports</option>
+                    <option value="Social">Social</option>
+                    <option value="Technical">Technical</option>
+                    <!--<option value="TEXTAREA">Multi Line Text Field</option>-->
+                    <!--<option value="DATE">Date Field</option>-->
+                    <!--<option value="OPTIONS">Dropdown Field</option>-->
+                    <!--<option value="CHECKBOXES">Checkboxes Field</option>-->
+                    <!--<option value="RADIOS">Radio Buttons Field</option>-->
+                    <!--<option value="EMAIL">Email Field</option>-->
+                </select>
             </div>
 
         </form>

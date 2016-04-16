@@ -20,14 +20,13 @@
             console.log(newgroup.ownerName);
             console.log($rootScope.user.username);
 
-            if (newgroup.ownerName != $rootScope.user.username) {
-                alert("You have to keep the default ownername!");
 
-            } else {
                 var newGroup = {
                     _id: newgroup._id,
                     title: newgroup.title,
-                    ownerName: newgroup.ownerName,
+                    createDate:new Date(),
+                    groupType:newgroup.groupType,
+                    ownerName: $rootScope.user.username,
                     htmlVariable:newgroup.htmlVariable,
                     address:newgroup.address,
                     listofEvents:[],
@@ -55,7 +54,7 @@
                 //groups.push(newGroup);
 
                 $rootScope.modalInstance.close();
-            }
+
 
 
         }

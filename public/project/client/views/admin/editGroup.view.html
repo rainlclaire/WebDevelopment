@@ -11,23 +11,23 @@
                     <input ng-model="currentGroup.title" id="title" class="form-control profileInput" type="text" placeholder="title">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="ownerName" class="col-md-3 control-label">OwnerName:</label>
-                <div class="col-md-9">
-                    <input ng-model="currentGroup.ownerName" type="text" id="ownerName" class="form-control profileInput">
-                </div>
-            </div>
+            <p>Description:</p>
+            <div text-angular ng-model="currentGroup.htmlVariable" ng-bind-html="currentGroup.htmlVariable"></div>
 
             <div class="form-group">
-                <label for="description" class="col-md-3 control-label">Description:</label>
+                <label for="address" class="col-md-3 control-label">Address:</label>
                 <div class="col-md-9">
-                    <input ng-model="currentGroup.description" id="description" class="form-control profileInput" type="text" placeholder="description">
+                    <input ng-model="currentGroup.address" id="address" class="form-control profileInput" type="text" placeholder="address">
                 </div>
             </div>
             <div class="form-group">
-                <label for="address" class="col-md-3 control-label">Description:</label>
+                <label for="type" class="col-md-3 control-label">Group Type:</label>
                 <div class="col-md-9">
-                    <input ng-model="currentGroup.address" id="address" class="form-control profileInput" type="text" placeholder="address">
+                    <select ng-model="currentGroup.groupType" id="type" class="form-control profileInput" type="text" placeholder="Group Type">
+                        <option value="Sports">Sports</option>
+                        <option value="Social">Social</option>
+                        <option value="Technical">Technical</option>
+                        </select>
                 </div>
             </div>
 
