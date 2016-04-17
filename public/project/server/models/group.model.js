@@ -102,6 +102,8 @@ module.exports = function(app) {
 
 
     function updateEventForGroup(groupid,eventid, event) {
+        console.log("log hrer")
+        console.log(event);
         var deferred = q.defer();
         projectGroup.findById(
             groupid,
@@ -112,14 +114,16 @@ module.exports = function(app) {
 
                         for (var i = 0; i < group.listofEvents.length; i++) {
                             if (group.listofEvents[i]._id == eventid) {
-
-                                group.listofEvents[i] == event;
+                                group.listofEvents[i]._id = event._id;
+                                group.listofEvents[i].title = event.title;
+                                group.listofEvents[i].date = event.date;
                             }
                         }
-
+                        group.markModified("listofEvents");
                         group.save(function (err) {
                             if (!err) {
-                                deferred.resolve(project)
+                                console.log(group.listofEvents);
+                                deferred.resolve(group.listofEvents)
                             } else {
                                 deferred.reject(err);
                             }
@@ -170,16 +174,18 @@ module.exports = function(app) {
                             if (group.listofEvents[i]._id == eventid) {
 
                                 group.listofEvents.splice(i,1);
+                                group.save(function (err) {
+                                    if (!err) {
+                                        deferred.resolve(group.listofEvents)
+                                    } else {
+                                        deferred.reject(err);
+                                    }
+                                })
                             }
                         }
 
-                        group.save(function (err) {
-                            if (!err) {
-                                deferred.resolve(project)
-                            } else {
-                                deferred.reject(err);
-                            }
-                        })
+
+
                     }
                 }
             });
@@ -202,9 +208,10 @@ module.exports = function(app) {
         projectGroup.findById(
             groupid,
             function (err, group) {
-
+                console.log(group);
                 event._id = mongoose.Types.ObjectId();
-                group.field.push(event);
+
+                group.listofEvents.push(event);
                 group.save(function (err, event) {
                     if (!err) {
                         console.log("this is form");

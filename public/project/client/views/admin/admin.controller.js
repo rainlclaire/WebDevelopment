@@ -104,10 +104,11 @@
         //update the select form with the given form info
         function updateEventInGroup(event) {
             console.log(event);
+            console.log($scope.currentGroup._id);
+            console.log(event._id);
             EventService.updateEventForGroup($scope.currentGroup._id, event._id, event)
-                .then(function (updateEvents) {
-                    console.log(updateEvents);
-                    model.events = updateEvents;
+                .then(function (events) {
+                    model.events = events;
                 });
 
         }

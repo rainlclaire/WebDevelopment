@@ -26,8 +26,10 @@
 
         function updateEventForGroup(groupid, eventid, event) {
             var deferred = $q.defer();
+            console.log("udpateevent in client");
             $http.put("/api/project/group/"+groupid+"/event/"+eventid, event)
                 .success(function (response) {
+                    console.log(response+"---reponse update event");
                     deferred.resolve(response);
                 });
             return deferred.promise;
