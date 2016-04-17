@@ -10,9 +10,7 @@
 
     <div class="fix content_area structure">
         <div class="fix slider_area">
-<div class="container">
-    <h1 class="groupTitle">Administration center</h1>
-    <h1>Edit Group Info</h1>
+        <div class="container">
     <form class="form-horizontal" role="form">
 
         <div class="form-group">
@@ -45,27 +43,73 @@
                 {{currentGroup.address}}
             </div>
         </div>
+
         <div class="form-group">
-            <label class="col-md-3 control-label">Group Events:</label>
+            <label class="col-md-3 control-label">Group Members:</label>
+            <div class="col-md-9">
+                {{currentGroup.listofMembers}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">Group Members:</label>
+            <div class="col-md-9">
+                {{currentGroup.usersLikeGroup}}
+            </div>
+        </div>
+        <div class="form-group">
+            <!--<div class="single_content_area" ng-repeat="group in model.groups">-->
+                <!--<div class="single_main_content floatleft">-->
+                    <!--<div class="single_post">-->
+                        <!--<div class="post_pro_img_normal"></div>-->
+                        <!--<div class="featured"><img src="../images/act/dancer.jpg" alt="" title="" class="featured_img"/></div>-->
+            <!--<div ng-repeat="event in currentGroup.listofEvents" class="post_excerpt fix">-->
+                <!--<div class="post_meta floatleft">-->
+                    <!--<p><span>Event ID</span></p>-->
+                    <!--<p>{{event._id}}</p>-->
+                    <!--<p><span>Event Date</span></p>-->
+                    <!--<p>{{event.date}}</p>-->
+                    <!--<p><span>Event Address</span></p>-->
+                    <!--<p>{{event.address}}</p>-->
+                    <!--<p><span>Event Description</span></p>-->
+                    <!--<p>{{event.description}}</p>-->
+                <!--</div>-->
+                <!--<div class="excerpt floatright">-->
+                    <!--<a href="#/details/{{group._id}}"><h2>{{event.title}}</h2></a>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+
+            <!--<div class="post_border_bottom"></div>-->
+
+
             <div class="table-responsive">
 
-                <table class="table table-condensed table-bordered table-striped volumes sptable">
+                <table class="table col-md-8 adminEvent">
                     <thead>
                     <tr>
-                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event Name</th>
-                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event ID</th>
-                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> Event date</th>
+                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> ID</th>
+                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> Title</th>
+                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> Address</th>
+                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> Description</th>
+                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> Date</th>
                         <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
                     </tr>
                     <tr>
                         <td>
-                            <input ng-model="clickEvent.title" class="form-control input-sm" type="text" id="event-title" placeholder="title">
+                            Event ID
                         </td>
                         <td>
-                            auto Assign eventID
+                            <input ng-model="clickEvent.title" class="form-control input-sm" type="text"  placeholder="title">
                         </td>
                         <td>
-                            <input ng-model="clickEvent.date" class="form-control input-sm" type="date" id="event-date" placeholder="date">
+                            <input ng-model="clickEvent.address" class="form-control input-sm" type="text"  placeholder="address">
+                        </td>
+                        <td>
+                            <input ng-model="clickEvent.description" class="form-control input-sm" type="date" placeholder="description">
+                        </td>
+                        <td>
+                            <input ng-model="clickEvent.date" class="form-control input-sm" type="date" placeholder="date">
                         </td>
                         <td>
                             <div class="row-fluid form-inline">
@@ -80,33 +124,22 @@
                     <tbody>
 
                     <tr ng-repeat="event in model.events">
-
-                        <td class="form-list"><a href="#/group/{{currentGroup._id}}/event/{{event.title}}">{{event.title}}</a></td>
                         <td >{{event._id}}</td>
+                        <td class="form-list"><a href="#/group/{{currentGroup._id}}/event/{{event.title}}">{{event.title}}</a></td>
+                        <td>{{event.address}}</td>
+                        <td>{{event.description}}</td>
                         <td >{{event.date}}</td>
                         <td  class="form-list">
                             <button ng-click="model.deleteEventInGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
                             <button ng-click="model.selectEventInGroup($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>
                     </tr>
+                    </tbody>
 
 
                 </table>
 
-
             </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-3 control-label">Group Members:</label>
-            <div class="col-md-9">
-                {{currentGroup.listofMembers}}
             </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-3 control-label">Group Members:</label>
-            <div class="col-md-9">
-                {{currentGroup.usersLikeGroup}}
-            </div>
-        </div>
 
     </form>
     <button ng-click="model.editGroup()" class="btn btn-danger">Edit Group Info</button>

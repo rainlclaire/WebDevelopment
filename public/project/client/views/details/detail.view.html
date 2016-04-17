@@ -50,11 +50,11 @@
                         <p><span>Group Owner</span></p>
                         <p>{{model.group.ownerName}}</p>
                         <p><span>Event Number</span></p>
-                        <p>{{model.group.listofEvents}}</p>
+                        <p>{{model.group.listofEvents.length}}</p>
                         <p><span>Member Number</span></p>
-                        <p>{{model.group.listofMembers}}</p>
+                        <p>{{model.group.listofMembers.length}}</p>
                         <p><span>userlike Number</span></p>
-                        <p>{{model.group.usersLikeGroup}}</p>
+                        <p>{{model.group.usersLikeGroup.length}}</p>
                         <p><span>COMMENTS</span></p>
                         <p>4</p>
 
@@ -64,10 +64,11 @@
                         <div ng-bind-html="model.group.htmlVariable"></div>
                     </div>
                     <div class="excerpt floatright">
-                        <h2>Group ListEvents</h2>
+                        <a href="#/group/{{model.group._id}}/event"><h2>Group ListEvents</h2></a>
                         <div ng-repeat="event in model.group.listofEvents">
                         <a href="#/group/{{model.group._id}}/event/{{event.title}}"><p><span>{{event.title}}</span></p></a>
                         <p>{{event._id}}</p>
+                            <div class="post_border_bottom"></div>
                         </div>
                     </div>
                     <div class="excerpt floatright">

@@ -56,8 +56,8 @@ module.exports = function (app, model) {
         var eventtitle = req.params.title;
         model.findEventByTitle(groupid, eventtitle)
         .then(
-            function(group) {
-                res.json(group);
+            function(event) {
+                res.json(event);
             },
             function(err) {
                 res.status(400).send(err);

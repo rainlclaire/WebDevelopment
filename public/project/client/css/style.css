@@ -200,6 +200,16 @@ div.groupAddPage input {
 	margin-left:15px;
 
 }
+a.group_title h2 {
+	color: black;
+	font-size: 30px;
+	line-height: 18px;
+}
+
+table.adminEvent {
+	width:auto;
+}
+
 @media screen and (max-width: 830px) {
 	.ei-title{
 		position: absolute;

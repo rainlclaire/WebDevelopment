@@ -79,9 +79,12 @@
             //
             //});
             var newEvent = {
+                _id:event._id,
                 title: event.title,
                 date: event.date,
-                description: event.description
+                description: event.description,
+                address:event.address,
+                peopleJoin:[]
 
             };
 
@@ -134,6 +137,8 @@
                 "_id": model.events[index]._id,
                 "title": model.events[index].title,
                 "date": model.events[index].date,
+                "address": model.events[index].address,
+                "peopleJoin":model.events[index].peopleJoin,
                 "description": model.events[index].description
             };
 

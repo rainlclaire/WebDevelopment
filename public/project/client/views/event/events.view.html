@@ -4,7 +4,7 @@
 <!--<div class="main_content_area fix">-->
 <div class="content_area structure">
     <div class="single_header_title">
-        <h1>{{model.event.title}}</h1>
+        <h1>All Event In Group</h1>
     </div>
 
     <div class="fix content_area structure">
@@ -19,23 +19,24 @@
         </div>
             <div class="single_content_area">
                 <div class="single_main_content floatleft">
-                    <div class="single_post">
+                    <div ng-repeat="event in model.events" class="single_post">
                         <div class="post_pro_img_normal"></div>
                         <div class="featured"><img src="../images/act/dancer.jpg" alt="" title="" class="featured_img"/></div>
                         <div class="post_excerpt fix">
                             <div class="post_meta floatleft">
 
                                 <p><span>ID</span></p>
-                                <p>{{model.event._id}}</p>
+                                <p>{{event._id}}</p>
                                 <p><span>Address</span></p>
-                                <p>{{mdoel.event.address}}</p>
+                                <p>{{event.address}}</p>
                                 <p><span>People Join</span></p>
-                                <p>{{model.event.peopleJoin.length}}</p>
+                                <p>{{event.peopleJoin.length}}</p>
 
                             </div>
                             <div class="excerpt floatright">
+                                <h2>{{event.title}}</h2>
                                 <h2>Group Description:</h2>
-                                <div>{{model.event.description}}</div>
+                                <div>{{event.description}}</div>
                             </div>
 
                         </div>

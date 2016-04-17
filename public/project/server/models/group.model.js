@@ -245,7 +245,8 @@ module.exports = function(app) {
             function (err, group) {
                 if (!err) {
                     for (var i = 0; i < group.listofEvents.length; i++) {
-                        if (group.listofEvents[i].title = eventtitle) {
+                        if (group.listofEvents[i].title == eventtitle) {
+                            console.log("-====title equal---");
                             deferred.resolve(group.listofEvents[i]);
                         }
                     }

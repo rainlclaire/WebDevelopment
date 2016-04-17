@@ -31,23 +31,11 @@
 
 
         function findEvent() {
-            //GroupService.findEventByTitle(currentGroupid, event_title)
-            //.then(function(event) {
-            //    model.evetn = event;
-            //});
-            //});
             EventService.findEventByTitle(groupid, event_title)
             .then(function(theEvent) {
                 model.event = theEvent;
             });
-            //for(var i = 0; i< currentGroup.listofEvents.length; i++) {
-            //    console.log("hr");
-            //    if (currentGroup.listofEvents[i].title==event_title) {
-            //        console.log("hh");
-            //        $scope.event = currentGroup.listofEvents[i];
-            //
-            //    }
-            //}
+
 
         }
         findEvent();

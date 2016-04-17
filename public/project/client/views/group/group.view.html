@@ -39,7 +39,12 @@
             </div>
         </div>
         <div class="single_content_area" ng-repeat="group in model.groups">
+
             <div class="single_main_content floatleft">
+                <a class="group_title" href="#/details/{{group._id}}"><span><h2>{{group.title}}</h2></span></a>
+                <!--<div class="excerpt floatright">-->
+                    <!--<a href="#/details/{{group._id}}"><h2>{{group.title}}</h2></a>-->
+                <!--</div>-->
                 <div class="single_post">
                     <div class="post_pro_img_normal"></div>
                     <div class="featured"><img src="../images/act/dancer.jpg" alt="" title="" class="featured_img"/></div>
@@ -59,7 +64,6 @@
 
                         </div>
                         <div class="excerpt floatright">
-                            <a href="#/details/{{group._id}}"><h2>{{group.title}}</h2></a>
                             <h2>Group Description:</h2>
                             <div ng-bind-html="group.htmlVariable"></div>
                             <h2>Group Type:</h2>

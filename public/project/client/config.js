@@ -37,6 +37,11 @@
                 controller: "LogInController",
                 controllerAs:"model"
             })
+            .when("/group/:groupid/event", {
+                templateUrl: "views/event/events.view.html",
+                controller: "EventController",
+                controllerAs:"model"
+            })
             .when("/group/:groupid/event/:event_title", {
                 templateUrl: "views/event/event.view.html",
                 controller: "EventController",
