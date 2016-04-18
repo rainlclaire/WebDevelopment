@@ -19,6 +19,8 @@
             })
             .when("/admin", {
                 templateUrl: "views/admin/admin.view.html",
+                controller:"AdminController",
+                controllerAs:"model",
                 resolve: {
                  checkAdmin: checkAdmin
             }
@@ -93,7 +95,7 @@
             .getCurrentUser()
             .then(function(response) {
                 var user = response;
-                if (user != '0' && user.roles.indexOf('admin') != -1) {
+                if (user !== '0' && user.roles.indexOf('admin') != -1) {
                     UserService.setCurrentUser(user);
                     deferred.resolve();
                 } else {

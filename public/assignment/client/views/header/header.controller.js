@@ -14,8 +14,13 @@
             return $location.url()===path;
         }
         function logout() {
-            $rootScope.user = null;
-            $location.path("/home");
+            UserService.logout()
+            .then(function() {
+                $rootScope.user = null;
+                $location.path("/home");
+            });
+            //$rootScope.user = null;
+            //$location.path("/home");
             //UserService.findUserByCredentials(user.username, user.password)
             //.then(function(loggedInUser) {
             //    if (loggedInUser != null) {

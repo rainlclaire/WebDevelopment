@@ -3,7 +3,6 @@ var LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function (app, model, db) {
     var auth = authorized;
-    var authAdmin = isAdmin;
     app.post("/api/assignment/user", createUser);
     //app.get("/api/assignment/user", findUsers);
     app.get("/api/assignment/user/:id", findUserById);
@@ -17,11 +16,11 @@ module.exports = function (app, model, db) {
     app.post("/api/assignment/logout", logout);
     app.get("/api/assignment/loggedin", loggedin);
     app.get("/api/assignment/loggedin/:id", getUpdatedCurrentUser);
-    app.get("/api/assignment/admin/user/:id", authAdmin, findUserByIdFromAdmin);
-    app.post("/api/assignment/admin/user", authAdmin, createUserFromAdmin);
-    app.get("/api/assignment/admin/user", authAdmin, findAllUsersFromAdmin);
-    app.put("/api/assignment/admin/user/:id", authAdmin, updateUserByIdFromAdmin);
-    app.delete("/api/assignment/admin/user/:id", authAdmin, deleteUserByIdFromAdmin);
+    app.get("/api/assignment/admin/user/:id", findUserByIdFromAdmin);
+    app.post("/api/assignment/admin/user", createUserFromAdmin);
+    app.get("/api/assignment/admin/user", findAllUsersFromAdmin);
+    app.put("/api/assignment/admin/user/:id", updateUserByIdFromAdmin);
+    app.delete("/api/assignment/admin/user/:id", deleteUserByIdFromAdmin);
 
     passport.use(new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
@@ -81,9 +80,8 @@ module.exports = function (app, model, db) {
     function isAdmin(user) {
         if (user.roles.indexOf("admin") >-1) {
            return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     // implement authorized function
@@ -267,59 +265,75 @@ module.exports = function (app, model, db) {
         );
     }
     function findUserByIdFromAdmin(req, res) {
-        var id = req.params.id;
-        model
-            .findById(id)
-            .then(
-                function(doc) {
-                    res.json(doc);
-                },
-                function(err) {
-                    res.status(400).send(err);
-                }
-            );
+        if (isAdmin(req.user)) {
+            var id = req.params.id;
+            model
+                .findById(id)
+                .then(
+                    function (doc) {
+                        res.json(doc);
+                    },
+                    function (err) {
+                        res.status(400).send(err);
+                    }
+                );
+        } else {
+            res.status(403);
+        }
     }
 
     function createUserFromAdmin(req, res) {
-        var newUser = req.body;
-        model
-            .createUser(newUser)
-            .then(
-                function(user) {
-                    res.json(user);
-                },
-                function(err) {
-                    res.status(400).send(err);
-                }
-            );
+        if (isAdmin(req.user)) {
+            var newUser = req.body;
+            model
+                .create(newUser)
+                .then(
+                    function (user) {
+                        res.json(user);
+                    },
+                    function (err) {
+                        res.status(400).send(err);
+                    }
+                );
+        } else {
+            res.status(403);
+        }
     }
     function updateUserByIdFromAdmin(req, res) {
-        var id = req.params.id;
-        var user = req.body;
-        model
-            .updateUserById(id, user)
-            .then(
-                function(doc) {
-                    res.json(doc);
-                },
-                function(err) {
-                    res.status(400).send(err);
-                }
-            );
+        if (isAdmin(req.user)) {
+            var id = req.params.id;
+            var user = req.body;
+            model
+                .update(id, user)
+                .then(
+                    function (doc) {
+                        res.json(doc);
+                    },
+                    function (err) {
+                        res.status(400).send(err);
+                    }
+                );
+        } else {
+            res.status(403);
+        }
     }
 
     function deleteUserByIdFromAdmin(req, res) {
-        var id = req.params.id;
-        model
-            .deleteUserById(id)
-            .then(
-                function(doc) {
-                    res.send(200);
-                },
-                function(err) {
-                    res.status(400).send(err);
-                }
-            );
+        if (isAdmin(req.user)) {
+            var id = req.params.id;
+            model
+                .remove(id)
+                .then(
+                    function (doc) {
+                        res.send(200);
+                    },
+                    function (err) {
+                        res.status(400).send(err);
+                    }
+                );
+        } else {
+            res.status(403);
+        }
     }
     function deleteUser(req, res) {
         var userid = req.params.id;
