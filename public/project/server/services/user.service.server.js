@@ -1,8 +1,7 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+
 
 module.exports = function (app, model) {
-    var auth = authroized;
+
     app.post("/api/project/user", createUser);
     app.get("/api/project/user", findUsers);
     app.get("/api/project/user/:id", findUserById);
@@ -10,8 +9,7 @@ module.exports = function (app, model) {
     app.get("/api/project/user?username=username", findUserByUsername);
     app.get("/api/project/user?username=username&password=password", findAlice);
     //end
-    app.put("/api/project/user/:id", auth, updateUser);
-    app.post("/api/project/login", passport.authenticate())
+    app.put("/api/project/user/:id", updateUser);
     app.delete("/api/project/user/:id", deleteUser);
     app.post("/api/project/user/:userid/userJoinGroup", joinedGroups);
     app.post("/api/project/user/:userid/userLikeGroup", userLikeGroup);
