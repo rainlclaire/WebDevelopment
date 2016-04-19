@@ -25,8 +25,8 @@ module.exports = function (app, model, db) {
     app.delete("/api/assignment/admin/user/:id", deleteUserByIdFromAdmin);
 
     passport.use("assignment",new LocalStrategy(assignmentlocalStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    //passport.serializeUser(serializeUser);
+    //passport.deserializeUser(deserializeUser);
 
     function login(req, res) {
         var user = req.user;
@@ -67,6 +67,7 @@ module.exports = function (app, model, db) {
 
     // retrieve the user object from the session
     function deserializeUser(user, done) {
+        console.log(user.type+"--check for type");
 
             model
                 .findById(user._id)

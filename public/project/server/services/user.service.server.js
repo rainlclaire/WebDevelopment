@@ -12,7 +12,7 @@ module.exports = function (app, model) {
     app.get("/api/project/user?username=username", findUserByUsername);
     //app.get("/api/project/user?username=username&password=password", findAlice);
     //end
-    app.post("/api/project/login", passport.authenticate("project"), loginProject);
+    app.post("/api/project/login", passport.authenticate('project'), loginProject);
     app.post("/api/project/logout", logout);
     app.get("/api/project/loggedin", loggedin);
     app.get("/api/project/loggedin/:id", getUpdatedCurrentUser);
@@ -20,11 +20,10 @@ module.exports = function (app, model) {
     app.delete("/api/project/user/:id", auth, deleteUser);
     app.post("/api/project/user/:userid/userJoinGroup", joinedGroups);
     app.post("/api/project/user/:userid/userLikeGroup", userLikeGroup);
-    //app.use(passport.initialize());
-    //app.use(passport.session());
+
+    passport.use('project', new LocalStrategy(projectlocalStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
-    passport.use("project", new LocalStrategy(projectlocalStrategy));
 
 
 
@@ -57,8 +56,6 @@ module.exports = function (app, model) {
 
     function loggedin(req, res) {
         console.log(req.user);
-        //res.send(true);
-        //console.log(req.isAuthenticated());
         res.send(req.isAuthenticated() ? req.user : '0');
     }
 
@@ -152,33 +149,32 @@ module.exports = function (app, model) {
                 res.status(400).send(err);
             }
         );
-        //res.json(model.joinedGroups(req.params.userid, req.body));
     }
 
     function createUser(req, res) {
-        var newuser = req.body;
+
+        var user = req.body;
         user.roles = ["student"];
-        model.create(newuser)
-        .then(
-            function(user) {
-                return req.login(user, function(err) {
-                    if (err) {
-                        res.status(400).send(err);
-                    } else {
-                        res.json(user);
-                    }
-                })
-            },
-            function(err) {
-                res.status(400).send(err);
-            }
-        );
-        //model.create(req.body)
-        //.then(function(users) {
-        //    res.json(users);
-        //});
-        //res.json(model.create(req.body));
+        model.
+            create(user)
+            .then(
+                function(user) {
+
+                    return req.login(user,function(err) {
+                        if (err) {
+                            res.status(400).send(err);
+                        } else {
+                            res.json(user);
+                        }
+                    });
+
+                },
+                function(err) {
+                    res.status(400).send(err);
+                });
+
     }
+
 
     function findUserByCredentials(req, res) {
         var credentials = {
