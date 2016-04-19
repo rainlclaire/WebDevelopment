@@ -5,6 +5,7 @@ module.exports = function() {
         username: String,
         password: String,
         verifyPassword:String,
+        image:String,
         email: [String],
         groupJoined:[String],
         likeGroups:[String],

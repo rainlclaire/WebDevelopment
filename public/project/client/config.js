@@ -56,10 +56,7 @@
             .when("/admin/:group_id", {
                 templateUrl:"views/admin/admin.view.html",
                 controller: "AdminController",
-                controllerAs:"model",
-                resolve: {
-                    checkAdmin: checkAdmin
-                }
+                controllerAs:"model"
             })
             .when("/search", {
                 templateUrl:"views/search/search.view.html",
@@ -95,24 +92,7 @@
         return deferred.promise;
     }
 
-    function checkAdmin(UserService, $q, $location) {
-        var deferred = $q.defer();
 
-        UserService
-            .getCurrentUser()
-            .then(function(response) {
-                var user = response;
-                if (user !== '0' && user.roles.indexOf('admin') != -1) {
-                    UserService.setCurrentUser(user);
-                    deferred.resolve();
-                } else {
-                    deferred.reject();
-                    $location.url("/home");
-                }
-            });
-
-        return deferred.promise;
-    }
 
 
 

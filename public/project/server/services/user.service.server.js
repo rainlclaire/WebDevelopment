@@ -1,6 +1,8 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require("bcrypt-nodejs");
+var multer = require('multer');
+var upload = multer({dest: __dirname+'/../../upload'});
 
 module.exports = function (app, model) {
     console.log("user server");
@@ -22,12 +24,47 @@ module.exports = function (app, model) {
     app.post("/api/project/user/:userid/userJoinGroup", joinedGroups);
     app.post("/api/project/user/:userid/userLikeGroup", userLikeGroup);
 
+
+
+    //upload image
+    app.post("/api/project/user/uplaod", upload.single('file'), uploadImage);
+
     passport.use('project', new LocalStrategy(projectlocalStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
 
 
+    function uploadImage(req, res) {
+        var userId = req.body._id;
+        var myFile = req.file;
 
+        var destination = myFile.destination;
+        var path = myFile.path;
+        var originalname = myFile.originalname;
+        var size = myFile.size;
+        var mimetype = myFile.mimetype;
+        var filename = myFile.filename;
+
+        model.findUserById(userId)
+            .then(
+                function (user) {
+                    user.profile_img = "/project/uploads/"+filename;
+                    return model.updateUser(user);
+
+                },
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+            )
+            .then(
+                function(){
+                    res.redirect("/project/client/index.html#/updateprofile");
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
+    }
 
     function getUpdatedCurrentUser(req, res) {
         var id = req.params.id;

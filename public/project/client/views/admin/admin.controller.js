@@ -10,7 +10,7 @@
 
 
         var user = $rootScope.user;
-        //console.log(user);
+        console.log(user);
 
         if (!user) {
             //console.log(user);
