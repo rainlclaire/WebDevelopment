@@ -1,19 +1,41 @@
 module.exports = function (app, model) {
-      app.get("/api/project/group/:groupid/event/:title", findEventByTitle);
+
     app.get("/api/project/group/:groupid/event", findAllEvents);
     app.post("/api/project/group/:groupid/event", createEvent);
     app.delete("/api/project/group/:groupid/event/:eventid", deleteEvent);
     app.put("/api/project/group/:groupid/event/:eventid", updateEvent);
+    app.post("/project/group/:groupid/userjoinEvent/:id", userJoinEvent);
+    app.get("/api/project/group/:groupid/event/:title", findEventByTitle);
+
+
+
+    function userJoinEvent(req, res) {
+        console.log("log in here to see what we hae");
+        var groupid = req.params.groupid;
+        var id = req.params.id;
+
+
+        var user = req.body;
+        model.userJoinEvent(user, id, groupid)
+            .then(
+                function(event) {
+                    res.json(event);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
+    }
 
     function updateEvent(req, res) {
         var groupid = req.params.groupid;
         var eventid = req.params.eventid;
         var event = req.body;
-        console.log(event+"---event in server");
+
         model.updateEventForGroup(groupid, eventid, event)
         .then(
             function(events) {
-                console.log(events+"this event hrere----");
+
                 res.json(events);
             },
             function(err) {
@@ -52,6 +74,8 @@ module.exports = function (app, model) {
         //res.json(model.createEventForGroup(req.params.groupid, req.body));
     }
     function findEventByTitle(req, res) {
+
+
         var groupid = req.params.groupid;
         var eventtitle = req.params.title;
         model.findEventByTitle(groupid, eventtitle)

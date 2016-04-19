@@ -47,6 +47,13 @@
 
 
             })
+            .when("/group/:groupid/userjoinEvent", {
+                templateUrl: "views/event/event.view.html",
+                controller: "EventController",
+                controllerAs:"model"
+
+
+            })
             .when("/details/:group_id", {
                 templateUrl:"views/details/detail.view.html",
                 controller:"DetailsController",

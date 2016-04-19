@@ -137,7 +137,6 @@ module.exports = function(app,db) {
 
 
     function findById(id) {
-        console.log("findbyid");
         var deferred = q.defer();
         projectUser.findOne(
             {_id:id},

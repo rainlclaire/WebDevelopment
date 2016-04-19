@@ -6,7 +6,6 @@ var upload = multer({dest:  __dirname});
 
 module.exports = function (app, model) {
 
-    console.log("user server");
     var auth = authorized;
 
     app.post("/api/project/user", createUser);
@@ -84,7 +83,7 @@ module.exports = function (app, model) {
 
     function loginProject(req, res) {
         var user = req.user;
-        console.log(user+"------login");
+
         res.json(user);
     }
 
@@ -94,7 +93,7 @@ module.exports = function (app, model) {
     }
 
     function loggedin(req, res) {
-        console.log(req.user);
+
         res.send(req.isAuthenticated() ? req.user : '0');
     }
 
@@ -104,8 +103,7 @@ module.exports = function (app, model) {
             .then(
 
                 function(user) {
-                    console.log("local sta");
-                    console.log(user);
+
                     if (user) {
                         return done(null, user);
                     } else {
@@ -131,7 +129,7 @@ module.exports = function (app, model) {
                 .findById(user._id)
                 .then(
                     function (user) {
-                        console.log(user + "-in session");
+
                         done(null, user);
                     },
                     function (err) {
@@ -155,10 +153,7 @@ module.exports = function (app, model) {
 
 
     function userLikeGroup(req, res) {
-        console.log("------1");
-        console.log(req.params.userid);
-        console.log("------2");
-        console.log(req.body);
+
         var userid = req.params.userid;
         var group = req.body;
         model.userLikeGroup(userid, group)
@@ -191,8 +186,7 @@ module.exports = function (app, model) {
     }
 
     function createUser(req, res) {
-        console.log("-----cera");
-        console.log(req.body);
+
         var user = req.body;
         user.roles = ["student"];
         model.
@@ -235,7 +229,7 @@ module.exports = function (app, model) {
     }
 
     function findUsers(req, res) {
-        console.log("findusers");
+
         var reqUsername = req.query.username;
         var reqPassword = req.query.password;
         //console.log(reqUsername);
@@ -266,7 +260,7 @@ module.exports = function (app, model) {
         //    //    password: reqPassword
         //    //}));
         if (reqUsername != null) {
-            console.log(reqUsername);
+
             model.findUserByUsername(reqUsername)
             .then(
                 function(user) {
@@ -317,7 +311,6 @@ module.exports = function (app, model) {
     }
 
     function findUserByUsername(req, res) {
-        console.log("finduser by username");
 
         var username = req.query.username;
         model.findUserByUsername(username)
@@ -383,7 +376,7 @@ module.exports = function (app, model) {
     }
 
     function findAlice(req, res) {
-        console.log("findAlice");
+
 
         var reqUsername = req.query.username;
         var reqPassword = req.query.password;

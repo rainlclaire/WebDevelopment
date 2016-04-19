@@ -5,6 +5,8 @@ module.exports = function(app) {
 
     var GroupSchema = require("./group.schema.server.js")();
     var projectGroup = mongoose.model("projectGroup", GroupSchema);
+
+
     var api = {
         create: create,
         findAll: findAll,
@@ -20,9 +22,43 @@ module.exports = function(app) {
         updateEventForGroup:updateEventForGroup,
         userJoinGroup:userJoinGroup,
         userLikeGroup:userLikeGroup,
-        findAllUser:findAllUser
+        findAllUser:findAllUser,
+        userJoinEvent:userJoinEvent
     };
     return api;
+
+    function userJoinEvent(user, id, groupid) {
+        console.log("user join event in model");
+        var deferred = q.defer();
+        projectGroup.findById(
+            groupid,
+            function (err, group) {
+                if (!err) {
+                    group.markModified("listofEvents");
+                    for (var i = 0; i < group.listofEvents.length; i++) {
+                        if (group.listofEvents[i]._id == id) {
+                            group.listofEvents[i].peopleJoin.push(user.username);
+                            console.log(group.listofEvents[i]);
+                            group.markModified("listofEvents[index]");
+                            group.save(
+                                index =i,
+                                function (err, group) {
+                                    if (!err) {
+                                        group.markModified("listofEvents");
+                                        deferred.resolve(group.listofEvents[index]);
+                                    } else {
+                                        deferred.reject();
+                                    }
+                                }
+                            );
+                        }
+                    }
+                } else {
+                    deferred.reject(err);
+                }
+            });
+        return deferred.promise;
+    }
 
     function findAllUser(groupid) {
         var deferred = q.defer();
@@ -102,7 +138,7 @@ module.exports = function(app) {
 
 
     function updateEventForGroup(groupid,eventid, event) {
-        console.log("log hrer")
+        console.log("log hrer");
         console.log(event);
         var deferred = q.defer();
         projectGroup.findById(
@@ -341,8 +377,6 @@ module.exports = function(app) {
 
 
     function findAll() {
-        //return groups;
-        console.log("find all group");
         var deferred = q.defer();
         projectGroup.find(
             function (err, projectGroup) {

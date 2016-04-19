@@ -16,13 +16,24 @@
             createEvent:createEvent,
             findEventByTitle:findEventByTitle,
             deleteEventById:deleteEventById,
-            updateEventForGroup:updateEventForGroup
+            updateEventForGroup:updateEventForGroup,
+            userJoinEvent:userJoinEvent
             //deleteGroupById: deleteGroupById,
             //updateGroupById: updateGroupById,
             //findEventByID: findEventByID
             //findGroupsByTitle: findGroupsByTitle
         };
         return service;
+
+        function userJoinEvent(user, id, groupid) {
+            var deferred = $q.defer();
+            $http.post("/project/group/"+groupid+"/userjoinEvent/"+id,user)
+                .success(function (response) {
+                    deferred.resolve(response);
+                    //$rootScope.groups = response;
+                });
+            return deferred.promise;
+        }
 
         function updateEventForGroup(groupid, eventid, event) {
             var deferred = $q.defer();
