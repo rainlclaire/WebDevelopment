@@ -49,14 +49,14 @@
 	line-height: 50px;
 	font-family: 'Playfair Display', serif;
 	font-style: italic;
-	color: #b5b5b5;
+	color: white;
 }
 .ei-title h3{
 	font-size: 70px;
 	line-height: 70px;
 	font-family: 'Open Sans Condensed', sans-serif;
 	text-transform: uppercase;
-	color: #000;
+	color: white;
 }
 .ei-slider-thumbs{
 	height: 13px;
@@ -209,6 +209,7 @@ a.group_title h2 {
 table.adminEvent {
 	width:auto;
 }
+
 
 @media screen and (max-width: 830px) {
 	.ei-title{

@@ -13,7 +13,11 @@
         function register(user) {
             console.log("register1");
             console.log(user);
-            if (user.username !=null) {
+            if (user.email == null) {
+                alert("Please provide your email");
+                return;
+            }
+            else if (user.username !=null) {
                 UserService.findUserByUsername(user.username)
                         .then(function (theuser) {
                             if (theuser) {

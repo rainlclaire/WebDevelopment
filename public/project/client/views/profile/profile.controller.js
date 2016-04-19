@@ -29,9 +29,7 @@
                     model.user._id = user._id;
                     model.user.username = user.username;
                     model.user.password = user.password;
-
                     model.user.email = user.email;
-
                     model.user.roles = user.roles;
                     model.user.likeGroups = user.likeGroups;
                     model.user.groupJoined = user.groupJoined;
@@ -50,11 +48,11 @@
             console.log("updatecontoler");
             console.log(updateUser);
             model.message = null;
+            if (model.user.password != model.user.verifyPassword){
+                alert("Password not Match");
+            }
             if (!model.user.email) {
                 alert("you have to provide email");
-            }
-            if (!model.user.phone) {
-                alert("you have to provide phone");
             } else {
                 if (user.email != updateUser.email) {
                     updateUser.email = updateUser.email.split(",");

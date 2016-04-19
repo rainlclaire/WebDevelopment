@@ -35,6 +35,9 @@
         function login(theUser) {
             console.log('cici');
             console.log(theUser);
+            if (!theUser) {
+                alert("Please provide your username and password");
+            }
             UserService.findUserByCredentials(theUser.username, theUser.password)
                 .then(function(loggedInUser) {
                     if (loggedInUser) {
@@ -49,6 +52,7 @@
                     else {
                         //errors catch
                         alert("You have invalid Username or Password");
+                        $location.url("/login");
                     }
                 });
         }

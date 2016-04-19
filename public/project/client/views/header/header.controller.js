@@ -12,6 +12,9 @@
         $scope.isActive = isActive;
         //logout function to clear the user info
         $scope.logout = logout;
+        $scope.signup = signup;
+
+
 
 
         function isActive(path) {
