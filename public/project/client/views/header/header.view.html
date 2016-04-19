@@ -13,14 +13,16 @@
                 <li><a ng-show="user" ng-click="logout()">logout</a></li>
                 <li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>
             </ul>
-            <button ng-show="user" ng-click="logout()" value="no">LogOut</button>
+
             <select onChange="window.location.href=this.value" class="selectnav" id="selectnav1">
                 <option value="">-Navigation-</option>
                 <option ng-class="{'active': $location.url()=='/group'}" value="#/home" selected="">Home</option><option value="#/group">Group</option>
                 <option ng-show="!user" ng-class="{'active': $location.url()=='/signup'}" value="#/signup">SignUp</option>
                 <option ng-show="!user" ng-class="{'active': $location.url()=='/login'}" value="#/login">LogIn</option>
                 <option ng-show="user" ng-class="{'active': $location.url()=='/profile'}" value="#/profile">Profile</option>
+
             </select>
+            <button ng-show="user" ng-click="logout()" value="no">LogOut</button>
 
 
     </div>
