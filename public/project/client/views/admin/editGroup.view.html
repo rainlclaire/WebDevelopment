@@ -12,8 +12,11 @@
                 </div>
             </div>
             <p>Description:</p>
-            <div text-angular ng-model="currentGroup.htmlVariable" ng-bind-html="currentGroup.htmlVariable"></div>
-
+            <div text-angular ng-model="currentGroup.htmlVariable">
+                <input ng-bind-html="currentGroup.htmlVariable"/>
+            </div>
+            
+            {{model.htmlContent}}
             <div class="form-group">
                 <label for="address" class="col-md-3 control-label">Address:</label>
                 <div class="col-md-9">
