@@ -15,7 +15,9 @@
         $scope.signup = signup;
 
 
-
+        function signup() {
+            return $location.url("#/group");
+        }
 
         function isActive(path) {
             return $location.url()===path;
