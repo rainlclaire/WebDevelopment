@@ -30,7 +30,6 @@
                                     .then(function (createdUser) {
 
                                         console.log(createdUser);
-
                                         $rootScope.user = createdUser;
                                         $location.url("/profile")
                                     });

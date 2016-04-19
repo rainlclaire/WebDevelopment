@@ -10,6 +10,12 @@
 
         model.fetchGroup = fetchGroup;
         //console.log($scope.groups);
+        GroupService.findAllGroups()
+            .then(function(groups) {
+
+                model.top6 = groups.splice(1,6);
+                console.log(model.top6);
+            });
 
         function fetchGroup(group_title) {
             console.log("goto fetch group");

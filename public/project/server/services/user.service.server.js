@@ -2,9 +2,10 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require("bcrypt-nodejs");
 var multer = require('multer');
-var upload = multer({dest: __dirname+'/../../upload'});
+var upload = multer({dest:  __dirname});
 
 module.exports = function (app, model) {
+
     console.log("user server");
     var auth = authorized;
 
@@ -27,44 +28,44 @@ module.exports = function (app, model) {
 
 
     //upload image
-    app.post("/api/project/user/uplaod", upload.single('file'), uploadImage);
+    //app.post("/api/project/user/upload", upload.single('myFile'), uploadImage);
 
     passport.use('project', new LocalStrategy(projectlocalStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
 
 
-    function uploadImage(req, res) {
-        var userId = req.body._id;
-        var myFile = req.file;
-
-        var destination = myFile.destination;
-        var path = myFile.path;
-        var originalname = myFile.originalname;
-        var size = myFile.size;
-        var mimetype = myFile.mimetype;
-        var filename = myFile.filename;
-
-        model.findUserById(userId)
-            .then(
-                function (user) {
-                    user.profile_img = "/project/uploads/"+filename;
-                    return model.updateUser(user);
-
-                },
-                function ( err ) {
-                    res.status(400).send(err);
-                }
-            )
-            .then(
-                function(){
-                    res.redirect("/project/client/index.html#/updateprofile");
-                },
-                function(err) {
-                    res.status(400).send(err);
-                }
-            );
-    }
+    //function uploadImage(req, res) {
+    //    var userId = req.body.userid;
+    //    var myFile = req.file;
+    //
+    //    var destination = myFile.destination;
+    //    var path = myFile.path;
+    //    var originalname = myFile.originalname;
+    //    var size = myFile.size;
+    //    var mimetype = myFile.mimetype;
+    //    var filename = myFile.filename;
+    //
+    //    model.findById(userId)
+    //        .then(
+    //            function (user) {
+    //                user.image = "/project/uploads/"+filename;
+    //                return model.update(user);
+    //
+    //            },
+    //            function ( err ) {
+    //                res.status(400).send(err);
+    //            }
+    //        )
+    //        .then(
+    //            function(){
+    //                res.redirect("/project/client/index.html#/profile");
+    //            },
+    //            function(err) {
+    //                res.status(400).send(err);
+    //            }
+    //        );
+    //}
 
     function getUpdatedCurrentUser(req, res) {
         var id = req.params.id;

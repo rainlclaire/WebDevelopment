@@ -13,6 +13,7 @@
         function init() {
             GroupService.findAllGroups()
                 .then(function(groups) {
+
                    // console.log("from group contrller");
                    // console.log(groups);
                    // function htmlString (str) {

@@ -30,6 +30,7 @@
                     model.user.username = user.username;
                     model.user.password = user.password;
                     model.user.email = user.email;
+                    model.user.image = user.image;
                     model.user.roles = user.roles;
                     model.user.likeGroups = user.likeGroups;
                     model.user.groupJoined = user.groupJoined;
