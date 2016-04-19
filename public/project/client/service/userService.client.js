@@ -73,6 +73,7 @@
         }
 
         function findUserByUsername(username) {
+            console.log("username");
             var deferred = $q.defer();
             $http.get("/api/project/user?username=" + username)
                 .success(function (response) {
@@ -110,9 +111,12 @@
 
         //create the user with give user
         function createUser(user) {
+            console.log("createuser");
+            console.log(user);
             var deferred = $q.defer();
             $http.post("/api/project/user", user)
                 .success(function (response) {
+                    console.log(response+"--response");
                     deferred.resolve(response);
                 });
             return deferred.promise;

@@ -16,9 +16,10 @@
 
 
         UserService.getCurrentUser()
-            .then(function(response) {
+            .then(function(user) {
+                console.log(user+"---profile");
 
-                $rootScope.user = response;
+                $rootScope.user = user;
 
                 //set the user info to user
                 if (user != null) {

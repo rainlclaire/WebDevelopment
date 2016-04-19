@@ -3,6 +3,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function (app, model) {
+    console.log("user server");
     var auth = authorized;
 
     app.post("/api/project/user", createUser);
@@ -152,7 +153,8 @@ module.exports = function (app, model) {
     }
 
     function createUser(req, res) {
-
+        console.log("-----cera");
+        console.log(req.body);
         var user = req.body;
         user.roles = ["student"];
         model.
@@ -195,36 +197,37 @@ module.exports = function (app, model) {
     }
 
     function findUsers(req, res) {
+        console.log("findusers");
         var reqUsername = req.query.username;
         var reqPassword = req.query.password;
         //console.log(reqUsername);
         //console.log(reqPassword);
 
-        if (reqUsername != null && reqPassword != null) {
-
-            var credentials = {
-                username: reqUsername,
-                password: reqPassword
-            };
-
-            model.findUserByCredentials(
-                {username:reqUsername, password:reqPassword})
-            .then(
-                function(user) {
-                    res.json(user);
-                },
-                function(err) {
-                    res.status(400).send(err);
-                }
-            );
-            ////model.findUserByCredentials(credentials)
-            ////    .then(function (user) {
-            ////        res.json(user);
-            //res.json(model.findUserByCredentials({
-            //    username: reqUsername,
-            //    password: reqPassword
-            //}));
-        } else if (reqUsername != null) {
+        //if (reqUsername != null && reqPassword != null) {
+        //
+        //    var credentials = {
+        //        username: reqUsername,
+        //        password: reqPassword
+        //    };
+        //
+        //    model.findUserByCredentials(
+        //        {username:reqUsername, password:reqPassword})
+        //    .then(
+        //        function(user) {
+        //            res.json(user);
+        //        },
+        //        function(err) {
+        //            res.status(400).send(err);
+        //        }
+        //    );
+        //    ////model.findUserByCredentials(credentials)
+        //    ////    .then(function (user) {
+        //    ////        res.json(user);
+        //    //res.json(model.findUserByCredentials({
+        //    //    username: reqUsername,
+        //    //    password: reqPassword
+        //    //}));
+        if (reqUsername != null) {
             console.log(reqUsername);
             model.findUserByUsername(reqUsername)
             .then(
@@ -235,11 +238,12 @@ module.exports = function (app, model) {
                     res.status(400).send(err);
                 }
             );
-            //model.findUserByUsername(reqUsername)
-            //    .then(function (user) {
-            //        res.json(user);
-            //res.json(model.findUserByUsername(reqUsername));
-        } else {
+            model.findUserByUsername(reqUsername)
+                .then(function (user) {
+                    res.json(user);
+            res.json(model.findUserByUsername(reqUsername));
+        });
+        }  else {
             model.findAll()
             .then(
                 function(user) {
@@ -275,7 +279,8 @@ module.exports = function (app, model) {
     }
 
     function findUserByUsername(req, res) {
-        console.log(req.query.username);
+        console.log("finduser by username");
+
         var username = req.query.username;
         model.findUserByUsername(username)
             .then(
