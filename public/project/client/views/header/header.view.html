@@ -14,7 +14,7 @@
                 <li ng-class="{'active': $location.url()=='/group'}"><a href="#/group">group</a></li>
                 <li ng-show="!user" ng-class="{'active': $location.url()=='/signup'}"><a href="#/signup">sign up</a></li>
                 <li ng-show="!user" ng-class="{'active': $location.url()=='/login'}"><a href="#/login">log in</a></li>
-                <li><a ng-show="user" ng-click="logout(user)">logout</a></li>
+                <li><a ng-show="user" ng-click="logout()">logout</a></li>
                 <li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>
             </ul>
             <select class="selectnav" id="selectnav1"><option value="">

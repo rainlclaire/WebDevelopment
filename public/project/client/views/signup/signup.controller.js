@@ -11,17 +11,14 @@
         model.register = register;
 
         function register(user) {
-            console.log('33333');
-            console.log(model.theUser);
             UserService.createUser(user)
-                .then(function(newUser) {
-                    console.log(newUser);
-                    model.user = newUser;
-                    console.log(newUser);
-                    $rootScope.user = model.user;
-                    $rootScope.currentUser=model.user;
+                .then(function (createdUser) {
+
+                    console.log(createdUser);
+
+                    $rootScope.user = createdUser;
                     $location.url("/profile");
-                    console.log('3333324234323');
+
                 });
 
 

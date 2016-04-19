@@ -102,7 +102,7 @@ module.exports = function(db,mongoose) {
                 if (!err) {
                     deferred.resolve(stats);
                 } else {
-                    deferred.rej(err);
+                    deferred.reject(err);
                 }
             }
         );

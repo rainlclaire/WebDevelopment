@@ -197,7 +197,7 @@ module.exports = function(app,db) {
                 if (!err) {
                     deferred.resolve(stats);
                 } else {
-                    deferred.rej(err);
+                    deferred.reject(err);
                 }
             }
         );

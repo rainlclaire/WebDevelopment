@@ -1,8 +1,10 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var bcrypt           = require("bcrypt-nodejs");
 
 module.exports = function (app, model, db) {
     var auth = authorized;
+
     app.post("/api/assignment/user", createUser);
     //app.get("/api/assignment/user", findUsers);
     app.get("/api/assignment/user/:id", findUserById);
@@ -22,7 +24,7 @@ module.exports = function (app, model, db) {
     app.put("/api/assignment/admin/user/:id", updateUserByIdFromAdmin);
     app.delete("/api/assignment/admin/user/:id", deleteUserByIdFromAdmin);
 
-    passport.use("assignment",new LocalStrategy(localStrategy));
+    passport.use("assignment",new LocalStrategy(assignmentlocalStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
 
@@ -39,15 +41,16 @@ module.exports = function (app, model, db) {
         res.send(req.isAuthenticated() ? req.user : '0');
     }
 
-    function localStrategy(username, password, done) {
+    function assignmentlocalStrategy(username, password, done) {
         model
             .findUserByCredentials({username: username, password: password})
             .then(
                 function(user) {
-                    if (!user) {
+                    if (user ) {
+                        return done(null, user);
+                    } else {
                         return done(null, false);
                     }
-                    return done(null, user);
                 },
                 function(err) {
                     if (err) {
@@ -64,24 +67,28 @@ module.exports = function (app, model, db) {
 
     // retrieve the user object from the session
     function deserializeUser(user, done) {
-        model
-            .findById(user._id)
-            .then(
-                function(user) {
-                    done(null, user);
-                },
-                function(err) {
-                    done(err, null);
-                }
-            );
+
+            model
+                .findById(user._id)
+                .then(
+                    function (user) {
+                        console.log(user + "-in session1111");
+                        done(null, user);
+                    },
+                    function (err) {
+                        done(err, null);
+                    }
+                );
+
     }
 
     // determine whether the user is admin or not
     function isAdmin(user) {
         if (user.roles.indexOf("admin") >-1) {
            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     // implement authorized function
@@ -286,7 +293,7 @@ module.exports = function (app, model, db) {
         if (isAdmin(req.user)) {
             var newUser = req.body;
             model
-                .create(newUser)
+                .createUser(newUser)
                 .then(
                     function (user) {
                         res.json(user);

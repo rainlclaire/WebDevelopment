@@ -34,21 +34,14 @@
 
         function login(theUser) {
             console.log('cici');
+            console.log(theUser);
             UserService.findUserByCredentials(theUser.username, theUser.password)
                 .then(function(loggedInUser) {
                     if (loggedInUser) {
                         console.log(loggedInUser);
 
                         //to set up the loggedIn user info
-                        $rootScope.user = {
-                            _id:loggedInUser._id,
-                            username: loggedInUser.username,
-                            password: loggedInUser.password,
-                            email: loggedInUser.email,
-                            roles: loggedInUser.roles,
-                            likeGroups: loggedInUser.likeGroups,
-                            groupJoined: loggedInUser.groupJoined
-                        };
+                        $rootScope.user = loggedInUser;
                         //set up the path for navigating to profile
                         $location.path("/profile");
                     }

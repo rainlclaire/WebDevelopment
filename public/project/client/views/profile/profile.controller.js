@@ -15,31 +15,35 @@
         model.message = null;
 
 
-        var user = $rootScope.user;
+        UserService.getCurrentUser()
+            .then(function(response) {
 
-        //set the user info to user
-        if (user != null) {
-            console.log(user);
-            console.log(model.user);
-            model.user = {};
-            model.user._id = user._id;
-            model.user.username = user.username;
-            model.user.password = user.password;
+                $rootScope.user = response;
 
-            model.user.email = user.email;
+                //set the user info to user
+                if (user != null) {
+                    console.log(user);
+                    console.log(model.user);
+                    model.user = {};
+                    model.user._id = user._id;
+                    model.user.username = user.username;
+                    model.user.password = user.password;
 
-            model.user.roles = user.roles;
-            model.user.likeGroups = user.likeGroups;
-            model.user.groupJoined = user.groupJoined;
+                    model.user.email = user.email;
 
-            console.log(model.user);
+                    model.user.roles = user.roles;
+                    model.user.likeGroups = user.likeGroups;
+                    model.user.groupJoined = user.groupJoined;
 
-
-        } else {
-            $location.url("/home");
+                    console.log(model.user);
 
 
-        }
+                } else {
+                    $location.url("/home");
+            }
+
+
+        });
 
         function update(updateUser) {
             console.log("updatecontoler");

@@ -10,9 +10,7 @@
                 templateUrl: "views/home/home.view.html",
                 controller:"HomeController",
                 controllerAs:"model"
-                //resolve: {
-                //    getLoggedIn:getLoggedIn
-                //}
+
             })
             .when("/group", {
                 templateUrl: "views/group/group.view.html",
@@ -22,10 +20,10 @@
             .when("/profile", {
                 templateUrl: "views/profile/profile.view.html",
                 controller:"ProfileController",
-                controllerAs:"model"
-                //resolve: {
-                //    checkLoggedIn:checkLoggedIn
-                //}
+                controllerAs:"model",
+                resolve: {
+                    checkLoggedin: checkLoggedin
+                }
             })
             .when("/signup", {
                 templateUrl: "views/signup/signup.view.html",
@@ -46,75 +44,78 @@
                 templateUrl: "views/event/event.view.html",
                 controller: "EventController",
                 controllerAs:"model"
-                //resolve: {
-                //    getLoggedIn:getLoggedIn
-                //}
+
 
             })
             .when("/details/:group_id", {
                 templateUrl:"views/details/detail.view.html",
                 controller:"DetailsController",
                 controllerAs: "model"
-                //resolve: {
-                //    getLoggedIn: getLoggedIn
-                //}
+
             })
             .when("/admin/:group_id", {
                 templateUrl:"views/admin/admin.view.html",
                 controller: "AdminController",
-                controllerAs:"model"
+                controllerAs:"model",
+                resolve: {
+                    checkAdmin: checkAdmin
+                }
             })
             .when("/search", {
                 templateUrl:"views/search/search.view.html",
                 controller:"HomeController"
-                //resolve: {
-                //    getLoggedIn: getLoggedIn
-                //}
-                //controller:"HomeController"
+
             })
             .when("/search/:groupTitle", {
                 templateUrl:"views/search/search.view.html",
                 controller:"HomeController"
-                //resolve: {
-                //    getLoggedIn: getLoggedIn
-                //}
-                //controller:"HomeController"
+
             })
             .otherwise( {
                 redirectTo: "/home"
             });
     }
+    function checkLoggedin(UserService, $q, $location) {
+        var deferred = $q.defer();
 
-    //function getLoggedIn(UserService, $q) {
-    //    var deferred = $q.defer();
-    //
-    //    UserService.getCurrentUser()
-    //    .then(function(response){
-    //        var currentUser = response.date;
-    //        UserService.setCurrentUser(currentUser);
-    //        deferred.resolve();
-    //    });
-    //
-    //    return deferred.promise;
-    //}
-    //
-    //function checkLoggedIn(UserService, $q, $location) {
-    //    var deferred = $q.defer();
-    //
-    //    UserService.getCurrentUser()
-    //    .then(function(response) {
-    //        var currentUser = response.data;
-    //        if (currentUser) {
-    //            UserService.setCurrentUser(currentUser);
-    //            deferred.resolve();
-    //        } else {
-    //            deferred().reject();
-    //            $location.url("/home");
-    //        }
-    //    });
-    //
-    //    return deferred.promise;
-    //}
+        UserService
+            .getCurrentUser()
+            .then(function(response) {
+                console.log(response+"-response form config");
+                var user = response;
+                if(user !=='0') {
+                    UserService.setCurrentUser(user);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                    $location.url("/home");
+                }
+            });
+
+        return deferred.promise;
+    }
+
+    function checkAdmin(UserService, $q, $location) {
+        var deferred = $q.defer();
+
+        UserService
+            .getCurrentUser()
+            .then(function(response) {
+                var user = response;
+                if (user !== '0' && user.roles.indexOf('admin') != -1) {
+                    UserService.setCurrentUser(user);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                    $location.url("/home");
+                }
+            });
+
+        return deferred.promise;
+    }
+
+
+
 })();
 
 
