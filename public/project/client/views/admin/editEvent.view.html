@@ -1,6 +1,6 @@
 <div>
     <div class="modal-header">
-        <h3 class="modal-title">edit the group</h3>
+        <h3 class="modal-title">Event edit page</h3>
     </div>
     <div class="modal-body">
         <form class="form-horizontal" role="form">
@@ -8,19 +8,23 @@
             <div class="form-group">
                 <label for="title" class="col-md-3 control-label">Title:</label>
                 <div class="col-md-9">
-                    <input ng-model="currentGroup.title" id="title" class="form-control profileInput" type="text" placeholder="title">
+                    <input ng-model="editEvent.title" id="title" class="form-control profileInput" type="text" placeholder="title">
                 </div>
             </div>
             <p>Description:</p>
-            <div text-angular ng-model="currentGroup.htmlVariable">
-                <input ng-bind-html="currentGroup.htmlVariable"/>
+            <div text-angular ng-model="editEvent.htmlVariable">
+                <input ng-bind-html="editEvent.htmlVariable" />
             </div>
-
-            {{model.htmlContent}}
             <div class="form-group">
                 <label for="address" class="col-md-3 control-label">Address:</label>
                 <div class="col-md-9">
-                    <input ng-model="currentGroup.address" id="address" class="form-control profileInput" type="text" placeholder="address">
+                    <input ng-model="editEvent.address" id="address" class="form-control profileInput" type="text" placeholder="address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-md-3 control-label">Address:</label>
+                <div class="col-md-9">
+                    <input ng-model="editEvent.date" id="date" class="form-control profileInput" type="date" placeholder="date">
                 </div>
             </div>
 

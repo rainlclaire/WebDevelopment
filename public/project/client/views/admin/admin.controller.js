@@ -50,7 +50,7 @@
         model.addEventInGroup = addEventInGroup;
         model.updateEventInGroup = updateEventInGroup;
         model.deleteEventInGroup = deleteEventInGroup;
-        model.selectEventInGroup = selectEventInGroup;
+        model.selectAndUpateGroup = selectAndUpateGroup;
         model.editGroup = editGroup;
 
         function editGroup() {
@@ -142,14 +142,34 @@
         //}
 
         //update the select form with the given form info
-        function updateEventInGroup(event) {
-            console.log(event);
-            console.log($scope.currentGroup._id);
-            console.log(event._id);
-            EventService.updateEventForGroup($scope.currentGroup._id, event._id, event)
-                .then(function (events) {
-                    $rootScope.listofEvents = events;
-                });
+        function updateEventInGroup() {
+
+            $rootScope.modalInstance = $uibModal.open({
+                templateUrl: "views/admin/editEvent.view.html",
+                controller: "editEventController",
+                controllerAs: "model",
+                size: 'lg',
+                resolve: {
+                    currentGroup: function () {
+                        console.log(model.currentGroup);
+                        return model.currentGroup;
+                    },
+                    groups: function () {
+                        return model.groups;
+                    },
+                    clickEvent: function() {
+                        return clickEvent;
+                    }
+                }
+            });
+
+            //console.log(event);
+            //console.log($scope.currentGroup._id);
+            //console.log(event._id);
+            //EventService.updateEventForGroup($scope.currentGroup._id, event._id, event)
+            //    .then(function (events) {
+            //        $rootScope.listofEvents = events;
+            //    });
 
         }
 
@@ -165,7 +185,7 @@
         }
 
         //select the form with given form's index
-        function selectEventInGroup(index) {
+        function selectAndUpateGroup(index) {
             //$scope.clickForm.title = $scope.forms[index].title;
             $scope.selectEventIndex = index;
             console.log($scope.selectEventIndex);
@@ -174,10 +194,31 @@
                 "_id": $rootScope.listofEvents[index]._id,
                 "title": $rootScope.listofEvents[index].title,
                 "date": $rootScope.listofEvents[index].date,
+                "htmlVariable":$rootScope.listofEvents[index].htmlVariable,
                 "address": $rootScope.listofEvents[index].address,
                 "peopleJoin":$rootScope.listofEvents[index].peopleJoin,
                 "description": $rootScope.listofEvents[index].description
             };
+
+
+            $rootScope.modalInstance = $uibModal.open({
+                templateUrl: "views/admin/editEvent.view.html",
+                controller: "editEventController",
+                controllerAs: "model",
+                size: 'lg',
+                resolve: {
+                    currentGroup: function () {
+                        console.log(model.currentGroup);
+                        return model.currentGroup;
+                    },
+                    groups: function () {
+                        return model.groups;
+                    },
+                    clickEvent: function() {
+                        return $scope.clickEvent;
+                    }
+                }
+            });
 
 
         }

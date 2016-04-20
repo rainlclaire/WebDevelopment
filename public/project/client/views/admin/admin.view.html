@@ -68,6 +68,7 @@
                     <!--<p>{{event._id}}</p>-->
                     <!--<p><span>Event Date</span></p>-->
                     <!--<p>{{event.date}}</p>-->
+
                     <!--<p><span>Event Address</span></p>-->
                     <!--<p>{{event.address}}</p>-->
                     <!--<p><span>Event Description</span></p>-->
@@ -82,43 +83,49 @@
 
             <!--<div class="post_border_bottom"></div>-->
 
-
+            <div class="row-fluid form-inline">
+                <button ng-click="model.addEventInGroup(clickEvent)" class="btn btn-danger">Add Event</button>
+                <button ng-click="model.editGroup()" class="btn btn-danger">Edit Group Info</button>
+                <h1>CRUD EVENTS</h1>
+                <!--how to put space here-->
+                <!--<button ng-click="model.updateEventInGroup(clickEvent)" class="btn btn-info">Go Edit</button>-->
+            </div>
             <div class="table-responsive">
 
-                <table class="table col-md-8 adminEvent">
+                <table class="table col-md-9 adminEvent">
                     <thead>
                     <tr>
                         <th><span class="glyphicon glyphicon-triangle-bottom"></span> ID</th>
                         <th><span class="glyphicon glyphicon-triangle-bottom"></span> Title</th>
                         <th><span class="glyphicon glyphicon-triangle-bottom"></span> Address</th>
-                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> Description</th>
+                        <th><span class="glyphicon glyphicon-triangle-bottom"></span> PeopleJoin</th>
                         <th><span class="glyphicon glyphicon-triangle-bottom"></span> Date</th>
                         <th><span class="glyphicon glyphicon-triangle-bottom"></span> Action</th>
                     </tr>
-                    <tr>
-                        <td>
-                            Event ID
-                        </td>
-                        <td>
-                            <input ng-model="clickEvent.title" class="form-control input-sm" type="text"  placeholder="title">
-                        </td>
-                        <td>
-                            <input ng-model="clickEvent.address" class="form-control input-sm" type="text"  placeholder="address">
-                        </td>
-                        <td>
-                            <input ng-model="clickEvent.description" class="form-control input-sm" type="date" placeholder="description">
-                        </td>
-                        <td>
-                            <input ng-model="clickEvent.date" class="form-control input-sm" type="date" placeholder="date">
-                        </td>
-                        <td>
-                            <div class="row-fluid form-inline">
-                                <button ng-click="model.addEventInGroup(clickEvent)" class="btn btn-danger glyphicon glyphicon-plus"></button>
-                                <!--how to put space here-->
-                                <button ng-click="model.updateEventInGroup(clickEvent)" class="btn btn-info glyphicon glyphicon-ok"></button>
-                            </div>
-                        </td>
-                    </tr>
+                    <!--<tr>-->
+                        <!--<td>-->
+
+                        <!--</td>-->
+                        <!--<td>-->
+
+                        <!--</td>-->
+                        <!--<td>-->
+
+                        <!--</td>-->
+                        <!--<td>-->
+
+                        <!--</td>-->
+                        <!--<td>-->
+
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--&lt;!&ndash;<div class="row-fluid form-inline">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<button ng-click="model.addEventInGroup(clickEvent)" class="btn btn-danger">Add Event</button>&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;how to put space here&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;<button ng-click="model.updateEventInGroup(clickEvent)" class="btn btn-info">Go Edit</button>&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--</td>-->
+                    <!--</tr>-->
                     </thead>
                     {{model.events}}
                     <tbody>
@@ -127,11 +134,11 @@
                         <td >{{event._id}}</td>
                         <td class="form-list"><a href="#/group/{{currentGroup._id}}/event/{{event.title}}">{{event.title}}</a></td>
                         <td>{{event.address}}</td>
-                        <td>{{event.description}}</td>
+                        <td>{{event.peopleJoin.length}}</td>
                         <td >{{event.date}}</td>
                         <td  class="form-list">
-                            <button ng-click="model.deleteEventInGroup($index)" class="btn btn-danger glyphicon glyphicon-remove action-icon"></button>
-                            <button ng-click="model.selectEventInGroup($index)" class="btn btn-info glyphicon glyphicon-pencil action-icon"></button>
+                            <button ng-click="model.deleteEventInGroup($index)" class="btn btn-danger">Remove</button>
+                            <button ng-click="model.selectAndUpateGroup($index)" class="btn btn-info ">Go Edit</button>
                     </tr>
                     </tbody>
 
@@ -142,8 +149,8 @@
             </div>
 
     </form>
-    <button ng-click="model.editGroup()" class="btn btn-danger">Edit Group Info</button>
-    <h1>CRUD EVENTS</h1>
+    <!--<button ng-click="model.editGroup()" class="btn btn-danger">Edit Group Info</button>-->
+    <!--<h1>CRUD EVENTS</h1>-->
 
 
 

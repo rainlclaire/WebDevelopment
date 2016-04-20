@@ -28,14 +28,16 @@
                                 <p><span>ID</span></p>
                                 <p>{{model.event._id}}</p>
                                 <p><span>Address</span></p>
-                                <p>{{mdoel.event.address}}</p>
+                                <p>{{model.event.address}}</p>
+                                <p><span>Date</span></p>
+                                <p>{{model.event.date}}</p>
                                 <p><span>People Join</span></p>
                                 <p>{{model.event.peopleJoin.length}}</p>
 
                             </div>
                             <div class="excerpt floatright">
                                 <h2>Group Description:</h2>
-                                <div>{{model.event.description}}</div>
+                                <div ng-bind-html="model.event.htmlVariable"></div>
                             </div>
 
                         </div>
