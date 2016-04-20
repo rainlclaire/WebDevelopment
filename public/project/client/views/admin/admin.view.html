@@ -123,7 +123,7 @@
                     {{model.events}}
                     <tbody>
 
-                    <tr ng-repeat="event in model.events">
+                    <tr ng-repeat="event in listofEvents">
                         <td >{{event._id}}</td>
                         <td class="form-list"><a href="#/group/{{currentGroup._id}}/event/{{event.title}}">{{event.title}}</a></td>
                         <td>{{event.address}}</td>

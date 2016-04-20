@@ -6,6 +6,7 @@ module.exports = function() {
         date:Date,
         address:String,
         description:String,
+        htmlVariable:String,
         peopleJoin:[{type:mongoose.Schema.Types.Object, ref:'projectUser'}]
     }, {collection: "projectEvent"});
     return EventSchema;

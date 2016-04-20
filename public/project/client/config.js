@@ -11,11 +11,13 @@
                 controller:"HomeController",
                 controllerAs:"model"
 
+
             })
             .when("/group", {
                 templateUrl: "views/group/group.view.html",
                 controller: "GroupController",
                 controllerAs:"model"
+
             })
             .when("/profile", {
                 templateUrl: "views/profile/profile.view.html",
@@ -29,6 +31,7 @@
                 templateUrl: "views/signup/signup.view.html",
                 controller: "SignUpController",
                 controllerAs:"model"
+
             })
             .when("/login", {
                 templateUrl: "views/login/login.view.html",
@@ -39,11 +42,13 @@
                 templateUrl: "views/event/events.view.html",
                 controller: "EventController",
                 controllerAs:"model"
+
             })
             .when("/group/:groupid/event/:event_title", {
                 templateUrl: "views/event/event.view.html",
                 controller: "EventController",
                 controllerAs:"model"
+
 
 
             })
@@ -59,20 +64,26 @@
                 controller:"DetailsController",
                 controllerAs: "model"
 
+
             })
             .when("/admin/:group_id", {
                 templateUrl:"views/admin/admin.view.html",
                 controller: "AdminController",
-                controllerAs:"model"
+                controllerAs:"model",
+                resolve: {
+                    checkLoggedin: checkLoggedin
+                }
             })
             .when("/search", {
                 templateUrl:"views/search/search.view.html",
                 controller:"HomeController"
 
+
             })
             .when("/search/:groupTitle", {
                 templateUrl:"views/search/search.view.html",
                 controller:"HomeController"
+
 
             })
             .otherwise( {

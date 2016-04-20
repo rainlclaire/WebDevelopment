@@ -36,8 +36,8 @@
                 console.log("from admin model.events");
 
                 console.log(allEvents);
-                model.events = allEvents;
-                console.log(model.events);
+                $rootScope.listofEvents = allEvents;
+
 
             });
 
@@ -71,38 +71,75 @@
             })
         }
 
+        function addEventInGroup() {
+            $rootScope.modalInstance = $uibModal.open({
+                templateUrl: "views/admin/addEvent.view.html",
+                controller: "addEventController",
+                controllerAs: "model",
+                size: 'lg',
+                resolve: {
+                    currentGroup: function () {
+                        console.log(model.currentGroup);
+                        return model.currentGroup;
+                    },
+                    groups: function () {
+                        return model.groups;
+                    },
+                    events: function() {
+                        return model.events;
+                    }
+                 }
+            });
+
+            //EventService.findAllEvents($scope.currentGroup._id)
+            //    .then(function(allEvents) {
+            //        for (var i = 0; i < allEvents.length; i++) {
+            //
+            //            allEvents[i].htmlVariable = $sce.trustAsHtml(allEvents[i].htmlVariable);
+            //            console.log($sce.valueOf(allEvents[i].htmlVariable));
+            //            model.events = allEvents;
+            //            console.log(allEvents);
+            //        }
+            //    });
+            //
+            //GroupService.findGroupByID(groupid)
+            //    .then(function (theGroup) {
+            //        model.currentGroup = theGroup;
+            //    });
+        }
+
 
         //add the form to currentForms
-        function addEventInGroup(event) {
-            //GroupService.findAllEvents($scope.currentGroup, function (allEvents) {
-            //    $scope.events = allEvents;
-            //
-            //});
-            var newEvent = {
-                _id:event._id,
-                title: event.title,
-                date: event.date,
-                description: event.description,
-                address:event.address,
-                peopleJoin:[]
-
-            };
-
-            //inti the title with empty
-            $scope.clickEvent.title = "";
-            $scope.clickEvent.date = "";
-            $scope.clickEvent.description = "";
-
-            console.log($scope.currentGroup._id);
-            EventService.createEvent($scope.currentGroup._id, newEvent)
-                .then(function (newEvent) {
-                    console.log(newEvent);
-                    model.events = newEvent;
-
-                });
-
-
-        }
+        //function addEventInGroup(event) {
+        //    //GroupService.findAllEvents($scope.currentGroup, function (allEvents) {
+        //    //    $scope.events = allEvents;
+        //    //
+        //    //});
+        //    var newEvent = {
+        //        _id:event._id,
+        //        title: event.title,
+        //        date: event.date,
+        //        description: event.description,
+        //        address:event.address,
+        //        peopleJoin:[]
+        //
+        //    };
+        //
+        //    //inti the title with empty
+        //    $scope.clickEvent.title = "";
+        //    $scope.clickEvent.date = "";
+        //    $scope.clickEvent.description = "";
+        //
+        //    console.log($scope.currentGroup._id);
+        //    EventService.createEvent($scope.currentGroup._id, newEvent)
+        //        .then(function (newEvent) {
+        //            console.log(newEvent);
+        //            model.events = newEvent;
+        //
+        //        });
+        //
+        //
+        //}
 
         //update the select form with the given form info
         function updateEventInGroup(event) {
@@ -111,19 +148,19 @@
             console.log(event._id);
             EventService.updateEventForGroup($scope.currentGroup._id, event._id, event)
                 .then(function (events) {
-                    model.events = events;
+                    $rootScope.listofEvents = events;
                 });
 
         }
 
         //delete the form with given form's index
         function deleteEventInGroup(index) {
-            var deletedId = model.events[index]._id;
+            var deletedId = $rootScope.listofEvents [index]._id;
             console.log("deleteeventid");
             console.log(deletedId);
             EventService.deleteEventById($scope.currentGroup._id, deletedId)
                 .then(function (allOtherEvents) {
-                    model.events = allOtherEvents;
+                    $rootScope.listofEvents= allOtherEvents;
                 });
         }
 
@@ -134,12 +171,12 @@
             console.log($scope.selectEventIndex);
             console.log(model.currentGroup.listofEvents);
             $scope.clickEvent = {
-                "_id": model.events[index]._id,
-                "title": model.events[index].title,
-                "date": model.events[index].date,
-                "address": model.events[index].address,
-                "peopleJoin":model.events[index].peopleJoin,
-                "description": model.events[index].description
+                "_id": $rootScope.listofEvents[index]._id,
+                "title": $rootScope.listofEvents[index].title,
+                "date": $rootScope.listofEvents[index].date,
+                "address": $rootScope.listofEvents[index].address,
+                "peopleJoin":$rootScope.listofEvents[index].peopleJoin,
+                "description": $rootScope.listofEvents[index].description
             };
 
 
