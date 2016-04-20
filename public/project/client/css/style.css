@@ -210,7 +210,18 @@ table.adminEvent {
 	width:auto;
 }
 
+div button#favoriteButton {
+	margin-left:10px;
+}
 
+h2#group-title {
+
+	clear: both;
+	display: inline-block;
+
+	white-space: nowrap;
+
+}
 @media screen and (max-width: 830px) {
 	.ei-title{
 		position: absolute;

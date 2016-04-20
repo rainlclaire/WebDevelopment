@@ -9,9 +9,7 @@
 
     <div class="fix content_area structure">
         <div class="fix slider_area">
-        <!--<div class="single_header_title">-->
-            <!--<h1>Blog</h1>-->
-        <!--</div>--> <div class="single_sidebar_area floatright">
+       <div class="single_sidebar_area floatright">
             <div class="single_sidebar">
                 <h2><span>Create NOW!</span></h2>
                 <button ng-click="model.addGroup2()" class="createGroup" href="#">Create A New Group</button>
@@ -28,13 +26,7 @@
                 <h2><span>Photo Gallery</span></h2>
                 <!--<div class="gallery_container">-->
                     <!--<img src="../images/act/2.png" alt="" title=""/>-->
-                    <!--<img src="../images/act/aws.jpeg" alt="" title=""/>-->
-                    <!--<img src="../images/act/c.jpeg" alt="" title=""/>-->
-                    <!--<img src="../images/act/c.jpeg" alt="" title=""/>-->
-                    <!--<img src="../images/act/dancer.jpg" alt="" title=""/>-->
-                    <!--<img src="../images/act/game.jpeg" alt="" title=""/>-->
-                    <!--<img src="../images/act/hike%20.jpeg" alt="" title=""/>-->
-                    <!--<img src="../images/act/2.png" alt="" title=""/>-->
+
                 <!--</div>-->
             </div>
         </div>
@@ -43,10 +35,8 @@
         <div class="single_content_area" ng-repeat="group in model.groups">
             <br/>
             <div class="single_main_content floatleft">
-                <a class="group_title" href="#/details/{{group._id}}"><span><h2>{{group.title}}</h2></span></a>
-                <!--<div class="excerpt floatright">-->
-                    <!--<a href="#/details/{{group._id}}"><h2>{{group.title}}</h2></a>-->
-                <!--</div>-->
+                <a class="group_title" href="#/details/{{group._id}}"><i class="fa fa-users fa-3x fa-border" aria-hidden="true">  {{group.title}}</i><span><h2 id="group-title"></h2></span></a>
+
                 <div class="single_post">
                     <div class="post_pro_img_normal"></div>
                     <div class="featured"></div>
@@ -71,10 +61,7 @@
                             <h2>Group Type:</h2>
                             <div>{{group.groupType}}</div>
                         </div>
-                        <!--<div class="excerpt floatright">-->
-                            <!--<h2>TextAngular</h2>-->
-                            <!--<div ng-bind-html="group.htmlVariable"></div>-->
-                        <!--</div>-->
+
                         </div>
 
 
@@ -84,15 +71,7 @@
             </div>
             </div>
 
-                <!---->
 
-                <!--<div class="pagination">-->
-                    <!--<ul>-->
-                        <!--<li><a href="" class="current">1</a></li>-->
-                        <!--<li><a href="">2</a></li>-->
-                        <!--<li><a href="">3</a></li>-->
-                    <!--</ul>-->
-                <!--</div>-->
             </div>
         </div>
     </div>
@@ -118,15 +97,7 @@
                 <br/>
                 <p>rainclaireqin@gmail.com</p>
                 <p>857-225-4877</p>
-                <!--<div class="fix social_area">-->
-                    <!--<ul>-->
-                        <!--<li><a href="#" class="facebook">facebook</a></li>-->
-                        <!--<li><a href="#" class="twitter">twitter</a></li>-->
-                        <!--<li><a href="#" class="email">email</a></li>-->
-                        <!--<li><a href="#" class="feed">feed</a></li>-->
-                        <!--<li><a href="#" class="vimeo">vimeo</a></li>-->
-                    <!--</ul>-->
-                <!--</div>-->
+
             </div>
         </div>
     </div>

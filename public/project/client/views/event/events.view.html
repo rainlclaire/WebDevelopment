@@ -21,7 +21,7 @@
                 <div class="single_main_content floatleft">
                     <div ng-repeat="event in model.events" class="single_post">
                         <div class="post_pro_img_normal"></div>
-                        <div class="featured"><img src="../images/act/dancer.jpg" alt="" title="" class="featured_img"/></div>
+                        <div class="featured"></div>
                         <div class="post_excerpt fix">
                             <div class="post_meta floatleft">
 
@@ -34,7 +34,7 @@
 
                             </div>
                             <div class="excerpt floatright">
-                                <h2>{{event.title}}</h2>
+                                <a href="#/group/{{currentGroupid}}/event/{{event.title}}"><h2>{{event.title}}</h2></a>
                                 <h2>Group Description:</h2>
                                 <div>{{event.description}}</div>
                             </div>

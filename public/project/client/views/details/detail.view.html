@@ -11,14 +11,14 @@
             <!--</div>--> <div class="single_sidebar_area floatright">
             <div class="single_sidebar">
                 <h2><span>Action</span></h2>
-                <button class="btn btn-primay"
+                <button id="favoriteButton" class="btn btn-default"
                 ng-click="model.favorite()">
                 <span class="glyphicon glyphicon-star-empty"></span>
                 </button>
-                <button class="btn btn-primay"
+                <button class="btn btn-danger"
                         ng-click="model.joinGroup()">Join Group Now
                     </button>
-                <button class="createGroup" ng-show="user.username===model.group.ownerName" ng-click="model.manageGroup()">Manage the Group</button>
+                <button class="btn btn-danger createGroup" ng-show="user.username===model.group.ownerName" ng-click="model.manageGroup()">Manage the Group</button>
 
             </div>
             <div class="single_sidebar">
@@ -45,18 +45,16 @@
                 <div class="post_excerpt fix">
                     <div class="post_meta floatleft">
 
-                        <p><span>Created Date</span></p>
+                        <p><i class="fa fa-calendar-times-o fa-1x" aria-hidden="true"></i><span> Created Date</span></p>
                         <p>April 15,2013</p>
-                        <p><span>Group Owner</span></p>
+                        <p><i class="fa fa-user fa-1x" aria-hidden="true"></i><span>  Group Owner</span></p>
                         <p>{{model.group.ownerName}}</p>
-                        <p><span>Event Number</span></p>
+                        <p><i class="fa fa-tag" aria-hidden="true"></i><span>  Event Number</span></p>
                         <p>{{model.group.listofEvents.length}}</p>
-                        <p><span>Member Number</span></p>
+                        <p><i class="fa fa-user-plus" aria-hidden="true"></i><span>  Member Number</span></p>
                         <p>{{model.group.listofMembers.length}}</p>
-                        <p><span>userlike Number</span></p>
+                        <p><i class="fa fa-user-plus" aria-hidden="true"></i><span>  userlike Number</span></p>
                         <p>{{model.group.usersLikeGroup.length}}</p>
-                        <p><span>COMMENTS</span></p>
-                        <p>4</p>
 
                     </div>
                     <div class="excerpt floatright">
@@ -64,15 +62,16 @@
                         <div ng-bind-html="model.group.htmlVariable"></div>
                     </div>
                     <div class="excerpt floatright">
-                        <a href="#/group/{{model.group._id}}/event"><h2>Group ListEvents</h2></a>
+
                         <div ng-repeat="event in model.group.listofEvents">
-                        <a href="#/group/{{model.group._id}}/event/{{event.title}}"><p><span>{{event.title}}</span></p></a>
-                        <p>{{event._id}}</p>
+                            <a href="#/group/{{model.group._id}}/event/{{event.title}}"><p><span>Title:</span><span>{{event.title}}</span></p></a>
+                            <p><span>Date: </span> {{event.date}}</p>
                             <div class="post_border_bottom"></div>
                         </div>
                     </div>
+
                     <div class="excerpt floatright">
-                        <h2>Group Address</h2>
+                        <h2><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> Group Address</h2>
                         <iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>
                     </div>
 
@@ -81,91 +80,7 @@
             </div>
         </div>
     </div>
-    <!--<div class="row">-->
-        <!--&lt;!&ndash; left column &ndash;&gt;-->
-        <!--<div class="col-md-3">-->
-            <!--<div>-->
-                <!--<div>-->
-                    <!--<div class="theborder">-->
-                        <!--<h1>Group Name</h1>-->
-                    <!--</div>-->
-                    <!--<div class="nonebored">-->
-                        <!--{{model.group.title}}-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<hr>-->
-                <!--{{model.group.likeGroups}}-->
-                <!--{{model.group.listofMembers}}-->
-                <!--<div>-->
-                    <!--<button class="btn btn-primay"-->
-                            <!--ng-click="model.favorite()">-->
-                        <!--<span class="glyphicon glyphicon-star-empty"></span>-->
-                    <!--</button>-->
-                <!--</div>-->
-                <!--<hr>-->
-                <!--<div>-->
-                    <!--<button ng-click="model.joinGroup()" class="btn btn-danger">Join Us</button>-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<button ng-show="currentUser.username===model.group.ownerName" ng-click="model.manageGroup()" class="btn btn-danger">Manage the Group</button>-->
-                <!--</div>-->
-                <!--<hr>-->
-                <!--<div>-->
-                    <!--<div>-->
-                        <!--<div class="theborder"><h1>Groups Members</h1></div>-->
-                        <!--<div class="nonebored" ng-repeat="member in model.group.listofMembers">{{member.username}}</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<hr>-->
-                <!--<div>-->
-                    <!--<div class="theborder">-->
-                        <!--<h1>Group Owner</h1>-->
-                    <!--</div>-->
-                    <!--<div class="nonebored">{{model.group.ownerName}}</div>-->
-                <!--</div>-->
-                <!--<hr>-->
-                <!--<div class="form-group col-md-6">-->
-                    <!--<select ng-model="thecolor" id="add-new-field" name="add-new" class="form-control">-->
-                        <!--<option value="white">white</option>-->
-                        <!--<option value="red">red</option>-->
-                    <!--</select>-->
-                <!--</div>-->
-                <!--<button ng-click="model.changeBackGround(thecolor)">change color</button>-->
-        <!--</div>-->
-            <!--</div>-->
 
-
-        <!--&lt;!&ndash; edit form column &ndash;&gt;-->
-        <!--<div class="col-md-9 personal-info">-->
-            <!--<table class="table table-hover">-->
-                <!--<tbody>-->
-
-                <!--<tr>-->
-                    <!--<td class="theborder">-->
-                        <!--<h1>Group Description</h1>-->
-                    <!--</td>-->
-                    <!--<td class="nonebored">{{model.group.description}}</td>-->
-                <!--</tr>-->
-
-                <!--<tr>-->
-                    <!--<td class="theborder">-->
-                        <!--<h1>Group Events</h1>-->
-                    <!--</td>-->
-                    <!--<td class="nonebored"><a ng-repeat="event in model.group.listofEvents" href="#/group/{{model.group._id}}/event/{{event.title}}">{{event.title}},  </a></td>-->
-                <!--</tr>-->
-
-                <!--<tr>-->
-                    <!--<td class="theborder"><h1>Address Map</h1></td>-->
-                    <!--<td class="nonebored">-->
-                        <!--<div my-map=""></div>-->
-                        <!--<iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>-->
-                    <!--</td>-->
-                <!--</tr>-->
-
-
-                <!--</tbody>-->
-            <!--</table>-->
-<!--</div>-->
 <hr>
 
 </div>

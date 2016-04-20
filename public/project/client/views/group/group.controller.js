@@ -42,50 +42,7 @@
         model.addGroup2 = addGroup2;
 
 
-        //add the form to currentForms
-        //function addGroup(group) {
-        //    init();
-        //
-        //
-        //    console.log(textAngular);
-        //    var newGroup = {
-        //        title: group.title,
-        //        _id: group._id,
-        //        ownerName: group.ownerName,
-        //        htmlVariable:group.htmlVariable,
-        //        description: group.description,
-        //        listofEvents: group.listofEvents,
-        //        address: group.address
-        //    };
-        //
-        //    //inti the title with empty
-        //    model.clickGroup.title = "";
-        //    model.clickGroup.ownerName = "";
-        //    model.clickGroup.htmlVariable="";
-        //    model.clickGroup.address = "";
-        //    model.clickGroup.description = "";
-        //    model.clickGroup.listofEvents = "";
-        //
-        //    GroupService.createGroup(newGroup)
-        //        .then(function(newGroup){
-        //            GroupService.findAllGroups()
-        //                .then(function(allGroups) {
-        //                    //console.log("add group test for -----");
-        //                    //console.log(allGroups);
-        //                    //function htmlString (str) {
-        //                    //    return "<h1>" + str + "</h1>";
-        //                    //}
-        //                    //for (var i = 0; i< allGroups.length;i++){
-        //                    //    var str = allGroups[i].htmlVariable;
-        //                    //    $scope.htmlString = htmlString(str);
-        //                    //    console.log($scope.htmlString);
-        //                    //}
-        //                    model.groups = allGroups;
-        //
-        //                });
-        //        });
-        //
-        //}
+
 
         function addGroup2() {
             if ($rootScope.user == null){
