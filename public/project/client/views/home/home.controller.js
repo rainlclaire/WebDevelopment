@@ -12,8 +12,9 @@
         //console.log($scope.groups);
         GroupService.findAllGroups()
             .then(function(groups) {
+                console.log(groups);
 
-                model.top6 = groups.splice(1,6);
+                model.top6 = groups.splice(0,6);
                 console.log(model.top6);
             });
 

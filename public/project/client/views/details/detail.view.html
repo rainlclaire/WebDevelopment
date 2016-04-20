@@ -18,7 +18,7 @@
                 <button class="btn btn-danger"
                         ng-click="model.joinGroup()">Join Group Now
                     </button>
-                <button class="btn btn-danger createGroup" ng-show="user.username===model.group.ownerName" ng-click="model.manageGroup()">Manage the Group</button>
+                <button id="favoriteButton" class="btn btn-danger createGroup" ng-show="user.username===model.group.ownerName" ng-click="model.manageGroup()">Manage the Group</button>
 
             </div>
             <div class="single_sidebar">
@@ -64,7 +64,7 @@
                     <div class="excerpt floatright">
 
                         <div ng-repeat="event in model.group.listofEvents">
-                            <a href="#/group/{{model.group._id}}/event/{{event.title}}"><p><span>Title:</span><span>{{event.title}}</span></p></a>
+                            <a href="#/group/{{model.group._id}}/event/{{event.title}}"><p><h2><img height="23px" width="23px" src="../images/icon5.png">  Title: {{event.title}}</h2></a>
                             <p><span>Date: </span> {{event.date}}</p>
                             <div class="post_border_bottom"></div>
                         </div>

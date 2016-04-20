@@ -6,7 +6,7 @@
         .controller("editEventController", editEventController);
 
 
-    function editEventController($route, $rootScope, $routeParams,clickEvent, $scope,currentGroup,groups, $location, GroupService) {
+    function editEventController($route, $rootScope, $routeParams,clickEvent, $scope,currentGroup,groups, $location, EventService) {
         var model = this;
         console.log(currentGroup);
         model.editEvent= editEvent;

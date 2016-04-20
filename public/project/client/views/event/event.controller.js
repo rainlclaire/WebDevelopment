@@ -16,6 +16,7 @@
 
 
         model.joinEvent= joinEvent;
+        model.findGroupMap = findGroupMap;
         var user = $rootScope.user;
         var currentGroupid = $scope.currentGroupid;
         var currentGroup = $scope.currentGroup;
@@ -30,7 +31,27 @@
         });
 
 
+        function init(eventAddress) {
 
+
+            console.log(eventAddress);
+            var theurl = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q='+eventAddress;
+            $scope.url = $sce.trustAsResourceUrl(theurl);
+            console.log($scope.url);
+            return $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/place?key=AIzaSyBFek2cKN2fA6seFcgfsEDyhE3CONb0ynM&q="+eventAddress);
+
+        }
+
+        function findGroupMap() {
+            console.log("findgroup map");
+            //console.log($scope.data);
+            GoogleMapService.searchMapByAddress(model.event.address)
+                .then(function(response) {
+                    $scope.data = response.data;
+                });
+            //
+            //console.log($scope.data);
+        }
 
         function joinEvent() {
             if ($rootScope.user == null) {
@@ -67,6 +88,7 @@
             EventService.findEventByTitle(groupid, event_title)
             .then(function(theEvent) {
                 model.event = theEvent;
+                init(model.event.address);
             });
 
 

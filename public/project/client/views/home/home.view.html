@@ -79,7 +79,8 @@
         <button class="btn btn-primary" type="submit" id="findButton" value="Search" href="#/search/{{groupTitle}}" ng-click="model.fetchGroup(groupTitle)">Search</button>
     </div>
     <div id="port-folio">
-        <p><span>Most Poplular Groups</span></p>
+        <h2 id="top"><img height="32" width="32" src="../images/top.png">  Most-Popular-Groups</h2>
+        <hr>
         <div class="row " >
             <div ng-repeat="group in model.top6" class="col-md-4 ">
 
@@ -87,14 +88,14 @@
                 <div class="portfolio-item awesome mix_all" data-cat="awesome" >
 
 
-                    <img src="../images/1.png" class="img-responsive " alt="" />
+                    <img src="../images/6.png" class="img-responsive " alt="" />
                     <div class="overlay">
                         <p>
-                                <span>
-                                TITLE1
-                                </span>
+                                <!--<span>-->
+                                <!--{{group.title}}-->
+                                <!--</span>-->
                         </p>
-                        <a class="preview btn btn-info " title="Image Title Here" href="../images/1.png"><i class="fa fa-plus fa-2x"></i></a>
+                        <a class="preview btn btn-info " title="Image Title Here" href="../images/6.png"><i class="fa-2x">{{group.title}}</i></a>
 
                     </div>
                 </div>

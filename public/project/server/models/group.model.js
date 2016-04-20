@@ -150,9 +150,12 @@ module.exports = function(app) {
 
                         for (var i = 0; i < group.listofEvents.length; i++) {
                             if (group.listofEvents[i]._id == eventid) {
-                                group.listofEvents[i]._id = event._id;
+                                group.listofEvents[i]._id == eventid
+                                group.listofEvents[i].address = event.address;
                                 group.listofEvents[i].title = event.title;
                                 group.listofEvents[i].date = event.date;
+                                group.listofEvents[i].htmlVariable = event.htmlVariable;
+                                group.listofEvents[i].peopleJoin = event.peopleJoin;
                             }
                         }
                         group.markModified("listofEvents");

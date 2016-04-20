@@ -218,9 +218,27 @@ h2#group-title {
 
 	clear: both;
 	display: inline-block;
+	color: #E8663C;
+	top: 0px;
+	margin: 0px;
+	padding: 5px;
+	text-transform: uppercase;
+	border-style:solid;
 
 	white-space: nowrap;
 
+}
+
+h2#top {
+	color:#E8663C;
+}
+
+form.form-horizontal.profile div.form-group label{
+	text-align:left;
+}
+
+button.profileUpdate {
+	margin-bottom: 15px;
 }
 @media screen and (max-width: 830px) {
 	.ei-title{
