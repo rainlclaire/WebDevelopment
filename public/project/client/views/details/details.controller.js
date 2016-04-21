@@ -178,6 +178,7 @@
             }
             GroupService.findGroupByID(group_id)
                 .then(function (userInGroup) {
+                    console.log(userInGroup);
                     if (userInGroup.usersLikeGroup.length >0) {
                         for (var i = 0; i < userInGroup.usersLikeGroup.length; i++) {
                             if (userInGroup.usersLikeGroup[i]._id = $rootScope.user._id) {
