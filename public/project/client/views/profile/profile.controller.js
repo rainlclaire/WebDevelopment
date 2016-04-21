@@ -18,7 +18,7 @@
 
         UserService.getCurrentUser()
             .then(function(user) {
-                console.log(user+"---profile");
+                console.log(user);
 
                 $rootScope.user = user;
 
