@@ -163,7 +163,6 @@ module.exports = function(app,db) {
         projectUser.findByIdAndUpdate(
             id,
             {$set:updatedUser},
-            {new:true},
             function (err, stats) {
                 if (!err) {
                     deferred.resolve(stats);

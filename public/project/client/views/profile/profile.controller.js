@@ -58,10 +58,6 @@
             if (!model.user.email) {
                 alert("you have to provide email");
             } else {
-                if (model.user.email != updateUser.email) {
-                    updateUser.email = updateUser.email.split(",");
-
-                }
                 UserService.updateUser($rootScope.user._id, updateUser)
                     .then(function (mergeUser) {
 
@@ -79,6 +75,7 @@
 
 
                     });
+
                 //UserService.updateUser(model.user._id, updateUser)
                 //    .then(function (mergeUser) {
                 //

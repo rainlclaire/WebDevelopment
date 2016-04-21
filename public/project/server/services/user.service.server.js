@@ -19,7 +19,7 @@ module.exports = function (app, model) {
     app.post("/api/project/logout", logout);
     app.get("/api/project/loggedin", loggedin);
     app.get("/api/project/loggedin/:id", getUpdatedCurrentUser);
-    app.put("/api/project/user/:id", auth, updateUser);
+    app.put("/api/project/user/:id", auth, updateUserFind);
     app.delete("/api/project/user/:id", auth, deleteUser);
     app.post("/api/project/user/:userid/userJoinGroup", joinedGroups);
     app.post("/api/project/user/:userid/userLikeGroup", userLikeGroup);
@@ -331,7 +331,7 @@ module.exports = function (app, model) {
         //res.json(model.findUserByUsername(req.query.username));
     }
 
-    function updateUser(req, res) {
+    function updateUserFind(req, res) {
         console.log("updateuser");
         var userid = req.params.id;
         var user = req.body;
