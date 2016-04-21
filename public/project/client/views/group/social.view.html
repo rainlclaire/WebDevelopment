@@ -12,7 +12,7 @@
             <div class="single_sidebar_area floatright">
                 <div class="single_sidebar">
                     <h2><span>Create NOW!</span></h2>
-                    <button ng-click="model.addGroup2()" class="createGroup" href="#">Create A New Group</button>
+                    <button ng-click="model.addGroup2()" class="createGroup" href="#">CreateGroup</button>
                 </div>
                 <div class="single_sidebar">
                     <h2><span>Categories</span></h2>
@@ -32,9 +32,10 @@
                 </div>
             </div>
 
-
+            <p>Group List</p>
+            <hr>
             <div class="single_content_area" ng-repeat="group in socialGroup">
-                <br/>
+
                 <div class="single_main_content floatleft">
                     <a class="group_title" href="#/details/{{group._id}}"><h2 id="group-title"><img src="../images/icon5.png">  {{group.title}}</h2></a>
                     <hr>
