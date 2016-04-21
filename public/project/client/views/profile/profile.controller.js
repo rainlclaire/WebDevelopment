@@ -36,7 +36,7 @@
                     model.user.likeGroups = user.likeGroups;
                     model.user.groupJoined = user.groupJoined;
 
-                    console.log(model.user);
+                    console.log(model.user.groupJoined);
 
 
                 } else {

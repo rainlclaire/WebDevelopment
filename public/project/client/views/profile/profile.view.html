@@ -28,7 +28,7 @@
             <div>
                 <div class="likeGroups"> Favorite Groups</div>
                 <ul>
-                    <li ng-repeat="group in user.likeGroups">{{group.title}}</li>
+                    <li ng-repeat="group in model.user.likeGroups track by $index">{{group}}</li>
                     </ul>
             </div>
 
@@ -36,7 +36,7 @@
             <div>
                 <div class="likeGroups"> Join Groups</div>
                 <ul>
-                    <li ng-repeat="group in user.groupJoined">{{group.title}}</li>
+                    <li ng-repeat="group in model.user.groupJoined track by $index">{{group}}</li>
                 </ul>
                 <!--<div class="likeGroup"><a ng-repeat="group in user.groupJoined"><br>{{group.title}}</a></div>-->
             </div>
@@ -96,10 +96,10 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="verifyPassword" class="col-md-3 control-label">Roles:</label>
-                    {{model.user.roles}}
-                </div>
+                <!--<div class="form-group">-->
+                    <!--<label for="verifyPassword" class="col-md-3 control-label">Roles:</label>-->
+                    <!--{{model.user.roles}}-->
+                <!--</div>-->
 
                 <div class="form-group">
                     <label class="col-md-3 control-label"></label>
