@@ -24,9 +24,10 @@
             <div class="single_sidebar">
                 <h2><span>Categories</span></h2>
                 <ul class="category_list">
-                    <li><a href="">Sport (4)</a></li>
-                    <li><a href="">Technical (5)</a></li>
-                    <li><a href="">Social (2)</a></li>
+                    <li><a href="#/sport">Sport (4)</a></li>
+                    <li><a href="#/technical">Technical (5)</a></li>
+                    <li><a href="#/social">Social (2)</a></li>
+                    <li><a href="#/other">Other (2)</a></li>
                 </ul>
             </div>
             <div class="single_sidebar">
@@ -58,11 +59,11 @@
 
                     </div>
                     <div class="excerpt floatright">
-                        <h2>Group Descritption</h2>
+                        <h2>Group Description:</h2>
                         <div ng-bind-html="model.group.htmlVariable"></div>
                     </div>
                     <div class="excerpt floatright">
-
+                        <h2>Events:</h2>
                         <div ng-repeat="event in model.group.listofEvents">
                             <a href="#/group/{{model.group._id}}/event/{{event.title}}"><p><h2><img height="23px" width="23px" src="../images/icon5.png">  Title: {{event.title}}</h2></a>
                             <p><span>Date: </span> {{event.date}}</p>

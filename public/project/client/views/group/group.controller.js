@@ -28,6 +28,8 @@
                    //    //console.log($scope.htmlString);
                    //}
                     model.groups = groups;
+                    console.log(model.groups);
+                    groupfilter();
                 });
         }
         init();
@@ -40,7 +42,39 @@
         model.deleteGroup = deleteGroup;
         model.selectGroup = selectGroup;
         model.addGroup2 = addGroup2;
+        model.groupfilter = groupfilter;
 
+
+        function groupfilter() {
+            var sportsGroup =[];
+            var socialGroup =[];
+            var techGroup = [];
+            var otherGroup = [];
+            for (var i = 0; i < model.groups.length;i++) {
+                console.log(model.groups[i].groupType);
+                if (model.groups[i].groupType == "Sports") {
+                    sportsGroup.push(model.groups[i]);
+                }
+                if (model.groups[i].groupType == "Social") {
+                    socialGroup.push(model.groups[i]);
+                }
+                if (!model.groups[i].groupType) {
+                    otherGroup.push(model.groups[i]);
+                }
+                else if (model.groups[i].groupType == "Technical") {
+                    techGroup.push(model.groups[i]);
+                }
+            }
+
+            $rootScope.sportsGroup = sportsGroup;
+            console.log($rootScope.sportsGroup);
+            $rootScope.socialGroup = socialGroup;
+            console.log($rootScope.socialGroup);
+            $rootScope.techGroup = techGroup;
+            console.log($rootScope.techGroup);
+            $rootScope.otherGroup = otherGroup;
+            console.log($rootScope.otherGroup);
+        }
 
 
 

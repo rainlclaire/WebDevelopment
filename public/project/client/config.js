@@ -19,6 +19,26 @@
                 controllerAs:"model"
 
             })
+            .when("/sport", {
+                templateUrl: "views/group/sport.view.html",
+                controller: "GroupController",
+                controllerAs:"model"
+            })
+            .when("/technical", {
+                templateUrl: "views/group/technical.view.html",
+                controller: "GroupController",
+                controllerAs:"model"
+            })
+            .when("/social", {
+                templateUrl: "views/group/social.view.html",
+                controller: "GroupController",
+                controllerAs:"model"
+            })
+            .when("/other", {
+                templateUrl: "views/group/other.view.html",
+                controller: "GroupController",
+                controllerAs:"model"
+            })
             .when("/profile", {
                 templateUrl: "views/profile/profile.view.html",
                 controller:"ProfileController",
