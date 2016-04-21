@@ -158,6 +158,7 @@ module.exports = function(app,db) {
     }
 
     function update(id, updatedUser) {
+        console.log("update");
         var deferred = q.defer();
         console.log(updatedUser);
         projectUser.findByIdAndUpdate(
