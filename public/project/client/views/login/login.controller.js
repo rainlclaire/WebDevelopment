@@ -1,23 +1,4 @@
-//"use strict";
-//
-//(function() {
-//    angular.module('FindGroupApp')
-//        .controller("LogInController", LogInController);
-//
-//    function LogInController($scope, $location, $rootScope, UserService) {
-//
-//        $scope.login = login;
-//
-//        function login (user) {
-//            var user = UserService.findUserByCredentials({username: user.username, password: user.password});
-//            if (user) {
-//                $rootScope.currentUser = user;
-//                UserService.setCurrentUser(user);
-//                $location.url("/profile");
-//            }
-//        }
-//    }
-//})();
+
 
 "use strict";
 
@@ -38,23 +19,32 @@
             if (!theUser) {
                 alert("Please provide your username and password");
             }
-            UserService.findUserByCredentials(theUser.username, theUser.password)
-                .then(function(loggedInUser) {
-                    if (loggedInUser) {
-                        console.log(loggedInUser);
+            if (!theUser.username) {
+                alert("Please provide your username")
+            }
+            if (!theUser.password) {
+                alert("Please provide your password")
+            }
+            else {
+                UserService.findUserByCredentials(theUser.username, theUser.password)
+                    .then(function (loggedInUser) {
+                        if (loggedInUser) {
+                            console.log(loggedInUser);
 
-                        //to set up the loggedIn user info
-                        $rootScope.user = loggedInUser;
-                        //set up the path for navigating to profile
-                        $location.path("/profile");
-                    }
+                            //to set up the loggedIn user info
+                            $rootScope.user = loggedInUser;
+                            alert("Log In Successfully");
+                            //set up the path for navigating to profile
+                            $location.path("/profile");
+                        }
 
-                    else {
-                        //errors catch
-                        alert("You have invalid Username or Password");
-                        $location.url("/login");
-                    }
-                });
+                        else {
+                            //errors catch
+                            alert("You have invalid Username or Password");
+
+                        }
+                    });
+            }
         }
     }
 })();

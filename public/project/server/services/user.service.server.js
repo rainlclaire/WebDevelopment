@@ -13,7 +13,7 @@ module.exports = function (app, model) {
     app.get("/api/project/user/:id", findUserById);
     //to comment out here
     app.get("/api/project/user?username=username", findUserByUsername);
-    //app.get("/api/project/user?username=username&password=password", findAlice);
+    app.get("/api/project/user?username=username&password=password", findAlice);
     //end
     app.post("/api/project/login", passport.authenticate('project'), loginProject);
     app.post("/api/project/logout", logout);
@@ -229,6 +229,7 @@ module.exports = function (app, model) {
     }
 
     function findUsers(req, res) {
+        console.log("findallusers");
 
         var reqUsername = req.query.username;
         var reqPassword = req.query.password;
@@ -311,6 +312,7 @@ module.exports = function (app, model) {
     }
 
     function findUserByUsername(req, res) {
+        console.log("findusername");
 
         var username = req.query.username;
         model.findUserByUsername(username)
@@ -376,6 +378,7 @@ module.exports = function (app, model) {
     }
 
     function findAlice(req, res) {
+        console.log("findalice");
 
 
         var reqUsername = req.query.username;

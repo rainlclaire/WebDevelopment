@@ -56,33 +56,55 @@
         function joinEvent() {
             if ($rootScope.user == null) {
                 $location.url("/login");
-            } else {
-                EventService.findEventByTitle(currentGroupid, event_title)
-                    .then(function (theEvent) {
+            }
+            EventService.findEventByTitle(currentGroupid, event_title)
+                .then(function (theEvent) {
+                    console.log(theEvent);
+                    console.log(theEvent.peopleJoin);
+                    if (theEvent.peopleJoin.length >0) {
+                    for (var i = 0; i < theEvent.peopleJoin.length; i++) {
+                        if (theEvent.peopleJoin[i]._id = $rootScope.user._id) {
+                            console.log("user join again");
+                            $rootScope.joinevent = true;
+                            alert("You alreday join the event");
 
+                        }
+                        }
+                    } else {
                         EventService.userJoinEvent($rootScope.user, theEvent._id, currentGroupid)
                             .then(function (event) {
                                 console.log(event);
+                                $rootScope.joinevent = true;
                                 //for (var i =0; i<event.length; i++) {
                                 //    if (event[i].title = event_title) {
-                                        model.event.peopleJoin = event.peopleJoin;
-                                //    }
-                                //}
-
-                                //EventService.findEventByTitle(groupid, event_title)
-                                //    .then(function(theEvent) {
-                                //        model.event.peopleJoin = event.listofEvents.peopleJoin;
-                                //    });
-                                //console.log(model.event);
-
-
-
+                                model.event.peopleJoin = event.peopleJoin;
                             });
+                    }
+                });
+
+            if (!joinEvent) {
+                EventService.userJoinEvent($rootScope.user, theEvent._id, currentGroupid)
+                    .then(function (event) {
+                        console.log(event);
+                                    //for (var i =0; i<event.length; i++) {
+                                    //    if (event[i].title = event_title) {
+                        model.event.peopleJoin = event.peopleJoin;
+                                    //    }
+                                    //}
+
+                                    //EventService.findEventByTitle(groupid, event_title)
+                                    //    .then(function(theEvent) {
+                                    //        model.event.peopleJoin = event.listofEvents.peopleJoin;
+                                    //    });
+                                    //console.log(model.event);
 
                     });
-            }
-        }
 
+            }
+
+
+
+        }
 
         function findEvent() {
             EventService.findEventByTitle(groupid, event_title)

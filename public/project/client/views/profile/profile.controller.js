@@ -11,6 +11,7 @@
 
         var model = this;
         model.update = update;
+        model.cancel = cancel;
         model.error = null;
         model.message = null;
 
@@ -44,6 +45,10 @@
 
 
         });
+
+        function cancel() {
+            $location.url("/home");
+        }
 
         function update(updateUser) {
             console.log("updatecontoler");
