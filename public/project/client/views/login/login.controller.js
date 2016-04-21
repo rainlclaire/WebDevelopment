@@ -28,6 +28,7 @@
             else {
                 UserService.findUserByCredentials(theUser.username, theUser.password)
                     .then(function (loggedInUser) {
+
                         if (loggedInUser) {
                             console.log(loggedInUser);
 

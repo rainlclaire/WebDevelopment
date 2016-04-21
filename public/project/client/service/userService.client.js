@@ -91,9 +91,9 @@
             };
 
             $http.post("/api/project/login", cred)
-                .success(function (response) {
-                    console.log(response);
-                    deferred.resolve(response);
+                .success(function(data) {
+
+                    deferred.resolve(data);
                 });
             return deferred.promise;
         }
