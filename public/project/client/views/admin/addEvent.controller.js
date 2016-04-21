@@ -11,7 +11,7 @@
         console.log(currentGroup);
 
         model.addEventInGroup = addEventInGroup;
-
+        model.cancel = cancel;
 
 
 
@@ -54,6 +54,10 @@
 
 
 
+        }
+
+        function cancel() {
+            $rootScope.modalInstance.close();
         }
 
 

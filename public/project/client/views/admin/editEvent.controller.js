@@ -10,6 +10,7 @@
         var model = this;
         console.log(currentGroup);
         model.editEvent= editEvent;
+        model.cancel = cancel;
         console.log(clickEvent);
 
         $scope.editEvent = clickEvent;
@@ -23,6 +24,9 @@
             $rootScope.modalInstance.close();
         }
 
+        function cancel() {
+            $rootScope.modalInstance.close();
+        }
 
 
         //model.editGroup = editGroup;

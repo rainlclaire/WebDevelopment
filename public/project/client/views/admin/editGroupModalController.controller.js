@@ -10,6 +10,11 @@
         var model = this;
         console.log(currentGroup);
         model.editGroup= editGroup;
+        model.cancel = cancel;
+
+        function cancel() {
+            $rootScope.modalInstance.close();
+        }
 
         function editGroup(group) {
 
