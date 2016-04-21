@@ -188,6 +188,7 @@ div.findGroupLogin form {
 	margin-right:230px;
 
 
+
 }
 div.findGroupLogin input {
 
@@ -366,7 +367,7 @@ nav.navbar.navbar-default {
 }
 
 div.content_area.structure.ng-scope div.single_header_title  {
-	margin-top:70px;
+	margin-top:80px;
 }
 
 div.fix.content_area.structure div.fix.slider_area div#ei-slider.ei-slider.header_image {
@@ -385,7 +386,7 @@ div.findGroupLogin h1#logorsign {
 button.navbar-toggle {
 	margin-top:30px;
 	background-color:#E8663C;
-	margin-right:180px;
+	margin-right:250px;
 
 }
 
@@ -406,6 +407,13 @@ button.navbar-toggle {
 nav.navbar.navbar-default.navbar-fixed-top.ng-scope {
 	background-color:#F2AE9C;
 }
+div.searchResult {
+	margin-top:80px;
+}
+
+div.profilePage {
+	margin-top:80px;
+}
 
 
 
@@ -415,6 +423,15 @@ nav.navbar.navbar-default.navbar-fixed-top.ng-scope {
 @media screen and (max-width: 830px) {
 	div#menu-nav.container {
 		width:600px;
+	}
+	div.findGroupLogin form {
+		display: inline-block;
+		text-align: center;
+		margin-right:200px;
+		margin-left:50px;
+
+
+
 	}
 
 
