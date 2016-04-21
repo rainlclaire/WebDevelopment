@@ -21,7 +21,7 @@
                 <li ng-class="{'active': $location.url()=='/group'}"><a id="headerText" href="#/group">group</a></li>
                 <li ng-show="!user" ng-class="{'active': $location.url()=='/signup'}"><a id="headerText" href="#/signup">sign up</a></li>
                 <li ng-show="!user" ng-class="{'active': $location.url()=='/login'}"><a id="headerText" href="#/login">log in</a></li>
-                <li><a ng-show="user" ng-click="logout()">logout</a></li>
+                <li><a ng-show="user" id="headerText" ng-click="logout()">logout</a></li>
                 <li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a id="headerText" href="#/profile">profile</a></li>
             </ul>
 
