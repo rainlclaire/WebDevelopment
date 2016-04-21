@@ -1,31 +1,59 @@
-<div class="header_area">
-    <div class="fix header">
-        <div class="logo fix floatleft">
-            <a href="#"><h1>Find<span>Group</span></h1></a>
-        </div>
-        <div class="mainmenu floatright">
-            <ul id="nav">
 
-                <li ng-class="{'active': $location.url()=='/home'}"><a href="#/home">Home</a></li>
-                <li ng-class="{'active': $location.url()=='/group'}"><a href="#/group">group</a></li>
-                <li ng-show="!user" ng-class="{'active': $location.url()=='/signup'}"><a href="#/signup">sign up</a></li>
-                <li ng-show="!user" ng-class="{'active': $location.url()=='/login'}"><a href="#/login">log in</a></li>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+
+            </button>
+            <div class="logo fix floatleft">
+                <a href="#"><h1>Find<span>Group</span></h1></a>
+            </div>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-class="{'active': $location.url()=='/home'}"><a id="headerText" href="#/home">Home</a></li>
+                <li ng-class="{'active': $location.url()=='/group'}"><a id="headerText" href="#/group">group</a></li>
+                <li ng-show="!user" ng-class="{'active': $location.url()=='/signup'}"><a id="headerText" href="#/signup">sign up</a></li>
+                <li ng-show="!user" ng-class="{'active': $location.url()=='/login'}"><a id="headerText" href="#/login">log in</a></li>
                 <li><a ng-show="user" ng-click="logout()">logout</a></li>
-                <li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>
+                <li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a id="headerText" href="#/profile">profile</a></li>
             </ul>
 
-            <select onChange="window.location.href=this.value" class="selectnav" id="selectnav1">
-                <option value="">-Navigation-</option>
-                <option ng-class="{'active': $location.url()=='/group'}" value="#/home" selected="">Home</option><option value="#/group">Group</option>
-                <option ng-show="!user" ng-class="{'active': $location.url()=='/signup'}" value="#/signup">SignUp</option>
-                <option ng-show="!user" ng-class="{'active': $location.url()=='/login'}" value="#/login">LogIn</option>
-                <option ng-show="user" ng-class="{'active': $location.url()=='/profile'}" value="#/profile">Profile</option>
 
-            </select>
-            <button ng-show="user" ng-click="logout()" value="no">LogOut</button>
-
-
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
+    <!-- /.container -->
+</nav>
+        <!--<div class="mainmenu floatright">-->
+            <!--<ul id="nav">-->
+
+                <!--<li ng-class="{'active': $location.url()=='/home'}"><a href="#/home">Home</a></li>-->
+                <!--<li ng-class="{'active': $location.url()=='/group'}"><a href="#/group">group</a></li>-->
+                <!--<li ng-show="!user" ng-class="{'active': $location.url()=='/signup'}"><a href="#/signup">sign up</a></li>-->
+                <!--<li ng-show="!user" ng-class="{'active': $location.url()=='/login'}"><a href="#/login">log in</a></li>-->
+                <!--<li><a ng-show="user" ng-click="logout()">logout</a></li>-->
+                <!--<li ng-show="user" ng-class="{'active': $location.url()=='/profile'}"><a href="#/profile">profile</a></li>-->
+            <!--</ul>-->
+
+            <!--<select onChange="window.location.href=this.value" class="selectnav" id="selectnav1">-->
+                <!--<option value="">-Navigation-</option>-->
+                <!--<option ng-class="{'active': $location.url()=='/group'}" value="#/home" selected="">Home</option><option value="#/group">Group</option>-->
+                <!--<option ng-show="!user" ng-class="{'active': $location.url()=='/signup'}" value="#/signup">SignUp</option>-->
+                <!--<option ng-show="!user" ng-class="{'active': $location.url()=='/login'}" value="#/login">LogIn</option>-->
+                <!--<option ng-show="user" ng-class="{'active': $location.url()=='/profile'}" value="#/profile">Profile</option>-->
+
+            <!--</select>-->
+            <!--<button ng-show="user" ng-click="logout()" value="no">LogOut</button>-->
+
+
+    <!--</div>-->
 
 
 

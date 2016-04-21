@@ -104,6 +104,7 @@
 	background-color: #f0f0f0;
 }
 .ei-slider-thumbs li img{
+
 	position: absolute;
 	bottom: 50px;
 	opacity: 0;
@@ -161,6 +162,11 @@ div.single_sidebar button.createGroup {
 	text-decoration: none;
 	margin-left:10px;
 	margin-right:10px;
+}
+
+i.fa {
+	color:#de4f24;
+	margin-right:5px;
 }
 
 div.login.ng-scope form.ng-pristine.ng-valid form p{
@@ -317,6 +323,76 @@ button.adminAddEvent {
 	text-decoration: none;
 
 }
+div.header_area {
+	background-color:white;
+}
+li.home {
+	background-color:white;
+}
+a#home {
+	color:black;
+	background-color:white;
+}
+a#headerText {
+	color:#E8663C;
+	margin-top:27px;
+	font-size:20px;
+	background-color:white;
+	text-align:right;
+	clear: both;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+
+
+}
+
+
+div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
+	/*background-color:white;*/
+	border-color: black;
+}
+
+nav.navbar div.container{
+	background-color:white;
+}
+nav.navbar.navbar-default {
+	background-color:white;
+
+}
+
+div.content_area.structure.ng-scope div.single_header_title  {
+	margin-top:70px;
+}
+
+div.fix.content_area.structure div.fix.slider_area div#ei-slider.ei-slider.header_image {
+	margin-top:140px;
+}
+div.findGroupLogin {
+	margin-top:120px;
+}
+div.findGroupLogin h1#logorsign {
+	color: #E8663C;
+
+	padding: 8px 15px;
+	font-family: bebasregular;
+}
+
+button.navbar-toggle {
+	margin-top:30px;
+
+}
+
+#bs-example-navbar-collapse-1 ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	text-align: right;
+	float:right
+}
+
+
+
 @media screen and (max-width: 830px) {
 	.ei-title{
 		position: absolute;
