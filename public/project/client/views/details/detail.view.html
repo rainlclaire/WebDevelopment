@@ -11,14 +11,14 @@
             <!--</div>--> <div class="single_sidebar_area floatright">
             <div class="single_sidebar">
                 <h2><span>Action</span></h2>
-                <button id="favoriteButton" class="btn btn-default"
+                <button id="favoriteButton" class="btn btn-default createGroup"
                 ng-click="model.favorite()">
                 <span class="glyphicon glyphicon-star-empty"></span>
                 </button>
-                <button class="btn btn-danger"
-                        ng-click="model.joinGroup()">Join Group Now
+                <button class="btn btn-danger createGroup"
+                        ng-click="model.joinGroup()">Join Group
                     </button>
-                <button id="favoriteButton" class="btn btn-danger createGroup" ng-show="user.username===model.group.ownerName" ng-click="model.manageGroup()">Manage the Group</button>
+                <button id="favoriteButton" class="btn btn-danger createGroup" ng-show="user.username===model.group.ownerName" ng-click="model.manageGroup()">Admin</button>
 
             </div>
             <div class="single_sidebar">
@@ -70,10 +70,10 @@
                         </div>
                     </div>
 
-                    <div class="excerpt floatright">
-                        <h2><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> Group Address</h2>
-                        <iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>
-                    </div>
+                    <!--<div class="excerpt floatright">-->
+                        <!--<h2><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> Group Address</h2>-->
+                        <!--<iframe border-radius="10" width="100%" height="400" frameborder="0" ng-src="{{url}}"></iframe>-->
+                    <!--</div>-->
 
                 </div>
                 <div class="post_border_bottom"></div>

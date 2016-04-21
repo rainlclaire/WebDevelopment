@@ -11,7 +11,7 @@
     <div class="fix content_area structure">
         <div class="fix slider_area">
         <div class="container">
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal adminGroupInfo" role="form">
 
         <div class="form-group">
             <label class="col-md-3 control-label">Group ID:</label>
@@ -60,11 +60,15 @@
 
 
             <div class="row-fluid form-inline">
-                <button ng-click="model.addEventInGroup(clickEvent)" class="btn btn-danger">Add Event</button>
-                <button ng-click="model.editGroup()" class="btn btn-danger">Edit Group Info</button>
-                <h1>CRUD EVENTS</h1>
-                <!--how to put space here-->
-                <!--<button ng-click="model.updateEventInGroup(clickEvent)" class="btn btn-info">Go Edit</button>-->
+                <h2 class="admin-action"><img src="../images/portfolio.png"> Event Action</h2>
+                <button  ng-click="model.editGroup()" class="btn btn-danger adminEditGroup">Edit Group Info</button>
+                <hr>
+                <h2 class="admin-action"><img src="../images/portfolio.png"> Event Action</h2>
+                <button ng-click="model.addEventInGroup(clickEvent)" class="btn btn-danger adminAddEvent">Add Event</button>
+
+
+
+
             </div>
             <div class="table-responsive">
 

@@ -140,6 +140,27 @@ div.single_sidebar button.createGroup {
 	margin-top: 20px;
 	padding: 5px 12px;
 	width: 150px;
+	background: #d9b034;
+	background-image: -webkit-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -moz-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -ms-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -o-linear-gradient(top, #d9b034, #de4f24);
+	background-image: linear-gradient(to bottom, #d9b034, #de4f24);
+	-webkit-border-radius: 11;
+	-moz-border-radius: 11;
+	border-radius: 11px;
+	font-family: Georgia;
+	color: white;
+	font-size: 20px;
+	text-shadow-color: ;
+	text-shadow-x: 1;
+	text-shadow-y: 1;
+	text-shadow-blur: 3;
+	padding: 10px 20px 10px 20px;
+	border: solid white 2px;
+	text-decoration: none;
+	margin-left:10px;
+	margin-right:10px;
 }
 
 div.login.ng-scope form.ng-pristine.ng-valid form p{
@@ -239,6 +260,62 @@ form.form-horizontal.profile div.form-group label{
 
 button.profileUpdate {
 	margin-bottom: 15px;
+}
+form.form-horizontal.adminGroupInfo label{
+	text-align:left;
+}
+
+h2.admin-action {
+	color: #E8663C;
+	font-size: 25px;
+	line-height: 18px;
+}
+
+button.adminEditGroup {
+	background: #d9b034;
+	background-image: -webkit-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -moz-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -ms-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -o-linear-gradient(top, #d9b034, #de4f24);
+	background-image: linear-gradient(to bottom, #d9b034, #de4f24);
+	-webkit-border-radius: 11;
+	-moz-border-radius: 11;
+	border-radius: 11px;
+	font-family: Georgia;
+	color: white;
+	font-size: 20px;
+	text-shadow-color: ;
+	text-shadow-x: 1;
+	text-shadow-y: 1;
+	text-shadow-blur: 3;
+	padding: 10px 20px 10px 20px;
+	border: solid white 2px;
+	text-decoration: none;
+
+}
+
+
+button.adminAddEvent {
+	background: #d9b034;
+	background-image: -webkit-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -moz-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -ms-linear-gradient(top, #d9b034, #de4f24);
+	background-image: -o-linear-gradient(top, #d9b034, #de4f24);
+	background-image: linear-gradient(to bottom, #d9b034, #de4f24);
+	-webkit-border-radius: 11;
+	-moz-border-radius: 11;
+	border-radius: 11px;
+	font-family: Georgia;
+	color: white;
+	font-size: 20px;
+	text-shadow-color: ;
+	text-shadow-x: 1;
+	text-shadow-y: 1;
+	text-shadow-blur: 3;
+	padding: 10px 20px 10px 20px;
+	border: solid white 2px;
+	text-decoration: none;
+
 }
 @media screen and (max-width: 830px) {
 	.ei-title{
