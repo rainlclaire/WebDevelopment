@@ -62,7 +62,7 @@
                     updateUser.email = updateUser.email.split(",");
 
                 }
-                UserService.updateUser(model.user._id, updateUser)
+                UserService.updateUser($rootScope.user._id, updateUser)
                     .then(function (mergeUser) {
 
 
@@ -79,6 +79,23 @@
 
 
                     });
+                //UserService.updateUser(model.user._id, updateUser)
+                //    .then(function (mergeUser) {
+                //
+                //
+                //        model.user = mergeUser;
+                //        console.log("mergerUser");
+                //        console.log(mergeUser);
+                //
+                //
+                //        $rootScope.user = mergeUser;
+                //        if (mergeUser) {
+                //            $location.path("/home");
+                //            alert("user updated successfully");
+                //        }
+                //
+                //
+                //    });
             }
         }
 
