@@ -335,7 +335,7 @@ module.exports = function (app, model) {
         console.log("updateuser");
         var userid = req.params.id;
         var user = req.body;
-        model.update(userid, user)
+        model.updateFromUser(userid, user)
             .then(
                 function(user){
                     res.json(user);

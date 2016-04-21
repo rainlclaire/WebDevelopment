@@ -9,7 +9,7 @@ module.exports = function(app,db) {
         create: create,
         findAll: findAll,
         findById: findById,
-        update: update,
+        updateFromUser: updateFromUser,
         remove: remove,
         findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
@@ -157,7 +157,7 @@ module.exports = function(app,db) {
         //return null;
     }
 
-    function update(id, updatedUser) {
+    function updateFromUser(id, updatedUser) {
         console.log("update");
         var deferred = q.defer();
         console.log(updatedUser);
