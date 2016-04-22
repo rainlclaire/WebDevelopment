@@ -29,9 +29,10 @@ module.exports = function (app, model) {
     //upload image
     //app.post("/api/project/user/upload", upload.single('myFile'), uploadImage);
 
-    passport.use('project', new LocalStrategy(projectlocalStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    ///!!!!!!!!!!!!comment out to making sure assignment work"!!!!!!!!!!
+    //passport.use('project', new LocalStrategy(projectlocalStrategy));
+    //passport.serializeUser(serializeUser);
+    //passport.deserializeUser(deserializeUser);
 
 
     //function uploadImage(req, res) {

@@ -24,11 +24,10 @@ module.exports = function (app, model, db) {
     app.put("/api/assignment/admin/user/:id", updateUserByIdFromAdmin);
     app.delete("/api/assignment/admin/user/:id", deleteUserByIdFromAdmin);
 
-    passport.use("assignment",new LocalStrategy(assignmentlocalStrategy));
-
     //!!!!!!!!!!!!!!to commonet out here to making the assignment passport working!!!!!!!!!!!!!!!!
-    //passport.serializeUser(serializeUser);
-    //passport.deserializeUser(deserializeUser);
+    passport.use("assignment",new LocalStrategy(assignmentlocalStrategy));
+    passport.serializeUser(serializeUser);
+    passport.deserializeUser(deserializeUser);
 
     function login(req, res) {
         var user = req.user;
@@ -296,7 +295,7 @@ module.exports = function (app, model, db) {
         if (isAdmin(req.user)) {
             var newUser = req.body;
             model
-                .createUser(newUser)
+                .create(newUser)
                 .then(
                     function (user) {
                         res.json(user);
