@@ -57,6 +57,11 @@
                     <div>
                         <button class="btn btn-primary" ng-click="model.addUser(model.user)">Add
                         </button>
+                        </div>
+                    </td>
+                <td>
+
+               <div>
                         <button class="btn btn-success" ng-click="model.updateUser(model.user)">Update
                         </button>
                     </div>
@@ -80,11 +85,15 @@
                     {{user.roles}}
                 </td>
                 <td>
-                    <div>
-                        <button class="btn btn-danger" ng-click="model.deleteUser(user)">Remove
-                        </button>
-                        <button class="btn btn-warning" ng-click="model.selectUser(user)">Select
-                        </button>
+                    <div class="adminButton">
+                        <a class="btn btn-danger" ng-click="model.deleteUser(user)">Remove
+                        </a>
+                        </div>
+                    </td>
+                <td>
+                        <div class="adminButton">
+                        <a class="btn btn-warning" ng-click="model.selectUser(user)">Edit
+                        </a>
                     </div>
                 </td>
             </tr>
