@@ -25,9 +25,9 @@ module.exports = function (app, model, db) {
     app.delete("/api/assignment/admin/user/:id", deleteUserByIdFromAdmin);
 
     //!!!!!!!!!!!!!!to commonet out here to making the assignment passport working!!!!!!!!!!!!!!!!
-    passport.use("assignment",new LocalStrategy(assignmentlocalStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    //passport.use("assignment",new LocalStrategy(assignmentlocalStrategy));
+    //passport.serializeUser(serializeUser);
+    //passport.deserializeUser(deserializeUser);
 
     function login(req, res) {
         var user = req.user;
