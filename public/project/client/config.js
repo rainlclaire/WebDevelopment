@@ -16,10 +16,10 @@
             .when("/group", {
                 templateUrl: "views/group/group.view.html",
                 controller: "GroupController",
-                controllerAs:"model",
-                resolve: {
-                    checkLoggedin: checkLoggedin
-                }
+                controllerAs:"model"
+                //resolve: {
+                //    checkLoggedin: checkLoggedin
+                //}
 
             })
             .when("/sport", {

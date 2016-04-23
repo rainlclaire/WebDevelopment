@@ -124,102 +124,104 @@
         function joinGroup() {
             if ($rootScope.user == null) {
                 $location.url("/login");
-            }
-            console.log("here to go");
+            } else {
+                console.log("here to go");
 
-            GroupService.findGroupByID(group_id)
-                .then(function (userInGroup) {
-                    if (userInGroup.listofMembers.length >0) {
-                        for (var i = 0; i < userInGroup.listofMembers.length; i++) {
-                            if (userInGroup.listofMembers[i]._id = $rootScope.user._id) {
-                                console.log("go to if");
-                                $rootScope.join = true;
-                                alert("You already join the group");
-                                break;
+                GroupService.findGroupByID(group_id)
+                    .then(function (userInGroup) {
+                        if (userInGroup.listofMembers.length > 0) {
+                            for (var i = 0; i < userInGroup.listofMembers.length; i++) {
+                                if (userInGroup.listofMembers[i]._id = $rootScope.user._id) {
+                                    console.log("go to if");
+                                    $rootScope.join = true;
+                                    alert("You already join the group");
+                                    break;
+                                }
                             }
+                        } else {
+                            GroupService.userJoinGroup($rootScope.user, group_id)
+                                .then(function (usersInGroup) {
+                                    console.log(usersInGroup);
+
+                                    model.group.listofMembers = usersInGroup.listofMembers;
+                                    console.log($rootScope.user._id);
+                                    UserService.joinGroup($rootScope.user._id, model.group)
+                                        .then(function (user) {
+                                            console.log(user);
+                                            $rootScope.join = true;
+                                            $scope.user.groupJoined = user.groupJoined;
+                                        })
+                                });
+
                         }
-                    } else {
-                        GroupService.userJoinGroup($rootScope.user, group_id)
-                            .then(function (usersInGroup) {
-                                console.log(usersInGroup);
-
-                                model.group.listofMembers = usersInGroup.listofMembers;
-                                console.log($rootScope.user._id);
-                                UserService.joinGroup($rootScope.user._id, model.group)
-                                    .then(function (user) {
-                                        console.log(user);
-                                        $rootScope.join = true;
-                                        $scope.user.groupJoined = user.groupJoined;
-                                    })
-                            });
-
-                    }
-                });
-            if (!$rootScope.join) {
-                GroupService.userJoinGroup($rootScope.user, group_id)
-                    .then(function (usersInGroup) {
-                        console.log(usersInGroup);
-
-                        model.group.listofMembers = usersInGroup.listofMembers;
-                        console.log($rootScope.user._id);
-                        UserService.joinGroup($rootScope.user._id, model.group)
-                            .then(function (user) {
-                                console.log(user);
-                                $scope.user.groupJoined = user.groupJoined;
-                            })
                     });
+                if (!$rootScope.join) {
+                    GroupService.userJoinGroup($rootScope.user, group_id)
+                        .then(function (usersInGroup) {
+                            console.log(usersInGroup);
 
+                            model.group.listofMembers = usersInGroup.listofMembers;
+                            console.log($rootScope.user._id);
+                            UserService.joinGroup($rootScope.user._id, model.group)
+                                .then(function (user) {
+                                    console.log(user);
+                                    $scope.user.groupJoined = user.groupJoined;
+                                })
+                        });
+
+                }
             }
         }
 
         function favorite() {
             if ($rootScope.user == null) {
                 $location.url("/login");
-            }
-            GroupService.findGroupByID(group_id)
-                .then(function (userInGroup) {
-                    console.log(userInGroup);
-                    if (userInGroup.usersLikeGroup.length >0) {
-                        for (var i = 0; i < userInGroup.usersLikeGroup.length; i++) {
-                            if (userInGroup.usersLikeGroup[i]._id = $rootScope.user._id) {
-                                console.log("go to if");
-                                $rootScope.fav = true;
-                                alert("You already like the group");
-                                break;
+            } else {
+                GroupService.findGroupByID(group_id)
+                    .then(function (userInGroup) {
+                        console.log(userInGroup);
+                        if (userInGroup.usersLikeGroup.length > 0) {
+                            for (var i = 0; i < userInGroup.usersLikeGroup.length; i++) {
+                                if (userInGroup.usersLikeGroup[i]._id = $rootScope.user._id) {
+                                    console.log("go to if");
+                                    $rootScope.fav = true;
+                                    alert("You already like the group");
+                                    break;
+                                }
+
                             }
-
+                        } else {
+                            $("span.glyphicon-star-empty").removeClass('glyphicon-star-empty').addClass('glyphicon-star');
+                            GroupService.userLikeGroup($rootScope.user, group_id)
+                                .then(function (usersLikeGroup) {
+                                    console.log(usersLikeGroup);
+                                    model.group.usersLikeGroup = usersLikeGroup.usersLikeGroup;
+                                    console.log($rootScope.user._id);
+                                    UserService.userfavoriteGroups($rootScope.user._id, model.group)
+                                        .then(function (user) {
+                                            console.log(user);
+                                            $rootScope.fav = true;
+                                            $scope.user.likeGroups = user.likeGroups;
+                                        })
+                                });
                         }
-                    } else {
-                        $("span.glyphicon-star-empty").removeClass('glyphicon-star-empty').addClass('glyphicon-star');
-                        GroupService.userLikeGroup($rootScope.user, group_id)
-                            .then(function (usersLikeGroup) {
-                                console.log(usersLikeGroup);
-                                model.group.usersLikeGroup = usersLikeGroup.usersLikeGroup;
-                                console.log($rootScope.user._id);
-                                UserService.userfavoriteGroups($rootScope.user._id, model.group)
-                                    .then(function (user) {
-                                        console.log(user);
-                                        $rootScope.fav = true;
-                                        $scope.user.likeGroups = user.likeGroups;
-                                    })
-                            });
-                    }
-                });
-            if (!fav) {
-                $("span.glyphicon-star-empty").removeClass('glyphicon-star-empty').addClass('glyphicon-star');
-                GroupService.userLikeGroup($rootScope.user, group_id)
-                    .then(function (usersLikeGroup) {
-                        console.log(usersLikeGroup);
-                        model.group.usersLikeGroup = usersLikeGroup.usersLikeGroup;
-                        console.log($rootScope.user._id);
-                        UserService.userfavoriteGroups($rootScope.user._id, model.group)
-                            .then(function (user) {
-                                console.log(user);
-                                $scope.user.likeGroups = user.likeGroups;
-                            })
                     });
+                if (!$rootScope.fav) {
+                    $("span.glyphicon-star-empty").removeClass('glyphicon-star-empty').addClass('glyphicon-star');
+                    GroupService.userLikeGroup($rootScope.user, group_id)
+                        .then(function (usersLikeGroup) {
+                            console.log(usersLikeGroup);
+                            model.group.usersLikeGroup = usersLikeGroup.usersLikeGroup;
+                            console.log($rootScope.user._id);
+                            UserService.userfavoriteGroups($rootScope.user._id, model.group)
+                                .then(function (user) {
+                                    console.log(user);
+                                    $scope.user.likeGroups = user.likeGroups;
+                                })
+                        });
 
 
+                }
             }
         }
 

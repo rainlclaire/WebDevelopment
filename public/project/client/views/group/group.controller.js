@@ -6,7 +6,7 @@
 
     function GroupController($scope, $sce,$uibModal,$location, $rootScope, GroupService) {
         var model = this;
-        var user = $rootScope.currentUser;
+        var user = $rootScope.user;
         var htmlString = $scope.htmlString;
 
 
